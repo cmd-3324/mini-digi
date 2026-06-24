@@ -1,0 +1,62 @@
+mini-digi/
+├── manage.py
+├── requirements.txt
+├──migrations/pychach  - __init__.py - 001_inital.py 
+├── mini_digi/                          # Main Django settings
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+    ├──views.py
+    ├──views/products.py
+│   └── wsgi.py
+├── apps which ae in same level of manage.py
+│   ├── shop/                        # Shop app (products, categories)
+│   │   ├── migrations/ init.py - 001 inital.py - 0002 prodct img - cateogryimg.py
+│   │   ├── templates/shop/
+│   │   │   ├── index.html
+│   │   │   ├── product_list.html
+│   │   │   ├── product_detail.html
+│   │   │   └── contact.html
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   └── admin.py
+        management/commands/seed_products.py init.py - pychach
+│   ├── cart/                        # Shopping cart app
+│   │   ├── migrations/
+│   │   ├── templates/cart/
+│   │   │   └── detail.html
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   └── context_processors.py    # For cart_item_count
+│   ├── orders/                      # Orders app
+│   │   ├── migrations/
+│   │   ├── templates/orders/
+│   │   │   └── checkout.html
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   └── urls.py
+│   ├── accounts/                    # User authentication
+│   │   ├── migrations/
+│   │   ├── templates/accounts/
+│   │   ├── models.py
+│   │   └── views.py
+│   └── core/                        # Shared utilities
+│       ├── context_processors.py
+│       └── utils.py
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── templates/
+│   ├── base.html
+│   ├── includes/
+│   │   ├── navbar.html              # From your file
+│   │   ├── footer.html              # From your file
+│   │   └── product_card.html        # From your file (card.html)
+│   └── 404.html
+└── media/                           # User uploads (product images)
+    └── products/imges of it 
+    ├──categories/imgs of it 

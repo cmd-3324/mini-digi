@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact - Mini Digi{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px;">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Contact Us</h1>
+        <div class="d-inline-flex">
+            <p class="m-0 text-uppercase"><a href="{% url 'shop:index' %}">Home</a></p>
+            <p class="m-0 text-uppercase px-2">/</p>
+            <p class="m-0 text-uppercase">Contact</p>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-lg-7 mb-5">
+            <div class="contact-form">
+                <div id="success"></div>
+                <form>
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="control-group mt-3">
+                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="control-group mt-3">
+                        <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="control-group mt-3">
+                        <textarea class="form-control" id="message" rows="6" placeholder="Message" required></textarea>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary py-2 px-4" type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-5 mb-5">
+            <div class="bg-secondary p-30 mb-5">
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Tehran, Iran</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@minidigi.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+98 123 456 7890</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+{% endblock %}

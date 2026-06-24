@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "partials/head.html" %}
+</head>
+<body>
+    {% include "components/navbar.html" %}
+
+    {% block content %}{% endblock %}
+
+    {% include "components/footer.html" %}
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    {% include "partials/scripts.html" %}
+</body>
+</html>

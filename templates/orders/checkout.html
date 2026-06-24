@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Checkout - Mini Digi{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px;">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>
+        <div class="d-inline-flex">
+            <p class="m-0 text-uppercase"><a href="{% url 'shop:index' %}">Home</a></p>
+            <p class="m-0 text-uppercase px-2">/</p>
+            <p class="m-0 text-uppercase">Checkout</p>
+        </div>
+    </div>
+</div>
+
+<!-- Checkout Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-lg-8">
+            <div class="mb-4">
+                <h4 class="font-weight-semi-bold mb-4">Billing Address</h4>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>First Name</label>
+                        <input class="form-control" type="text" placeholder="First Name">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Last Name</label>
+                        <input class="form-control" type="text" placeholder="Last Name">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Email</label>
+                        <input class="form-control" type="email" placeholder="Email">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Phone</label>
+                        <input class="form-control" type="text" placeholder="Phone">
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label>Address</label>
+                        <input class="form-control" type="text" placeholder="Address">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-secondary mb-5">
+                <div class="card-header bg-secondary border-0">
+                    <h4 class="font-weight-semi-bold m-0">Order Total</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="font-weight-medium mb-3">Products</h5>
+                    <div class="d-flex justify-content-between">
+                        <p>Subtotal</p>
+                        <p>—</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p>Shipping</p>
+                        <p>Free</p>
+                    </div>
+                </div>
+                <div class="card-footer border-secondary bg-transparent">
+                    <div class="d-flex justify-content-between mt-2">
+                        <h5 class="font-weight-bold">Total</h5>
+                        <h5 class="font-weight-bold">—</h5>
+                    </div>
+                    <button class="btn btn-block btn-primary my-3 py-3">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Checkout End -->
+
+{% endblock %}
