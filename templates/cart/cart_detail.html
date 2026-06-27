@@ -1,30 +1,28 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-{% block title %}Shopping Cart - Mini Digi{% endblock %}
+{% block title %}Shopping Cart{% endblock %}
 
 {% block content %}
-
-<!-- Page Header -->
-<div class="container-fluid bg-secondary mb-5">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px;">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Shopping Cart</h1>
-        <div class="d-inline-flex">
-            <p class="m-0 text-uppercase"><a href="{% url 'shop:index' %}">Home</a></p>
-            <p class="m-0 text-uppercase px-2">/</p>
-            <p class="m-0 text-uppercase">Shopping Cart</p>
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30 p-0">
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">Home</a>
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:product_list' %}">Shop</a>
+                <span class="breadcrumb-item active">Shopping Cart</span>
+            </nav>
         </div>
     </div>
 </div>
 
 <!-- Cart Start -->
-<div class="container-fluid">
+<div class="container-fluid pt-5">
     <div class="row px-xl-5">
-        {% if items %}
         <div class="col-lg-8 table-responsive mb-5">
-            <table class="table table-bordered text-center mb-0">
-                <thead class="bg-secondary text-dark">
+            <table class="table table-light table-borderless table-hover text-center mb-0">
+                <thead class="thead-dark">
                     <tr>
-                        <th>Product</th>
+                        <th>Products</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Total</th>
@@ -32,42 +30,55 @@
                     </tr>
                 </thead>
                 <tbody class="align-middle">
-                    {% for item in items %}
-                    <tr>
-                        <td class="align-middle">
-                            <a href="{% url 'shop:product_detail' item.product.id %}">{{ item.product.name }}</a>
-                        </td>
-                        <td class="align-middle">{{ item.product.price|floatformat:0 }} T</td>
-                        <td class="align-middle">
-                            <form method="post" action="{% url 'cart:update' item.id %}" class="d-inline-flex">
-                                {% csrf_token %}
-                                <div class="input-group quantity" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus"><i class="fa fa-minus"></i></button>
+                    {% if user.is_authenticated and items %}
+                        {% for item in items %}
+                        <tr>
+                            <td class="align-middle">
+                                {% if item.product.image %}
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px;">
+                                {% endif %}
+                                {{ item.product.name }}
+                            </td>
+                            <td class="align-middle">{{ item.product.price|floatformat:0 }} T</td>
+                            <td class="align-middle">
+                                <form method="post" action="{% url 'cart:update' item.pk %}" class="d-flex justify-content-center" style="max-width: 120px; margin: auto;">
+                                    {% csrf_token %}
+                                    <div class="input-group quantity">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-sm btn-primary btn-minus">-</button>
+                                        </div>
+                                        <input type="number" name="quantity" class="form-control form-control-sm bg-secondary text-center" value="{{ item.quantity }}" min="1">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-sm btn-primary btn-plus">+</button>
+                                        </div>
                                     </div>
-                                    <input type="number" name="quantity" class="form-control form-control-sm bg-secondary text-center" value="{{ item.quantity }}" min="0" max="{{ item.product.stock }}">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus"><i class="fa fa-plus"></i></button>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-sm btn-primary ml-1">Update</button>
-                            </form>
-                        </td>
-                        <td class="align-middle">{{ item.total_price|floatformat:0 }} T</td>
-                        <td class="align-middle">
-                            <a href="{% url 'cart:remove' item.id %}" class="btn btn-sm btn-danger">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    {% endfor %}
+                                </form>
+                            </td>
+                            <td class="align-middle">{{ item.total_price|floatformat:0 }} T</td>
+                            <td class="align-middle">
+                                <form method="post" action="{% url 'cart:remove' item.pk %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center py-4 text-muted">
+                                {% if not user.is_authenticated %}
+                                    Please <a href="{% url 'account_login' %}">sign in</a> to view your cart.
+                                {% else %}
+                                    Your cart is empty. <a href="{% url 'shop:product_list' %}">Continue shopping</a>.
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
                 </tbody>
             </table>
         </div>
-
-        <!-- Cart Summary -->
         <div class="col-lg-4">
-            <form class="mb-5" action="#">
+            <form class="mb-5" action="">
                 <div class="input-group">
                     <input type="text" class="form-control p-4" placeholder="Coupon Code">
                     <div class="input-group-append">
@@ -98,19 +109,7 @@
                 </div>
             </div>
         </div>
-
-        {% else %}
-        <div class="col-12 text-center py-5">
-            <i class="fa fa-shopping-cart fa-4x text-secondary mb-4"></i>
-            <h4>Your cart is empty</h4>
-            <a href="{% url 'shop:product_list' %}" class="btn btn-primary mt-3">
-                <i class="fa fa-arrow-left mr-2"></i>Continue Shopping
-            </a>
-        </div>
-        {% endif %}
-
     </div>
 </div>
 <!-- Cart End -->
-
 {% endblock %}

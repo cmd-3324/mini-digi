@@ -1,47 +1,38 @@
-﻿{% load static %}
-{% extends "base.html" %}
-{% load allauth i18n %}
-{% block head_title %}
-    {% trans "Signup" %}
-{% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    {% setvar link %}
-        <a href="{{ login_url }}">
-        {% endsetvar %}
-        {% setvar end_link %}
-        </a>
-    {% endsetvar %}
-    {% element p %}
-        {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
-    {% endelement %}
-    {% if not SOCIALACCOUNT_ONLY %}
-        {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if PASSKEY_SIGNUP_ENABLED %}
-        {% element hr %}
-        {% endelement %}
-        {% element button href=signup_by_passkey_url tags="prominent,signup,outline,primary" %}
-            {% trans "Sign up using a passkey" %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
-{% endblock content %}
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sign Up{% endblock %}
 
+{% block content %}
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30 p-0">
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">Home</a>
+                <span class="breadcrumb-item active">Sign Up</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-5 pb-5">
+    <div class="row px-xl-5 justify-content-center">
+        <div class="col-lg-5">
+            <div class="card border-secondary">
+                <div class="card-header bg-secondary border-0">
+                    <h4 class="font-weight-semi-bold m-0">Sign Up</h4>
+                </div>
+                <div class="card-body">
+                    <p>Already have an account? <a href="{% url 'account_login' %}">Sign in</a>.</p>
+                    <form method="post" action="{% url 'account_signup' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary btn-block py-3">Sign Up</button>
+                    </form>
+                </div>
+                <div class="card-footer border-secondary bg-transparent text-center">
+                    <p class="m-0">Already have an account? <a href="{% url 'account_login' %}">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

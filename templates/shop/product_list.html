@@ -1,120 +1,191 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-{% block title %}Mini Digi - Shop{% endblock %}
+{% block title %}Shop{% endblock %}
 
 {% block content %}
-
-<!-- Page Header Start -->
-<div class="container-fluid bg-secondary mb-5">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px;">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Our Shop</h1>
-        <div class="d-inline-flex">
-            <p class="m-0 text-uppercase"><a href="{% url 'shop:index' %}">Home</a></p>
-            <p class="m-0 text-uppercase px-2">/</p>
-            <p class="m-0 text-uppercase">Shop</p>
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30 p-0">
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">Home</a>
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:product_list' %}">Shop</a>
+                <span class="breadcrumb-item active">Shop List</span>
+            </nav>
         </div>
     </div>
 </div>
-<!-- Page Header End -->
-
 
 <!-- Shop Start -->
-<div class="container-fluid">
+<div class="container-fluid pt-5">
     <div class="row px-xl-5">
-
-        <!-- Sidebar Start -->
+        <!-- Shop Sidebar -->
         <div class="col-lg-3 col-md-4">
-            <!-- Category Start -->
+            <!-- Price Filter -->
             <div class="border-bottom mb-4 pb-4">
-                <h5 class="font-weight-semi-bold mb-4">Filter by Category</h5>
+                <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
                 <form method="get">
+                    {% if q %}<input type="hidden" name="q" value="{{ q }}">{% endif %}
                     <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
-                        <input type="radio" class="custom-control-input" id="cat-all" name="category" value=""
-                               {% if not selected_category %}checked{% endif %}>
-                        <label class="custom-control-label" for="cat-all">All Categories</label>
+                        <input type="radio" class="custom-control-input" id="price-all" name="price" value="" {% if not request.GET.price %}checked{% endif %} onchange="this.form.submit()">
+                        <label class="custom-control-label" for="price-all">All Price</label>
+                        <span class="badge border font-weight-normal">1000</span>
                     </div>
-                    {% for cat in categories %}
                     <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
-                        <input type="radio" class="custom-control-input" id="cat{{ cat.id }}" name="category" value="{{ cat.slug }}"
-                               {% if selected_category == cat.slug %}checked{% endif %}>
-                        <label class="custom-control-label" for="cat{{ cat.id }}">{{ cat.name }}</label>
+                        <input type="radio" class="custom-control-input" id="price-1" name="price" value="0-100" onchange="this.form.submit()">
+                        <label class="custom-control-label" for="price-1">$0 - $100</label>
+                        <span class="badge border font-weight-normal">150</span>
                     </div>
-                    {% endfor %}
-                    <button class="btn btn-primary btn-block mt-3" type="submit">Filter</button>
+                    <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
+                        <input type="radio" class="custom-control-input" id="price-2" name="price" value="100-200" onchange="this.form.submit()">
+                        <label class="custom-control-label" for="price-2">$100 - $200</label>
+                        <span class="badge border font-weight-normal">295</span>
+                    </div>
+                    <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
+                        <input type="radio" class="custom-control-input" id="price-3" name="price" value="200-300" onchange="this.form.submit()">
+                        <label class="custom-control-label" for="price-3">$200 - $300</label>
+                        <span class="badge border font-weight-normal">246</span>
+                    </div>
+                    <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
+                        <input type="radio" class="custom-control-input" id="price-4" name="price" value="300-400" onchange="this.form.submit()">
+                        <label class="custom-control-label" for="price-4">$300 - $400</label>
+                        <span class="badge border font-weight-normal">145</span>
+                    </div>
+                    <div class="custom-control custom-radio d-flex align-items-center justify-content-between">
+                        <input type="radio" class="custom-control-input" id="price-5" name="price" value="400-500" onchange="this.form.submit()">
+                        <label class="custom-control-label" for="price-5">$400 - $500</label>
+                        <span class="badge border font-weight-normal">168</span>
+                    </div>
                 </form>
             </div>
-            <!-- Category End -->
+            <!-- Color Filter -->
+            <div class="border-bottom mb-4 pb-4">
+                <h5 class="font-weight-semi-bold mb-4">Filter by color</h5>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="color-all" checked>
+                    <label class="custom-control-label" for="color-all">All Color</label>
+                    <span class="badge border font-weight-normal">1000</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="color-1">
+                    <label class="custom-control-label" for="color-1">Black</label>
+                    <span class="badge border font-weight-normal">150</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="color-2">
+                    <label class="custom-control-label" for="color-2">White</label>
+                    <span class="badge border font-weight-normal">295</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="color-3">
+                    <label class="custom-control-label" for="color-3">Red</label>
+                    <span class="badge border font-weight-normal">246</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="color-4">
+                    <label class="custom-control-label" for="color-4">Blue</label>
+                    <span class="badge border font-weight-normal">145</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                    <input type="checkbox" class="custom-control-input" id="color-5">
+                    <label class="custom-control-label" for="color-5">Green</label>
+                    <span class="badge border font-weight-normal">168</span>
+                </div>
+            </div>
+            <!-- Size Filter -->
+            <div class="border-bottom mb-4 pb-4">
+                <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="size-all" checked>
+                    <label class="custom-control-label" for="size-all">All Size</label>
+                    <span class="badge border font-weight-normal">1000</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="size-1">
+                    <label class="custom-control-label" for="size-1">XS</label>
+                    <span class="badge border font-weight-normal">150</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="size-2">
+                    <label class="custom-control-label" for="size-2">S</label>
+                    <span class="badge border font-weight-normal">295</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="size-3">
+                    <label class="custom-control-label" for="size-3">M</label>
+                    <span class="badge border font-weight-normal">246</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="size-4">
+                    <label class="custom-control-label" for="size-4">L</label>
+                    <span class="badge border font-weight-normal">145</span>
+                </div>
+                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                    <input type="checkbox" class="custom-control-input" id="size-5">
+                    <label class="custom-control-label" for="size-5">XL</label>
+                    <span class="badge border font-weight-normal">168</span>
+                </div>
+            </div>
         </div>
-        <!-- Sidebar End -->
+        <!-- Shop Sidebar End -->
 
-
-        <!-- Product List Start -->
+        <!-- Shop Product -->
         <div class="col-lg-9 col-md-8">
             <div class="row pb-3">
                 <div class="col-12 pb-1">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <form action="{% url 'shop:product_list' %}" method="get">
                             <div class="input-group">
-                                <input type="text" name="q" class="form-control" placeholder="Search products" value="{{ request.GET.q }}">
+                                <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Search by name">
                                 <div class="input-group-append">
-                                    <span class="input-group-text bg-transparent text-primary">
-                                        <i class="fa fa-search"></i>
-                                    </span>
+                                    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                         </form>
-                        <div class="ml-3">
-                            <p class="text-muted mb-0">{{ products|length }} products found</p>
+                        <div class="dropdown ml-4">
+                            <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">Sorting</button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}sort=latest">Latest</a>
+                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}sort=popular">Popularity</a>
+                            </div>
+                        </div>
+                        <div class="dropdown ml-2">
+                            <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">Showing</button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}per_page=10">10</a>
+                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}per_page=20">20</a>
+                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}per_page=30">30</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
                 {% for product in products %}
-                    {% include "components/card.html" with product=product %}
+                <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                    {% include 'components/card.html' with product=product %}
+                </div>
                 {% empty %}
-                    <div class="col-12 text-center py-5">
-                        <p class="text-muted">No products found.</p>
-                    </div>
+                <div class="col-12 text-center py-5 text-muted">No products found.</div>
                 {% endfor %}
-
-                <!-- Pagination -->
-                {% if page_obj.has_other_pages %}
-                <div class="col-12">
-                    <nav>
-                        <ul class="pagination justify-content-center">
-                            {% if page_obj.has_previous %}
-                                <li class="page-item">
-                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-                                </li>
-                            {% else %}
-                                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <div class="col-12 pb-1">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center mb-3">
+                            {% if products.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}{% if q %}&q={{ q }}{% endif %}">Previous</a></li>
                             {% endif %}
-
-                            {% for num in page_obj.paginator.page_range %}
-                                <li class="page-item {% if page_obj.number == num %}active{% endif %}">
-                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
-                                </li>
+                            {% for num in products.paginator.page_range %}
+                            <li class="page-item {% if products.number == num %}active{% endif %}">
+                                <a class="page-link" href="?page={{ num }}{% if q %}&q={{ q }}{% endif %}">{{ num }}</a>
+                            </li>
                             {% endfor %}
-
-                            {% if page_obj.has_next %}
-                                <li class="page-item">
-                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-                                </li>
-                            {% else %}
-                                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                            {% if products.has_next %}
+                            <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}{% if q %}&q={{ q }}{% endif %}">Next</a></li>
                             {% endif %}
                         </ul>
                     </nav>
                 </div>
-                {% endif %}
-                <!-- Pagination End -->
-
             </div>
         </div>
-        <!-- Product List End -->
-
+        <!-- Shop Product End -->
     </div>
 </div>
 <!-- Shop End -->
-
 {% endblock %}

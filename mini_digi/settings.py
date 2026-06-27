@@ -136,7 +136,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+# STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -147,3 +148,10 @@ import os
 STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+# ADD THIS to settings.py — forces allauth to use plain Django templates
+# instead of its own {% element %} tag renderer
+ACCOUNT_SIGNUP_FORM_CLASS = None
+ACCOUNT_TEMPLATE_EXTENSION = "html"
+
+# This is the key setting — disables allauth's custom template tags
+SOCIALACCOUNT_ENABLED = False  # only if you're not using social login

@@ -12,9 +12,8 @@ class Product(models.Model):
         max_digits=12, decimal_places=0, help_text="Price in Toman"
     )
     stock = models.PositiveIntegerField(default=0)
-    image = models.ImageField(
-        upload_to="products/", blank=True, null=True
-    )  # ADD THIS LINE
+    available = models.BooleanField(default=True)  # FIX: was missing, caused FieldError
+    image = models.ImageField(upload_to="products/", blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
