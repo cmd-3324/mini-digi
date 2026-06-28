@@ -29,6 +29,17 @@
     <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
 
     <style>
+        /* Language / currency select styling */
+        .topbar-select {
+            background: transparent;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 1px 6px;
+            font-size: 13px;
+            cursor: pointer;
+            color: #333;
+        }
+        .topbar-select:focus { outline: none; }
 /* Force override Bootstrap's breadcrumb styles */
 nav.breadcrumb,
 .breadcrumb,
@@ -52,6 +63,7 @@ nav.breadcrumb,
     background: rgba(0, 0, 0, 0.45) !important;
     color: white !important;
 }
+
     </style>
 </head>
 
@@ -59,7 +71,7 @@ nav.breadcrumb,
 
 <!-- Topbar Start -->
 <div class="container-fluid">
-    <div class="row bg-secondary py-1 px-xl-5">
+    <div class="row bg-secondary py-2 px-xl-5">
         <div class="col-lg-6 d-none d-lg-block">
             <div class="d-inline-flex align-items-center h-100">
                 <a class="text-body mr-3" href="#">About</a>
@@ -70,36 +82,31 @@ nav.breadcrumb,
         </div>
         <div class="col-lg-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
-                <!-- My Account -->
+                {% if user.is_authenticated %}
                 <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
-                        {% if user.is_authenticated %}{{ user.username }}{% else %}My Account{% endif %}
-                    </button>
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">{{ user.username }}</button>
                     <div class="dropdown-menu dropdown-menu-right">
-                        {% if user.is_authenticated %}
-                            <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
-                        {% else %}
-                            <a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a>
-                            <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
-                        {% endif %}
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
                     </div>
                 </div>
-                <div class="btn-group mx-2">
-                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button">EUR</button>
-                        <button class="dropdown-item" type="button">GBP</button>
-                        <button class="dropdown-item" type="button">CAD</button>
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button">FR</button>
-                        <button class="dropdown-item" type="button">AR</button>
-                        <button class="dropdown-item" type="button">RU</button>
-                    </div>
-                </div>
+                {% else %}
+                <a href="{% url 'account_login' %}" class="btn btn-sm btn-primary mr-1">Sign In</a>
+                <a href="{% url 'account_signup' %}" class="btn btn-sm btn-outline-primary mr-2">Sign Up</a>
+                {% endif %}
+                <!-- Currency -->
+                <select class="topbar-select mr-2">
+                    <option>USD</option>
+                    <option>EUR</option>
+                    <option>GBP</option>
+                    <option>CAD</option>
+                </select>
+                <!-- Language -->
+                <select class="topbar-select">
+                    <option>EN</option>
+                    <option>FR</option>
+                    <option>AR</option>
+                    <option>RU</option>
+                </select>
             </div>
             <!-- Mobile cart -->
             <div class="d-inline-flex align-items-center d-block d-lg-none">
