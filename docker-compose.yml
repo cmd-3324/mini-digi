@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    container_name: minidigi_db
+    environment:
+      POSTGRES_USER: minidigi_user
+      POSTGRES_PASSWORD: secure_password
+      POSTGRES_DB: minidigi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    image: demo33huhih/blackw:1.0
+    container_name: minidigi_app
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_NAME: minidigi
+      DB_USER: minidigi_user
+      DB_PASSWORD: secure_password
+      DB_HOST: db
+      DB_PORT: 5432
+    volumes:
+      - .:/app # Mount your code for live updates
+
+volumes:
+  postgres_data:
