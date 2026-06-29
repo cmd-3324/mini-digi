@@ -9,3 +9,4 @@ urlpatterns = [
     path("shop/<int:pk>/", products.product_detail, name="product_detail"),
     path("contact/", products.contact, name="contact"),
 ]
+ 

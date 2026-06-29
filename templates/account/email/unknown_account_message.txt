@@ -8,3 +8,4 @@
 {% blocktranslate %}If it was you, you can sign up for an account using the link below.{% endblocktranslate %}
 
 {{ signup_url }}{% endautoescape %}{% endblock content %}
+ 

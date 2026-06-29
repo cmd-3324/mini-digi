@@ -59,4 +59,4 @@ mini-digi/
 │   └── 404.html
 └── media/                           # User uploads (product images)
     └── products/imges of it 
-    ├──categories/imgs of it 
+    ├──categories/imgs of it  

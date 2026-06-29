@@ -2,3 +2,4 @@
 {% autoescape off %}
 {% blocktrans %}Please Confirm Your Email Address{% endblocktrans %}
 {% endautoescape %}
+ 

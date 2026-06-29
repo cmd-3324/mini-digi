@@ -18,3 +18,4 @@ Copy-Item "H:\pictures\MultiShop_\img" -Destination "H:\mini-digi\static\images"
 
 # IMPORTANT: The CSS file is called style.min.css (NOT bootstrap.min.css or style.css)
 # head.html already points to {% static 'css/style.min.css' %} - this is correct.
+ 

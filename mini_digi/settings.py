@@ -155,3 +155,4 @@ ACCOUNT_TEMPLATE_EXTENSION = "html"
 
 # This is the key setting — disables allauth's custom template tags
 SOCIALACCOUNT_ENABLED = False  # only if you're not using social login
+ 

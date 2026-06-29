@@ -55,3 +55,4 @@ def product_detail(request, pk):
 
 def contact(request):
     return render(request, "shop/contact.html")
+ 

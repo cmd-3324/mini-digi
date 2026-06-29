@@ -12,3 +12,4 @@
 - IP address: {{ip}}
 - Browser: {{user_agent}}
 - Date: {{timestamp}}{% endblocktrans %}{% endautoescape %}{% endblock %}
+ 

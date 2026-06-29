@@ -156,3 +156,4 @@ class Command(BaseCommand):
             )
 
         self.stdout.write(self.style.SUCCESS("✅ 4 categories + 12 products seeded!"))
+ 

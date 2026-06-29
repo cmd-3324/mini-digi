@@ -31,3 +31,4 @@ def confirmation(request, pk):
 
     order = get_object_or_404(Order, pk=pk, user=request.user)
     return render(request, "orders/confirmation.html", {"order": order})
+ 

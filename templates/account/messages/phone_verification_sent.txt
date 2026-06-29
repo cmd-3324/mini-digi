@@ -1,2 +1,3 @@
 {% load i18n %}
 {% blocktrans %}A verification code has been sent to {{phone}}.{% endblocktrans %}
+ 

@@ -2,3 +2,4 @@
 {% load i18n %}
 
 {% block notification_message %}{% blocktrans %}Your email has been confirmed.{% endblocktrans %}{% endblock notification_message %}
+ 

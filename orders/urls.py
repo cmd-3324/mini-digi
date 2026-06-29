@@ -7,3 +7,4 @@ urlpatterns = [
     path("checkout/", views.checkout, name="checkout"),
     path("confirmation/<int:pk>/", views.confirmation, name="confirmation"),
 ]
+ 
