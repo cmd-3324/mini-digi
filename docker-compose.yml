@@ -14,7 +14,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   app:
-    image: demo33huhih/blackw:1.0
+    image: demo33huhih/blackwolf:1.0
     container_name: minidigi_app
     command: python manage.py runserver 0.0.0.0:8000
     ports:
