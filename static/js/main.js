@@ -1,5 +1,31 @@
 (function ($) {
     "use strict";
+
+    // Dark/Light theme toggle
+    function setTheme(theme) {
+        $('html').attr('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        var $icon = $('#themeIcon');
+        if (theme === 'dark') {
+            $icon.removeClass('fa-moon').addClass('fa-sun');
+        } else {
+            $icon.removeClass('fa-sun').addClass('fa-moon');
+        }
+    }
+
+    // Load saved theme on page load
+    $(document).ready(function () {
+        var saved = localStorage.getItem('theme');
+        if (!saved) {
+            saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        setTheme(saved);
+
+        $('#themeToggle').on('click', function () {
+            var current = $('html').attr('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    });
     
     // Dropdown on mouse hover
     $(document).ready(function () {

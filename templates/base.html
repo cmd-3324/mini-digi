@@ -10,7 +10,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon — place any .ico in static/img/favicon.ico -->
-    <link href="{% static 'img/favicon.ico' %}" rel="icon" type="image/x-icon">
+    <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -29,6 +29,104 @@
     <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
 
     <style>
+        :root {
+            --bg-body: #ffffff;
+            --bg-card: #ffffff;
+            --text-body: #333333;
+            --border-color: #dee2e6;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --text-body: #e0e0e0;
+            --border-color: #333333;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        [data-theme="dark"] .bg-light {
+            background-color: #1e1e1e !important;
+        }
+
+        [data-theme="dark"] .bg-dark {
+            background-color: #0a0a0a !important;
+        }
+
+        [data-theme="dark"] .bg-secondary {
+            background-color: #1a1a1a !important;
+        }
+
+        [data-theme="dark"] .text-dark {
+            color: #e0e0e0 !important;
+        }
+
+        [data-theme="dark"] .text-body {
+            color: #b0b0b0 !important;
+        }
+
+        [data-theme="dark"] .card,
+        [data-theme="dark"] .dropdown-menu,
+        [data-theme="dark"] .bg-white {
+            background-color: #1e1e1e !important;
+        }
+
+        [data-theme="dark"] .navbar-light .navbar-nav .nav-link {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .border,
+        [data-theme="dark"] .border-top,
+        [data-theme="dark"] .border-bottom,
+        [data-theme="dark"] .border-left,
+        [data-theme="dark"] .border-right {
+            border-color: #333333 !important;
+        }
+
+        [data-theme="dark"] .breadcrumb.bg-light {
+            background-color: #1e1e1e !important;
+            border-color: #333 !important;
+        }
+
+        [data-theme="dark"] input.form-control,
+        [data-theme="dark"] select.form-control,
+        [data-theme="dark"] textarea.form-control {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+
+        [data-theme="dark"] .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: inherit;
+            padding: 0;
+            line-height: 1;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        .theme-toggle:focus {
+            outline: none;
+        }
+
         /* Language / currency select styling */
         .topbar-select {
             background: transparent;
@@ -185,10 +283,13 @@ nav.breadcrumb,
                             <i class="fas fa-heart text-primary"></i>
                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom:2px;">0</span>
                         </a>
-                        <a href="{% url 'cart:detail' %}" class="btn px-0">
+                        <a href="{% url 'cart:detail' %}" class="btn px-0 mr-3">
                             <i class="fas fa-shopping-cart text-primary"></i>
                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom:2px;">{% if cart_count %}{{ cart_count }}{% else %}0{% endif %}</span>
                         </a>
+                        <button class="theme-toggle ml-2" id="themeToggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon" id="themeIcon"></i>
+                        </button>
                     </div>
                 </div>
             </nav>
