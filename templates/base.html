@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
     <meta charset="utf-8">
@@ -170,12 +171,11 @@ nav.breadcrumb,
 <!-- Topbar Start -->
 <div class="container-fluid">
     <div class="row bg-secondary py-2 px-xl-5">
-        <div class="col-lg-6 d-none d-lg-block">
-            <div class="d-inline-flex align-items-center h-100">
-                <a class="text-body mr-3" href="#">About</a>
-                <a class="text-body mr-3" href="{% url 'shop:contact' %}">Contact</a>
-                <a class="text-body mr-3" href="#">Help</a>
-                <a class="text-body" href="#">FAQs</a>
+            <div class="col-lg-6 d-none d-lg-block">
+                <a class="text-body mr-3" href="#">{% trans "About" %}</a>
+                <a class="text-body mr-3" href="{% url 'shop:contact' %}">{% trans "Contact" %}</a>
+                <a class="text-body mr-3" href="#">{% trans "Help" %}</a>
+                <a class="text-body" href="#">{% trans "FAQs" %}</a>
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
@@ -192,6 +192,7 @@ nav.breadcrumb,
                 <a href="{% url 'account_signup' %}" class="btn btn-sm btn-outline-primary mr-2">Sign Up</a>
                 {% endif %}
                 <!-- Currency -->
+
                 <select class="topbar-select mr-2">
                     <option>USD</option>
                     <option>EUR</option>
@@ -199,12 +200,17 @@ nav.breadcrumb,
                     <option>CAD</option>
                 </select>
                 <!-- Language -->
-                <select class="topbar-select">
-                    <option>EN</option>
-                    <option>FR</option>
-                    <option>AR</option>
-                    <option>RU</option>
-                </select>
+                <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <select name="language" class="topbar-select" onchange="this.form.submit()">
+                        {% get_current_language as CURRENT_LANG %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for code, name in LANGUAGES %}
+                        <option value="{{ code }}" {% if code == CURRENT_LANG %}selected{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
             </div>
             <!-- Mobile cart -->
             <div class="d-inline-flex align-items-center d-block d-lg-none">
@@ -238,7 +244,7 @@ nav.breadcrumb,
         </div>
         <div class="col-lg-4 col-6 text-right">
             <p class="m-0">Customer Service</p>
-            <h5 class="m-0">+012 345 6789</h5>
+            <h5 class="m-0">+98 903-196-0860</h5>
         </div>
     </div>
 </div>
