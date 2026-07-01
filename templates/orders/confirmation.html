@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
-
-{% block title %}Order Confirmed{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Order Confirmed" %}{% endblock %}
 
 {% block content %}
 <div class="container py-5 text-center">
     <i class="bi bi-check-circle-fill text-success" style="font-size:5rem;"></i>
-    <h2 class="mt-4">Order Confirmed!</h2>
-    <p class="text-muted">Thank you for your order. Order #{{ order.pk }} has been placed successfully.</p>
-    <a href="{% url 'shop:product_list' %}" class="btn btn-primary mt-3">Continue Shopping</a>
+    <h2 class="mt-4">{% trans "Order Confirmed!" %}</h2>
+    <p class="text-muted">{% trans "Thank you for your order." %} {% trans "Order" %} #{{ order.pk }} {% trans "has been
+        placed successfully." %}</p>
+    <a href="{% url 'shop:product_list' %}" class="btn btn-primary mt-3">{% trans "Continue Shopping" %}</a>
 </div>
-{% endblock %} 
+{% endblock %}

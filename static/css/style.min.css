@@ -14,11 +14,31 @@
 
 @font-face {
     font-family: 'IranYekan';
-    src: url('../fonts/iranyekanwebbold.e298fdc6.e298fdc6.woff') format('woff');
-    font-weight: 700;
-    font-style: normal
+    src: url('/static/fonts/iranyekanwebmedium.2d4f96e5.2d4f96e5.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
 }
 
+@font-face {
+    font-family: 'IranYekan';
+    src: url('/static/fonts/iranyekanwebbold.e298fdc6.e298fdc6.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+input,
+button {
+    font-family: 'IranYekan', sans-serif !important;
+}
 
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -31,4 +51,7 @@
  
 :root {
     --font-family-sans-serif: "IranYekan", sans-serif
+}
+a:hover {
+    text-decoration: none !important;
 }

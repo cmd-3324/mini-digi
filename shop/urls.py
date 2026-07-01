@@ -8,5 +8,6 @@ urlpatterns = [
     path("shop/", products.product_list, name="product_list"),
     path("shop/<int:pk>/", products.product_detail, name="product_detail"),
     path("contact/", products.contact, name="contact"),
+    path("search/autocomplete/", products.product_search_autocomplete, name="product_search_autocomplete"),
 ]
  

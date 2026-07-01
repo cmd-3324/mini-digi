@@ -1,14 +1,15 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
-{% block title %}Sign Up{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Sign Up" %}{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
     <div class="row px-xl-5">
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-30 p-0">
-                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">Home</a>
-                <span class="breadcrumb-item active">Sign Up</span>
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
+                <span class="breadcrumb-item active">{% trans "Sign Up" %}</span>
             </nav>
         </div>
     </div>
@@ -18,21 +19,23 @@
         <div class="col-lg-5">
             <div class="card border-secondary">
                 <div class="card-header bg-secondary border-0">
-                    <h4 class="font-weight-semi-bold m-0">Sign Up</h4>
+                    <h4 class="font-weight-semi-bold m-0">{% trans "Sign Up" %}</h4>
                 </div>
                 <div class="card-body">
-                    <p>Already have an account? <a href="{% url 'account_login' %}">Sign in</a>.</p>
+                    <p>{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans "Sign in"
+                            %}</a>.</p>
                     <form method="post" action="{% url 'account_signup' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary btn-block py-3">Sign Up</button>
+                        <button type="submit" class="btn btn-primary btn-block py-3">{% trans "Sign Up" %}</button>
                     </form>
                 </div>
                 <div class="card-footer border-secondary bg-transparent text-center">
-                    <p class="m-0">Already have an account? <a href="{% url 'account_login' %}">Sign In</a></p>
+                    <p class="m-0">{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans
+                            "Sign In" %}</a></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblock %} 
+{% endblock %}

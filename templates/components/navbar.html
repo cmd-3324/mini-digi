@@ -1,28 +1,28 @@
 {% load static %}
-
+{% load i18n %}
 <!-- Topbar Start -->
 <div class="container-fluid">
     <div class="row bg-secondary py-1 px-xl-5">
         <div class="col-lg-6 d-none d-lg-block">
-        <a href="{% url 'shop:index' %}" class="nav-item nav-link active">Home</a>
-        <a href="{% url 'shop:product_list' %}" class="nav-item nav-link">Shop</a>
-        <a href="{% url 'cart:detail' %}" class="nav-item nav-link">Shop Cart</a>
-        <a href="{% url 'orders:checkout' %}" class="nav-item nav-link">Checkout</a>
-        <a href="{% url 'shop:contact' %}" class="nav-item nav-link">Contact</a>
+            <a href="{% url 'shop:index' %}" class="nav-item nav-link active">{% trans "Home" %}</a>
+            <a href="{% url 'shop:product_list' %}" class="nav-item nav-link">{% trans "Shop" %}</a>
+            <a href="{% url 'cart:detail' %}" class="nav-item nav-link">{% trans "Shop Cart" %}</a>
+            <a href="{% url 'orders:checkout' %}" class="nav-item nav-link">{% trans "Checkout" %}</a>
+            <a href="{% url 'shop:contact' %}" class="nav-item nav-link">{% trans "Contact" %}</a>
+
         </div>
         <div class="col-lg-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
                 {% if user.is_authenticated %}
-                    <span class="text-body mr-3">{{ user.username }}</span>
-                    <a class="text-body mr-3" href="{% url 'account_logout' %}">Logout</a>
+                <span class="text-body mr-3">{{ user.username }}</span>
+                <a class="text-body mr-3" href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
                 {% else %}
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{% url 'account_login' %}">Sign in</a>
-                            <a class="dropdown-item" href="{% url 'account_signup' %}">Sign up</a>
-                        </div>
-                    </div>
+                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">{% trans "My Account"
+                    %}</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="{% url 'account_login' %}">{% trans "Sign in" %}</a>
+                    <a class="dropdown-item" href="{% url 'account_signup' %}">{% trans "Sign up" %}</a>
+                </div>
                 {% endif %}
             </div>
             <div class="d-inline-flex align-items-center d-block d-lg-none">
@@ -46,7 +46,7 @@
         <div class="col-lg-4 col-6 text-left">
             <form action="{% url 'shop:product_list' %}" method="get">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search for products">
+                    <input type="text" name="q" class="form-control" placeholder="{% trans 'Search for products' %}">
                     <div class="input-group-append">
                         <span class="input-group-text bg-transparent text-primary">
                             <i class="fa fa-search"></i>
@@ -56,8 +56,8 @@
             </form>
         </div>
         <div class="col-lg-4 col-6 text-right">
-            <p class="m-0">Customer Service</p>
-            <h5 class="m-0">+98 123 456 7890</h5>
+            <p class="m-0">{% trans "Customer Service" %}</p>
+            <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>{% trans "Categories" %}</h6>
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Contact{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Contact" %}{% endblock %}
 
 {% block content %}
 
@@ -9,8 +10,8 @@
     <div class="row px-xl-5">
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-30">
-                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">Home</a>
-                <span class="breadcrumb-item active">Contact</span>
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
+                <span class="breadcrumb-item active">{% trans "Contact" %}</span>
             </nav>
         </div>
     </div>
@@ -19,30 +20,28 @@
 
 <!-- Contact Start -->
 <div class="container-fluid">
-    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Contact
-            Us</span></h2>
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Contact Us" %}</span></h2>
     <div class="row px-xl-5">
         <div class="col-lg-7 mb-5">
             <div class="bg-light p-30">
-                <h4 class="mb-4">Receive messages instantly with our PHP and Ajax contact form - available in the <a
-                        href="#">Pro Version</a> only.</h4>
-                <form>
-                    <div class="control-group mb-3">
-                        <input type="text" class="form-control" placeholder="Your Name">
-                    </div>
-                    <div class="control-group mb-3">
-                        <input type="email" class="form-control" placeholder="Your Email">
-                    </div>
-                    <div class="control-group mb-3">
-                        <input type="text" class="form-control" placeholder="Subject">
-                    </div>
-                    <div class="control-group mb-3">
-                        <textarea class="form-control" rows="8" placeholder="Message"></textarea>
-                    </div>
-                    <div>
-                        <button class="btn btn-primary py-2 px-4" type="submit">Send Message</button>
-                    </div>
-                </form>
+                <h4 class="mb-4">{% trans "Receive messages instantly with our PHP and Ajax contact form - available in the" %} <a href="#">{% trans "Pro Version" %}</a> {% trans "only." %}</h4>
+                    <form>
+                        <div class="control-group mb-3">
+                            <input type="text" class="form-control" placeholder="{% trans 'Your Name' %}">
+                        </div>
+                        <div class="control-group mb-3">
+                            <input type="email" class="form-control" placeholder="{% trans 'Your Email' %}">
+                        </div>
+                        <div class="control-group mb-3">
+                            <input type="text" class="form-control" placeholder="{% trans 'Subject' %}">
+                        </div>
+                        <div class="control-group mb-3">
+                            <textarea class="form-control" rows="8" placeholder="{% trans 'Message' %}"></textarea>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary py-2 px-4" type="submit">{% trans "Send Message" %}</button>
+                        </div>
+                    </form>
             </div>
         </div>
         <div class="col-lg-5 mb-5">
@@ -52,13 +51,13 @@
                     frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
             <div class="bg-light p-30 mb-3">
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>{% trans "123 Street, New York, USA" %}</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>{% trans "info@example.com" %}</p>
+                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>{% trans "+012 345 67890" %}</p>
             </div>
         </div>
     </div>
 </div>
 <!-- Contact End -->
 
-{% endblock %} 
+{% endblock %}

@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
+from django.http import JsonResponse
+from django.db.models import Q
+from django.urls import reverse
 from shop.models import Product, Category
 
 
@@ -55,4 +58,29 @@ def product_detail(request, pk):
 
 def contact(request):
     return render(request, "shop/contact.html")
+
+
+def product_search_autocomplete(request):
+    q = request.GET.get("q", "").strip()
+    if len(q) < 1:
+        return JsonResponse({"results": []})
+
+    products = Product.objects.filter(
+        Q(name__icontains=q) | Q(description__icontains=q),
+        available=True,
+    ).select_related("category")[:8]
+
+    results = []
+    for p in products:
+        results.append(
+            {
+                "id": p.id,
+                "name": p.name,
+                "price": str(p.price),
+                "category": p.category.name if p.category else "",
+                "image": p.image.url if p.image else "",
+                "url": reverse("shop:product_detail", args=[p.id]),
+            }
+        )
+    return JsonResponse({"results": results})
  

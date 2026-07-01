@@ -1,14 +1,15 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
-{% block title %}Sign In{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
     <div class="row px-xl-5">
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-30 p-0">
-                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">Home</a>
-                <span class="breadcrumb-item active">Sign In</span>
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
+                <span class="breadcrumb-item active">{% trans "Sign In" %}</span>
             </nav>
         </div>
     </div>
@@ -18,36 +19,40 @@
         <div class="col-lg-5">
             <div class="card border-secondary">
                 <div class="card-header bg-secondary border-0">
-                    <h4 class="font-weight-semi-bold m-0">Sign In</h4>
+                    <h4 class="font-weight-semi-bold m-0">{% trans "Sign In" %}</h4>
                 </div>
                 <div class="card-body">
-                    <p>If you have not created an account yet, please <a href="{% url 'account_signup' %}">sign up</a> first.</p>
+                    <p>{% trans "If you have not created an account yet, please" %} <a
+                            href="{% url 'account_signup' %}">{% trans "sign up" %}</a> {% trans "first." %}</p>
                     <form method="post" action="{% url 'account_login' %}">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" name="login" class="form-control" placeholder="Username" required>
+                            <label>{% trans "Username" %}</label>
+                            <input type="text" name="login" class="form-control" placeholder="{% trans " Username" %}"
+                                required>
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            <label>{% trans "Password" %}</label>
+                            <input type="password" name="password" class="form-control" placeholder="{% trans "
+                                Password" %}" required>
                         </div>
                         <div class="form-group d-flex justify-content-between align-items-center">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" name="remember" class="custom-control-input" id="remember">
-                                <label class="custom-control-label" for="remember">Remember Me</label>
+                                <label class="custom-control-label" for="remember">{% trans "Remember Me" %}</label>
                             </div>
-                            <a href="{% url 'account_reset_password' %}">Forgot your password?</a>
+                            <a href="{% url 'account_reset_password' %}">{% trans "Forgot your password?" %}</a>
                         </div>
                         <input type="hidden" name="next" value="{{ request.GET.next }}">
-                        <button type="submit" class="btn btn-primary btn-block py-3">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block py-3">{% trans "Sign In" %}</button>
                     </form>
                 </div>
                 <div class="card-footer border-secondary bg-transparent text-center">
-                    <p class="m-0">Don't have an account? <a href="{% url 'account_signup' %}">Sign Up</a></p>
+                    <p class="m-0">{% trans "Don't have an account?" %} <a href="{% url 'account_signup' %}">{% trans
+                            "Sign Up" %}</a></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblock %} 
+{% endblock %}
