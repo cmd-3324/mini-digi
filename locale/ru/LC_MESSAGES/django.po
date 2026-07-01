@@ -20,68 +20,72 @@ msgstr ""
 
 #: .\templates\account\account_inactive.html:6
 #: .\templates\account\account_inactive.html:10
+#. Translators: {% trans "Account Inactive" %}
 msgid "Account Inactive"
 msgstr "Аккаунт неактивен"
 
 #: .\templates\account\account_inactive.html:13
+#. Translators: {% trans "This account is inactive." %}
 msgid "This account is inactive."
 msgstr "Этот аккаунт неактивен."
 
 #: .\templates\account\base_confirm_code.html:28
 #, python-format
-msgid ""
-"We've sent a code to %(recipient)s. The code expires shortly, so please "
-"enter it soon."
-msgstr ""
-"Мы отправили код на %(recipient)s. Код действует недолго, пожалуйста, введите его как можно скорее."
-
-#: .\templates\account\base_confirm_code.html:40
-#: .\templates\account\email_confirm.html:25
-#: .\templates\account\reauthenticate.html:21
+#. Translators: {% trans "We've sent a code to %(recipient)s. The code expires shortly, so please enter it soon." %}
 msgid "Confirm"
 msgstr "Подтвердить"
 
 #: .\templates\account\base_confirm_code.html:44
+#. Translators: {% trans "Request new code" %}
 msgid "Request new code"
 msgstr "Запросить новый код"
 
 #: .\templates\account\base_confirm_code.html:49
 #: .\templates\account\base_confirm_code.html:53
 #: .\templates\account\password_reset_from_key.html:34
+#. Translators: {% trans "Cancel" %}
 msgid "Cancel"
 msgstr "Отмена"
 
 #: .\templates\account\base_reauthenticate.html:6
 #: .\templates\account\base_reauthenticate.html:10
+#. Translators: {% trans "Confirm Access" %}
 msgid "Confirm Access"
 msgstr "Подтверждение доступа"
 
 #: .\templates\account\base_reauthenticate.html:13
+#. Translators: {% trans "Please reauthenticate to safeguard your account." %}
 msgid "Please reauthenticate to safeguard your account."
 msgstr "Пожалуйста, пройдите повторную аутентификацию для защиты вашего аккаунта."
 
 #: .\templates\account\base_reauthenticate.html:20
+#. Translators: {% trans "Alternative options" %}
 msgid "Alternative options"
 msgstr "Альтернативные варианты"
 
 #: .\templates\account\confirm_email_verification_code.html:8
+#. Translators: {% trans "Email Verification" %}
 msgid "Email Verification"
 msgstr "Подтверждение email"
 
 #: .\templates\account\confirm_email_verification_code.html:11
+#. Translators: {% trans "Enter Email Verification Code" %}
 msgid "Enter Email Verification Code"
 msgstr "Введите код подтверждения email"
 
 #: .\templates\account\confirm_email_verification_code.html:19
+#. Translators: {% trans "Use a different email address" %}
 msgid "Use a different email address"
 msgstr "Использовать другой email"
 
 #: .\templates\account\confirm_login_code.html:8
 #: .\templates\account\request_login_code.html:6
+#. Translators: {% trans "Sign In" %}
 msgid "Sign In"
 msgstr "Вход"
 
 #: .\templates\account\confirm_login_code.html:11
+#. Translators: {% trans "Enter Sign-In Code" %}
 msgid "Enter Sign-In Code"
 msgstr "Введите код входа"
 
@@ -91,99 +95,88 @@ msgstr "Введите код входа"
 #: .\templates\account\password_reset.html:9
 #: .\templates\account\password_reset_done.html:7
 #: .\templates\account\password_reset_done.html:11
+#. Translators: {% trans "Password Reset" %}
 msgid "Password Reset"
 msgstr "Сброс пароля"
 
 #: .\templates\account\confirm_password_reset_code.html:11
+#. Translators: {% trans "Enter Password Reset Code" %}
 msgid "Enter Password Reset Code"
 msgstr "Введите код сброса пароля"
 
 #: .\templates\account\confirm_phone_verification_code.html:8
+#. Translators: {% trans "Phone Verification" %}
 msgid "Phone Verification"
 msgstr "Подтверждение телефона"
 
 #: .\templates\account\confirm_phone_verification_code.html:11
+#. Translators: {% trans "Enter Phone Verification Code" %}
 msgid "Enter Phone Verification Code"
 msgstr "Введите код подтверждения телефона"
 
 #: .\templates\account\confirm_phone_verification_code.html:18
+#. Translators: {% trans "Use a different phone number" %}
 msgid "Use a different phone number"
 msgstr "Использовать другой номер телефона"
 
 #: .\templates\account\email.html:5 .\templates\account\email.html:9
+#. Translators: {% trans "Email Addresses" %}
 msgid "Email Addresses"
 msgstr "Email адреса"
 
 #: .\templates\account\email.html:13
+#. Translators: {% trans "The following email addresses are associated with your account:" %}
 msgid "The following email addresses are associated with your account:"
 msgstr "Следующие email адреса привязаны к вашему аккаунту:"
 
 #: .\templates\account\email.html:26
+#. Translators: {% trans "Verified" %}
 msgid "Verified"
 msgstr "Подтвержден"
 
 #: .\templates\account\email.html:30
+#. Translators: {% trans "Unverified" %}
 msgid "Unverified"
 msgstr "Не подтвержден"
 
 #: .\templates\account\email.html:35
+#. Translators: {% trans "Primary" %}
 msgid "Primary"
 msgstr "Основной"
 
 #: .\templates\account\email.html:45
+#. Translators: {% trans "Make Primary" %}
 msgid "Make Primary"
 msgstr "Сделать основным"
 
 #: .\templates\account\email.html:48 .\templates\account\email_change.html:38
 #: .\templates\account\phone_change.html:25
+#. Translators: {% trans "Re-send Verification" %}
 msgid "Re-send Verification"
 msgstr "Отправить подтверждение повторно"
 
 #: .\templates\account\email.html:51
+#. Translators: {% trans "Remove" %}
 msgid "Remove"
 msgstr "Удалить"
 
 #: .\templates\account\email.html:60
+#. Translators: {% trans "Add Email Address" %}
 msgid "Add Email Address"
 msgstr "Добавить email"
 
 #: .\templates\account\email.html:71
+#. Translators: {% trans "Add Email" %}
 msgid "Add Email"
 msgstr "Добавить email"
 
 #: .\templates\account\email.html:81
+#. Translators: {% trans "Do you really want to remove the selected email address?" %}
 msgid "Do you really want to remove the selected email address?"
 msgstr "Вы действительно хотите удалить выбранный email адрес?"
 
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
-msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
-"account using email address:\n"
-"\n"
-"%(email)s\n"
-"\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
-"your account:\n"
-"\n"
-"%(password_reset_url)s"
-msgstr ""
-"Вы получили это письмо, потому что вы или кто-то другой попытался "
-"зарегистрироваться,\n"
-"используя email адрес:\n"
-"\n"
-"%(email)s\n"
-"\n"
-"Однако аккаунт с этим email адресом уже существует. Если вы забыли об этом,\n"
-"пожалуйста, воспользуйтесь процедурой восстановления пароля:\n"
-"\n"
-"%(password_reset_url)s"
-
-#: .\templates\account\email\account_already_exists_subject.txt:3
 msgid "Account Already Exists"
 msgstr "Аккаунт уже существует"
 
@@ -194,42 +187,11 @@ msgstr "Здравствуйте от %(site_name)s!"
 
 #: .\templates\account\email\base_message.txt:5
 #, python-format
-msgid ""
-"Thank you for using %(site_name)s!\n"
-"%(site_domain)s"
-msgstr ""
-"Спасибо за использование %(site_name)s!\n"
-"%(site_domain)s"
-
-#: .\templates\account\email\base_notification.txt:5
-msgid ""
-"You are receiving this mail because the following change was made to your "
-"account:"
-msgstr "Вы получили это письмо, потому что в вашем аккаунте были произведены следующие изменения:"
-
-#: .\templates\account\email\base_notification.txt:10
-#, python-format
-msgid ""
-"If you do not recognize this change then please take proper security "
-"precautions immediately. The change to your account originates from:\n"
-"\n"
-"- IP address: %(ip)s\n"
-"- Browser: %(user_agent)s\n"
-"- Date: %(timestamp)s"
-msgstr ""
-"Если вы не узнаете это изменение, пожалуйста, немедленно примите меры безопасности.\n"
-"Изменение в вашем аккаунте было произведено с:\n"
-"\n"
-"- IP адрес: %(ip)s\n"
-"- Браузер: %(user_agent)s\n"
-"- Дата: %(timestamp)s"
-
-#: .\templates\account\email\email_changed_message.txt:4
-#, python-format
 msgid "Your email has been changed from %(from_email)s to %(to_email)s."
 msgstr "Ваш email был изменен с %(from_email)s на %(to_email)s."
 
 #: .\templates\account\email\email_changed_subject.txt:3
+#. Translators: {% trans "Email Changed" %}
 msgid "Email Changed"
 msgstr "Email изменен"
 
@@ -238,30 +200,17 @@ msgid "Your email has been confirmed."
 msgstr "Ваш email подтвержден."
 
 #: .\templates\account\email\email_confirm_subject.txt:3
+#. Translators: {% trans "Email Confirmation" %}
 msgid "Email Confirmation"
 msgstr "Подтверждение email"
 
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
-msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s."
-msgstr ""
-"Вы получили это письмо, потому что пользователь %(user_display)s указал ваш "
-"email адрес для регистрации на %(site_domain)s."
-
-#: .\templates\account\email\email_confirmation_message.txt:7
-msgid ""
-"Your email verification code is listed below. Please enter it in your open "
-"browser window."
-msgstr "Ваш код подтверждения email указан ниже. Пожалуйста, введите его в открытом окне браузера."
-
-#: .\templates\account\email\email_confirmation_message.txt:9
-#, python-format
 msgid "To confirm this is correct, go to %(activate_url)s"
 msgstr "Чтобы подтвердить, перейдите по ссылке %(activate_url)s"
 
 #: .\templates\account\email\email_confirmation_subject.txt:3
+#. Translators: {% trans "Please Confirm Your Email Address" %}
 msgid "Please Confirm Your Email Address"
 msgstr "Пожалуйста, подтвердите ваш email"
 
@@ -271,22 +220,16 @@ msgid "Email address %(deleted_email)s has been removed from your account."
 msgstr "Email адрес %(deleted_email)s был удален из вашего аккаунта."
 
 #: .\templates\account\email\email_deleted_subject.txt:3
+#. Translators: {% trans "Email Removed" %}
 msgid "Email Removed"
 msgstr "Email удален"
 
 #: .\templates\account\email\login_code_message.txt:5
-msgid ""
-"Your sign-in code is listed below. Please enter it in your open browser "
-"window."
-msgstr "Ваш код входа указан ниже. Пожалуйста, введите его в открытом окне браузера."
-
-#: .\templates\account\email\login_code_message.txt:9
-#: .\templates\account\email\password_reset_code_message.txt:9
-#: .\templates\account\email\unknown_account_message.txt:6
 msgid "This mail can be safely ignored if you did not initiate this action."
 msgstr "Это письмо можно безопасно игнорировать, если вы не инициировали это действие."
 
 #: .\templates\account\email\login_code_subject.txt:3
+#. Translators: {% trans "Sign-In Code" %}
 msgid "Sign-In Code"
 msgstr "Код входа"
 
@@ -295,37 +238,20 @@ msgid "Your password has been changed."
 msgstr "Ваш пароль был изменен."
 
 #: .\templates\account\email\password_changed_subject.txt:3
+#. Translators: {% trans "Password Changed" %}
 msgid "Password Changed"
 msgstr "Пароль изменен"
 
 #: .\templates\account\email\password_reset_code_message.txt:5
-msgid ""
-"Your password reset code is listed below. Please enter it in your open "
-"browser window."
-msgstr "Ваш код сброса пароля указан ниже. Пожалуйста, введите его в открытом окне браузера."
-
-#: .\templates\account\email\password_reset_code_subject.txt:3
 msgid "Password Reset Code"
 msgstr "Код сброса пароля"
 
 #: .\templates\account\email\password_reset_key_message.txt:4
-msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
-msgstr ""
-"Вы получили это письмо, потому что вы или кто-то другой запросил сброс "
-"пароля для вашего аккаунта.\n"
-"Если вы не запрашивали сброс пароля, проигнорируйте это письмо. Нажмите на "
-"ссылку ниже, чтобы сбросить пароль."
-
-#: .\templates\account\email\password_reset_key_message.txt:9
-#, python-format
 msgid "In case you forgot, your username is %(username)s."
 msgstr "На всякий случай, ваше имя пользователя: %(username)s."
 
 #: .\templates\account\email\password_reset_key_subject.txt:3
+#. Translators: {% trans "Password Reset Email" %}
 msgid "Password Reset Email"
 msgstr "Сброс пароля"
 
@@ -338,97 +264,72 @@ msgid "Your password has been set."
 msgstr "Ваш пароль установлен."
 
 #: .\templates\account\email\password_set_subject.txt:3
+#. Translators: {% trans "Password Set" %}
 msgid "Password Set"
 msgstr "Пароль установлен"
 
 #: .\templates\account\email\unknown_account_message.txt:4
 #, python-format
-msgid ""
-"You are receiving this email because you, or someone else, tried to access "
-"an account with email %(email)s. However, we do not have any record of such "
-"an account in our database."
-msgstr ""
-"Вы получили это письмо, потому что вы или кто-то другой пытался получить "
-"доступ к аккаунту с email %(email)s. Однако в нашей базе данных нет такого "
-"аккаунта."
-
-#: .\templates\account\email\unknown_account_message.txt:8
 msgid "If it was you, you can sign up for an account using the link below."
 msgstr "Если это были вы, вы можете зарегистрироваться по ссылке ниже."
 
 #: .\templates\account\email\unknown_account_subject.txt:3
+#. Translators: {% trans "Unknown Account" %}
 msgid "Unknown Account"
 msgstr "Неизвестный аккаунт"
 
 #: .\templates\account\email_change.html:6
 #: .\templates\account\email_change.html:10
+#. Translators: {% trans "Email Address" %}
 msgid "Email Address"
 msgstr "Email адрес"
 
 #: .\templates\account\email_change.html:22
 #: .\templates\account\email_change.html:30
+#. Translators: {% trans "Current email" %}
 msgid "Current email"
 msgstr "Текущий email"
 
 #: .\templates\account\email_change.html:32
+#. Translators: {% trans "Changing to" %}
 msgid "Changing to"
 msgstr "Изменение на"
 
 #: .\templates\account\email_change.html:36
+#. Translators: {% trans "Your email address is still pending verification." %}
 msgid "Your email address is still pending verification."
 msgstr "Ваш email адрес все еще ожидает подтверждения."
 
 #: .\templates\account\email_change.html:42
+#. Translators: {% trans "Cancel Change" %}
 msgid "Cancel Change"
 msgstr "Отменить изменение"
 
 #: .\templates\account\email_change.html:50
 #: .\templates\account\phone_change.html:33
+#. Translators: {% trans "Change to" %}
 msgid "Change to"
 msgstr "Изменить на"
 
 #: .\templates\account\email_change.html:56
+#. Translators: {% trans "Change Email" %}
 msgid "Change Email"
 msgstr "Изменить email"
 
 #: .\templates\account\email_confirm.html:7
 #: .\templates\account\email_confirm.html:11
+#. Translators: {% trans "Confirm Email Address" %}
 msgid "Confirm Email Address"
 msgstr "Подтвердить email"
 
 #: .\templates\account\email_confirm.html:17
 #, python-format
-msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
-"address for user %(user_display)s."
-msgstr ""
-"Пожалуйста, подтвердите, что <a href=\"mailto:%(email)s\">%(email)s</a> является email "
-"адресом пользователя %(user_display)s."
-
-#: .\templates\account\email_confirm.html:31
-#: .\templates\account\messages\email_confirmation_failed.txt:2
-#, python-format
-msgid ""
-"Unable to confirm %(email)s because it is already confirmed by a different "
-"account."
-msgstr ""
-"Не удается подтвердить %(email)s, так как он уже подтвержден другим аккаунтом."
-
-#: .\templates\account\email_confirm.html:37
-#, python-format
-msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
-msgstr ""
-"Ссылка для подтверждения email истекла или недействительна. Пожалуйста, "
-"<a href=\"%(email_url)s\">запросите новое подтверждение email</a>."
-
-#: .\templates\account\logout.html:4 .\templates\account\logout.html:7
-#: .\templates\account\logout.html:16
+#. Translators: {% trans "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email address for user %(user_display)s." %}
 msgid "Sign Out"
 msgstr "Выйти"
 
 #: .\templates\account\logout.html:8
+#. Translators: {% trans "Are you sure you want to sign out?" %}
 msgid "Are you sure you want to sign out?"
 msgstr "Вы уверены, что хотите выйти?"
 
@@ -458,6 +359,7 @@ msgid "Successfully signed in as %(name)s."
 msgstr "Успешный вход как %(name)s."
 
 #: .\templates\account\messages\logged_out.txt:2
+#. Translators: {% trans "You have signed out." %}
 msgid "You have signed out."
 msgstr "Вы вышли из системы."
 
@@ -467,10 +369,12 @@ msgid "A sign-in code has been sent to %(recipient)s."
 msgstr "Код входа отправлен на %(recipient)s."
 
 #: .\templates\account\messages\password_changed.txt:2
+#. Translators: {% trans "Password successfully changed." %}
 msgid "Password successfully changed."
 msgstr "Пароль успешно изменен."
 
 #: .\templates\account\messages\password_set.txt:2
+#. Translators: {% trans "Password successfully set." %}
 msgid "Password successfully set."
 msgstr "Пароль успешно установлен."
 
@@ -485,10 +389,12 @@ msgid "You have verified phone number %(phone)s."
 msgstr "Вы подтвердили номер телефона %(phone)s."
 
 #: .\templates\account\messages\primary_email_set.txt:2
+#. Translators: {% trans "Primary email address set." %}
 msgid "Primary email address set."
 msgstr "Основной email адрес установлен."
 
 #: .\templates\account\messages\unverified_primary_email.txt:2
+#. Translators: {% trans "Your primary email address must be verified." %}
 msgid "Your primary email address must be verified."
 msgstr "Ваш основной email адрес должен быть подтвержден."
 
@@ -500,103 +406,91 @@ msgstr "Ваш основной email адрес должен быть подт�
 #: .\templates\account\password_reset_from_key.html:31
 #: .\templates\account\password_reset_from_key_done.html:6
 #: .\templates\account\password_reset_from_key_done.html:10
+#. Translators: {% trans "Change Password" %}
 msgid "Change Password"
 msgstr "Изменить пароль"
 
 #: .\templates\account\password_change.html:23
+#. Translators: {% trans "Forgot Password?" %}
 msgid "Forgot Password?"
 msgstr "Забыли пароль?"
 
 #: .\templates\account\password_reset.html:15
-msgid ""
-"Forgotten your password? Enter your email address below, and we'll send you "
-"an email allowing you to reset it."
-msgstr ""
-"Забыли пароль? Введите ваш email адрес ниже, и мы отправим вам письмо для сброса пароля."
-
-#: .\templates\account\password_reset.html:27
+#. Translators: {% trans "Forgotten your password? Enter your email address below, and we'll send you an email allowing you to reset it." %}
 msgid "Reset My Password"
 msgstr "Сбросить пароль"
 
 #: .\templates\account\password_reset.html:32
+#. Translators: {% trans "Please contact us if you have any trouble resetting your password." %}
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr "Пожалуйста, свяжитесь с нами, если у вас возникли проблемы со сбросом пароля."
 
 #: .\templates\account\password_reset_done.html:17
-msgid ""
-"We have sent you an email. If you have not received it please check your "
-"spam folder. Otherwise contact us if you do not receive it in a few minutes."
-msgstr ""
-"Мы отправили вам письмо. Если вы его не получили, проверьте папку со спамом. "
-"Если письмо не придет через несколько минут, свяжитесь с нами."
-
-#: .\templates\account\password_reset_from_key.html:11
+#. Translators: {% trans "We have sent you an email. If you have not received it please check your spam folder. Otherwise contact us if you do not receive it in a few minutes." %}
 msgid "Bad Token"
 msgstr "Неверный токен"
 
 #: .\templates\account\password_reset_from_key.html:19
 #, python-format
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
-msgstr ""
-"Ссылка для сброса пароля недействительна, возможно, она уже была использована. "
-"Пожалуйста, запросите <a href=\"%(passwd_reset_url)s\">новый сброс пароля</a>."
-
-#: .\templates\account\password_reset_from_key_done.html:13
 msgid "Your password is now changed."
 msgstr "Ваш пароль успешно изменен."
 
 #: .\templates\account\password_set.html:6
 #: .\templates\account\password_set.html:10
 #: .\templates\account\password_set.html:22
+#. Translators: {% trans "Set Password" %}
 msgid "Set Password"
 msgstr "Установить пароль"
 
 #: .\templates\account\phone_change.html:6
 #: .\templates\account\phone_change.html:10
+#. Translators: {% trans "Change Phone" %}
 msgid "Change Phone"
 msgstr "Изменить телефон"
 
 #: .\templates\account\phone_change.html:19
+#. Translators: {% trans "Current phone" %}
 msgid "Current phone"
 msgstr "Текущий телефон"
 
 #: .\templates\account\phone_change.html:23
+#. Translators: {% trans "Your phone number is still pending verification." %}
 msgid "Your phone number is still pending verification."
 msgstr "Ваш номер телефона все еще ожидает подтверждения."
 
 #: .\templates\account\phone_change.html:39
 msgctxt "action"
-msgid "Change Phone"
-msgstr "Изменить телефон"
-
-#: .\templates\account\reauthenticate.html:9
+#. Translators: {% trans "Change Phone" %}
 msgid "Enter your password:"
 msgstr "Введите ваш пароль:"
 
 #: .\templates\account\request_login_code.html:10
+#. Translators: {% trans "Send me a sign-in code" %}
 msgid "Send me a sign-in code"
 msgstr "Отправить мне код входа"
 
 #: .\templates\account\request_login_code.html:13
+#. Translators: {% trans "You will receive a special code for a password-free sign-in." %}
 msgid "You will receive a special code for a password-free sign-in."
 msgstr "Вы получите специальный код для входа без пароля."
 
 #: .\templates\account\request_login_code.html:24
+#. Translators: {% trans "Request Code" %}
 msgid "Request Code"
 msgstr "Запросить код"
 
 #: .\templates\account\request_login_code.html:29
+#. Translators: {% trans "Other sign-in options" %}
 msgid "Other sign-in options"
 msgstr "Другие способы входа"
 
 #: .\templates\account\signup_by_passkey.html:5
+#. Translators: {% trans "Signup" %}
 msgid "Signup"
 msgstr "Регистрация"
 
 #: .\templates\account\signup_by_passkey.html:9
+#. Translators: {% trans "Passkey Sign Up" %}
 msgid "Passkey Sign Up"
 msgstr "Регистрация по ключу доступа"
 
@@ -606,23 +500,28 @@ msgid "Already have an account? Then please %(link)ssign in%(end_link)s."
 msgstr "Уже есть аккаунт? Тогда, пожалуйста, %(link)sвойдите%(end_link)s."
 
 #: .\templates\account\signup_by_passkey.html:30
+#. Translators: {% trans "Sign Up" %}
 msgid "Sign Up"
 msgstr "Зарегистрироваться"
 
 #: .\templates\account\signup_by_passkey.html:37
+#. Translators: {% trans "Other options" %}
 msgid "Other options"
 msgstr "Другие варианты"
 
 #: .\templates\account\signup_closed.html:6
 #: .\templates\account\signup_closed.html:10
+#. Translators: {% trans "Sign Up Closed" %}
 msgid "Sign Up Closed"
 msgstr "Регистрация закрыта"
 
 #: .\templates\account\signup_closed.html:13
+#. Translators: {% trans "We are sorry, but the sign up is currently closed." %}
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Мы сожалеем, но регистрация в настоящее время закрыта."
 
 #: .\templates\account\snippets\already_logged_in.html:8
+#. Translators: {% trans "Note" %}
 msgid "Note"
 msgstr "Примечание"
 
@@ -632,77 +531,31 @@ msgid "You are already logged in as %(user_display)s."
 msgstr "Вы уже вошли как %(user_display)s."
 
 #: .\templates\account\snippets\warn_no_email.html:4
+#. Translators: {% trans "Warning:" %}
 msgid "Warning:"
 msgstr "Предупреждение:"
 
 #: .\templates\account\snippets\warn_no_email.html:4
-msgid ""
-"You currently do not have any email address set up. You should really add an "
-"email address so you can receive notifications, reset your password, etc."
-msgstr ""
-"В настоящее время у вас не указан ни один email адрес. Настоятельно рекомендуем "
-"добавить email, чтобы получать уведомления, сбрасывать пароль и т.д."
-
-#: .\templates\account\verification_sent.html:6
-#: .\templates\account\verification_sent.html:10
-#: .\templates\account\verified_email_required.html:6
-#: .\templates\account\verified_email_required.html:10
+#. Translators: {% trans "You currently do not have any email address set up. You should really add an email address so you can receive notifications, reset your password, etc." %}
 msgid "Verify Your Email Address"
 msgstr "Подтвердите ваш email"
 
 #: .\templates\account\verification_sent.html:13
-msgid ""
-"We have sent an email to you for verification. Follow the link provided to "
-"finalize the signup process. If you do not see the verification email in "
-"your main inbox, check your spam folder. Please contact us if you do not "
-"receive the verification email within a few minutes."
-msgstr ""
-"Мы отправили вам письмо для подтверждения. Перейдите по ссылке в письме, чтобы "
-"завершить регистрацию. Если вы не видите письмо в основном ящике, проверьте "
-"папку со спамом. Если письмо не придет через несколько минут, свяжитесь с нами."
-
-#: .\templates\account\verified_email_required.html:14
-msgid ""
-"This part of the site requires us to verify that\n"
-"you are who you claim to be. For this purpose, we require that you\n"
-"verify ownership of your email address. "
-msgstr ""
-"Для доступа к этой части сайта необходимо подтвердить,\n"
-"что вы являетесь владельцем указанного email адреса."
-
-#: .\templates\account\verified_email_required.html:19
-msgid ""
-"We have sent an email to you for\n"
-"verification. Please click on the link inside that email. If you do not see "
-"the verification email in your main inbox, check your spam folder. "
-"Otherwise\n"
-"contact us if you do not receive it within a few minutes."
-msgstr ""
-"Мы отправили вам письмо для подтверждения.\n"
-"Пожалуйста, перейдите по ссылке в этом письме. Если вы не видите письмо\n"
-"в основном ящике, проверьте папку со спамом. Если письмо не придет\n"
-"через несколько минут, свяжитесь с нами."
-
-#: .\templates\account\verified_email_required.html:24
-#, python-format
-msgid ""
-"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
-"email address</a>."
-msgstr ""
-"<strong>Примечание:</strong> вы все еще можете <a href=\"%(email_url)s\">изменить ваш email адрес</a>."
-
-#: .\templates\base.html:174
+#. Translators: {% trans "We have sent an email to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification email in your main inbox, check your spam folder. Please contact us if you do not receive the verification email within a few minutes." %}
 msgid "About"
 msgstr "О нас"
 
 #: .\templates\base.html:175
+#. Translators: {% trans "Contact" %}
 msgid "Contact"
 msgstr "Контакты"
 
 #: .\templates\base.html:176
+#. Translators: {% trans "Help" %}
 msgid "Help"
 msgstr "Помощь"
 
 #: .\templates\base.html:177
+#. Translators: {% trans "FAQs" %}
 msgid "FAQs"
 msgstr "Часто задаваемые вопросы"

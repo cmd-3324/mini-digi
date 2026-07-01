@@ -9,7 +9,6 @@
             <a href="{% url 'cart:detail' %}" class="nav-item nav-link">{% trans "Shop Cart" %}</a>
             <a href="{% url 'orders:checkout' %}" class="nav-item nav-link">{% trans "Checkout" %}</a>
             <a href="{% url 'shop:contact' %}" class="nav-item nav-link">{% trans "Contact" %}</a>
-
         </div>
         <div class="col-lg-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
@@ -17,11 +16,11 @@
                 <span class="text-body mr-3">{{ user.username }}</span>
                 <a class="text-body mr-3" href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
                 {% else %}
-                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">{% trans "My Account"
-                    %}</button>
+                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">{% trans "My
+                    Account" %}</button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="{% url 'account_login' %}">{% trans "Sign in" %}</a>
-                    <a class="dropdown-item" href="{% url 'account_signup' %}">{% trans "Sign up" %}</a>
+                    <a class="dropdown-item" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+                    <a class="dropdown-item" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
                 </div>
                 {% endif %}
             </div>
@@ -29,7 +28,8 @@
                 <a href="{% url 'cart:detail' %}" class="btn px-0 ml-2">
                     <i class="fas fa-shopping-cart text-dark"></i>
                     {% if cart_item_count %}
-                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">{{ cart_item_count }}</span>
+                    <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">{{
+                        cart_item_count }}</span>
                     {% endif %}
                 </a>
             </div>
@@ -57,25 +57,27 @@
         </div>
         <div class="col-lg-4 col-6 text-right">
             <p class="m-0">{% trans "Customer Service" %}</p>
-            <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>{% trans "Categories" %}</h6>
+            <h5 class="m-0">+98 123 456 7890</h5>
         </div>
     </div>
 </div>
 <!-- Topbar End -->
 
-
 <!-- Navbar Start -->
 <div class="container-fluid bg-dark mb-30">
     <div class="row px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
-            <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
-                <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Categories</h6>
+            <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse"
+                href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
+                <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>{% trans "Categories" %}</h6>
                 <i class="fa fa-angle-down text-dark"></i>
             </a>
-            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light"
+                id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                 <div class="navbar-nav w-100">
                     {% for cat in categories %}
-                        <a href="{% url 'shop:product_list' %}?category={{ cat.slug }}" class="nav-item nav-link">{{ cat.name }}</a>
+                    <a href="{% url 'shop:product_list' %}?category={{ cat.slug }}" class="nav-item nav-link">{{
+                        cat.name }}</a>
                     {% endfor %}
                 </div>
             </nav>
@@ -91,14 +93,21 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="{% url 'shop:index' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
-                        <a href="{% url 'shop:product_list' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'product_list' %}active{% endif %}">Shop</a>
-                        <a href="{% url 'shop:contact' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+                        <a href="{% url 'shop:index' %}"
+                            class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">{%
+                            trans "Home" %}</a>
+                        <a href="{% url 'shop:product_list' %}"
+                            class="nav-item nav-link {% if request.resolver_match.url_name == 'product_list' %}active{% endif %}">{%
+                            trans "Shop" %}</a>
+                        <a href="{% url 'shop:contact' %}"
+                            class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{%
+                            trans "Contact" %}</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                         <a href="{% url 'cart:detail' %}" class="btn px-0">
                             <i class="fas fa-shopping-cart text-primary"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">
+                            <span class="badge text-secondary border border-secondary rounded-circle"
+                                style="padding-bottom: 2px;">
                                 {{ cart_item_count|default:0 }}
                             </span>
                         </a>
@@ -109,4 +118,3 @@
     </div>
 </div>
 <!-- Navbar End -->
- 

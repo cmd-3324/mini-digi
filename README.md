@@ -1,6 +1,4 @@
-Here's the README.md again:
 
----
 
 # Mini-Digi 🛒
 

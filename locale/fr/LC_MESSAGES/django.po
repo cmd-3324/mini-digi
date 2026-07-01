@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+﻿# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -20,68 +20,72 @@ msgstr ""
 
 #: .\templates\account\account_inactive.html:6
 #: .\templates\account\account_inactive.html:10
+#. Translators: {% trans "Account Inactive" %}
 msgid "Account Inactive"
 msgstr "Compte inactif"
 
 #: .\templates\account\account_inactive.html:13
+#. Translators: {% trans "This account is inactive." %}
 msgid "This account is inactive."
 msgstr "Ce compte est inactif."
 
 #: .\templates\account\base_confirm_code.html:28
 #, python-format
-msgid ""
-"We've sent a code to %(recipient)s. The code expires shortly, so please "
-"enter it soon."
-msgstr ""
-"Nous avons envoyé un code à %(recipient)s. Le code expire bientôt, veuillez le saisir rapidement."
-
-#: .\templates\account\base_confirm_code.html:40
-#: .\templates\account\email_confirm.html:25
-#: .\templates\account\reauthenticate.html:21
+#. Translators: {% trans "We've sent a code to %(recipient)s. The code expires shortly, so please enter it soon." %}
 msgid "Confirm"
 msgstr "Confirmer"
 
 #: .\templates\account\base_confirm_code.html:44
+#. Translators: {% trans "Request new code" %}
 msgid "Request new code"
 msgstr "Demander un nouveau code"
 
 #: .\templates\account\base_confirm_code.html:49
 #: .\templates\account\base_confirm_code.html:53
 #: .\templates\account\password_reset_from_key.html:34
+#. Translators: {% trans "Cancel" %}
 msgid "Cancel"
 msgstr "Annuler"
 
 #: .\templates\account\base_reauthenticate.html:6
 #: .\templates\account\base_reauthenticate.html:10
+#. Translators: {% trans "Confirm Access" %}
 msgid "Confirm Access"
 msgstr "Confirmer l'accès"
 
 #: .\templates\account\base_reauthenticate.html:13
+#. Translators: {% trans "Please reauthenticate to safeguard your account." %}
 msgid "Please reauthenticate to safeguard your account."
 msgstr "Veuillez vous réauthentifier pour protéger votre compte."
 
 #: .\templates\account\base_reauthenticate.html:20
+#. Translators: {% trans "Alternative options" %}
 msgid "Alternative options"
 msgstr "Options alternatives"
 
 #: .\templates\account\confirm_email_verification_code.html:8
+#. Translators: {% trans "Email Verification" %}
 msgid "Email Verification"
 msgstr "Vérification par e-mail"
 
 #: .\templates\account\confirm_email_verification_code.html:11
+#. Translators: {% trans "Enter Email Verification Code" %}
 msgid "Enter Email Verification Code"
 msgstr "Saisissez le code de vérification par e-mail"
 
 #: .\templates\account\confirm_email_verification_code.html:19
+#. Translators: {% trans "Use a different email address" %}
 msgid "Use a different email address"
 msgstr "Utiliser une autre adresse e-mail"
 
 #: .\templates\account\confirm_login_code.html:8
 #: .\templates\account\request_login_code.html:6
+#. Translators: {% trans "Sign In" %}
 msgid "Sign In"
 msgstr "Se connecter"
 
 #: .\templates\account\confirm_login_code.html:11
+#. Translators: {% trans "Enter Sign-In Code" %}
 msgid "Enter Sign-In Code"
 msgstr "Saisissez le code de connexion"
 
@@ -91,99 +95,88 @@ msgstr "Saisissez le code de connexion"
 #: .\templates\account\password_reset.html:9
 #: .\templates\account\password_reset_done.html:7
 #: .\templates\account\password_reset_done.html:11
+#. Translators: {% trans "Password Reset" %}
 msgid "Password Reset"
 msgstr "Réinitialisation du mot de passe"
 
 #: .\templates\account\confirm_password_reset_code.html:11
+#. Translators: {% trans "Enter Password Reset Code" %}
 msgid "Enter Password Reset Code"
 msgstr "Saisissez le code de réinitialisation du mot de passe"
 
 #: .\templates\account\confirm_phone_verification_code.html:8
+#. Translators: {% trans "Phone Verification" %}
 msgid "Phone Verification"
 msgstr "Vérification par téléphone"
 
 #: .\templates\account\confirm_phone_verification_code.html:11
+#. Translators: {% trans "Enter Phone Verification Code" %}
 msgid "Enter Phone Verification Code"
 msgstr "Saisissez le code de vérification par téléphone"
 
 #: .\templates\account\confirm_phone_verification_code.html:18
+#. Translators: {% trans "Use a different phone number" %}
 msgid "Use a different phone number"
 msgstr "Utiliser un autre numéro de téléphone"
 
 #: .\templates\account\email.html:5 .\templates\account\email.html:9
+#. Translators: {% trans "Email Addresses" %}
 msgid "Email Addresses"
 msgstr "Adresses e-mail"
 
 #: .\templates\account\email.html:13
+#. Translators: {% trans "The following email addresses are associated with your account:" %}
 msgid "The following email addresses are associated with your account:"
 msgstr "Les adresses e-mail suivantes sont associées à votre compte :"
 
 #: .\templates\account\email.html:26
+#. Translators: {% trans "Verified" %}
 msgid "Verified"
 msgstr "Vérifiée"
 
 #: .\templates\account\email.html:30
+#. Translators: {% trans "Unverified" %}
 msgid "Unverified"
 msgstr "Non vérifiée"
 
 #: .\templates\account\email.html:35
+#. Translators: {% trans "Primary" %}
 msgid "Primary"
 msgstr "Principale"
 
 #: .\templates\account\email.html:45
+#. Translators: {% trans "Make Primary" %}
 msgid "Make Primary"
 msgstr "Définir comme principale"
 
 #: .\templates\account\email.html:48 .\templates\account\email_change.html:38
 #: .\templates\account\phone_change.html:25
+#. Translators: {% trans "Re-send Verification" %}
 msgid "Re-send Verification"
 msgstr "Renvoyer la vérification"
 
 #: .\templates\account\email.html:51
+#. Translators: {% trans "Remove" %}
 msgid "Remove"
 msgstr "Supprimer"
 
 #: .\templates\account\email.html:60
+#. Translators: {% trans "Add Email Address" %}
 msgid "Add Email Address"
 msgstr "Ajouter une adresse e-mail"
 
 #: .\templates\account\email.html:71
+#. Translators: {% trans "Add Email" %}
 msgid "Add Email"
 msgstr "Ajouter un e-mail"
 
 #: .\templates\account\email.html:81
+#. Translators: {% trans "Do you really want to remove the selected email address?" %}
 msgid "Do you really want to remove the selected email address?"
 msgstr "Voulez-vous vraiment supprimer l'adresse e-mail sélectionnée ?"
 
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
-msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
-"account using email address:\n"
-"\n"
-"%(email)s\n"
-"\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
-"your account:\n"
-"\n"
-"%(password_reset_url)s"
-msgstr ""
-"Vous recevez cet e-mail parce que vous ou quelqu'un d'autre a essayé de créer\n"
-"un compte en utilisant l'adresse e-mail :\n"
-"\n"
-"%(email)s\n"
-"\n"
-"Cependant, un compte utilisant cette adresse e-mail existe déjà. Si vous\n"
-"l'aviez oublié, veuillez utiliser la procédure de mot de passe oublié pour\n"
-"récupérer votre compte :\n"
-"\n"
-"%(password_reset_url)s"
-
-#: .\templates\account\email\account_already_exists_subject.txt:3
 msgid "Account Already Exists"
 msgstr "Le compte existe déjà"
 
@@ -194,42 +187,11 @@ msgstr "Bonjour de la part de %(site_name)s !"
 
 #: .\templates\account\email\base_message.txt:5
 #, python-format
-msgid ""
-"Thank you for using %(site_name)s!\n"
-"%(site_domain)s"
-msgstr ""
-"Merci d'utiliser %(site_name)s !\n"
-"%(site_domain)s"
-
-#: .\templates\account\email\base_notification.txt:5
-msgid ""
-"You are receiving this mail because the following change was made to your "
-"account:"
-msgstr "Vous recevez cet e-mail car la modification suivante a été apportée à votre compte :"
-
-#: .\templates\account\email\base_notification.txt:10
-#, python-format
-msgid ""
-"If you do not recognize this change then please take proper security "
-"precautions immediately. The change to your account originates from:\n"
-"\n"
-"- IP address: %(ip)s\n"
-"- Browser: %(user_agent)s\n"
-"- Date: %(timestamp)s"
-msgstr ""
-"Si vous ne reconnaissez pas cette modification, veuillez prendre immédiatement\n"
-"les précautions de sécurité appropriées. La modification de votre compte provient de :\n"
-"\n"
-"- Adresse IP : %(ip)s\n"
-"- Navigateur : %(user_agent)s\n"
-"- Date : %(timestamp)s"
-
-#: .\templates\account\email\email_changed_message.txt:4
-#, python-format
 msgid "Your email has been changed from %(from_email)s to %(to_email)s."
 msgstr "Votre e-mail a été changé de %(from_email)s à %(to_email)s."
 
 #: .\templates\account\email\email_changed_subject.txt:3
+#. Translators: {% trans "Email Changed" %}
 msgid "Email Changed"
 msgstr "E-mail modifié"
 
@@ -238,30 +200,17 @@ msgid "Your email has been confirmed."
 msgstr "Votre e-mail a été confirmé."
 
 #: .\templates\account\email\email_confirm_subject.txt:3
+#. Translators: {% trans "Email Confirmation" %}
 msgid "Email Confirmation"
 msgstr "Confirmation par e-mail"
 
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
-msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s."
-msgstr ""
-"Vous recevez cet e-mail car l'utilisateur %(user_display)s a donné votre "
-"adresse e-mail pour s'inscrire sur %(site_domain)s."
-
-#: .\templates\account\email\email_confirmation_message.txt:7
-msgid ""
-"Your email verification code is listed below. Please enter it in your open "
-"browser window."
-msgstr "Votre code de vérification par e-mail est indiqué ci-dessous. Veuillez le saisir dans votre navigateur."
-
-#: .\templates\account\email\email_confirmation_message.txt:9
-#, python-format
 msgid "To confirm this is correct, go to %(activate_url)s"
 msgstr "Pour confirmer que c'est correct, rendez-vous sur %(activate_url)s"
 
 #: .\templates\account\email\email_confirmation_subject.txt:3
+#. Translators: {% trans "Please Confirm Your Email Address" %}
 msgid "Please Confirm Your Email Address"
 msgstr "Veuillez confirmer votre adresse e-mail"
 
@@ -271,22 +220,16 @@ msgid "Email address %(deleted_email)s has been removed from your account."
 msgstr "L'adresse e-mail %(deleted_email)s a été supprimée de votre compte."
 
 #: .\templates\account\email\email_deleted_subject.txt:3
+#. Translators: {% trans "Email Removed" %}
 msgid "Email Removed"
 msgstr "E-mail supprimé"
 
 #: .\templates\account\email\login_code_message.txt:5
-msgid ""
-"Your sign-in code is listed below. Please enter it in your open browser "
-"window."
-msgstr "Votre code de connexion est indiqué ci-dessous. Veuillez le saisir dans votre navigateur."
-
-#: .\templates\account\email\login_code_message.txt:9
-#: .\templates\account\email\password_reset_code_message.txt:9
-#: .\templates\account\email\unknown_account_message.txt:6
 msgid "This mail can be safely ignored if you did not initiate this action."
 msgstr "Cet e-mail peut être ignoré en toute sécurité si vous n'êtes pas à l'origine de cette action."
 
 #: .\templates\account\email\login_code_subject.txt:3
+#. Translators: {% trans "Sign-In Code" %}
 msgid "Sign-In Code"
 msgstr "Code de connexion"
 
@@ -295,37 +238,20 @@ msgid "Your password has been changed."
 msgstr "Votre mot de passe a été modifié."
 
 #: .\templates\account\email\password_changed_subject.txt:3
+#. Translators: {% trans "Password Changed" %}
 msgid "Password Changed"
 msgstr "Mot de passe modifié"
 
 #: .\templates\account\email\password_reset_code_message.txt:5
-msgid ""
-"Your password reset code is listed below. Please enter it in your open "
-"browser window."
-msgstr "Votre code de réinitialisation du mot de passe est indiqué ci-dessous. Veuillez le saisir dans votre navigateur."
-
-#: .\templates\account\email\password_reset_code_subject.txt:3
 msgid "Password Reset Code"
 msgstr "Code de réinitialisation du mot de passe"
 
 #: .\templates\account\email\password_reset_key_message.txt:4
-msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
-msgstr ""
-"Vous recevez cet e-mail parce que vous ou quelqu'un d'autre a demandé une\n"
-"réinitialisation du mot de passe pour votre compte utilisateur.\n"
-"Il peut être ignoré en toute sécurité si vous n'avez pas demandé de réinitialisation.\n"
-"Cliquez sur le lien ci-dessous pour réinitialiser votre mot de passe."
-
-#: .\templates\account\email\password_reset_key_message.txt:9
-#, python-format
 msgid "In case you forgot, your username is %(username)s."
 msgstr "Au cas où vous l'auriez oublié, votre nom d'utilisateur est %(username)s."
 
 #: .\templates\account\email\password_reset_key_subject.txt:3
+#. Translators: {% trans "Password Reset Email" %}
 msgid "Password Reset Email"
 msgstr "E-mail de réinitialisation du mot de passe"
 
@@ -338,97 +264,72 @@ msgid "Your password has been set."
 msgstr "Votre mot de passe a été défini."
 
 #: .\templates\account\email\password_set_subject.txt:3
+#. Translators: {% trans "Password Set" %}
 msgid "Password Set"
 msgstr "Mot de passe défini"
 
 #: .\templates\account\email\unknown_account_message.txt:4
 #, python-format
-msgid ""
-"You are receiving this email because you, or someone else, tried to access "
-"an account with email %(email)s. However, we do not have any record of such "
-"an account in our database."
-msgstr ""
-"Vous recevez cet e-mail parce que vous ou quelqu'un d'autre avez essayé d'accéder\n"
-"à un compte avec l'e-mail %(email)s. Cependant, nous n'avons aucune trace\n"
-"d'un tel compte dans notre base de données."
-
-#: .\templates\account\email\unknown_account_message.txt:8
 msgid "If it was you, you can sign up for an account using the link below."
 msgstr "Si c'était vous, vous pouvez créer un compte en utilisant le lien ci-dessous."
 
 #: .\templates\account\email\unknown_account_subject.txt:3
+#. Translators: {% trans "Unknown Account" %}
 msgid "Unknown Account"
 msgstr "Compte inconnu"
 
 #: .\templates\account\email_change.html:6
 #: .\templates\account\email_change.html:10
+#. Translators: {% trans "Email Address" %}
 msgid "Email Address"
 msgstr "Adresse e-mail"
 
 #: .\templates\account\email_change.html:22
 #: .\templates\account\email_change.html:30
+#. Translators: {% trans "Current email" %}
 msgid "Current email"
 msgstr "E-mail actuel"
 
 #: .\templates\account\email_change.html:32
+#. Translators: {% trans "Changing to" %}
 msgid "Changing to"
 msgstr "Changement vers"
 
 #: .\templates\account\email_change.html:36
+#. Translators: {% trans "Your email address is still pending verification." %}
 msgid "Your email address is still pending verification."
 msgstr "Votre adresse e-mail est en attente de vérification."
 
 #: .\templates\account\email_change.html:42
+#. Translators: {% trans "Cancel Change" %}
 msgid "Cancel Change"
 msgstr "Annuler le changement"
 
 #: .\templates\account\email_change.html:50
 #: .\templates\account\phone_change.html:33
+#. Translators: {% trans "Change to" %}
 msgid "Change to"
 msgstr "Changer en"
 
 #: .\templates\account\email_change.html:56
+#. Translators: {% trans "Change Email" %}
 msgid "Change Email"
 msgstr "Changer d'e-mail"
 
 #: .\templates\account\email_confirm.html:7
 #: .\templates\account\email_confirm.html:11
+#. Translators: {% trans "Confirm Email Address" %}
 msgid "Confirm Email Address"
 msgstr "Confirmer l'adresse e-mail"
 
 #: .\templates\account\email_confirm.html:17
 #, python-format
-msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
-"address for user %(user_display)s."
-msgstr ""
-"Veuillez confirmer que <a href=\"mailto:%(email)s\">%(email)s</a> est une adresse "
-"e-mail pour l'utilisateur %(user_display)s."
-
-#: .\templates\account\email_confirm.html:31
-#: .\templates\account\messages\email_confirmation_failed.txt:2
-#, python-format
-msgid ""
-"Unable to confirm %(email)s because it is already confirmed by a different "
-"account."
-msgstr ""
-"Impossible de confirmer %(email)s car il est déjà confirmé par un autre compte."
-
-#: .\templates\account\email_confirm.html:37
-#, python-format
-msgid ""
-"This email confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new email confirmation request</a>."
-msgstr ""
-"Ce lien de confirmation par e-mail a expiré ou est invalide. Veuillez "
-"<a href=\"%(email_url)s\">faire une nouvelle demande de confirmation par e-mail</a>."
-
-#: .\templates\account\logout.html:4 .\templates\account\logout.html:7
-#: .\templates\account\logout.html:16
+#. Translators: {% trans "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email address for user %(user_display)s." %}
 msgid "Sign Out"
 msgstr "Se déconnecter"
 
 #: .\templates\account\logout.html:8
+#. Translators: {% trans "Are you sure you want to sign out?" %}
 msgid "Are you sure you want to sign out?"
 msgstr "Êtes-vous sûr de vouloir vous déconnecter ?"
 
@@ -458,6 +359,7 @@ msgid "Successfully signed in as %(name)s."
 msgstr "Connecté avec succès en tant que %(name)s."
 
 #: .\templates\account\messages\logged_out.txt:2
+#. Translators: {% trans "You have signed out." %}
 msgid "You have signed out."
 msgstr "Vous êtes déconnecté."
 
@@ -467,10 +369,12 @@ msgid "A sign-in code has been sent to %(recipient)s."
 msgstr "Un code de connexion a été envoyé à %(recipient)s."
 
 #: .\templates\account\messages\password_changed.txt:2
+#. Translators: {% trans "Password successfully changed." %}
 msgid "Password successfully changed."
 msgstr "Mot de passe modifié avec succès."
 
 #: .\templates\account\messages\password_set.txt:2
+#. Translators: {% trans "Password successfully set." %}
 msgid "Password successfully set."
 msgstr "Mot de passe défini avec succès."
 
@@ -485,10 +389,12 @@ msgid "You have verified phone number %(phone)s."
 msgstr "Vous avez vérifié le numéro de téléphone %(phone)s."
 
 #: .\templates\account\messages\primary_email_set.txt:2
+#. Translators: {% trans "Primary email address set." %}
 msgid "Primary email address set."
 msgstr "Adresse e-mail principale définie."
 
 #: .\templates\account\messages\unverified_primary_email.txt:2
+#. Translators: {% trans "Your primary email address must be verified." %}
 msgid "Your primary email address must be verified."
 msgstr "Votre adresse e-mail principale doit être vérifiée."
 
@@ -500,105 +406,89 @@ msgstr "Votre adresse e-mail principale doit être vérifiée."
 #: .\templates\account\password_reset_from_key.html:31
 #: .\templates\account\password_reset_from_key_done.html:6
 #: .\templates\account\password_reset_from_key_done.html:10
+#. Translators: {% trans "Change Password" %}
 msgid "Change Password"
 msgstr "Changer le mot de passe"
 
 #: .\templates\account\password_change.html:23
+#. Translators: {% trans "Forgot Password?" %}
 msgid "Forgot Password?"
 msgstr "Mot de passe oublié ?"
 
 #: .\templates\account\password_reset.html:15
-msgid ""
-"Forgotten your password? Enter your email address below, and we'll send you "
-"an email allowing you to reset it."
-msgstr ""
-"Mot de passe oublié ? Saisissez votre adresse e-mail ci-dessous et nous vous "
-"enverrons un e-mail vous permettant de le réinitialiser."
-
-#: .\templates\account\password_reset.html:27
+#. Translators: {% trans "Forgotten your password? Enter your email address below, and we'll send you an email allowing you to reset it." %}
 msgid "Reset My Password"
 msgstr "Réinitialiser mon mot de passe"
 
 #: .\templates\account\password_reset.html:32
+#. Translators: {% trans "Please contact us if you have any trouble resetting your password." %}
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr "Veuillez nous contacter si vous rencontrez des difficultés pour réinitialiser votre mot de passe."
 
 #: .\templates\account\password_reset_done.html:17
-msgid ""
-"We have sent you an email. If you have not received it please check your "
-"spam folder. Otherwise contact us if you do not receive it in a few minutes."
-msgstr ""
-"Nous vous avons envoyé un e-mail. Si vous ne l'avez pas reçu, veuillez vérifier "
-"votre dossier de courriers indésirables. Sinon, contactez-nous si vous ne le "
-"recevez pas dans quelques minutes."
-
-#: .\templates\account\password_reset_from_key.html:11
+#. Translators: {% trans "We have sent you an email. If you have not received it please check your spam folder. Otherwise contact us if you do not receive it in a few minutes." %}
 msgid "Bad Token"
 msgstr "Jeton invalide"
 
 #: .\templates\account\password_reset_from_key.html:19
 #, python-format
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
-msgstr ""
-"Le lien de réinitialisation du mot de passe était invalide, peut-être parce qu'il "
-"a déjà été utilisé. Veuillez demander une <a href=\"%(passwd_reset_url)s\">nouvelle réinitialisation du mot de passe</a>."
-
-#: .\templates\account\password_reset_from_key_done.html:13
 msgid "Your password is now changed."
 msgstr "Votre mot de passe est maintenant modifié."
 
 #: .\templates\account\password_set.html:6
 #: .\templates\account\password_set.html:10
 #: .\templates\account\password_set.html:22
+#. Translators: {% trans "Set Password" %}
 msgid "Set Password"
 msgstr "Définir le mot de passe"
 
 #: .\templates\account\phone_change.html:6
 #: .\templates\account\phone_change.html:10
+#. Translators: {% trans "Change Phone" %}
 msgid "Change Phone"
 msgstr "Changer de téléphone"
 
 #: .\templates\account\phone_change.html:19
+#. Translators: {% trans "Current phone" %}
 msgid "Current phone"
 msgstr "Téléphone actuel"
 
 #: .\templates\account\phone_change.html:23
+#. Translators: {% trans "Your phone number is still pending verification." %}
 msgid "Your phone number is still pending verification."
 msgstr "Votre numéro de téléphone est en attente de vérification."
 
 #: .\templates\account\phone_change.html:39
-msgctxt "action"
-msgid "Change Phone"
-msgstr "Changer de téléphone"
-
-#: .\templates\account\reauthenticate.html:9
 msgid "Enter your password:"
 msgstr "Saisissez votre mot de passe :"
 
 #: .\templates\account\request_login_code.html:10
+#. Translators: {% trans "Send me a sign-in code" %}
 msgid "Send me a sign-in code"
 msgstr "Envoyez-moi un code de connexion"
 
 #: .\templates\account\request_login_code.html:13
+#. Translators: {% trans "You will receive a special code for a password-free sign-in." %}
 msgid "You will receive a special code for a password-free sign-in."
 msgstr "Vous recevrez un code spécial pour une connexion sans mot de passe."
 
 #: .\templates\account\request_login_code.html:24
+#. Translators: {% trans "Request Code" %}
 msgid "Request Code"
 msgstr "Demander le code"
 
 #: .\templates\account\request_login_code.html:29
+#. Translators: {% trans "Other sign-in options" %}
 msgid "Other sign-in options"
 msgstr "Autres options de connexion"
 
 #: .\templates\account\signup_by_passkey.html:5
+#. Translators: {% trans "Signup" %}
 msgid "Signup"
 msgstr "Inscription"
 
 #: .\templates\account\signup_by_passkey.html:9
+#. Translators: {% trans "Passkey Sign Up" %}
 msgid "Passkey Sign Up"
 msgstr "Inscription par clé d'accès"
 
@@ -608,23 +498,28 @@ msgid "Already have an account? Then please %(link)ssign in%(end_link)s."
 msgstr "Vous avez déjà un compte ? Veuillez alors %(link)svous connecter%(end_link)s."
 
 #: .\templates\account\signup_by_passkey.html:30
+#. Translators: {% trans "Sign Up" %}
 msgid "Sign Up"
 msgstr "S'inscrire"
 
 #: .\templates\account\signup_by_passkey.html:37
+#. Translators: {% trans "Other options" %}
 msgid "Other options"
 msgstr "Autres options"
 
 #: .\templates\account\signup_closed.html:6
 #: .\templates\account\signup_closed.html:10
+#. Translators: {% trans "Sign Up Closed" %}
 msgid "Sign Up Closed"
 msgstr "Inscription fermée"
 
 #: .\templates\account\signup_closed.html:13
+#. Translators: {% trans "We are sorry, but the sign up is currently closed." %}
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Nous sommes désolés, mais l'inscription est actuellement fermée."
 
 #: .\templates\account\snippets\already_logged_in.html:8
+#. Translators: {% trans "Note" %}
 msgid "Note"
 msgstr "Remarque"
 
@@ -634,80 +529,31 @@ msgid "You are already logged in as %(user_display)s."
 msgstr "Vous êtes déjà connecté en tant que %(user_display)s."
 
 #: .\templates\account\snippets\warn_no_email.html:4
+#. Translators: {% trans "Warning:" %}
 msgid "Warning:"
 msgstr "Avertissement :"
 
 #: .\templates\account\snippets\warn_no_email.html:4
-msgid ""
-"You currently do not have any email address set up. You should really add an "
-"email address so you can receive notifications, reset your password, etc."
-msgstr ""
-"Vous n'avez actuellement aucune adresse e-mail configurée. Vous devriez vraiment "
-"ajouter une adresse e-mail pour recevoir des notifications, réinitialiser votre mot de passe, etc."
-
-#: .\templates\account\verification_sent.html:6
-#: .\templates\account\verification_sent.html:10
-#: .\templates\account\verified_email_required.html:6
-#: .\templates\account\verified_email_required.html:10
+#. Translators: {% trans "You currently do not have any email address set up. You should really add an email address so you can receive notifications, reset your password, etc." %}
 msgid "Verify Your Email Address"
 msgstr "Vérifiez votre adresse e-mail"
 
 #: .\templates\account\verification_sent.html:13
-msgid ""
-"We have sent an email to you for verification. Follow the link provided to "
-"finalize the signup process. If you do not see the verification email in "
-"your main inbox, check your spam folder. Please contact us if you do not "
-"receive the verification email within a few minutes."
-msgstr ""
-"Nous vous avons envoyé un e-mail pour vérification. Suivez le lien fourni pour "
-"finaliser le processus d'inscription. Si vous ne voyez pas l'e-mail de vérification "
-"dans votre boîte de réception principale, vérifiez votre dossier de courriers indésirables. "
-"Veuillez nous contacter si vous ne recevez pas l'e-mail de vérification dans quelques minutes."
-
-#: .\templates\account\verified_email_required.html:14
-msgid ""
-"This part of the site requires us to verify that\n"
-"you are who you claim to be. For this purpose, we require that you\n"
-"verify ownership of your email address. "
-msgstr ""
-"Cette partie du site nécessite que nous vérifions que\n"
-"vous êtes bien celui que vous prétendez être. Pour cela, nous exigeons que vous\n"
-"vérifiiez la propriété de votre adresse e-mail."
-
-#: .\templates\account\verified_email_required.html:19
-msgid ""
-"We have sent an email to you for\n"
-"verification. Please click on the link inside that email. If you do not see "
-"the verification email in your main inbox, check your spam folder. "
-"Otherwise\n"
-"contact us if you do not receive it within a few minutes."
-msgstr ""
-"Nous vous avons envoyé un e-mail pour\n"
-"vérification. Veuillez cliquer sur le lien dans cet e-mail. Si vous ne voyez pas\n"
-"l'e-mail de vérification dans votre boîte de réception principale, vérifiez votre dossier\n"
-"de courriers indésirables. Sinon, contactez-nous si vous ne le recevez pas\n"
-"dans quelques minutes."
-
-#: .\templates\account\verified_email_required.html:24
-#, python-format
-msgid ""
-"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
-"email address</a>."
-msgstr ""
-"<strong>Remarque :</strong> vous pouvez toujours <a href=\"%(email_url)s\">changer votre adresse e-mail</a>."
-
-#: .\templates\base.html:174
+#. Translators: {% trans "We have sent an email to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification email in your main inbox, check your spam folder. Please contact us if you do not receive the verification email within a few minutes." %}
 msgid "About"
 msgstr "À propos"
 
 #: .\templates\base.html:175
+#. Translators: {% trans "Contact" %}
 msgid "Contact"
 msgstr "Contact"
 
 #: .\templates\base.html:176
+#. Translators: {% trans "Help" %}
 msgid "Help"
 msgstr "Aide"
 
 #: .\templates\base.html:177
+#. Translators: {% trans "FAQs" %}
 msgid "FAQs"
 msgstr "FAQ"
