@@ -1,8 +1,12 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y gettext && rm -rf /var/lib/apt/lists/*
+# Use German mirror (faster than default)
+RUN sed -i 's/deb.debian.org/ftp.de.debian.org/g' /etc/apt/sources.list.d/debian.sources && \
+    apt-get update && \
+    apt-get install -y gettext && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
 

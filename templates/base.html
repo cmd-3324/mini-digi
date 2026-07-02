@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <title>{% trans "MultiShop" %} - {% block title %}{% trans "Online Shop" %}{% endblock %}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="{% trans 'Free HTML Templates' %}" name="keywords">
+    <meta content="{% trans 'Free HTML Templates' %}" name="description">
 
     <!-- Favicon — place any .ico in static/img/favicon.ico -->
     <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
@@ -401,7 +401,7 @@
                         {% get_current_language as CURRENT_LANG %}
                         {% get_available_languages as LANGUAGES %}
                         {% for code, name in LANGUAGES %}
-                        <option value="{{ code }}" {% if code = CURRENT_LANG %}selected{% endif %}>{{ name }}</option>
+                        <option value="{{ code }}" {% if code == CURRENT_LANG %}selected{% endif %}>{{ name }}</option>
                         {% endfor %}
                     </select>
                 </form>
@@ -507,7 +507,7 @@
                                     style="padding-bottom:2px;">{% if cart_count %}{{ cart_count }}{% else %}0{% endif
                                     %}</span>
                             </a>
-                            <button class="theme-toggle ml-2" id="themeToggle" aria-label="Toggle theme">
+                            <button class="theme-toggle ml-2" id="themeToggle" aria-label="{% trans 'Toggle theme' %}">
                                 <i class="fas fa-moon" id="themeIcon"></i>
                             </button>
                         </div>
@@ -540,6 +540,10 @@
     <script>new WOW().init();</script>
 
     <!-- Search Autocomplete -->
+    {% trans "Searching..." as tr_searching %}
+    {% trans "No products found" as tr_no_products %}
+    {% trans "Search unavailable. Please try again." as tr_search_unavail %}
+    {% trans "See all results for" as tr_see_all %}
     <script>
         (function ($) {
             'use strict';
@@ -587,7 +591,7 @@
                     }
 
                     $dropdown.html(
-                        '<div class="loading"><span class="spinner"></span>Searching...</div>'
+                        '<div class="loading"><span class="spinner"></span>' + tr_searching + '</div>'
                     ).addClass('active');
 
                     $.getJSON(url, { q: query }, function (data) {
@@ -596,7 +600,7 @@
 
                         if (results.length === 0) {
                             $dropdown.html(
-                                '<div class="no-results">No products found for "' + escapeHtml(query) + '"</div>'
+                                '<div class="no-results">' + tr_no_products + ' "' + escapeHtml(query) + '"</div>'
                             );
                             return;
                         }
@@ -621,13 +625,13 @@
 
                         html += '<div class="result-item search-all" data-url="' + escapeHtml($form.attr('action')) + '?q=' + encodeURIComponent(query) + '">'
                             + '<div class="info">'
-                            + '<div class="name" style="text-align:center;"><i class="fa fa-search"></i> See all results for "' + escapeHtml(query) + '"</div>'
+                            + '<div class="name" style="text-align:center;"><i class="fa fa-search"></i> ' + tr_see_all + ' "' + escapeHtml(query) + '"</div>'
                             + '</div>'
                             + '</div>';
 
                         $dropdown.html(html);
                     }).fail(function () {
-                        $dropdown.html('<div class="no-results">Search unavailable. Please try again.</div>');
+                        $dropdown.html('<div class="no-results">' + tr_search_unavail + '</div>');
                     });
                 }
 
