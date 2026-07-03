@@ -15,5 +15,5 @@ urlpatterns += i18n_patterns(
     path('orders/', include('orders.urls')),
    
     path('accounts/', include('allauth.urls')),
-    prefix_default_language=False,
+    prefix_default_language=True,
 )

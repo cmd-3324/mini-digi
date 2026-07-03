@@ -77,7 +77,8 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 'cart.context_processors.cart_item_count',
-                
+                'shop.context_processors.categories',
+                'shop.context_processors.clean_next_path',
             ],
         },
     },
@@ -130,6 +131,7 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+NEWSLETTER_FROM_EMAIL = "programmers378@gmail.com"
 ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"

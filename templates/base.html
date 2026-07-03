@@ -355,35 +355,159 @@
         [data-theme="dark"] .search-dropdown::-webkit-scrollbar-thumb {
             background: #555;
         }
+
+        /* ===== Badge (favorites / cart count) ===== */
+        .navbar .btn .badge {
+            position: relative;
+            top: -8px;
+            left: -6px;
+            font-size: 11px;
+            padding: 2px 5px !important;
+            min-width: 18px;
+            line-height: 1;
+        }
+
+        [data-theme="dark"] .navbar .btn .badge {
+            color: #e0e0e0 !important;
+            border-color: #e0e0e0 !important;
+        }
+
+        /* ===== Dark theme — topbar elements ===== */
+        [data-theme="dark"] .topbar-select {
+            color: #e0e0e0;
+            border-color: #555;
+            background: #2a2a2a;
+        }
+
+        [data-theme="dark"] .topbar-select option {
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .btn-light {
+            background-color: #2a2a2a !important;
+            border-color: #444 !important;
+            color: #e0e0e0 !important;
+        }
+
+        [data-theme="dark"] .btn-outline-primary {
+            border-color: #FFD333 !important;
+            color: #FFD333 !important;
+        }
+
+        [data-theme="dark"] .btn-outline-primary:hover {
+            background-color: #FFD333 !important;
+            color: #3D464D !important;
+        }
+
+        [data-theme="dark"] .dropdown-menu {
+            background-color: #1e1e1e !important;
+            border-color: #333 !important;
+        }
+
+        [data-theme="dark"] .dropdown-item {
+            color: #e0e0e0 !important;
+        }
+
+        [data-theme="dark"] .dropdown-item:hover {
+            background-color: #2a2a2a !important;
+        }
+
+        /* ===== Newsletter Toast ===== */
+        .newsletter-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 99999;
+            background: #28a745;
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            min-width: 300px;
+            transform: translateX(120%);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .newsletter-toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .newsletter-toast .toast-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .newsletter-toast .toast-msg {
+            flex: 1;
+        }
+
+        .newsletter-toast .toast-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 0 0 10px 10px;
+            width: 100%;
+            transition: width 4.8s linear;
+        }
+
+        .newsletter-toast.show .toast-bar {
+            width: 0%;
+        }
+
+        .newsletter-toast .toast-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0 0 0 8px;
+            opacity: 0.8;
+            flex-shrink: 0;
+        }
+
+        .newsletter-toast .toast-close:hover {
+            opacity: 1;
+        }
+
+        [data-theme="dark"] .newsletter-toast {
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Topbar Start -->
-    <div class="container-fluid">
-        <div class="row bg-secondary py-2 px-xl-5">
-            <div class="col-lg-6 d-none d-lg-block">
-                <a class="text-body mr-3" href="#">{% trans "About" %}</a>
-                <a class="text-body mr-3" href="{% url 'shop:contact' %}">{% trans "Contact" %}</a>
-                <a class="text-body mr-3" href="#">{% trans "Help" %}</a>
-                <a class="text-body" href="#">{% trans "FAQs" %}</a>
-            </div>
+<div class="container-fluid">
+    <div class="row bg-secondary py-2 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block">
+            <a class="text-body mr-3" href="#">{% trans "About" %}</a>
+            <a class="text-body mr-3" href="{% url 'shop:contact' %}">{% trans "Contact" %}</a>
+            <a class="text-body mr-3" href="#">{% trans "Help" %}</a>
+            <a class="text-body" href="#">{% trans "FAQs" %}</a>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
                 {% if user.is_authenticated %}
                 <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">{{
-                        user.username }}</button>
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">{{ user.username }}</button>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
                     </div>
                 </div>
                 {% else %}
                 <a href="{% url 'account_login' %}" class="btn btn-sm btn-primary mr-1">{% trans "Sign In" %}</a>
-                <a href="{% url 'account_signup' %}" class="btn btn-sm btn-outline-primary mr-2">{% trans "Sign Up"
-                    %}</a>
+                <a href="{% url 'account_signup' %}" class="btn btn-sm btn-outline-primary mr-2">{% trans "Sign Up" %}</a>
                 {% endif %}
                 <!-- Currency -->
 
@@ -396,7 +520,7 @@
                 <!-- Language -->
                 <form action="{% url 'set_language' %}" method="post" class="d-inline">
                     {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <input type="hidden" name="next" value="{{ clean_next }}">
                     <select name="language" class="topbar-select" onchange="this.form.submit()">
                         {% get_current_language as CURRENT_LANG %}
                         {% get_available_languages as LANGUAGES %}
@@ -416,36 +540,36 @@
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Logo + Search row -->
-    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
-        <div class="col-lg-4">
-            <a href="{% url 'shop:index' %}" class="text-decoration-none">
-                <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
-                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
-            </a>
-        </div>
-        <div class="col-lg-4 col-6 text-left">
-            <form action="{% url 'shop:product_list' %}" method="get" id="searchForm">
-                <div class="input-group search-wrapper">
-                    <input type="text" name="q" class="form-control" placeholder="{% trans 'Search for products' %}"
-                        id="searchInput" autocomplete="off"
-                        data-autocomplete-url="{% url 'shop:product_search_autocomplete' %}">
-                    <div class="input-group-append">
-                        <span class="input-group-text bg-transparent text-primary">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </div>
-                    <div id="searchResults" class="search-dropdown"></div>
+<!-- Logo + Search row -->
+<div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+    <div class="col-lg-4">
+        <a href="{% url 'shop:index' %}" class="text-decoration-none">
+            <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
+            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+        </a>
+    </div>
+    <div class="col-lg-4 col-6 text-left">
+        <form action="{% url 'shop:product_list' %}" method="get" id="searchForm">
+            <div class="input-group search-wrapper">
+                <input type="text" name="q" class="form-control" placeholder="{% trans 'Search for products' %}"
+                    id="searchInput" autocomplete="off"
+                    data-autocomplete-url="{% url 'shop:product_search_autocomplete' %}">
+                <div class="input-group-append">
+                    <span class="input-group-text bg-transparent text-primary">
+                        <i class="fa fa-search"></i>
+                    </span>
                 </div>
-            </form>
-        </div>
-        <div class="col-lg-4 col-6 text-right">
-            <p class="m-0">{% trans "Customer Service" %}</p>
-            <h5 class="m-0">+98 903-196-0860</h5>
-        </div>
+                <div id="searchResults" class="search-dropdown"></div>
+            </div>
+        </form>
     </div>
+    <div class="col-lg-4 col-6 text-right">
+        <p class="m-0">{% trans "Customer Service" %}</p>
+        <h5 class="m-0">+98 903-196-0860</h5>
     </div>
+</div>
     <!-- Topbar End -->
 
     <!-- Navbar Start -->
@@ -461,8 +585,7 @@
                     id="navbar-vertical" style="width:calc(100% - 30px);z-index:999;">
                     <div class="navbar-nav w-100">
                         {% for cat in categories %}
-                        <a href="{% url 'shop:product_list' %}?category={{ cat.slug }}" class="nav-item nav-link">{{
-                            cat.name }}</a>
+                        <a href="{% url 'shop:product_list' %}?category={{ cat.slug }}" class="nav-item nav-link">{{ cat.translated_name }}</a>
                         {% endfor %}
                     </div>
                 </nav>
@@ -479,33 +602,27 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="{% url 'shop:index' %}"
-                                class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">{%
-                                trans "Home" %}</a>
+                                class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">{% trans "Home" %}</a>
                             <a href="{% url 'shop:product_list' %}"
-                                class="nav-item nav-link {% if request.resolver_match.url_name == 'product_list' %}active{% endif %}">{%
-                                trans "Shop" %}</a>
+                                class="nav-item nav-link {% if request.resolver_match.url_name == 'product_list' %}active{% endif %}">{% trans "Shop" %}</a>
                             <a href="{% url 'cart:detail' %}"
-                                class="nav-item nav-link {% if request.resolver_match.url_name == 'detail' %}active{% endif %}">{%
-                                trans "Shop Cart" %}</a>
+                                class="nav-item nav-link {% if request.resolver_match.url_name == 'detail' %}active{% endif %}">{% trans "Shop Cart" %}</a>
                             <a href="{% url 'orders:checkout' %}"
-                                class="nav-item nav-link {% if request.resolver_match.url_name == 'checkout' %}active{% endif %}">{%
-                                trans "Checkout" %}</a>
+                                class="nav-item nav-link {% if request.resolver_match.url_name == 'checkout' %}active{% endif %}">{% trans "Checkout" %}</a>
                             <a href="{% url 'shop:contact' %}"
-                                class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{%
-                                trans "Contact" %}</a>
+                                class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{% trans "Contact" %}</a>
                         </div>
                         <!-- Wishlist + Cart icons — matching original exactly -->
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-flex align-items-center">
-                            <a href="#" class="btn px-0 mr-3">
-                                <i class="fas fa-heart text-primary"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle"
-                                    style="padding-bottom:2px;">0</span>
+                            <a href="#" class="btn px-0 mr-3 position-relative">
+                                <i class="far fa-heart text-primary"></i>
+                                <span class="badge badge-pill badge-danger position-absolute"
+                                    style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">0</span>
                             </a>
-                            <a href="{% url 'cart:detail' %}" class="btn px-0 mr-3">
+                            <a href="{% url 'cart:detail' %}" class="btn px-0 mr-3 position-relative">
                                 <i class="fas fa-shopping-cart text-primary"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle"
-                                    style="padding-bottom:2px;">{% if cart_count %}{{ cart_count }}{% else %}0{% endif
-                                    %}</span>
+                                <span class="badge badge-pill badge-danger position-absolute"
+                                    style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">{% if cart_count %}{{ cart_count }}{% else %}0{% endif %}</span>
                             </a>
                             <button class="theme-toggle ml-2" id="themeToggle" aria-label="{% trans 'Toggle theme' %}">
                                 <i class="fas fa-moon" id="themeIcon"></i>
@@ -591,7 +708,7 @@
                     }
 
                     $dropdown.html(
-                        '<div class="loading"><span class="spinner"></span>' + tr_searching + '</div>'
+                        '<div class="loading"><span class="spinner"></span>{{ tr_searching|escapejs }}</div>'
                     ).addClass('active');
 
                     $.getJSON(url, { q: query }, function (data) {
@@ -600,7 +717,7 @@
 
                         if (results.length === 0) {
                             $dropdown.html(
-                                '<div class="no-results">' + tr_no_products + ' "' + escapeHtml(query) + '"</div>'
+                                '<div class="no-results">{{ tr_no_products|escapejs }} "' + escapeHtml(query) + '"</div>'
                             );
                             return;
                         }
@@ -625,13 +742,13 @@
 
                         html += '<div class="result-item search-all" data-url="' + escapeHtml($form.attr('action')) + '?q=' + encodeURIComponent(query) + '">'
                             + '<div class="info">'
-                            + '<div class="name" style="text-align:center;"><i class="fa fa-search"></i> ' + tr_see_all + ' "' + escapeHtml(query) + '"</div>'
+                            + '<div class="name" style="text-align:center;"><i class="fa fa-search"></i> {{ tr_see_all|escapejs }} "' + escapeHtml(query) + '"</div>'
                             + '</div>'
                             + '</div>';
 
                         $dropdown.html(html);
                     }).fail(function () {
-                        $dropdown.html('<div class="no-results">' + tr_search_unavail + '</div>');
+                        $dropdown.html('<div class="no-results">{{ tr_search_unavail|escapejs }}</div>');
                     });
                 }
 

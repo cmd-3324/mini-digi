@@ -22,8 +22,7 @@
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
                                 <h1 class="display-4 text-white mb-3 animated fadeInDown">{% trans "Men Fashion" %}</h1>
-                                <p class="mx-md-5 px-5 animated bounceIn">{% trans "Lorem rebum magna amet lorem magna
-                                    erat diam stet." %}</p>
+                                <p class="mx-md-5 px-5 animated bounceIn">{% trans "Lorem rebum magna amet lorem magna erat diam stet." %}</p>
                                 <a class="btn btn-outline-light py-2 px-4 mt-3 animated fadeInUp"
                                     href="{% url 'shop:product_list' %}">{% trans "Shop Now" %}</a>
                             </div>
@@ -34,10 +33,8 @@
                             style="object-fit: cover;">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animated fadeInDown">{% trans "Women Fashion" %}
-                                </h1>
-                                <p class="mx-md-5 px-5 animated bounceIn">{% trans "Lorem rebum magna amet lorem magna
-                                    erat diam stet." %}</p>
+                                <h1 class="display-4 text-white mb-3 animated fadeInDown">{% trans "Women Fashion" %}</h1>
+                                <p class="mx-md-5 px-5 animated bounceIn">{% trans "Lorem rebum magna amet lorem magna erat diam stet." %}</p>
                                 <a class="btn btn-outline-light py-2 px-4 mt-3 animated fadeInUp"
                                     href="{% url 'shop:product_list' %}">{% trans "Shop Now" %}</a>
                             </div>
@@ -48,10 +45,8 @@
                             style="object-fit: cover;">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animated fadeInDown">{% trans "Kids Fashion" %}
-                                </h1>
-                                <p class="mx-md-5 px-5 animated bounceIn">{% trans "Lorem rebum magna amet lorem magna
-                                    erat diam stet." %}</p>
+                                <h1 class="display-4 text-white mb-3 animated fadeInDown">{% trans "Kids Fashion" %}</h1>
+                                <p class="mx-md-5 px-5 animated bounceIn">{% trans "Lorem rebum magna amet lorem magna erat diam stet." %}</p>
                                 <a class="btn btn-outline-light py-2 px-4 mt-3 animated fadeInUp"
                                     href="{% url 'shop:product_list' %}">{% trans "Shop Now" %}</a>
                             </div>
@@ -113,8 +108,7 @@
 
 <!-- Categories Start -->
 <div class="container-fluid pt-5">
-    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans
-            "Categories" %}</span></h2>
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Categories" %}</span></h2>
     <div class="row px-xl-5 pb-3">
         {% for category in categories %}
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
@@ -122,13 +116,13 @@
                 <div class="cat-item d-flex align-items-center mb-4">
                     <div class="overflow-hidden" style="width: 100px; height: 100px;">
                         {% if category.image %}
-                        <img class="img-fluid" src="{{ category.image.url }}" alt="{{ category.name }}">
+                        <img class="img-fluid" src="{{ category.image.url }}" alt="{{ category.translated_name }}">
                         {% else %}
-                        <img class="img-fluid" src="{% static 'img/cat-1.jpg' %}" alt="{{ category.name }}">
+                        <img class="img-fluid" src="{% static 'img/cat-1.jpg' %}" alt="{{ category.translated_name }}">
                         {% endif %}
                     </div>
                     <div class="flex-fill pl-3">
-                        <h6>{{ category.name }}</h6>
+                        <h6>{{ category.translated_name }}</h6>
                         <small class="text-body">{{ category.products.count }} {% trans "Products" %}</small>
                     </div>
                 </div>
@@ -140,8 +134,7 @@
 
 <!-- Featured Products Start -->
 <div class="container-fluid pt-5 pb-3">
-    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans
-            "Featured Products" %}</span></h2>
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Featured Products" %}</span></h2>
     <div class="row px-xl-5">
         {% for product in products %}
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
@@ -181,8 +174,7 @@
 
 <!-- Recent Products Start -->
 <div class="container-fluid pt-5 pb-3">
-    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans
-            "Recent Products" %}</span></h2>
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Recent Products" %}</span></h2>
     <div class="row px-xl-5">
         {% for product in products %}
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">

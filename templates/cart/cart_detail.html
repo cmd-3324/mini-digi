@@ -35,9 +35,9 @@
                     <tr>
                         <td class="align-middle">
                             {% if item.product.image %}
-                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 50px;">
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.translated_name }}" style="width: 50px;">
                             {% endif %}
-                            {{ item.product.name }}
+                            {{ item.product.translated_name }}
                         </td>
                         <td class="align-middle">{{ item.product.price|floatformat:0 }} T</td>
                         <td class="align-middle">
@@ -70,11 +70,9 @@
                     <tr>
                         <td colspan="5" class="text-center py-4 text-muted">
                             {% if not user.is_authenticated %}
-                            {% trans "Please" %} <a href="{% url 'account_login' %}">{% trans "sign in" %}</a> {% trans
-                            "to view your cart." %}
+                            {% trans "Please" %} <a href="{% url 'account_login' %}">{% trans "sign in" %}</a> {% trans "to view your cart." %}
                             {% else %}
-                            {% trans "Your cart is empty." %} <a href="{% url 'shop:product_list' %}">{% trans "Continue
-                                shopping" %}</a>.
+                            {% trans "Your cart is empty." %} <a href="{% url 'shop:product_list' %}">{% trans "Continue shopping" %}</a>.
                             {% endif %}
                         </td>
                     </tr>
@@ -110,8 +108,7 @@
                         <h5 class="font-weight-bold">{% trans "Total" %}</h5>
                         <h5 class="font-weight-bold">{{ total|floatformat:0 }} T</h5>
                     </div>
-                    <a href="{% url 'orders:checkout' %}" class="btn btn-block btn-primary my-3 py-3">{% trans "Proceed
-                        To Checkout" %}</a>
+                    <a href="{% url 'orders:checkout' %}" class="btn btn-block btn-primary my-3 py-3">{% trans "Proceed To Checkout" %}</a>
                 </div>
             </div>
         </div>

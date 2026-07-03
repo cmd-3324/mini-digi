@@ -22,8 +22,7 @@
                     <h4 class="font-weight-semi-bold m-0">{% trans "Sign Up" %}</h4>
                 </div>
                 <div class="card-body">
-                    <p>{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans "Sign in"
-                            %}</a>.</p>
+                    <p>{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans "Sign in" %}</a>.</p>
                     <form method="post" action="{% url 'account_signup' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
@@ -31,8 +30,7 @@
                     </form>
                 </div>
                 <div class="card-footer border-secondary bg-transparent text-center">
-                    <p class="m-0">{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans
-                            "Sign In" %}</a></p>
+                    <p class="m-0">{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans "Sign In" %}</a></p>
                 </div>
             </div>
         </div>

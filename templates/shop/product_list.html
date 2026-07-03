@@ -25,8 +25,7 @@
                 <form method="get">
                     {% if q %}<input type="hidden" name="q" value="{{ q }}">{% endif %}
                     <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
-                        <input type="radio" class="custom-control-input" id="price-all" name="price" value="" {% if not
-                            request.GET.price %}checked{% endif %} onchange="this.form.submit()">
+                            <input type="radio" class="custom-control-input" id="price-all" name="price" value="" {% if not request.GET.price %}checked{% endif %} onchange="this.form.submit()">
                         <label class="custom-control-label" for="price-all">{% trans "All Price" %}</label>
                         <span class="badge border font-weight-normal">1000</span>
                     </div>
@@ -128,18 +127,14 @@
                             </div>
                         </form>
                         <div class="dropdown ml-4">
-                            <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">{% trans
-                                "Sorting" %}</button>
+                            <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">{% trans "Sorting" %}</button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}sort=latest">{% trans
-                                    "Latest" %}</a>
-                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}sort=popular">{% trans
-                                    "Popularity" %}</a>
+                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}sort=latest">{% trans "Latest" %}</a>
+                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}sort=popular">{% trans "Popularity" %}</a>
                             </div>
                         </div>
                         <div class="dropdown ml-2">
-                            <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">{% trans
-                                "Showing" %}</button>
+                            <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">{% trans "Showing" %}</button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}per_page=10">10</a>
                                 <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}per_page=20">20</a>
@@ -159,9 +154,7 @@
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center mb-3">
                             {% if products.has_previous %}
-                            <li class="page-item"><a class="page-link"
-                                    href="?page={{ products.previous_page_number }}{% if q %}&q={{ q }}{% endif %}">{%
-                                    trans "Previous" %}</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}{% if q %}&q={{ q }}{% endif %}">{% trans "Previous" %}</a></li>
                             {% endif %}
                             {% for num in products.paginator.page_range %}
                             <li class="page-item {% if products.number == num %}active{% endif %}">
@@ -169,9 +162,7 @@
                             </li>
                             {% endfor %}
                             {% if products.has_next %}
-                            <li class="page-item"><a class="page-link"
-                                    href="?page={{ products.next_page_number }}{% if q %}&q={{ q }}{% endif %}">{% trans
-                                    "Next" %}</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}{% if q %}&q={{ q }}{% endif %}">{% trans "Next" %}</a></li>
                             {% endif %}
                         </ul>
                     </nav>

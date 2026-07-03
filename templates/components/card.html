@@ -3,9 +3,9 @@
 <div class="product-item bg-light mb-4">
     <div class="product-img position-relative overflow-hidden">
         {% if product.image %}
-            <img class="img-fluid w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
+            <img class="img-fluid w-100" src="{{ product.image.url }}" alt="{{ product.translated_name }}">
         {% else %}
-            <img class="img-fluid w-100" src="{% static 'img/product-1.jpg' %}" alt="{{ product.name }}">
+            <img class="img-fluid w-100" src="{% static 'img/product-1.jpg' %}" alt="{{ product.translated_name }}">
         {% endif %}
         <div class="product-action">
             <a class="btn btn-outline-dark btn-square" href="{% url 'shop:product_detail' product.pk %}"><i class="fa fa-search"></i></a>
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="text-center py-4">
-        <a class="h6 text-decoration-none text-truncate" href="{% url 'shop:product_detail' product.pk %}">{{ product.name }}</a>
+        <a class="h6 text-decoration-none text-truncate" href="{% url 'shop:product_detail' product.pk %}">{{ product.translated_name }}</a>
         <div class="d-flex align-items-center justify-content-center mt-2">
             <h5>{{ product.price|floatformat:0 }} T</h5>
         </div>

@@ -1,5 +1,6 @@
 from django.urls import path
 from shop.views import products
+from shop.views import newsletter
 
 app_name = "shop"
 
@@ -9,5 +10,6 @@ urlpatterns = [
     path("shop/<int:pk>/", products.product_detail, name="product_detail"),
     path("contact/", products.contact, name="contact"),
     path("search/autocomplete/", products.product_search_autocomplete, name="product_search_autocomplete"),
+    path("newsletter/subscribe/", newsletter.subscribe, name="newsletter_subscribe"),
 ]
  

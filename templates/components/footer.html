@@ -1,5 +1,4 @@
 {% load static %}
-{% load tz %}
 {% load i18n %}
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-light mt-4 pt-5">
@@ -25,47 +24,37 @@
                 <div class="col-md-4 mb-5">
                     <h5 class="font-weight-bold text-primary mb-4">{% trans "Quick Shop" %}</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="{% url 'shop:index' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Home" %}</a>
-                        <a class="text-light mb-2" href="{% url 'shop:product_list' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Our Shop" %}</a>
-                        <a class="text-light mb-2" href="{% url 'shop:product_list' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Shop Detail" %}</a>
-                        <a class="text-light mb-2" href="{% url 'cart:detail' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Shopping Cart" %}</a>
-                        <a class="text-light mb-2" href="{% url 'orders:checkout' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Checkout" %}</a>
-                        <a class="text-light" href="{% url 'shop:contact' %}"><i class="fa fa-angle-right mr-2"></i>{%
-                            trans "Contact Us" %}</a>
+                        <a class="text-light mb-2" href="{% url 'shop:index' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Home" %}</a>
+                        <a class="text-light mb-2" href="{% url 'shop:product_list' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Our Shop" %}</a>
+                        <a class="text-light mb-2" href="{% url 'shop:product_list' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Shop Detail" %}</a>
+                        <a class="text-light mb-2" href="{% url 'cart:detail' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Shopping Cart" %}</a>
+                        <a class="text-light mb-2" href="{% url 'orders:checkout' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Checkout" %}</a>
+                        <a class="text-light" href="{% url 'shop:contact' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Contact Us" %}</a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <h5 class="font-weight-bold text-primary mb-4">{% trans "My Account" %}</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="{% url 'shop:index' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Home" %}</a>
-                        <a class="text-light mb-2" href="{% url 'shop:product_list' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Our Shop" %}</a>
-                        <a class="text-light mb-2" href="{% url 'shop:product_list' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Shop Detail" %}</a>
-                        <a class="text-light mb-2" href="{% url 'cart:detail' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Shopping Cart" %}</a>
-                        <a class="text-light mb-2" href="{% url 'orders:checkout' %}"><i
-                                class="fa fa-angle-right mr-2"></i>{% trans "Checkout" %}</a>
-                        <a class="text-light" href="{% url 'shop:contact' %}"><i class="fa fa-angle-right mr-2"></i>{%
-                            trans "Contact Us" %}</a>
+                        <a class="text-light mb-2" href="{% url 'shop:index' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Home" %}</a>
+                        <a class="text-light mb-2" href="{% url 'shop:product_list' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Our Shop" %}</a>
+                        <a class="text-light mb-2" href="{% url 'shop:product_list' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Shop Detail" %}</a>
+                        <a class="text-light mb-2" href="{% url 'cart:detail' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Shopping Cart" %}</a>
+                        <a class="text-light mb-2" href="{% url 'orders:checkout' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Checkout" %}</a>
+                        <a class="text-light" href="{% url 'shop:contact' %}"><i class="fa fa-angle-right mr-2"></i>{% trans "Contact Us" %}</a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <h5 class="font-weight-bold text-primary mb-4">{% trans "Newsletter" %}</h5>
                     <p>{% trans "Subscribe to get the latest deals and offers." %}</p>
-                    <form action="">
+                    <form id="newsletterForm" action="{% url 'shop:newsletter_subscribe' %}" method="post">
+                        {% csrf_token %}
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="{% trans 'Your Email Address' %}">
+                            <input type="email" name="email" class="form-control" placeholder="{% trans 'Your Email Address' %}" required>
                             <div class="input-group-append">
-                                <button class="btn btn-primary">{% trans "Sign Up" %}</button>
+                                <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
                             </div>
                         </div>
+                        <div id="newsletterError" class="text-warning mt-2" style="display:none;font-size:13px;"></div>
                     </form>
                     <h5 class="font-weight-bold text-primary mt-4 mb-3">{% trans "Follow Us" %}</h5>
                     <div class="d-flex justify-content-start">
@@ -89,4 +78,72 @@
         </div>
     </div>
 </div>
+
+<div class="newsletter-toast" id="newsletterToast">
+    <span class="toast-icon">&#10003;</span>
+    <span class="toast-msg" id="toastMsg"></span>
+    <button class="toast-close" id="toastClose">&times;</button>
+    <div class="toast-bar" id="toastBar"></div>
+</div>
+
+<script>
+    (function () {
+        var form = document.getElementById('newsletterForm');
+        var toast = document.getElementById('newsletterToast');
+        var toastMsg = document.getElementById('toastMsg');
+        var toastBar = document.getElementById('toastBar');
+        var toastClose = document.getElementById('toastClose');
+        var errorDiv = document.getElementById('newsletterError');
+        var dismissTimer, barTimer;
+
+        function showToast(msg) {
+            toastMsg.textContent = msg;
+            toast.classList.add('show');
+            toastBar.style.transition = 'none';
+            toastBar.style.width = '100%';
+            void toast.offsetHeight;
+            toastBar.style.transition = 'width 4.8s linear';
+            toastBar.style.width = '0%';
+            if (dismissTimer) clearTimeout(dismissTimer);
+            dismissTimer = setTimeout(function () {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+
+        function hideToast() {
+            toast.classList.remove('show');
+            if (dismissTimer) clearTimeout(dismissTimer);
+        }
+
+        toastClose.addEventListener('click', hideToast);
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            errorDiv.style.display = 'none';
+            var email = form.querySelector('input[name="email"]').value.trim();
+            if (!email) return;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action, true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestHeader('X-CSRFToken', form.querySelector('input[name="csrfmiddlewaretoken"]').value);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function () {
+                var data = JSON.parse(xhr.responseText);
+                if (data.ok) {
+                    showToast(data.message);
+                    form.querySelector('input[name="email"]').value = '';
+                } else {
+                    errorDiv.textContent = data.error;
+                    errorDiv.style.display = 'block';
+                }
+            };
+            xhr.onerror = function () {
+                errorDiv.textContent = '{% trans "Network error. Please try again." %}';
+                errorDiv.style.display = 'block';
+            };
+            xhr.send('email=' + encodeURIComponent(email));
+        });
+    })();
+</script>
 <!-- Footer End -->
