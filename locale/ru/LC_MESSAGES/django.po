@@ -1209,3 +1209,39 @@ msgstr "Поиск по названию"
 #: .\templates\shop\product_list.html:156
 msgid "No products found."
 msgstr "Товары не найдены."
+
+#: shop\views\newsletter.py:11
+msgid "Only POST allowed"
+msgstr "Разрешен только POST"
+
+#: shop\views\newsletter.py:18
+msgid "Invalid email address"
+msgstr "Неверный адрес электронной почты"
+
+#: shop\views\newsletter.py:21
+msgid "You are already subscribed!"
+msgstr "Вы уже подписаны!"
+
+#: shop\views\newsletter.py:27
+msgid "Welcome to MiniDigi Newsletter!"
+msgstr "Добро пожаловать в рассылку MiniDigi!"
+
+#: shop\views\newsletter.py:28
+msgid ""
+"Hi there,\n\nThank you for subscribing to our newsletter!\n\nBest regards,"
+"\nMiniDigi Team"
+msgstr ""
+"Здравствуйте,\n\nСпасибо за подписку на нашу рассылку!\n\nС уважением,"
+"\nКоманда MiniDigi"
+
+#: shop\views\newsletter.py:36
+msgid "Your email is subscribed!"
+msgstr "Ваш адрес электронной почты подписан!"
+
+#: shop\views\chat.py:32
+msgid "No messages provided."
+msgstr "Сообщения не предоставлены."
+
+#: shop\views\chat.py:52
+msgid "Invalid JSON."
+msgstr "Неверный JSON."

@@ -1,62 +1,211 @@
 mini-digi/
 ├── manage.py
 ├── requirements.txt
-├──migrations/pychach  - __init__.py - 001_inital.py 
-├── mini_digi/                          # Main Django settings
+├── .env
+├── .gitignore
+├── Dockerfile
+├── docker-compose.yml
+├── README.md
+├── LICENSE
+├── HOW_TO_INTEGRATE.md
+├── data_backup.json
+├── myphrases.json
+├── test.py
+├── mini_digi/
 │   ├── __init__.py
+│   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
-│   ├── asgi.py
-    ├──views.py
-    ├──views/products.py
-│   └── wsgi.py
-├── apps which ae in same level of manage.py
-│   ├── shop/                        # Shop app (products, categories)
-│   │   ├── migrations/ init.py - 001 inital.py - 0002 prodct img - cateogryimg.py
-│   │   ├── templates/shop/
-│   │   │   ├── index.html
-│   │   │   ├── product_list.html
-│   │   │   ├── product_detail.html
-│   │   │   └── contact.html
-│   │   ├── models.py
-│   │   ├── views.py
-│   │   ├── urls.py
-│   │   └── admin.py
-        management/commands/seed_products.py init.py - pychach
-│   ├── cart/                        # Shopping cart app
-│   │   ├── migrations/
-│   │   ├── templates/cart/
-│   │   │   └── detail.html
-│   │   ├── models.py
-│   │   ├── views.py
-│   │   ├── urls.py
-│   │   └── context_processors.py    # For cart_item_count
-│   ├── orders/                      # Orders app
-│   │   ├── migrations/
-│   │   ├── templates/orders/
-│   │   │   └── checkout.html
-│   │   ├── models.py
-│   │   ├── views.py
-│   │   └── urls.py
-│   ├── accounts/                    # User authentication
-│   │   ├── migrations/
-│   │   ├── templates/accounts/
-│   │   ├── models.py
-│   │   └── views.py
-│   └── core/                        # Shared utilities
-│       ├── context_processors.py
-│       └── utils.py
+│   ├── views.py
+│   ├── wsgi.py
+│   └── views/
+│       └── products.py
+├── migrations/
+│   ├── __init__.py
+│   └── 0001_initial.py
+├── shop/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── context_processors.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── management/
+│   │   └── commands/
+│   │       └── seed_products.py
+│   ├── migrations/
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_product_image.py
+│   │   ├── 0003_category_image.py
+│   │   ├── 0004_product_available.py
+│   │   └── 0005_newsletter_category_name_fr_category_name_ru_and_more.py
+│   ├── models/
+│   │   ├── cart_models.py
+│   │   ├── category.py
+│   │   ├── newsletter.py
+│   │   └── product.py
+│   └── views/
+│       ├── auth.py
+│       ├── chat.py
+│       ├── newsletter.py
+│       └── products.py
+├── cart/
+│   ├── __init__.py
+│   ├── context_processors.py
+│   ├── models.py
+│   ├── urls.py
+│   ├── views.py
+│   └── migrations/
+│       └── 0001_initial.py
+├── orders/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── urls.py
+│   ├── views.py
+│   └── migrations/
+│       └── 0001_initial.py
+├── support/
+│   ├── __init__.py
+│   ├── urls.py
+│   └── views.py
+├── files/
+│   └── STATIC_SETUP.ps1
+├── scripts/
+│   ├── check_translations.py
+│   ├── fix_po_headers.py
+│   ├── update_translations.py
+│   └── update_translations2.py
+├── locale/
+│   ├── fr/
+│   │   └── LC_MESSAGES/
+│   │       ├── django.po
+│   │       └── django.mo
+│   └── ru/
+│       └── LC_MESSAGES/
+│           ├── django.po
+│           └── django.mo
 ├── static/
 │   ├── css/
+│   │   └── style.min.css
 │   ├── js/
-│   └── img/
+│   │   ├── chatbot-widget.js
+│   │   └── main.js
+│   ├── img/
+│   │   ├── about.jpg
+│   │   ├── carousel-1.jpg
+│   │   ├── carousel-2.jpg
+│   │   ├── carousel-3.jpg
+│   │   ├── cat-1.jpg
+│   │   ├── cat-2.jpg
+│   │   ├── cat-3.jpg
+│   │   ├── cat-4.jpg
+│   │   ├── favicon.png
+│   │   ├── offer-1.jpg
+│   │   ├── offer-2.jpg
+│   │   ├── payments.png
+│   │   ├── product-1.jpg
+│   │   ├── product-2.jpg
+│   │   ├── product-3.jpg
+│   │   ├── product-4.jpg
+│   │   ├── product-5.jpg
+│   │   ├── product-6.jpg
+│   │   ├── product-7.jpg
+│   │   ├── product-8.jpg
+│   │   ├── product-9.jpg
+│   │   ├── testimonial-1.jpg
+│   │   ├── testimonial-2.jpg
+│   │   ├── testimonial-3.jpg
+│   │   ├── testimonial-4.jpg
+│   │   ├── user.jpg
+│   │   ├── vendor-1.jpg
+│   │   ├── vendor-2.jpg
+│   │   ├── vendor-3.jpg
+│   │   ├── vendor-4.jpg
+│   │   ├── vendor-5.jpg
+│   │   ├── vendor-6.jpg
+│   │   ├── vendor-7.jpg
+│   │   └── vendor-8.jpg
+│   └── fonts/
+│       └── (4 .woff font files)
+├── media/
+│   ├── categories/
+│   │   ├── cat-1.jpg
+│   │   ├── cat-2.jpg
+│   │   ├── cat-3.jpg
+│   │   └── cat-4.jpg
+│   └── products/
+│       ├── about.jpg
+│       ├── carousel-1.jpg
+│       ├── carousel-2.jpg
+│       ├── payments.png
+│       ├── product-1.jpg
+│       ├── product-2.jpg
+│       ├── product-3.jpg
+│       ├── product-3_cC54kxt.jpg
+│       ├── product-4.jpg
+│       ├── product-5.jpg
+│       ├── product-6.jpg
+│       ├── product-7.jpg
+│       ├── product-8.jpg
+│       ├── product-9.jpg
+│       ├── testimonial-2.jpg
+│       └── vendor-3.jpg
 ├── templates/
 │   ├── base.html
-│   ├── includes/
-│   │   ├── navbar.html              # From your file
-│   │   ├── footer.html              # From your file
-│   │   └── product_card.html        # From your file (card.html)
-│   └── 404.html
-└── media/                           # User uploads (product images)
-    └── products/imges of it 
-    ├──categories/imgs of it  
+│   ├── account/
+│   │   ├── account_inactive.html
+│   │   ├── base_confirm_code.html
+│   │   ├── base_entrance.html
+│   │   ├── base_manage.html
+│   │   ├── base_manage_email.html
+│   │   ├── base_manage_password.html
+│   │   ├── base_manage_phone.html
+│   │   ├── base_reauthenticate.html
+│   │   ├── confirm_email_verification_code.html
+│   │   ├── confirm_login_code.html
+│   │   ├── confirm_password_reset_code.html
+│   │   ├── confirm_phone_verification_code.html
+│   │   ├── email.html
+│   │   ├── email_change.html
+│   │   ├── email_confirm.html
+│   │   ├── login.html
+│   │   ├── logout.html
+│   │   ├── password_change.html
+│   │   ├── password_reset.html
+│   │   ├── password_reset_done.html
+│   │   ├── password_reset_from_key.html
+│   │   ├── password_reset_from_key_done.html
+│   │   ├── password_set.html
+│   │   ├── phone_change.html
+│   │   ├── reauthenticate.html
+│   │   ├── request_login_code.html
+│   │   ├── signup.html
+│   │   ├── signup_by_passkey.html
+│   │   ├── signup_closed.html
+│   │   ├── verification_sent.html
+│   │   ├── verified_email_required.html
+│   │   ├── email/
+│   │   │   └── (28 .txt email templates)
+│   │   ├── messages/
+│   │   │   └── (14 .txt message templates)
+│   │   └── snippets/
+│   │       ├── already_logged_in.html
+│   │       └── warn_no_email.html
+│   ├── cart/
+│   │   └── cart_detail.html
+│   ├── components/
+│   │   ├── card.html
+│   │   ├── chatbot.html
+│   │   ├── footer.html
+│   │   └── navbar.html
+│   ├── orders/
+│   │   ├── checkout.html
+│   │   └── confirmation.html
+│   ├── partials/
+│   │   ├── head.html
+│   │   └── scripts.html
+│   └── shop/
+│       ├── contact.html
+│       ├── index.html
+│       ├── product_detail.html
+│       └── product_list.html

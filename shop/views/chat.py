@@ -6,6 +6,7 @@ import json
 from openai import OpenAI
 from django.conf import settings
 from django.http import JsonResponse
+from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 
 client = OpenAI(
@@ -29,7 +30,7 @@ def chat_view(request):
         session_id = body.get("session_id", "")
 
         if not messages:
-            return JsonResponse({"error": "No messages provided."}, status=400)
+            return JsonResponse({"error": _("No messages provided.")}, status=400)
 
         # OpenAI/OpenRouter format needs system as first message in the list
         full_messages = [{"role": "system", "content": system}] + messages
@@ -49,6 +50,6 @@ def chat_view(request):
         return JsonResponse({"reply": reply, "session_id": session_id})
 
     except json.JSONDecodeError:
-        return JsonResponse({"error": "Invalid JSON."}, status=400)
+        return JsonResponse({"error": _("Invalid JSON.")}, status=400)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=502)
