@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Processing Payment" %} - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <div class="card border-0 shadow-sm mx-auto" style="max-width:480px;">
+        <div class="card-body p-5">
+            <div class="spinner-border text-primary mb-4" role="status" style="width:4rem;height:4rem;">
+                <span class="sr-only">{% trans "Processing..." %}</span>
+            </div>
+            <h4 class="mb-2">{% trans "Processing Payment" %}</h4>
+            <p class="text-muted">{% trans "Please wait while we process your payment..." %}</p>
+            <div class="progress mt-4" style="height:6px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                     role="progressbar" style="width:100%"></div>
+            </div>
+            <p class="text-muted mt-3 mb-0" style="font-size:13px;">
+                {% trans "Order" %} #{{ order.pk }} &middot; {{ order.total_price|floatformat:0 }} T
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+setTimeout(function() {
+    window.location.href = '{% url "dashboard:payment_return" order.pk %}?status=success';
+}, 2500);
+</script>
+{% endblock %}

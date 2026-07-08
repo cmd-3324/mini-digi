@@ -1,0 +1,1546 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-04 13:39+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\shop\views\chat.py:22
+msgid "No messages provided."
+msgstr "Keine Nachrichten übermittelt."
+
+#: .\shop\views\chat.py:45
+msgid "Invalid JSON."
+msgstr "Ungültiges JSON."
+
+#: .\shop\views\newsletter.py:12
+msgid "Only POST allowed"
+msgstr "Nur POST erlaubt"
+
+#: .\shop\views\newsletter.py:19
+msgid "Invalid email address"
+msgstr "Ungültige E-Mail-Adresse"
+
+#: .\shop\views\newsletter.py:22
+msgid "You are already subscribed!"
+msgstr "Sie sind bereits abonniert!"
+
+#: .\shop\views\newsletter.py:28
+msgid "Welcome to MiniDigi Newsletter!"
+msgstr "Willkommen beim MiniDigi Newsletter!"
+
+#: .\shop\views\newsletter.py:29
+msgid ""
+"Hi there,\n"
+"\n"
+"Thank you for subscribing to our newsletter!\n"
+"\n"
+"Best regards,\n"
+"MiniDigi Team"
+msgstr ""
+"Hallo,\n"
+"\n"
+"Vielen Dank für Ihr Abonnement unseres Newsletters!\n"
+"\n"
+"Mit freundlichen Grüßen,\n"
+"MiniDigi-Team"
+
+#: .\shop\views\newsletter.py:37
+msgid "Your email is subscribed!"
+msgstr "Ihre E-Mail ist abonniert!"
+
+#: .\shop\views\products.py:102
+msgid "Black"
+msgstr "Schwarz"
+
+#: .\shop\views\products.py:103
+msgid "White"
+msgstr "Weiß"
+
+#: .\shop\views\products.py:104
+msgid "Red"
+msgstr "Rot"
+
+#: .\shop\views\products.py:105
+msgid "Blue"
+msgstr "Blau"
+
+#: .\shop\views\products.py:106
+msgid "Green"
+msgstr "Grün"
+
+#: .\templates\account\account_inactive.html:7
+#: .\templates\account\account_inactive.html:11
+msgid "Account Inactive"
+msgstr "Konto inaktiv"
+
+#: .\templates\account\account_inactive.html:14
+msgid "This account is inactive."
+msgstr "Dieses Konto ist inaktiv."
+
+#: .\templates\account\base_confirm_code.html:29
+#, python-format
+msgid ""
+"We've sent a code to %(recipient)s. The code expires shortly, so please "
+"enter it soon."
+msgstr ""
+"Wir haben einen Code an %(recipient)s gesendet. Der Code läuft in Kürze ab, "
+"bitte geben Sie ihn bald ein."
+
+#: .\templates\account\base_confirm_code.html:41
+#: .\templates\account\email_confirm.html:25
+#: .\templates\account\reauthenticate.html:21
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#: .\templates\account\base_confirm_code.html:45
+msgid "Request new code"
+msgstr "Neuen Code anfordern"
+
+#: .\templates\account\base_confirm_code.html:50
+#: .\templates\account\base_confirm_code.html:54
+#: .\templates\account\base_entrance.html:13
+#: .\templates\account\password_reset_from_key.html:34
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: .\templates\account\base_confirm_code.html:91
+msgid "Change"
+msgstr "Ändern"
+
+#: .\templates\account\base_entrance.html:7
+#: .\templates\account\base_entrance.html:11
+#: .\templates\components\navbar.html:17
+msgid "Logout"
+msgstr "Abmelden"
+
+#: .\templates\account\base_entrance.html:8
+msgid "Are you sure you want to log out?"
+msgstr "Sind Sie sicher, dass Sie sich abmelden möchten?"
+
+#: .\templates\account\base_reauthenticate.html:6
+#: .\templates\account\base_reauthenticate.html:10
+msgid "Confirm Access"
+msgstr "Zugriff bestätigen"
+
+#: .\templates\account\base_reauthenticate.html:13
+msgid "Please reauthenticate to safeguard your account."
+msgstr "Bitte reauthentifizieren Sie sich, um Ihr Konto zu schützen."
+
+#: .\templates\account\base_reauthenticate.html:20
+msgid "Alternative options"
+msgstr "Alternative Optionen"
+
+#: .\templates\account\confirm_email_verification_code.html:8
+msgid "Email Verification"
+msgstr "E-Mail-Verifizierung"
+
+msgid "Enter Email Verification Code"
+msgstr "E-Mail-Verifizierungscode eingeben"
+
+#: .\templates\account\confirm_email_verification_code.html:19
+msgid "Use a different email address"
+msgstr "Andere E-Mail-Adresse verwenden"
+
+#: .\templates\account\confirm_login_code.html:8
+#: .\templates\account\login.html:4 .\templates\account\login.html:12
+#: .\templates\account\login.html:22 .\templates\account\login.html:46
+#: .\templates\account\request_login_code.html:6
+#: .\templates\account\signup.html:33 .\templates\base.html:732
+#: .\templates\components\navbar.html:21
+msgid "Sign In"
+msgstr "Anmelden"
+
+#: .\templates\account\confirm_login_code.html:11
+msgid "Enter Sign-In Code"
+msgstr "Anmeldecode eingeben"
+
+#: .\templates\account\confirm_password_reset_code.html:8
+#: .\templates\account\email\password_reset_subject.txt:3
+#: .\templates\account\password_reset.html:5
+#: .\templates\account\password_reset.html:9
+#: .\templates\account\password_reset_done.html:7
+#: .\templates\account\password_reset_done.html:11
+msgid "Password Reset"
+msgstr "Passwort zurücksetzen"
+
+#: .\templates\account\confirm_password_reset_code.html:11
+msgid "Enter Password Reset Code"
+msgstr "Code zum Zurücksetzen des Passworts eingeben"
+
+#: .\templates\account\confirm_phone_verification_code.html:8
+msgid "Phone Verification"
+msgstr "Telefonverifizierung"
+
+#: .\templates\account\confirm_phone_verification_code.html:11
+msgid "Enter Phone Verification Code"
+msgstr "Telefon-Verifizierungscode eingeben"
+
+#: .\templates\account\confirm_phone_verification_code.html:18
+msgid "Use a different phone number"
+msgstr "Andere Telefonnummer verwenden"
+
+#: .\templates\account\email.html:5 .\templates\account\email.html:9
+msgid "Email Addresses"
+msgstr "E-Mail-Adressen"
+
+#: .\templates\account\email.html:13
+msgid "The following email addresses are associated with your account:"
+msgstr "Die folgenden E-Mail-Adressen sind mit Ihrem Konto verknüpft:"
+
+#: .\templates\account\email.html:26
+msgid "Verified"
+msgstr "Verifiziert"
+
+#: .\templates\account\email.html:30
+msgid "Unverified"
+msgstr "Nicht verifiziert"
+
+#: .\templates\account\email.html:35
+msgid "Primary"
+msgstr "Primär"
+
+#: .\templates\account\email.html:45
+msgid "Make Primary"
+msgstr "Als primär festlegen"
+
+#: .\templates\account\email.html:48 .\templates\account\email_change.html:38
+#: .\templates\account\phone_change.html:25
+msgid "Re-send Verification"
+msgstr "Verifizierung erneut senden"
+
+#: .\templates\account\email.html:51 .\templates\cart\cart_detail.html:29
+msgid "Remove"
+msgstr "Entfernen"
+
+#: .\templates\account\email.html:60
+msgid "Add Email Address"
+msgstr "E-Mail-Adresse hinzufügen"
+
+#: .\templates\account\email.html:71
+msgid "Add Email"
+msgstr "E-Mail hinzufügen"
+
+#: .\templates\account\email.html:81
+msgid "Do you really want to remove the selected email address?"
+msgstr "Möchten Sie die ausgewählte E-Mail-Adresse wirklich entfernen?"
+
+#: .\templates\account\email\account_already_exists_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you or someone else tried to signup for "
+"an\n"
+"account using email address:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"However, an account using that email address already exists.  In case you "
+"have\n"
+"forgotten about this, please use the password forgotten procedure to "
+"recover\n"
+"your account:\n"
+"\n"
+"%(password_reset_url)s"
+msgstr ""
+"Sie erhalten diese E-Mail, weil Sie oder jemand anderes versucht hat, ein\n"
+"Konto mit der folgenden E-Mail-Adresse zu registrieren:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"Es existiert jedoch bereits ein Konto mit dieser E-Mail-Adresse. Falls Sie\n"
+"dies vergessen haben, nutzen Sie bitte die Funktion \"Passwort vergessen\", "
+"um\n"
+"Ihr Konto wiederherzustellen:\n"
+"\n"
+"%(password_reset_url)s"
+
+#: .\templates\account\email\account_already_exists_subject.txt:3
+msgid "Account Already Exists"
+msgstr "Konto besteht bereits"
+
+#: .\templates\account\email\base_message.txt:1
+#, python-format
+msgid "Hello from %(site_name)s!"
+msgstr "Hallo von %(site_name)s!"
+
+#: .\templates\account\email\base_message.txt:5
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Vielen Dank, dass Sie %(site_name)s nutzen!\n"
+"%(site_domain)s"
+
+#: .\templates\account\email\base_notification.txt:5
+msgid ""
+"You are receiving this mail because the following change was made to your "
+"account:"
+msgstr ""
+"Sie erhalten diese E-Mail, weil folgende Änderung an Ihrem Konto vorgenommen "
+"wurde:"
+
+#: .\templates\account\email\base_notification.txt:10
+#, python-format
+msgid ""
+"If you do not recognize this change then please take proper security "
+"precautions immediately. The change to your account originates from:\n"
+"\n"
+"- IP address: %(ip)s\n"
+"- Browser: %(user_agent)s\n"
+"- Date: %(timestamp)s"
+msgstr ""
+"Wenn Sie diese Änderung nicht erkennen, ergreifen Sie bitte sofort "
+"geeignete Sicherheitsmaßnahmen. Die Änderung an Ihrem Konto stammt von:\n"
+"\n"
+"- IP-Adresse: %(ip)s\n"
+"- Browser: %(user_agent)s\n"
+"- Datum: %(timestamp)s"
+
+#: .\templates\account\email\email_changed_message.txt:4
+#, python-format
+msgid "Your email has been changed from %(from_email)s to %(to_email)s."
+msgstr ""
+"Ihre E-Mail-Adresse wurde von %(from_email)s auf %(to_email)s geändert."
+
+#: .\templates\account\email\email_changed_subject.txt:3
+msgid "Email Changed"
+msgstr "E-Mail geändert"
+
+#: .\templates\account\email\email_confirm_message.txt:4
+msgid "Your email has been confirmed."
+msgstr "Ihre E-Mail-Adresse wurde bestätigt."
+
+#: .\templates\account\email\email_confirm_subject.txt:3
+msgid "Email Confirmation"
+msgstr "E-Mail-Bestätigung"
+
+#: .\templates\account\email\email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"You're receiving this email because user %(user_display)s has given your "
+"email address to register an account on %(site_domain)s."
+msgstr ""
+"Sie erhalten diese E-Mail, weil der Benutzer %(user_display)s Ihre "
+"E-Mail-Adresse angegeben hat, um ein Konto auf %(site_domain)s zu "
+"registrieren."
+
+#: .\templates\account\email\email_confirmation_message.txt:7
+msgid ""
+"Your email verification code is listed below. Please enter it in your open "
+"browser window."
+msgstr ""
+"Ihr E-Mail-Verifizierungscode steht unten. Bitte geben Sie ihn in Ihrem "
+"geöffneten Browserfenster ein."
+
+#: .\templates\account\email\email_confirmation_message.txt:9
+#, python-format
+msgid "To confirm this is correct, go to %(activate_url)s"
+msgstr "Um zu bestätigen, dass dies korrekt ist, rufen Sie %(activate_url)s auf"
+
+#: .\templates\account\email\email_confirmation_subject.txt:3
+msgid "Please Confirm Your Email Address"
+msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse"
+
+#: .\templates\account\email\email_deleted_message.txt:4
+#, python-format
+msgid "Email address %(deleted_email)s has been removed from your account."
+msgstr ""
+"Die E-Mail-Adresse %(deleted_email)s wurde aus Ihrem Konto entfernt."
+
+#: .\templates\account\email\email_deleted_subject.txt:3
+msgid "Email Removed"
+msgstr "E-Mail entfernt"
+
+#: .\templates\account\email\login_code_message.txt:5
+msgid ""
+"Your sign-in code is listed below. Please enter it in your open browser "
+"window."
+msgstr ""
+"Ihr Anmeldecode steht unten. Bitte geben Sie ihn in Ihrem geöffneten "
+"Browserfenster ein."
+
+#: .\templates\account\email\login_code_message.txt:9
+#: .\templates\account\email\password_reset_code_message.txt:9
+#: .\templates\account\email\unknown_account_message.txt:6
+msgid "This mail can be safely ignored if you did not initiate this action."
+msgstr ""
+"Diese E-Mail kann ignoriert werden, wenn Sie diese Aktion nicht ausgelöst "
+"haben."
+
+#: .\templates\account\email\login_code_subject.txt:3
+msgid "Sign-In Code"
+msgstr "Anmeldecode"
+
+#: .\templates\account\email\password_changed_message.txt:4
+msgid "Your password has been changed."
+msgstr "Ihr Passwort wurde geändert."
+
+#: .\templates\account\email\password_changed_subject.txt:3
+msgid "Password Changed"
+msgstr "Passwort geändert"
+
+#: .\templates\account\email\password_reset_code_message.txt:5
+msgid ""
+"Your password reset code is listed below. Please enter it in your open "
+"browser window."
+msgstr ""
+"Ihr Code zum Zurücksetzen des Passworts steht unten. Bitte geben Sie ihn in "
+"Ihrem geöffneten Browserfenster ein."
+
+#: .\templates\account\email\password_reset_code_subject.txt:3
+msgid "Password Reset Code"
+msgstr "Code zum Zurücksetzen des Passworts"
+
+#: .\templates\account\email\password_reset_key_message.txt:4
+msgid ""
+"You're receiving this email because you or someone else has requested a "
+"password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"Sie erhalten diese E-Mail, weil Sie oder jemand anderes eine "
+"Passwortzurücksetzung für Ihr Benutzerkonto angefordert hat.\n"
+"Sie können diese E-Mail ignorieren, wenn Sie keine Passwortzurücksetzung "
+"angefordert haben. Klicken Sie auf den untenstehenden Link, um Ihr Passwort "
+"zurückzusetzen."
+
+#: .\templates\account\email\password_reset_key_message.txt:9
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "Falls Sie es vergessen haben, Ihr Benutzername lautet %(username)s."
+
+#: .\templates\account\email\password_reset_key_subject.txt:3
+msgid "Password Reset Email"
+msgstr "E-Mail zum Zurücksetzen des Passworts"
+
+#: .\templates\account\email\password_reset_message.txt:4
+msgid "Your password has been reset."
+msgstr "Ihr Passwort wurde zurückgesetzt."
+
+#: .\templates\account\email\password_set_message.txt:4
+msgid "Your password has been set."
+msgstr "Ihr Passwort wurde festgelegt."
+
+#: .\templates\account\email\password_set_subject.txt:3
+msgid "Password Set"
+msgstr "Passwort festgelegt"
+
+#: .\templates\account\email\unknown_account_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you, or someone else, tried to access "
+"an account with email %(email)s. However, we do not have any record of such "
+"an account in our database."
+msgstr ""
+"Sie erhalten diese E-Mail, weil Sie oder jemand anderes versucht hat, auf "
+"ein Konto mit der E-Mail-Adresse %(email)s zuzugreifen. Wir haben jedoch "
+"keinen solchen Account in unserer Datenbank."
+
+#: .\templates\account\email\unknown_account_message.txt:8
+msgid "If it was you, you can sign up for an account using the link below."
+msgstr ""
+"Falls Sie es waren, können Sie sich über den untenstehenden Link ein Konto "
+"erstellen."
+
+#: .\templates\account\email\unknown_account_subject.txt:3
+msgid "Unknown Account"
+msgstr "Unbekanntes Konto"
+
+#: .\templates\account\email_change.html:6
+#: .\templates\account\email_change.html:10
+msgid "Email Address"
+msgstr "E-Mail-Adresse"
+
+#: .\templates\account\email_change.html:22
+#: .\templates\account\email_change.html:30
+msgid "Current email"
+msgstr "Aktuelle E-Mail"
+
+#: .\templates\account\email_change.html:32
+msgid "Changing to"
+msgstr "Ändern zu"
+
+#: .\templates\account\email_change.html:36
+msgid "Your email address is still pending verification."
+msgstr "Ihre E-Mail-Adresse wartet noch auf Verifizierung."
+
+#: .\templates\account\email_change.html:42
+msgid "Cancel Change"
+msgstr "Änderung abbrechen"
+
+#: .\templates\account\email_change.html:50
+#: .\templates\account\phone_change.html:33
+msgid "Change to"
+msgstr "Ändern zu"
+
+#: .\templates\account\email_change.html:56
+msgid "Change Email"
+msgstr "E-Mail ändern"
+
+#: .\templates\account\email_confirm.html:7
+#: .\templates\account\email_confirm.html:11
+msgid "Confirm Email Address"
+msgstr "E-Mail-Adresse bestätigen"
+
+#: .\templates\account\email_confirm.html:17
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
+"address for user %(user_display)s."
+msgstr ""
+"Bitte bestätigen Sie, dass <a href=\"mailto:%(email)s\">%(email)s</a> eine "
+"E-Mail-Adresse des Benutzers %(user_display)s ist."
+
+#: .\templates\account\email_confirm.html:31
+#: .\templates\account\messages\email_confirmation_failed.txt:2
+#, python-format
+msgid ""
+"Unable to confirm %(email)s because it is already confirmed by a different "
+"account."
+msgstr ""
+"%(email)s konnte nicht bestätigt werden, da sie bereits von einem anderen "
+"Konto bestätigt wurde."
+
+#: .\templates\account\email_confirm.html:37
+#, python-format
+msgid ""
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+msgstr ""
+"Dieser E-Mail-Bestätigungslink ist abgelaufen oder ungültig. Bitte <a "
+"href=\"%(email_url)s\">fordern Sie eine neue E-Mail-Bestätigung an</a>."
+
+#: .\templates\account\login.html:11 .\templates\account\signup.html:11
+#: .\templates\base.html:828 .\templates\cart\cart_detail.html:11
+#: .\templates\components\footer.html:27 .\templates\components\footer.html:38
+#: .\templates\components\navbar.html:7 .\templates\components\navbar.html:94
+#: .\templates\orders\checkout.html:11 .\templates\shop\about.html:13
+#: .\templates\shop\contact.html:13 .\templates\shop\index.html:4
+#: .\templates\shop\product_detail.html:14
+#: .\templates\shop\product_list.html:11
+msgid "Home"
+msgstr "Startseite"
+
+#: .\templates\account\login.html:25
+msgid "If you have not created an account yet, please"
+msgstr "Wenn Sie noch kein Konto erstellt haben, bitte"
+
+#: .\templates\account\login.html:26
+msgid "sign up"
+msgstr "registrieren Sie sich"
+
+#: .\templates\account\login.html:26
+msgid "first."
+msgstr "zuerst."
+
+#: .\templates\account\login.html:30 .\templates\account\login.html:31
+msgid "Username"
+msgstr "Benutzername"
+
+#: .\templates\account\login.html:35 .\templates\account\login.html:36
+msgid "Password"
+msgstr "Passwort"
+
+#: .\templates\account\login.html:41
+msgid "Remember Me"
+msgstr "Angemeldet bleiben"
+
+#: .\templates\account\login.html:43
+msgid "Forgot your password?"
+msgstr "Passwort vergessen?"
+
+#: .\templates\account\login.html:50
+msgid "Don't have an account?"
+msgstr "Noch kein Konto?"
+
+#: .\templates\account\login.html:50 .\templates\account\signup.html:4
+#: .\templates\account\signup.html:12 .\templates\account\signup.html:22
+#: .\templates\account\signup.html:29
+#: .\templates\account\signup_by_passkey.html:30 .\templates\base.html:733
+#: .\templates\components\footer.html:54 .\templates\components\navbar.html:22
+msgid "Sign Up"
+msgstr "Registrieren"
+
+#: .\templates\account\logout.html:4 .\templates\account\logout.html:7
+#: .\templates\account\logout.html:16 .\templates\base.html:727
+msgid "Sign Out"
+msgstr "Abmelden"
+
+#: .\templates\account\logout.html:8
+msgid "Are you sure you want to sign out?"
+msgstr "Sind Sie sicher, dass Sie sich abmelden möchten?"
+
+#: .\templates\account\messages\cannot_delete_primary_email.txt:2
+#, python-format
+msgid "You cannot remove your primary email address (%(email)s)."
+msgstr "Sie können Ihre primäre E-Mail-Adresse (%(email)s) nicht entfernen."
+
+#: .\templates\account\messages\email_confirmation_sent.txt:2
+#, python-format
+msgid "Confirmation email sent to %(email)s."
+msgstr "Bestätigungs-E-Mail an %(email)s gesendet."
+
+#: .\templates\account\messages\email_confirmed.txt:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr "Sie haben %(email)s bestätigt."
+
+#: .\templates\account\messages\email_deleted.txt:2
+#, python-format
+msgid "Removed email address %(email)s."
+msgstr "E-Mail-Adresse %(email)s entfernt."
+
+#: .\templates\account\messages\logged_in.txt:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr "Erfolgreich als %(name)s angemeldet."
+
+#: .\templates\account\messages\logged_out.txt:2
+msgid "You have signed out."
+msgstr "Sie wurden abgemeldet."
+
+#: .\templates\account\messages\login_code_sent.txt:2
+#, python-format
+msgid "A sign-in code has been sent to %(recipient)s."
+msgstr "Ein Anmeldecode wurde an %(recipient)s gesendet."
+
+#: .\templates\account\messages\password_changed.txt:2
+msgid "Password successfully changed."
+msgstr "Passwort erfolgreich geändert."
+
+#: .\templates\account\messages\password_set.txt:2
+msgid "Password successfully set."
+msgstr "Passwort erfolgreich festgelegt."
+
+#: .\templates\account\messages\phone_verification_sent.txt:2
+#, python-format
+msgid "A verification code has been sent to %(phone)s."
+msgstr "Ein Verifizierungscode wurde an %(phone)s gesendet."
+
+#: .\templates\account\messages\phone_verified.txt:2
+#, python-format
+msgid "You have verified phone number %(phone)s."
+msgstr "Sie haben die Telefonnummer %(phone)s verifiziert."
+
+#: .\templates\account\messages\primary_email_set.txt:2
+msgid "Primary email address set."
+msgstr "Primäre E-Mail-Adresse festgelegt."
+
+#: .\templates\account\messages\unverified_primary_email.txt:2
+msgid "Your primary email address must be verified."
+msgstr "Ihre primäre E-Mail-Adresse muss verifiziert werden."
+
+#: .\templates\account\password_change.html:5
+#: .\templates\account\password_change.html:9
+#: .\templates\account\password_change.html:21
+#: .\templates\account\password_reset_from_key.html:6
+#: .\templates\account\password_reset_from_key.html:13
+#: .\templates\account\password_reset_from_key.html:31
+#: .\templates\account\password_reset_from_key_done.html:6
+#: .\templates\account\password_reset_from_key_done.html:10
+msgid "Change Password"
+msgstr "Passwort ändern"
+
+#: .\templates\account\password_change.html:23
+msgid "Forgot Password?"
+msgstr "Passwort vergessen?"
+
+#: .\templates\account\password_reset.html:15
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll send you "
+"an email allowing you to reset it."
+msgstr ""
+"Passwort vergessen? Geben Sie Ihre E-Mail-Adresse unten ein, und wir senden "
+"Ihnen eine E-Mail, mit der Sie es zurücksetzen können."
+
+#: .\templates\account\password_reset.html:27
+msgid "Reset My Password"
+msgstr "Mein Passwort zurücksetzen"
+
+#: .\templates\account\password_reset.html:32
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr "Bitte kontaktieren Sie uns, wenn Sie Probleme beim Zurücksetzen Ihres Passworts haben."
+
+#: .\templates\account\password_reset_done.html:17
+msgid ""
+"We have sent you an email. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes."
+msgstr ""
+"Wir haben Ihnen eine E-Mail gesendet. Falls Sie sie nicht erhalten haben, "
+"überprüfen Sie bitte Ihren Spam-Ordner. Kontaktieren Sie uns andernfalls, "
+"wenn Sie sie nicht innerhalb weniger Minuten erhalten."
+
+#: .\templates\account\password_reset_from_key.html:11
+msgid "Bad Token"
+msgstr "Ungültiger Token"
+
+#: .\templates\account\password_reset_from_key.html:19
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"Der Link zum Zurücksetzen des Passworts war ungültig, möglicherweise weil er "
+"bereits verwendet wurde. Bitte fordern Sie einen <a "
+"href=\"%(passwd_reset_url)s\">neuen Passwort-Zurücksetzungslink</a> an."
+
+#: .\templates\account\password_reset_from_key_done.html:13
+msgid "Your password is now changed."
+msgstr "Ihr Passwort wurde jetzt geändert."
+
+#: .\templates\account\password_set.html:6
+#: .\templates\account\password_set.html:10
+#: .\templates\account\password_set.html:22
+msgid "Set Password"
+msgstr "Passwort festlegen"
+
+#: .\templates\account\phone_change.html:6
+#: .\templates\account\phone_change.html:10
+msgid "Change Phone"
+msgstr "Telefonnummer ändern"
+
+#: .\templates\account\phone_change.html:19
+msgid "Current phone"
+msgstr "Aktuelle Telefonnummer"
+
+#: .\templates\account\phone_change.html:23
+msgid "Your phone number is still pending verification."
+msgstr "Ihre Telefonnummer wartet noch auf Verifizierung."
+
+#: .\templates\account\phone_change.html:39
+msgctxt "action"
+msgid "Change Phone"
+msgstr "Telefonnummer ändern"
+
+#: .\templates\account\reauthenticate.html:9
+msgid "Enter your password:"
+msgstr "Geben Sie Ihr Passwort ein:"
+
+#: .\templates\account\request_login_code.html:10
+msgid "Send me a sign-in code"
+msgstr "Senden Sie mir einen Anmeldecode"
+
+#: .\templates\account\request_login_code.html:13
+msgid "You will receive a special code for a password-free sign-in."
+msgstr "Sie erhalten einen speziellen Code für eine passwortfreie Anmeldung."
+
+#: .\templates\account\request_login_code.html:24
+msgid "Request Code"
+msgstr "Code anfordern"
+
+#: .\templates\account\request_login_code.html:29
+msgid "Other sign-in options"
+msgstr "Andere Anmeldeoptionen"
+
+#: .\templates\account\signup.html:25 .\templates\account\signup.html:33
+msgid "Already have an account?"
+msgstr "Bereits ein Konto?"
+
+#: .\templates\account\signup.html:25
+msgid "Sign in"
+msgstr "Anmelden"
+
+#: .\templates\account\signup_by_passkey.html:5
+msgid "Signup"
+msgstr "Registrierung"
+
+#: .\templates\account\signup_by_passkey.html:9
+msgid "Passkey Sign Up"
+msgstr "Passkey-Registrierung"
+
+#: .\templates\account\signup_by_passkey.html:18
+#, python-format
+msgid "Already have an account? Then please %(link)ssign in%(end_link)s."
+msgstr "Bereits ein Konto? Dann %(link)sanmelden%(end_link)s."
+
+#: .\templates\account\signup_by_passkey.html:37
+msgid "Other options"
+msgstr "Andere Optionen"
+
+#: .\templates\account\signup_closed.html:6
+#: .\templates\account\signup_closed.html:10
+msgid "Sign Up Closed"
+msgstr "Registrierung geschlossen"
+
+#: .\templates\account\signup_closed.html:13
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "Es tut uns leid, aber die Registrierung ist derzeit geschlossen."
+
+#: .\templates\account\snippets\already_logged_in.html:8
+msgid "Note"
+msgstr "Hinweis"
+
+#: .\templates\account\snippets\already_logged_in.html:8
+#, python-format
+msgid "You are already logged in as %(user_display)s."
+msgstr "Sie sind bereits als %(user_display)s angemeldet."
+
+#: .\templates\account\snippets\warn_no_email.html:4
+msgid "Warning:"
+msgstr "Warnung:"
+
+#: .\templates\account\snippets\warn_no_email.html:4
+msgid ""
+"You currently do not have any email address set up. You should really add an "
+"email address so you can receive notifications, reset your password, etc."
+msgstr ""
+"Sie haben derzeit keine E-Mail-Adresse eingerichtet. Sie sollten unbedingt "
+"eine E-Mail-Adresse hinzufügen, um Benachrichtigungen zu erhalten, Ihr "
+"Passwort zurückzusetzen usw."
+
+#: .\templates\account\verification_sent.html:6
+#: .\templates\account\verification_sent.html:10
+#: .\templates\account\verified_email_required.html:6
+#: .\templates\account\verified_email_required.html:10
+msgid "Verify Your Email Address"
+msgstr "Bestätigen Sie Ihre E-Mail-Adresse"
+
+#: .\templates\account\verification_sent.html:13
+msgid ""
+"We have sent an email to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification email in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification email within a few minutes."
+msgstr ""
+"Wir haben Ihnen eine Bestätigungs-E-Mail gesendet. Folgen Sie dem "
+"angegebenen Link, um den Registrierungsvorgang abzuschließen. Wenn Sie die "
+"Bestätigungs-E-Mail nicht in Ihrem Hauptposteingang sehen, überprüfen Sie "
+"Ihren Spam-Ordner. Kontaktieren Sie uns bitte, wenn Sie die "
+"Bestätigungs-E-Mail nicht innerhalb weniger Minuten erhalten."
+
+#: .\templates\account\verified_email_required.html:14
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your email address. "
+msgstr ""
+"Dieser Teil der Website erfordert, dass wir überprüfen,\n"
+"dass Sie die Person sind, die Sie vorgeben zu sein. Zu diesem Zweck müssen "
+"Sie\n"
+"den Besitz Ihrer E-Mail-Adresse bestätigen."
+
+#: .\templates\account\verified_email_required.html:19
+msgid ""
+"We have sent an email to you for\n"
+"verification. Please click on the link inside that email. If you do not see "
+"the verification email in your main inbox, check your spam folder. "
+"Otherwise\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+"Wir haben Ihnen eine E-Mail zur\n"
+"Bestätigung gesendet. Bitte klicken Sie auf den Link in dieser E-Mail. Wenn "
+"Sie die Bestätigungs-E-Mail nicht in Ihrem Hauptposteingang sehen, "
+"überprüfen Sie Ihren Spam-Ordner. Andernfalls\n"
+"kontaktieren Sie uns, wenn Sie sie nicht innerhalb weniger Minuten erhalten."
+
+#: .\templates\account\verified_email_required.html:24
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
+"email address</a>."
+msgstr ""
+"<strong>Hinweis:</strong> Sie können immer noch <a "
+"href=\"%(email_url)s\">Ihre E-Mail-Adresse ändern</a>."
+
+#: .\templates\base.html:8
+msgid "MultiShop"
+msgstr "MultiShop"
+
+#: .\templates\base.html:8
+msgid "Online Shop"
+msgstr "Online-Shop"
+
+#: .\templates\base.html:10 .\templates\base.html:11
+msgid "Free HTML Templates"
+msgstr "Kostenlose HTML-Vorlagen"
+
+#: .\templates\base.html:681 .\templates\base.html:836
+msgid "About"
+msgstr "Über uns"
+
+#: .\templates\base.html:682 .\templates\base.html:838
+#: .\templates\components\navbar.html:11 .\templates\components\navbar.html:98
+#: .\templates\shop\contact.html:4 .\templates\shop\contact.html:14
+msgid "Contact"
+msgstr "Kontakt"
+
+#: .\templates\base.html:683
+msgid "Help"
+msgstr "Hilfe"
+
+#: .\templates\base.html:684
+msgid "FAQs"
+msgstr "Häufig gestellte Fragen"
+
+#: .\templates\base.html:717 .\templates\components\footer.html:36
+#: .\templates\components\navbar.html:19
+msgid "My Account"
+msgstr "Mein Konto"
+
+#: .\templates\base.html:720
+msgid "My Cart"
+msgstr "Mein Warenkorb"
+
+#: .\templates\base.html:723
+msgid "My Orders"
+msgstr "Meine Bestellungen"
+
+#: .\templates\base.html:779 .\templates\components\navbar.html:47
+msgid "Search for products"
+msgstr "Produkte suchen"
+
+#: .\templates\base.html:792 .\templates\components\navbar.html:57
+msgid "Customer Service"
+msgstr "Kundenservice"
+
+#: .\templates\base.html:804 .\templates\components\navbar.html:70
+#: .\templates\shop\index.html:111
+msgid "Categories"
+msgstr "Kategorien"
+
+#: .\templates\base.html:830 .\templates\cart\cart_detail.html:12
+#: .\templates\components\navbar.html:8 .\templates\components\navbar.html:96
+#: .\templates\orders\checkout.html:12 .\templates\shop\product_detail.html:15
+#: .\templates\shop\product_list.html:4 .\templates\shop\product_list.html:12
+msgid "Shop"
+msgstr "Shop"
+
+#: .\templates\base.html:832 .\templates\components\navbar.html:9
+msgid "Shop Cart"
+msgstr "Warenkorb"
+
+#: .\templates\base.html:834 .\templates\components\footer.html:31
+#: .\templates\components\footer.html:42 .\templates\components\navbar.html:10
+#: .\templates\orders\checkout.html:4 .\templates\orders\checkout.html:13
+msgid "Checkout"
+msgstr "Zur Kasse"
+
+#: .\templates\base.html:852
+msgid "Toggle theme"
+msgstr "Design umschalten"
+
+#: .\templates\base.html:885
+msgid "Searching..."
+msgstr "Suche läuft..."
+
+#: .\templates\base.html:886
+msgid "No products found"
+msgstr "Keine Produkte gefunden"
+
+#: .\templates\base.html:887
+msgid "Search unavailable. Please try again."
+msgstr "Suche nicht verfügbar. Bitte versuchen Sie es erneut."
+
+#: .\templates\base.html:888
+msgid "See all results for"
+msgstr "Alle Ergebnisse anzeigen für"
+
+#: .\templates\cart\cart_detail.html:4 .\templates\cart\cart_detail.html:13
+#: .\templates\components\footer.html:30 .\templates\components\footer.html:41
+msgid "Shopping Cart"
+msgstr "Einkaufswagen"
+
+#: .\templates\cart\cart_detail.html:25 .\templates\orders\checkout.html:146
+#: .\templates\shop\index.html:126
+msgid "Products"
+msgstr "Produkte"
+
+#: .\templates\cart\cart_detail.html:26
+msgid "Price"
+msgstr "Preis"
+
+#: .\templates\cart\cart_detail.html:27
+msgid "Quantity"
+msgstr "Menge"
+
+#: .\templates\cart\cart_detail.html:28 .\templates\cart\cart_detail.html:108
+#: .\templates\orders\checkout.html:167
+msgid "Total"
+msgstr "Gesamt"
+
+#: .\templates\cart\cart_detail.html:73
+msgid "Please"
+msgstr "Bitte"
+
+#: .\templates\cart\cart_detail.html:73
+msgid "sign in"
+msgstr "melden Sie sich an"
+
+#: .\templates\cart\cart_detail.html:73
+msgid "to view your cart."
+msgstr "um Ihren Warenkorb anzuzeigen."
+
+#: .\templates\cart\cart_detail.html:75
+msgid "Your cart is empty."
+msgstr "Ihr Warenkorb ist leer."
+
+#: .\templates\cart\cart_detail.html:75
+msgid "Continue shopping"
+msgstr "Mit dem Einkaufen fortfahren"
+
+#: .\templates\cart\cart_detail.html:86
+msgid "Coupon Code"
+msgstr "Gutscheincode"
+
+#: .\templates\cart\cart_detail.html:88
+msgid "Apply Coupon"
+msgstr "Gutschein anwenden"
+
+#: .\templates\cart\cart_detail.html:94
+msgid "Cart Summary"
+msgstr "Warenkorbübersicht"
+
+#: .\templates\cart\cart_detail.html:98 .\templates\orders\checkout.html:157
+msgid "Subtotal"
+msgstr "Zwischensumme"
+
+#: .\templates\cart\cart_detail.html:102 .\templates\orders\checkout.html:161
+msgid "Shipping"
+msgstr "Versand"
+
+#: .\templates\cart\cart_detail.html:103 .\templates\orders\checkout.html:162
+msgid "Free"
+msgstr "Kostenlos"
+
+#: .\templates\cart\cart_detail.html:111
+msgid "Proceed To Checkout"
+msgstr "Zur Kasse gehen"
+
+#: .\templates\components\footer.html:11
+msgid "Duo stet tempor ipsum sit amet magna ipsum tempor est."
+msgstr "Duo stet tempor ipsum sit amet magna ipsum tempor est."
+
+#: .\templates\components\footer.html:12 .\templates\shop\contact.html:54
+msgid "123 Street, New York, USA"
+msgstr "123 Street, New York, USA"
+
+#: .\templates\components\footer.html:25
+msgid "Quick Shop"
+msgstr "Schnellkauf"
+
+#: .\templates\components\footer.html:28 .\templates\components\footer.html:39
+msgid "Our Shop"
+msgstr "Unser Shop"
+
+#: .\templates\components\footer.html:29 .\templates\components\footer.html:40
+msgid "Shop Detail"
+msgstr "Shop-Details"
+
+#: .\templates\components\footer.html:32 .\templates\components\footer.html:43
+#: .\templates\shop\contact.html:23
+msgid "Contact Us"
+msgstr "Kontaktieren Sie uns"
+
+#: .\templates\components\footer.html:47
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: .\templates\components\footer.html:48
+msgid "Subscribe to get the latest deals and offers."
+msgstr "Abonnieren Sie, um die neuesten Angebote und Aktionen zu erhalten."
+
+#: .\templates\components\footer.html:52
+msgid "Your Email Address"
+msgstr "Ihre E-Mail-Adresse"
+
+#: .\templates\components\footer.html:59
+msgid "Follow Us"
+msgstr "Folgen Sie uns"
+
+#: .\templates\components\footer.html:73
+msgid "All Rights Reserved."
+msgstr "Alle Rechte vorbehalten."
+
+#: .\templates\components\footer.html:77
+msgid "Payment Methods"
+msgstr "Zahlungsmethoden"
+
+#: .\templates\components\footer.html:142
+msgid "Network error. Please try again."
+msgstr "Netzwerkfehler. Bitte versuchen Sie es erneut."
+
+#: .\templates\orders\checkout.html:26
+msgid "Billing Address"
+msgstr "Rechnungsadresse"
+
+#: .\templates\orders\checkout.html:29 .\templates\orders\checkout.html:92
+msgid "First Name"
+msgstr "Vorname"
+
+#: .\templates\orders\checkout.html:30 .\templates\orders\checkout.html:93
+msgid "John"
+msgstr "John"
+
+#: .\templates\orders\checkout.html:33 .\templates\orders\checkout.html:96
+msgid "Last Name"
+msgstr "Nachname"
+
+#: .\templates\orders\checkout.html:34 .\templates\orders\checkout.html:97
+msgid "Doe"
+msgstr "Doe"
+
+#: .\templates\orders\checkout.html:37 .\templates\orders\checkout.html:100
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: .\templates\orders\checkout.html:38 .\templates\orders\checkout.html:101
+msgid "example@email.com"
+msgstr "example@email.com"
+
+#: .\templates\orders\checkout.html:42 .\templates\orders\checkout.html:104
+msgid "Mobile No"
+msgstr "Mobilnummer"
+
+#: .\templates\orders\checkout.html:43 .\templates\orders\checkout.html:105
+msgid "+123 456 789"
+msgstr "+123 456 789"
+
+#: .\templates\orders\checkout.html:46 .\templates\orders\checkout.html:108
+msgid "Address Line 1"
+msgstr "Adresszeile 1"
+
+#: .\templates\orders\checkout.html:47 .\templates\orders\checkout.html:51
+#: .\templates\orders\checkout.html:109 .\templates\orders\checkout.html:113
+msgid "123 Street"
+msgstr "123 Street"
+
+#: .\templates\orders\checkout.html:50 .\templates\orders\checkout.html:112
+msgid "Address Line 2"
+msgstr "Adresszeile 2"
+
+#: .\templates\orders\checkout.html:54 .\templates\orders\checkout.html:116
+msgid "Country"
+msgstr "Land"
+
+#: .\templates\orders\checkout.html:56 .\templates\orders\checkout.html:118
+msgid "United States"
+msgstr "Vereinigte Staaten"
+
+#: .\templates\orders\checkout.html:57 .\templates\orders\checkout.html:119
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: .\templates\orders\checkout.html:58 .\templates\orders\checkout.html:120
+msgid "Albania"
+msgstr "Albanien"
+
+#: .\templates\orders\checkout.html:59 .\templates\orders\checkout.html:121
+msgid "Algeria"
+msgstr "Algerien"
+
+#: .\templates\orders\checkout.html:63 .\templates\orders\checkout.html:125
+msgid "City"
+msgstr "Stadt"
+
+#: .\templates\orders\checkout.html:64 .\templates\orders\checkout.html:68
+#: .\templates\orders\checkout.html:126 .\templates\orders\checkout.html:130
+msgid "New York"
+msgstr "New York"
+
+#: .\templates\orders\checkout.html:67 .\templates\orders\checkout.html:129
+msgid "State"
+msgstr "Bundesland"
+
+#: .\templates\orders\checkout.html:71 .\templates\orders\checkout.html:133
+msgid "ZIP Code"
+msgstr "PLZ"
+
+#: .\templates\orders\checkout.html:72 .\templates\orders\checkout.html:134
+msgid "123"
+msgstr "123"
+
+#: .\templates\orders\checkout.html:77
+msgid "Create an account"
+msgstr "Konto erstellen"
+
+#: .\templates\orders\checkout.html:83
+msgid "Ship to different address"
+msgstr "An andere Adresse liefern"
+
+#: .\templates\orders\checkout.html:89
+msgid "Shipping Address"
+msgstr "Lieferadresse"
+
+#: .\templates\orders\checkout.html:143
+msgid "Order Total"
+msgstr "Bestellsumme"
+
+#: .\templates\orders\checkout.html:153
+msgid "No items."
+msgstr "Keine Artikel."
+
+#: .\templates\orders\checkout.html:174
+msgid "Payment"
+msgstr "Zahlung"
+
+#: .\templates\orders\checkout.html:180
+msgid "Paypal"
+msgstr "Paypal"
+
+#: .\templates\orders\checkout.html:184
+msgid "Direct Check"
+msgstr "Direkte Scheck"
+
+#: .\templates\orders\checkout.html:188
+msgid "Bank Transfer"
+msgstr "Banküberweisung"
+
+#: .\templates\orders\checkout.html:192
+msgid "Place Order"
+msgstr "Bestellung aufgeben"
+
+#: .\templates\orders\confirmation.html:3
+msgid "Order Confirmed"
+msgstr "Bestellung bestätigt"
+
+#: .\templates\orders\confirmation.html:8
+msgid "Order Confirmed!"
+msgstr "Bestellung bestätigt!"
+
+#: .\templates\orders\confirmation.html:9
+msgid "Thank you for your order."
+msgstr "Vielen Dank für Ihre Bestellung."
+
+#: .\templates\orders\confirmation.html:9
+msgid "Order"
+msgstr "Bestellung"
+
+#: .\templates\orders\confirmation.html:9
+msgid "has been placed successfully."
+msgstr "wurde erfolgreich aufgegeben."
+
+#: .\templates\orders\confirmation.html:10
+msgid "Continue Shopping"
+msgstr "Weiter einkaufen"
+
+#: .\templates\shop\about.html:4 .\templates\shop\about.html:10
+#: .\templates\shop\about.html:14
+msgid "About Us"
+msgstr "Über uns"
+
+#: .\templates\shop\about.html:33
+msgid "Our Story"
+msgstr "Unsere Geschichte"
+
+#: .\templates\shop\about.html:34
+msgid "We've Been Serving Since 2019"
+msgstr "Wir sind seit 2019 für Sie da"
+
+#: .\templates\shop\about.html:35
+msgid ""
+"MultiShop is your trusted destination for quality products across "
+"electronics, fashion, home & kitchen, and books. We pride ourselves on "
+"offering the best prices, fast delivery, and exceptional customer service."
+msgstr ""
+"MultiShop ist Ihr vertrauenswürdiges Ziel für Qualitätsprodukte in den "
+"Bereichen Elektronik, Mode, Haus & Küche und Bücher. Wir sind stolz darauf, "
+"die besten Preise, schnelle Lieferung und außergewöhnlichen Kundenservice zu "
+"bieten."
+
+#: .\templates\shop\about.html:36
+msgid ""
+"Our team works around the clock to curate the finest products from around "
+"the world, ensuring every item meets our rigorous quality standards before "
+"reaching your doorstep."
+msgstr ""
+"Unser Team arbeitet rund um die Uhr, um die besten Produkte aus der ganzen "
+"Welt zusammenzustellen und sicherzustellen, dass jeder Artikel vor der "
+"Lieferung zu Ihnen nach Hause unseren strengen Qualitätsstandards entspricht."
+
+#: .\templates\shop\about.html:37
+msgid "Explore Shop"
+msgstr "Shop erkunden"
+
+#: .\templates\shop\about.html:51
+msgid "Happy Customers"
+msgstr "Zufriedene Kunden"
+
+#: .\templates\shop\about.html:58
+msgid "Products Sold"
+msgstr "Verkaufte Produkte"
+
+#: .\templates\shop\about.html:65
+msgid "Deliveries Made"
+msgstr "Durchgeführte Lieferungen"
+
+#: .\templates\shop\about.html:72
+msgid "Store Branches"
+msgstr "Filialen"
+
+#: .\templates\shop\about.html:83
+msgid "Why Choose Us"
+msgstr "Warum uns wählen"
+
+#: .\templates\shop\about.html:84
+msgid "What Makes Us Different"
+msgstr "Was uns auszeichnet"
+
+#: .\templates\shop\about.html:91 .\templates\shop\index.html:91
+msgid "Free Shipping"
+msgstr "Kostenloser Versand"
+
+#: .\templates\shop\about.html:92
+msgid "Free delivery on all orders above $50"
+msgstr "Kostenlose Lieferung für alle Bestellungen über 50 $"
+
+#: .\templates\shop\about.html:100
+msgid "Easy Returns"
+msgstr "Einfache Rückgaben"
+
+#: .\templates\shop\about.html:101
+msgid "30-day hassle-free return policy"
+msgstr "30-tägige problemlose Rückgabegarantie"
+
+#: .\templates\shop\about.html:109
+msgid "Secure Payment"
+msgstr "Sichere Zahlung"
+
+#: .\templates\shop\about.html:110
+#, python-format
+msgid "100%% secure checkout & encrypted data"
+msgstr "100%% sicherer Bezahlvorgang & verschlüsselte Daten"
+
+#: .\templates\shop\about.html:118 .\templates\shop\index.html:103
+msgid "24/7 Support"
+msgstr "24/7 Support"
+
+#: .\templates\shop\about.html:119
+msgid "Round-the-clock customer assistance"
+msgstr "Rund-um-die-Uhr-Kundenbetreuung"
+
+#: .\templates\shop\about.html:131
+msgid "Our Team"
+msgstr "Unser Team"
+
+#: .\templates\shop\about.html:132
+msgid "Meet the People Behind MultiShop"
+msgstr "Lernen Sie die Menschen hinter MultiShop kennen"
+
+#: .\templates\shop\about.html:141
+msgid "Ali Mohammadi"
+msgstr "Ali Mohammadi"
+
+#: .\templates\shop\about.html:142
+msgid "CEO & Founder"
+msgstr "CEO & Gründer"
+
+#: .\templates\shop\about.html:152
+msgid "Sara Naderi"
+msgstr "Sara Naderi"
+
+#: .\templates\shop\about.html:153
+msgid "Head of Operations"
+msgstr "Leiterin des Betriebs"
+
+#: .\templates\shop\about.html:163
+msgid "Reza Karimi"
+msgstr "Reza Karimi"
+
+#: .\templates\shop\about.html:164
+msgid "Product Manager"
+msgstr "Produktmanager"
+
+#: .\templates\shop\about.html:174
+msgid "Maryam Hosseini"
+msgstr "Maryam Hosseini"
+
+#: .\templates\shop\about.html:175
+msgid "Customer Support Lead"
+msgstr "Leiterin des Kundensupports"
+
+#: .\templates\shop\contact.html:27
+msgid ""
+"Receive messages instantly with our PHP and Ajax contact form - available in "
+"the"
+msgstr ""
+"Empfangen Sie Nachrichten sofort mit unserem PHP- und Ajax-Kontaktformular - "
+"verfügbar in der"
+
+#: .\templates\shop\contact.html:27
+msgid "Pro Version"
+msgstr "Pro-Version"
+
+#: .\templates\shop\contact.html:27
+msgid "only."
+msgstr "nur."
+
+#: .\templates\shop\contact.html:30
+msgid "Your Name"
+msgstr "Ihr Name"
+
+#: .\templates\shop\contact.html:33
+msgid "Your Email"
+msgstr "Ihre E-Mail"
+
+#: .\templates\shop\contact.html:36
+msgid "Subject"
+msgstr "Betreff"
+
+#: .\templates\shop\contact.html:39
+msgid "Message"
+msgstr "Nachricht"
+
+#: .\templates\shop\contact.html:42
+msgid "Send Message"
+msgstr "Nachricht senden"
+
+#: .\templates\shop\contact.html:55
+msgid "info@example.com"
+msgstr "info@example.com"
+
+#: .\templates\shop\contact.html:56
+msgid "+012 345 67890"
+msgstr "+012 345 67890"
+
+#: .\templates\shop\index.html:24
+msgid "Men Fashion"
+msgstr "Herrenmode"
+
+#: .\templates\shop\index.html:25 .\templates\shop\index.html:37
+#: .\templates\shop\index.html:49
+msgid "Lorem rebum magna amet lorem magna erat diam stet."
+msgstr "Lorem rebum magna amet lorem magna erat diam stet."
+
+#: .\templates\shop\index.html:27 .\templates\shop\index.html:39
+#: .\templates\shop\index.html:51 .\templates\shop\index.html:64
+#: .\templates\shop\index.html:72 .\templates\shop\index.html:158
+#: .\templates\shop\index.html:168
+msgid "Shop Now"
+msgstr "Jetzt kaufen"
+
+#: .\templates\shop\index.html:36
+msgid "Women Fashion"
+msgstr "Damennmode"
+
+#: .\templates\shop\index.html:48
+msgid "Kids Fashion"
+msgstr "Kindermode"
+
+#: .\templates\shop\index.html:62 .\templates\shop\index.html:70
+#: .\templates\shop\index.html:156 .\templates\shop\index.html:166
+#, python-format
+msgid "Save 20%%"
+msgstr "20%% sparen"
+
+#: .\templates\shop\index.html:63 .\templates\shop\index.html:71
+#: .\templates\shop\index.html:157 .\templates\shop\index.html:167
+msgid "Special Offer"
+msgstr "Sonderangebot"
+
+#: .\templates\shop\index.html:85
+msgid "Quality Product"
+msgstr "Qualitätsprodukt"
+
+#: .\templates\shop\index.html:97
+msgid "14-Day Return"
+msgstr "14-Tage Rückgabe"
+
+#: .\templates\shop\index.html:137
+msgid "Featured Products"
+msgstr "Empfohlene Produkte"
+
+#: .\templates\shop\index.html:144
+msgid "No products yet."
+msgstr "Noch keine Produkte."
+
+#: .\templates\shop\index.html:177
+msgid "Recent Products"
+msgstr "Neue Produkte"
+
+#: .\templates\shop\index.html:192 .\templates\shop\index.html:193
+#: .\templates\shop\index.html:194 .\templates\shop\index.html:195
+#: .\templates\shop\index.html:196 .\templates\shop\index.html:197
+#: .\templates\shop\index.html:198 .\templates\shop\index.html:199
+msgid "Vendor"
+msgstr "Anbieter"
+
+#: .\templates\shop\product_detail.html:39
+#, python-format
+msgid "In Stock (%(product.stock)s)"
+msgstr "Auf Lager (%(product.stock)s)"
+
+#: .\templates\shop\product_detail.html:39
+#: .\templates\shop\product_detail.html:54
+msgid "Out of Stock"
+msgstr "Nicht vorrätig"
+
+#: .\templates\shop\product_detail.html:43
+msgid "Category:"
+msgstr "Kategorie:"
+
+#: .\templates\shop\product_detail.html:50
+msgid "Add to Cart"
+msgstr "In den Warenkorb"
+
+#: .\templates\shop\product_list.html:13
+msgid "Shop List"
+msgstr "Shop-Liste"
+
+#: .\templates\shop\product_list.html:24
+msgid "Filter by price"
+msgstr "Nach Preis filtern"
+
+#: .\templates\shop\product_list.html:34
+msgid "All Price"
+msgstr "Alle Preise"
+
+#: .\templates\shop\product_list.html:65
+msgid "Filter by color"
+msgstr "Nach Farbe filtern"
+
+#: .\templates\shop\product_list.html:75
+msgid "All Color"
+msgstr "Alle Farben"
+
+#: .\templates\shop\product_list.html:86
+msgid "Filter by size"
+msgstr "Nach Größe filtern"
+
+#: .\templates\shop\product_list.html:96
+msgid "All Size"
+msgstr "Alle Größen"
+
+#: .\templates\shop\product_list.html:122
+msgid "Search by name"
+msgstr "Nach Name suchen"
+
+#: .\templates\shop\product_list.html:129
+msgid "Sorting"
+msgstr "Sortierung"
+
+#: .\templates\shop\product_list.html:131
+msgid "Latest"
+msgstr "Neueste"
+
+#: .\templates\shop\product_list.html:132
+msgid "Popularity"
+msgstr "Beliebtheit"
+
+#: .\templates\shop\product_list.html:136
+msgid "Showing"
+msgstr "Anzeigen"
+
+#: .\templates\shop\product_list.html:150
+msgid "No products found."
+msgstr "Keine Produkte gefunden."
+
+#: .\templates\shop\product_list.html:156
+msgid "Previous"
+msgstr "Zurück"
+
+#: .\templates\shop\product_list.html:164
+msgid "Next"
+msgstr "Weiter"

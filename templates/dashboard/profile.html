@@ -1,0 +1,167 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "My Profile" %} - {{ block.super }}{% endblock %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="font-weight-semi-bold mb-0">{% trans "My Profile" %}</h4>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-7">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0 font-weight-semi-bold">{% trans "Personal Information" %}</h5>
+            </div>
+            <div class="card-body">
+                <form id="profileForm">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>{% trans "First Name" %}</label>
+                            <input type="text" class="form-control" name="first_name"
+                                   value="{{ user.first_name }}" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>{% trans "Last Name" %}</label>
+                            <input type="text" class="form-control" name="last_name"
+                                   value="{{ user.last_name }}" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>{% trans "Email" %}</label>
+                            <input type="email" class="form-control" name="email"
+                                   value="{{ user.email }}" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>{% trans "Phone" %}</label>
+                            <input type="tel" class="form-control" name="phone"
+                                   value="{{ profile.phone }}">
+                        </div>
+                    </div>
+                    <hr>
+                    <h6 class="font-weight-semi-bold mb-3">{% trans "Address" %}</h6>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>{% trans "Address Line 1" %}</label>
+                            <input type="text" class="form-control" name="address_line1"
+                                   value="{{ profile.address_line1 }}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>{% trans "Address Line 2" %}</label>
+                            <input type="text" class="form-control" name="address_line2"
+                                   value="{{ profile.address_line2 }}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{% trans "City" %}</label>
+                            <input type="text" class="form-control" name="city"
+                                   value="{{ profile.city }}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{% trans "State" %}</label>
+                            <input type="text" class="form-control" name="state"
+                                   value="{{ profile.state }}">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>{% trans "ZIP Code" %}</label>
+                            <input type="text" class="form-control" name="zip_code"
+                                   value="{{ profile.zip_code }}">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary px-4" id="profileSaveBtn">
+                        <i class="fas fa-save mr-1"></i> {% trans "Save Changes" %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card border-0 shadow-sm mb-3">
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0 font-weight-semi-bold">{% trans "Change Password" %}</h5>
+            </div>
+            <div class="card-body">
+                <form id="passwordForm">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>{% trans "Current Password" %}</label>
+                        <input type="password" class="form-control" name="old_password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>{% trans "New Password" %}</label>
+                        <input type="password" class="form-control" name="new_password1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>{% trans "Confirm New Password" %}</label>
+                        <input type="password" class="form-control" name="new_password2" required>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary px-4" id="passwordSaveBtn">
+                        <i class="fas fa-key mr-1"></i> {% trans "Update Password" %}
+                    </button>
+                </form>
+                <div id="passwordError" class="text-danger mt-2" style="display:none;font-size:13px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    $('#profileForm').on('submit', function(e) {
+        e.preventDefault();
+        var btn = $('#profileSaveBtn');
+        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Saving...');
+        var data = {};
+        $(this).serializeArray().forEach(function(field) {
+            if (field.name !== 'csrfmiddlewaretoken') data[field.name] = field.value;
+        });
+        $.ajax({
+            url: '{% url "dashboard:profile_update" %}',
+            method: 'POST',
+            headers: {'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json'},
+            data: JSON.stringify(data),
+            success: function(resp) {
+                if (resp.ok) showToast(resp.message);
+            },
+            error: function() { showToast('Error saving profile.'); },
+            complete: function() {
+                btn.prop('disabled', false).html('<i class="fas fa-save mr-1"></i> Save Changes');
+            }
+        });
+    });
+
+    $('#passwordForm').on('submit', function(e) {
+        e.preventDefault();
+        var btn = $('#passwordSaveBtn');
+        var errDiv = $('#passwordError');
+        errDiv.hide();
+        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Updating...');
+        var data = {};
+        $(this).serializeArray().forEach(function(field) {
+            if (field.name !== 'csrfmiddlewaretoken') data[field.name] = field.value;
+        });
+        $.ajax({
+            url: '{% url "dashboard:change_password" %}',
+            method: 'POST',
+            headers: {'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json'},
+            data: JSON.stringify(data),
+            success: function(resp) {
+                if (resp.ok) {
+                    showToast(resp.message);
+                    $('#passwordForm')[0].reset();
+                } else {
+                    errDiv.text(resp.error).show();
+                }
+            },
+            error: function() { errDiv.text('Error changing password.').show(); },
+            complete: function() {
+                btn.prop('disabled', false).html('<i class="fas fa-key mr-1"></i> Update Password');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

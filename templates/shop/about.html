@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "About Us" %}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="container-fluid bg-dark mb-5 py-5 page-header">
+    <div class="container py-5">
+        <h1 class="display-6 text-white mb-3">{% trans "About Us" %}</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 d-inline-flex">
+                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'shop:index' %}">{% trans "Home" %}</a></li>
+                    <li class="breadcrumb-item text-primary active">{% trans "About Us" %}</li>
+                </ol>
+            </nav>
+    </div>
+</div>
+
+<!-- About Section -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="position-relative">
+                    <img class="img-fluid w-100 rounded" src="{% static 'img/about.jpg' %}" alt="" onerror="this.style.display='none'">
+                    <div class="position-absolute" style="top:50%;left:50%;transform:translate(-50%,-50%);">
+                        <i class="fa fa-play fa-3x text-primary"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <h6 class="text-primary text-uppercase font-weight-bold mb-3">{% trans "Our Story" %}</h6>
+                <h1 class="mb-4">{% trans "We've Been Serving Since 2019" %}</h1>
+                <p class="mb-4">{% trans "MultiShop is your trusted destination for quality products across electronics, fashion, home & kitchen, and books. We pride ourselves on offering the best prices, fast delivery, and exceptional customer service." %}</p>
+                <p class="mb-4">{% trans "Our team works around the clock to curate the finest products from around the world, ensuring every item meets our rigorous quality standards before reaching your doorstep." %}</p>
+                <a href="{% url 'shop:product_list' %}" class="btn btn-primary py-3 px-5">{% trans "Explore Shop" %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats -->
+<div class="container-fluid bg-dark stats py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="text-center text-white">
+                    <i class="fa fa-smile fa-3x mb-3 text-primary"></i>
+                    <h1 class="display-5 text-white mb-2" data-toggle="counter-up">15230</h1>
+                    <p class="mb-0">{% trans "Happy Customers" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                <div class="text-center text-white">
+                    <i class="fa fa-cube fa-3x mb-3 text-primary"></i>
+                    <h1 class="display-5 text-white mb-2" data-toggle="counter-up">12450</h1>
+                    <p class="mb-0">{% trans "Products Sold" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="text-center text-white">
+                    <i class="fa fa-truck fa-3x mb-3 text-primary"></i>
+                    <h1 class="display-5 text-white mb-2" data-toggle="counter-up">9850</h1>
+                    <p class="mb-0">{% trans "Deliveries Made" %}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.7s">
+                <div class="text-center text-white">
+                    <i class="fa fa-store fa-3x mb-3 text-primary"></i>
+                    <h1 class="display-5 text-white mb-2" data-toggle="counter-up">5</h1>
+                    <p class="mb-0">{% trans "Store Branches" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+            <h6 class="text-primary text-uppercase font-weight-bold mb-3">{% trans "Why Choose Us" %}</h6>
+            <h1 class="mb-0">{% trans "What Makes Us Different" %}</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fa fa-truck fa-3x mb-3 text-primary"></i>
+                        <h5>{% trans "Free Shipping" %}</h5>
+                        <p class="text-muted mb-0">{% trans "Free delivery on all orders above $50" %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fa fa-undo fa-3x mb-3 text-primary"></i>
+                        <h5>{% trans "Easy Returns" %}</h5>
+                        <p class="text-muted mb-0">{% trans "30-day hassle-free return policy" %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fa fa-lock fa-3x mb-3 text-primary"></i>
+                        <h5>{% trans "Secure Payment" %}</h5>
+                        <p class="text-muted mb-0">{% trans "100% secure checkout & encrypted data" %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.7s">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fa fa-headset fa-3x mb-3 text-primary"></i>
+                        <h5>{% trans "24/7 Support" %}</h5>
+                        <p class="text-muted mb-0">{% trans "Round-the-clock customer assistance" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team -->
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+            <h6 class="text-primary text-uppercase font-weight-bold mb-3">{% trans "Our Team" %}</h6>
+            <h1 class="mb-0">{% trans "Meet the People Behind MultiShop" %}</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="card-body">
+                        <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center mx-auto mb-3" style="width:80px;height:80px;">
+                            <span class="text-white font-weight-bold" style="font-size:28px;">AM</span>
+                        </div>
+                        <h5 class="mb-1">{% trans "Ali Mohammadi" %}</h5>
+                        <small class="text-muted">{% trans "CEO & Founder" %}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="card-body">
+                        <div class="rounded-circle bg-success d-flex align-items-center justify-content-center mx-auto mb-3" style="width:80px;height:80px;">
+                            <span class="text-white font-weight-bold" style="font-size:28px;">SN</span>
+                        </div>
+                        <h5 class="mb-1">{% trans "Sara Naderi" %}</h5>
+                        <small class="text-muted">{% trans "Head of Operations" %}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="card-body">
+                        <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3" style="width:80px;height:80px;">
+                            <span class="text-white font-weight-bold" style="font-size:28px;">RK</span>
+                        </div>
+                        <h5 class="mb-1">{% trans "Reza Karimi" %}</h5>
+                        <small class="text-muted">{% trans "Product Manager" %}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.7s">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="card-body">
+                        <div class="rounded-circle bg-info d-flex align-items-center justify-content-center mx-auto mb-3" style="width:80px;height:80px;">
+                            <span class="text-white font-weight-bold" style="font-size:28px;">MH</span>
+                        </div>
+                        <h5 class="mb-1">{% trans "Maryam Hosseini" %}</h5>
+                        <small class="text-muted">{% trans "Customer Support Lead" %}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .stats {
+        background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('{% static "img/about.jpg" %}') center/cover no-repeat;
+    }
+    [data-theme="dark"] .bg-light {
+        background-color: #1a1a1a !important;
+    }
+    [data-theme="dark"] .card {
+        background-color: #1e1e1e;
+        border-color: #333 !important;
+    }
+    [data-theme="dark"] .card .text-muted {
+        color: #adb5bd !important;
+    }
+</style>
+{% endblock %}
