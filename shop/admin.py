@@ -15,11 +15,13 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "name_fr", "name_ru")
+    list_display = ("name", "name_fr", "name_ru", "name_es", "name_de")
     fieldsets = (
         ("English", {"fields": ("name", "slug")}),
         ("Fran\u00e7ais", {"fields": ("name_fr",)}),
         ("\u0420\u0443\u0441\u0441\u043a\u0438\u0439", {"fields": ("name_ru",)}),
+        ("Espa\u00f1ol", {"fields": ("name_es",)}),
+        ("Deutsch", {"fields": ("name_de",)}),
         ("Meta", {"fields": ("image",)}),
     )
 

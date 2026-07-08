@@ -1,16 +1,36 @@
 mini-digi/
-├── manage.py
-├── requirements.txt
+├── .dockerignore
 ├── .env
 ├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── docker-build.yml
 ├── Dockerfile
-├── docker-compose.yml
-├── README.md
-├── LICENSE
 ├── HOW_TO_INTEGRATE.md
+├── LICENSE
+├── README.md
 ├── data_backup.json
-├── myphrases.json
+├── docker-compose.yml
+├── manage.py
+├── requirements.txt
 ├── test.py
+├── files/
+│   └── STATIC_SETUP.ps1
+├── scripts/
+│   ├── check_translations.py
+│   ├── compile_mo.py
+│   ├── fill_es_translations.py
+│   ├── fill_translations.py
+│   ├── fix_all_po_headers.py
+│   ├── fix_de_po.py
+│   ├── fix_po_headers.py
+│   ├── update_translations.py
+│   └── update_translations2.py
+├── management/
+│   ├── __init__.py
+│   └── commands/
+│       ├── __init__.py
+│       └── compile_with_date.py
 ├── mini_digi/
 │   ├── __init__.py
 │   ├── asgi.py
@@ -30,21 +50,29 @@ mini-digi/
 │   ├── context_processors.py
 │   ├── tests.py
 │   ├── urls.py
+│   ├── validators.py
 │   ├── management/
 │   │   └── commands/
+│   │       ├── __init__.py
+│   │       ├── 0004_product_available.py
 │   │       └── seed_products.py
 │   ├── migrations/
 │   │   ├── 0001_initial.py
 │   │   ├── 0002_product_image.py
 │   │   ├── 0003_category_image.py
 │   │   ├── 0004_product_available.py
-│   │   └── 0005_newsletter_category_name_fr_category_name_ru_and_more.py
+│   │   ├── 0005_newsletter_category_name_fr_category_name_ru_and_more.py
+│   │   ├── 0006_product_color_product_favorited_by_and_more.py
+│   │   ├── 0007_category_name_de_category_name_es_and_more.py
+│   │   └── 0008_remove_product_shop_produc_availab_388fee_idx_and_more.py
 │   ├── models/
+│   │   ├── __init__.py
 │   │   ├── cart_models.py
 │   │   ├── category.py
 │   │   ├── newsletter.py
 │   │   └── product.py
 │   └── views/
+│       ├── __init__.py
 │       ├── auth.py
 │       ├── chat.py
 │       ├── newsletter.py
@@ -56,9 +84,23 @@ mini-digi/
 │   ├── urls.py
 │   ├── views.py
 │   └── migrations/
-│       └── 0001_initial.py
+│       ├── 0001_initial.py
+│       ├── 0002_alter_cartitem_unique_together.py
+│       └── 0003_alter_cartitem_unique_together.py
 ├── orders/
 │   ├── __init__.py
+│   ├── models.py
+│   ├── urls.py
+│   ├── views.py
+│   └── migrations/
+│       ├── 0001_initial.py
+│       ├── 0002_order_orders_orde_created_0e92de_idx.py
+│       └── 0003_remove_order_orders_orde_created_0e92de_idx.py
+├── dashboard/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── middleware.py
 │   ├── models.py
 │   ├── urls.py
 │   ├── views.py
@@ -68,22 +110,19 @@ mini-digi/
 │   ├── __init__.py
 │   ├── urls.py
 │   └── views.py
-├── files/
-│   └── STATIC_SETUP.ps1
-├── scripts/
-│   ├── check_translations.py
-│   ├── fix_po_headers.py
-│   ├── update_translations.py
-│   └── update_translations2.py
 ├── locale/
+│   ├── de/
+│   │   └── LC_MESSAGES/
+│   │       └── django.po
+│   ├── es/
+│   │   └── LC_MESSAGES/
+│   │       └── django.po
 │   ├── fr/
 │   │   └── LC_MESSAGES/
-│   │       ├── django.po
-│   │       └── django.mo
+│   │       └── django.po
 │   └── ru/
 │       └── LC_MESSAGES/
-│           ├── django.po
-│           └── django.mo
+│           └── django.po
 ├── static/
 │   ├── css/
 │   │   └── style.min.css
@@ -126,7 +165,10 @@ mini-digi/
 │   │   ├── vendor-7.jpg
 │   │   └── vendor-8.jpg
 │   └── fonts/
-│       └── (4 .woff font files)
+│       ├── cube.6cd810dd.6cd810dd.woff
+│       ├── iranyekanwebbold.e298fdc6.e298fdc6.woff
+│       ├── iranyekanwebmedium.2d4f96e5.2d4f96e5.woff
+│       └── iranyekanwebregular.b95439c1.b95439c1.woff
 ├── media/
 │   ├── categories/
 │   │   ├── cat-1.jpg
@@ -185,9 +227,49 @@ mini-digi/
 │   │   ├── verification_sent.html
 │   │   ├── verified_email_required.html
 │   │   ├── email/
-│   │   │   └── (28 .txt email templates)
+│   │   │   ├── account_already_exists_message.txt
+│   │   │   ├── account_already_exists_subject.txt
+│   │   │   ├── base_message.txt
+│   │   │   ├── base_notification.txt
+│   │   │   ├── email_changed_message.txt
+│   │   │   ├── email_changed_subject.txt
+│   │   │   ├── email_confirm_message.txt
+│   │   │   ├── email_confirm_subject.txt
+│   │   │   ├── email_confirmation_message.txt
+│   │   │   ├── email_confirmation_signup_message.txt
+│   │   │   ├── email_confirmation_signup_subject.txt
+│   │   │   ├── email_confirmation_subject.txt
+│   │   │   ├── email_deleted_message.txt
+│   │   │   ├── email_deleted_subject.txt
+│   │   │   ├── login_code_message.txt
+│   │   │   ├── login_code_subject.txt
+│   │   │   ├── password_changed_message.txt
+│   │   │   ├── password_changed_subject.txt
+│   │   │   ├── password_reset_code_message.txt
+│   │   │   ├── password_reset_code_subject.txt
+│   │   │   ├── password_reset_key_message.txt
+│   │   │   ├── password_reset_key_subject.txt
+│   │   │   ├── password_reset_message.txt
+│   │   │   ├── password_reset_subject.txt
+│   │   │   ├── password_set_message.txt
+│   │   │   ├── password_set_subject.txt
+│   │   │   ├── unknown_account_message.txt
+│   │   │   └── unknown_account_subject.txt
 │   │   ├── messages/
-│   │   │   └── (14 .txt message templates)
+│   │   │   ├── cannot_delete_primary_email.txt
+│   │   │   ├── email_confirmation_failed.txt
+│   │   │   ├── email_confirmation_sent.txt
+│   │   │   ├── email_confirmed.txt
+│   │   │   ├── email_deleted.txt
+│   │   │   ├── logged_in.txt
+│   │   │   ├── logged_out.txt
+│   │   │   ├── login_code_sent.txt
+│   │   │   ├── password_changed.txt
+│   │   │   ├── password_set.txt
+│   │   │   ├── phone_verification_sent.txt
+│   │   │   ├── phone_verified.txt
+│   │   │   ├── primary_email_set.txt
+│   │   │   └── unverified_primary_email.txt
 │   │   └── snippets/
 │   │       ├── already_logged_in.html
 │   │       └── warn_no_email.html
@@ -198,6 +280,14 @@ mini-digi/
 │   │   ├── chatbot.html
 │   │   ├── footer.html
 │   │   └── navbar.html
+│   ├── dashboard/
+│   │   ├── base.html
+│   │   ├── home.html
+│   │   ├── order_detail.html
+│   │   ├── orders.html
+│   │   ├── payment.html
+│   │   ├── payment_gateway.html
+│   │   └── profile.html
 │   ├── orders/
 │   │   ├── checkout.html
 │   │   └── confirmation.html
@@ -205,6 +295,7 @@ mini-digi/
 │   │   ├── head.html
 │   │   └── scripts.html
 │   └── shop/
+│       ├── about.html
 │       ├── contact.html
 │       ├── index.html
 │       ├── product_detail.html

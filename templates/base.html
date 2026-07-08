@@ -741,17 +741,13 @@
                     <option>CAD</option>
                 </select>
                 <!-- Language -->
-                <form action="{% url 'set_language' %}" method="post" class="d-inline">
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ clean_next }}">
-                    <select name="language" class="topbar-select" onchange="this.form.submit()">
-                        {% get_current_language as CURRENT_LANG %}
-                        {% get_available_languages as LANGUAGES %}
-                        {% for code, name in LANGUAGES %}
-                        <option value="{{ code }}" {% if code == CURRENT_LANG %}selected{% endif %}>{{ name }}</option>
-                        {% endfor %}
-                    </select>
-                </form>
+                <select class="topbar-select" onchange="window.location.href = '/' + this.value + '{{ clean_next }}'">
+                    {% get_current_language as CURRENT_LANG %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% for code, name in LANGUAGES %}
+                    <option value="{{ code }}" {% if code == CURRENT_LANG %}selected{% endif %}>{{ name }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <!-- Mobile cart -->
             <div class="d-inline-flex align-items-center d-block d-lg-none">
@@ -834,13 +830,15 @@
                                 class="nav-item nav-link {% if request.resolver_match.url_name == 'checkout' %}active{% endif %}">{% trans "Checkout" %}</a>
                             <a href="{% url 'shop:contact' %}"
                                 class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{% trans "Contact" %}</a>
+                            <a href="{% url 'shop:about' %}"
+                                class="nav-item nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">{% trans "About" %}</a>
                         </div>
                         <!-- Wishlist + Cart icons — matching original exactly -->
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-flex align-items-center">
-                            <a href="#" class="btn px-0 mr-3 position-relative">
-                                <i class="far fa-heart text-primary"></i>
+                            <a href="{% url 'shop:product_list' %}" class="btn px-0 mr-3 position-relative">
+                                <i class="fas fa-heart text-primary"></i>
                                 <span class="badge badge-pill badge-danger position-absolute"
-                                    style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">0</span>
+                                    style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">{% if favorite_count %}{{ favorite_count }}{% else %}0{% endif %}</span>
                             </a>
                             <a href="{% url 'cart:detail' %}" class="btn px-0 mr-3 position-relative">
                                 <i class="fas fa-shopping-cart text-primary"></i>
@@ -877,6 +875,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <!-- Custom JS -->
     <script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/chatbot-widget.js' %}"></script>
     <script>new WOW().init();</script>
 
     <!-- Search Autocomplete -->

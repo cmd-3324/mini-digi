@@ -56,7 +56,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    
+    'django_ratelimit.middleware.RatelimitMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -79,6 +79,7 @@ TEMPLATES = [
                 'cart.context_processors.cart_item_count',
                 'shop.context_processors.categories',
                 'shop.context_processors.clean_next_path',
+                'shop.context_processors.favorite_count',
             ],
         },
     },
@@ -118,9 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
+    # {
+    #     "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    # },
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
@@ -150,6 +151,8 @@ LANGUAGES = [
     ("en", "English"),
     ("fr", "Français"),
     ("ru", "Русский"),
+    ("de", "Deutsch"),
+    ("es", "Español"),
 ]
 
 LOCALE_PATHS = [BASE_DIR / "locale"]

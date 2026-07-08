@@ -1041,7 +1041,7 @@ msgstr "Свяжитесь с нами"
 msgid ""
 "Receive messages instantly with our PHP and Ajax contact form - available in "
 "the"
-msgstr ""
+msgstr """Получайте сообщения мгновенно с помощью нашей контактной формы PHP и Ajax - ""доступно в"
 
 #: .\templates\shop\contact.html:27
 msgid "Pro Version"
@@ -1139,7 +1139,7 @@ msgstr "Поставщик"
 #: .\templates\shop\product_detail.html:39
 #, python-format
 msgid "In Stock (%(product.stock)s)"
-msgstr ""
+msgstr "В наличии (%(product.stock)s)"
 
 #: .\templates\shop\product_detail.html:39
 #: .\templates\shop\product_detail.html:54

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load shop_tags %}
 {% block title %}{% trans "Shop" %}{% endblock %}
 
 {% block content %}
@@ -17,158 +18,201 @@
 </div>
 
 <div class="container-fluid pt-5">
-    <div class="row px-xl-5">
-        <!-- Sidebar -->
-        <div class="col-lg-3 col-md-4">
-            <div class="border-bottom mb-4 pb-4">
-                <h5 class="font-weight-semi-bold mb-4">{% trans "Filter by price" %}</h5>
-                <form method="get">
-                    {% if q %}<input type="hidden" name="q" value="{{ q }}">{% endif %}
+    <form method="get" id="filter-form" action="{% url 'shop:product_list' %}">
+        <div class="row px-xl-5">
+            <div class="col-lg-3 col-md-4">
+                <div class="border-bottom mb-4 pb-4">
+                    <h5 class="font-weight-semi-bold mb-4">{% trans "Filter by price" %}</h5>
                     <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
-                            <input type="radio" class="custom-control-input" id="price-all" name="price" value="" {% if not request.GET.price %}checked{% endif %} onchange="this.form.submit()">
+                        <input type="radio" class="custom-control-input filter-input" id="price-all" name="price"
+                            value="" {% if not current_price %}checked{% endif %}>
                         <label class="custom-control-label" for="price-all">{% trans "All Price" %}</label>
-                        <span class="badge border font-weight-normal">1000</span>
                     </div>
                     <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
-                        <input type="radio" class="custom-control-input" id="price-1" name="price" value="0-100"
-                            onchange="this.form.submit()">
+                        <input type="radio" class="custom-control-input filter-input" id="price-1" name="price"
+                            value="0-100" {% if current_price == '0-100' %}checked{% endif %}>
                         <label class="custom-control-label" for="price-1">$0 - $100</label>
                     </div>
                     <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
-                        <input type="radio" class="custom-control-input" id="price-2" name="price" value="100-200"
-                            onchange="this.form.submit()">
+                        <input type="radio" class="custom-control-input filter-input" id="price-2" name="price"
+                            value="100-200" {% if current_price == '100-200' %}checked{% endif %}>
                         <label class="custom-control-label" for="price-2">$100 - $200</label>
                     </div>
                     <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
-                        <input type="radio" class="custom-control-input" id="price-3" name="price" value="200-300"
-                            onchange="this.form.submit()">
+                        <input type="radio" class="custom-control-input filter-input" id="price-3" name="price"
+                            value="200-300" {% if current_price == '200-300' %}checked{% endif %}>
                         <label class="custom-control-label" for="price-3">$200 - $300</label>
                     </div>
-                    <div class="custom-control custom-radio d-flex align-items-center justify-content-between mb-3">
-                        <input type="radio" class="custom-control-input" id="price-4" name="price" value="300-400"
-                            onchange="this.form.submit()">
-                        <label class="custom-control-label" for="price-4">$300 - $400</label>
-                    </div>
-                    <div class="custom-control custom-radio d-flex align-items-center justify-content-between">
-                        <input type="radio" class="custom-control-input" id="price-5" name="price" value="400-500"
-                            onchange="this.form.submit()">
-                        <label class="custom-control-label" for="price-5">$400 - $500</label>
-                    </div>
-                </form>
-            </div>
-            <div class="border-bottom mb-4 pb-4">
-                <h5 class="font-weight-semi-bold mb-4">{% trans "Filter by color" %}</h5>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="color-all" checked>
-                    <label class="custom-control-label" for="color-all">{% trans "All Color" %}</label>
                 </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="color-1">
-                    <label class="custom-control-label" for="color-1">{% trans "Black" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="color-2">
-                    <label class="custom-control-label" for="color-2">{% trans "White" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="color-3">
-                    <label class="custom-control-label" for="color-3">{% trans "Red" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="color-4">
-                    <label class="custom-control-label" for="color-4">{% trans "Blue" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                    <input type="checkbox" class="custom-control-input" id="color-5">
-                    <label class="custom-control-label" for="color-5">{% trans "Green" %}</label>
-                </div>
-            </div>
-            <div class="border-bottom mb-4 pb-4">
-                <h5 class="font-weight-semi-bold mb-4">{% trans "Filter by size" %}</h5>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="size-all" checked>
-                    <label class="custom-control-label" for="size-all">{% trans "All Size" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="size-1">
-                    <label class="custom-control-label" for="size-1">XS</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="size-2">
-                    <label class="custom-control-label" for="size-2">S</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="size-3">
-                    <label class="custom-control-label" for="size-3">M</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                    <input type="checkbox" class="custom-control-input" id="size-4">
-                    <label class="custom-control-label" for="size-4">L</label>
-                </div>
-                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                    <input type="checkbox" class="custom-control-input" id="size-5">
-                    <label class="custom-control-label" for="size-5">XL</label>
-                </div>
-            </div>
-        </div>
 
-        <!-- Products -->
-        <div class="col-lg-9 col-md-8">
-            <div class="row pb-3">
-                <div class="col-12 pb-1">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <form action="{% url 'shop:product_list' %}" method="get">
-                            <div class="input-group">
-                                <input type="text" name="q" value="{{ q }}" class="form-control"
-                                    placeholder="{% trans 'Search by name' %}">
+                <div class="border-bottom mb-4 pb-4">
+                    <h5 class="font-weight-semi-bold mb-4">{% trans "Filter by color" %}</h5>
+                    {% for color in available_colors %}
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input filter-input"
+                            id="color-{{ forloop.counter }}" name="color" value="{{ color }}" {% if color in current_colors %}checked{% endif %}>
+                        <label class="custom-control-label" for="color-{{ forloop.counter }}">{{ color|capfirst }}</label>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted small">{% trans "No colors available" %}</p>
+                    {% endfor %}
+                </div>
+
+                <div class="border-bottom mb-4 pb-4">
+                    <h5 class="font-weight-semi-bold mb-4">{% trans "Filter by size" %}</h5>
+                    {% for size in available_sizes %}
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input filter-input" id="size-{{ forloop.counter }}"
+                            name="size" value="{{ size }}" {% if size in current_sizes %}checked{% endif %}>
+                        <label class="custom-control-label" for="size-{{ forloop.counter }}">{{ size|upper }}</label>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted small">{% trans "No sizes available" %}</p>
+                    {% endfor %}
+                </div>
+                <button type="button" id="clear-filters-btn" class="btn btn-outline-secondary btn-block mb-4">{% trans
+                    "Clear Filters" %}</button>
+            </div>
+
+            <div class="col-lg-9 col-md-8">
+                <div class="row pb-3">
+                    <div class="col-12 pb-1">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="input-group" style="max-width: 300px;">
+                                <input type="text" name="q" id="search-input" value="{{ q }}"
+                                    class="form-control filter-input" placeholder="{% trans 'Search by name' %}">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                    <span class="input-group-text bg-transparent text-primary"><i
+                                            class="fa fa-search"></i></span>
                                 </div>
                             </div>
-                        </form>
-                        <div class="dropdown ml-4">
-                            <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">{% trans "Sorting" %}</button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}sort=latest">{% trans "Latest" %}</a>
-                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}sort=popular">{% trans "Popularity" %}</a>
-                            </div>
-                        </div>
-                        <div class="dropdown ml-2">
-                            <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">{% trans "Showing" %}</button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}per_page=10">10</a>
-                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}per_page=20">20</a>
-                                <a class="dropdown-item" href="?{% if q %}q={{ q }}&{% endif %}per_page=30">30</a>
+
+                            <div class="d-flex">
+                                <select name="sort" class="custom-select form-control filter-input ml-2">
+                                    <option value="latest" {% if current_sort == 'latest' %}selected{% endif %}>{% trans
+                                        Latest %}</option>
+                                    <option value="popular" {% if current_sort == 'popular' %}selected{% endif %}>{% trans
+                                        "Popularity" %}</option>
+                                    <option value="price_asc" {% if current_sort == 'price_asc' %}selected{% endif %}>{%
+                                        trans "Price: Low to High" %}</option>
+                                    <option value="price_desc" {% if current_sort == 'price_desc' %}selected{% endif %}>{%
+                                        trans "Price: High to Low" %}</option>
+                                </select>
+                                <select name="per_page" class="custom-select form-control filter-input ml-2">
+                                    <option value="9" {% if current_per_page == '9' %}selected{% endif %}>9</option>
+                                    <option value="15" {% if current_per_page == '15' %}selected{% endif %}>15</option>
+                                    <option value="30" {% if current_per_page == '30' %}selected{% endif %}>30</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% for product in products %}
-                <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
-                    {% include 'components/card.html' with product=product %}
-                </div>
-                {% empty %}
-                <div class="col-12 text-center py-5 text-muted">{% trans "No products found." %}</div>
-                {% endfor %}
-                <div class="col-12 pb-1">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center mb-3">
-                            {% if products.has_previous %}
-                            <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}{% if q %}&q={{ q }}{% endif %}">{% trans "Previous" %}</a></li>
-                            {% endif %}
-                            {% for num in products.paginator.page_range %}
-                            <li class="page-item {% if products.number == num %}active{% endif %}">
-                                <a class="page-link" href="?page={{ num }}{% if q %}&q={{ q }}{% endif %}">{{ num }}</a>
-                            </li>
-                            {% endfor %}
-                            {% if products.has_next %}
-                            <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}{% if q %}&q={{ q }}{% endif %}">{% trans "Next" %}</a></li>
-                            {% endif %}
-                        </ul>
-                    </nav>
+
+                <div id="product-grid" class="row">
+                    {% for product in products %}
+                    <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                        {% include 'components/card.html' with product=product %}
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-center py-5 text-muted">{% trans "No products found." %}</div>
+                    {% endfor %}
+
+                    <div class="col-12 pb-1 mt-4">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center mb-3">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link ajax-link"
+                                        href="?{% qs page=page_obj.previous_page_number %}">{% trans "Previous" %}</a>
+                                </li>
+                                {% endif %}
+                                {% for num in page_obj.paginator.page_range %}
+                                <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                                    <a class="page-link ajax-link" href="?{% qs page=num %}">{{ num }}</a>
+                                </li>
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                <li class="page-item"><a class="page-link ajax-link"
+                                        href="?{% qs page=page_obj.next_page_number %}">{% trans "Next" %}</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('filter-form');
+        const grid = document.getElementById('product-grid');
+        const searchInput = document.getElementById('search-input');
+        const clearBtn = document.getElementById('clear-filters-btn');
+        let timeout = null;
+
+        function fetchProducts(url) {
+            grid.style.opacity = '0.5';
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newGrid = doc.getElementById('product-grid');
+
+                    if (!newGrid) {
+                        console.error("Django returned an error. Check server logs.");
+                        grid.style.opacity = '1';
+                        return;
+                    }
+
+                    grid.innerHTML = newGrid.innerHTML;
+                    grid.style.opacity = '1';
+                    window.history.pushState(null, '', url);
+                });
+        }
+
+        function updateGrid() {
+            const params = new URLSearchParams(new FormData(form));
+            for (const [key, value] of [...params.entries()]) {
+                if (!value) params.delete(key);
+            }
+            fetchProducts(`${form.action}?${params.toString()}`);
+        }
+
+        form.addEventListener('change', (e) => {
+            if (e.target.classList.contains('filter-input')) updateGrid();
+        });
+
+        searchInput.addEventListener('input', () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(updateGrid, 500);
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            updateGrid();
+        });
+
+        clearBtn.addEventListener('click', () => {
+            form.reset();
+            form.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(el => el.checked = false);
+            searchInput.value = '';
+            document.getElementById('price-all').checked = true;
+            form.querySelector('select[name="sort"]').value = 'latest';
+            form.querySelector('select[name="per_page"]').value = '9';
+            updateGrid();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A' && e.target.classList.contains('ajax-link')) {
+                e.preventDefault();
+                fetchProducts(e.target.href);
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+
+        window.addEventListener('popstate', () => fetchProducts(window.location.href));
+    });
+</script>
 {% endblock %}

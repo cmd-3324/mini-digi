@@ -13,7 +13,7 @@ urlpatterns += i18n_patterns(
     path('', include('shop.urls')),
     path('cart/', include('cart.urls')),
     path('orders/', include('orders.urls')),
-   
+    # path('about/', products.about, name='about'),
     path('accounts/', include('allauth.urls')),
     prefix_default_language=True,
 )

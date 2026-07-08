@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.utils.translation import get_language
 from .category import Category
 
@@ -20,6 +21,12 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     image = models.ImageField(upload_to="products/", blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
+    color = models.CharField(max_length=50, blank=True, default="")
+    size = models.CharField(max_length=10, blank=True, default="")
+    favorited_by = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, blank=True, related_name="favorite_products"
+    )
+    favorites_count = models.PositiveIntegerField(default=0)
 
     @property
     def translated_name(self):
