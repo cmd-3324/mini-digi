@@ -1243,3 +1243,9 @@ msgstr "Aucun message fourni."
 #: shop\views\chat.py:52
 msgid "Invalid JSON."
 msgstr "JSON invalide."
+
+msgid "Price: Low to High"
+msgstr "Prix: Croissant"
+
+msgid "Price: High to Low"
+msgstr "Prix: Décroissant"

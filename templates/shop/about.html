@@ -5,15 +5,14 @@
 
 {% block content %}
 <!-- Page Header -->
-<div class="container-fluid bg-dark mb-5 py-5 page-header">
-    <div class="container py-5">
-        <h1 class="display-6 text-white mb-3">{% trans "About Us" %}</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mb-0 d-inline-flex">
-                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'shop:index' %}">{% trans "Home" %}</a></li>
-                    <li class="breadcrumb-item text-primary active">{% trans "About Us" %}</li>
-                </ol>
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30 p-0">
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
+                <span class="breadcrumb-item active">{% trans "About Us" %}</span>
             </nav>
+        </div>
     </div>
 </div>
 

@@ -1245,3 +1245,9 @@ msgstr "Сообщения не предоставлены."
 #: shop\views\chat.py:52
 msgid "Invalid JSON."
 msgstr "Неверный JSON."
+
+msgid "Price: Low to High"
+msgstr "Цена: от низкой к высокой"
+
+msgid "Price: High to Low"
+msgstr "Цена: от высокой к низкой"

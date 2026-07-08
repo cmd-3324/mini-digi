@@ -1544,3 +1544,9 @@ msgstr "Zurück"
 #: .\templates\shop\product_list.html:164
 msgid "Next"
 msgstr "Weiter"
+
+msgid "Price: Low to High"
+msgstr "Preis: Niedrig bis Hoch"
+
+msgid "Price: High to Low"
+msgstr "Preis: Hoch bis Niedrig"

@@ -89,14 +89,12 @@
 
                             <div class="d-flex">
                                 <select name="sort" class="custom-select form-control filter-input ml-2">
-                                    <option value="latest" {% if current_sort == 'latest' %}selected{% endif %}>{% trans
-                                        Latest %}</option>
-                                    <option value="popular" {% if current_sort == 'popular' %}selected{% endif %}>{% trans
-                                        "Popularity" %}</option>
-                                    <option value="price_asc" {% if current_sort == 'price_asc' %}selected{% endif %}>{%
-                                        trans "Price: Low to High" %}</option>
-                                    <option value="price_desc" {% if current_sort == 'price_desc' %}selected{% endif %}>{%
-                                        trans "Price: High to Low" %}</option>
+                                    <option value="latest" {% if current_sort == 'latest' %}selected{% endif %}>{% trans "Latest" %}</option>
+                                    <option value="popular" {% if current_sort == 'popular' %}selected{% endif %}>{% trans "Popularity" %}</option>
+                                    <option value="price_asc" {% if current_sort == 'price_asc' %}selected{% endif %}>{% trans "Price: Low to High" %}
+                                    </option>
+                                    <option value="price_desc" {% if current_sort == 'price_desc' %}selected{% endif %}>{% trans "Price: High to Low" %}
+                                    </option>
                                 </select>
                                 <select name="per_page" class="custom-select form-control filter-input ml-2">
                                     <option value="9" {% if current_per_page == '9' %}selected{% endif %}>9</option>
