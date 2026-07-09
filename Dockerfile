@@ -2,8 +2,8 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
-# Use German mirror (faster than default)
-RUN sed -i 's/deb.debian.org/ftp.de.debian.org/g' /etc/apt/sources.list.d/debian.sources && \
+# Use official Docker Hub mirror
+RUN sed -i 's|deb.debian.org|mirrors.docker.com|g' /etc/apt/sources.list.d/debian.sources && \
     apt-get update && \
     apt-get install -y gettext && \
     rm -rf /var/lib/apt/lists/*
