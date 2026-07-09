@@ -7,10 +7,11 @@
             <a href="{% url 'shop:index' %}" class="nav-item nav-link active">{% trans "Home" %}</a>
             <a href="{% url 'shop:product_list' %}" class="nav-item nav-link">{% trans "Shop" %}</a>
             <a href="{% url 'cart:detail' %}" class="nav-item nav-link">{% trans "Shop Cart" %}</a>
-            <a href="{% url 'shop:about' %}" class="nav-item nav-link">{% trans "About" %}</a>
+            <a href="{% url 'shop:about' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">{% trans "About"%}</a>
             <a href="{% url 'orders:checkout' %}" class="nav-item nav-link">{% trans "Checkout" %}</a>
             <a href="{% url 'shop:contact' %}" class="nav-item nav-link">{% trans "Contact" %}</a>
         </div>
+
         <div class="col-lg-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
                 {% if user.is_authenticated %}

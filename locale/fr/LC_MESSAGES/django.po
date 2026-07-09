@@ -1249,3 +1249,6 @@ msgstr "Prix: Croissant"
 
 msgid "Price: High to Low"
 msgstr "Prix: Décroissant"
+
+msgid "Clear Filter"
+msgstr "Effacer le filtre"

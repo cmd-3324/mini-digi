@@ -1251,3 +1251,6 @@ msgstr "Цена: от низкой к высокой"
 
 msgid "Price: High to Low"
 msgstr "Цена: от высокой к низкой"
+
+msgid "Clear Filter"
+msgstr "Очистить фильтр"

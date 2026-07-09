@@ -1550,3 +1550,6 @@ msgstr "Preis: Niedrig bis Hoch"
 
 msgid "Price: High to Low"
 msgstr "Preis: Hoch bis Niedrig"
+
+msgid "Clear Filter"
+msgstr "Filter löschen"

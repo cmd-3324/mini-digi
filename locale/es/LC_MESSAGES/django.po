@@ -1456,3 +1456,6 @@ msgstr "Precio: Menor a Mayor"
 
 msgid "Price: High to Low"
 msgstr "Precio: Mayor a Menor"
+
+msgid "Clear Filter"
+msgstr "Borrar filtro"
