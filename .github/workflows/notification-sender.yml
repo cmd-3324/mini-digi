@@ -2,20 +2,23 @@ name: Send Email Notifications
 
 on:
   workflow_run:
-    workflows: ["Django Tests"]  # <-- Must match the name in your test.yml
+    workflows: ["Django Tests"]
     types:
       - completed
 
 jobs:
-  send-notifications:
-    runs-on: ubuntu-latest
+  send-email:
+    runs-on: ubuntu-latest  
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - uses: actions/checkout@v2
-      
-      - name: Send workflow notifications
-        uses: octogeeks/send-workflow-notifications@v1
+      - name: Send test success email
+        uses: cinotify/github-action@v1
         with:
-          smtp-server: smtp.gmail.com  # Or your email provider's SMTP
-          smtp-user: ${{ secrets.SMTP_USERNAME }}
-          smtp-password: ${{ secrets.SMTP_PASSWORD }}
-          configuration: ./.github/workflow-notifications.yml
+          to: ${{ secrets.SMTP_TO }}
+          subject: "✅ Django Tests Passed!"
+          body: |
+            All tests passed successfully!
+            
+            Repository: ${{ github.repository }}
+            Run ID: ${{ github.event.workflow_run.id }}
+            Run URL: ${{ github.event.workflow_run.html_url }}
