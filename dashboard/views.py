@@ -67,6 +67,14 @@ def change_password(request):
 
 
 @login_required
+def wishlist(request):
+    products = request.user.favorite_products.select_related("category").order_by("-id")
+    return render(request, "dashboard/wishlist.html", {
+        "products": products,
+    })
+
+
+@login_required
 def orders_list(request):
     orders = request.user.orders.prefetch_related("items__product").order_by("-created_at")
     return render(request, "dashboard/orders.html", {

@@ -1,31 +1,23 @@
 mini-digi/
 ├── .dockerignore
-├── .env
-├── .gitignore
 ├── .github/
+│   ├── workflow-notifications.yml
 │   └── workflows/
-│       └── docker-build.yml
+│       ├── docker-build.yml
+│       ├── notification-sender.yml
+│       └── test.yml
+├── .gitignore
 ├── Dockerfile
 ├── HOW_TO_INTEGRATE.md
 ├── LICENSE
 ├── README.md
-├── data_backup.json
+├── db.sqlite3
 ├── docker-compose.yml
 ├── manage.py
 ├── requirements.txt
-├── test.py
+├── robots.txt
 ├── files/
 │   └── STATIC_SETUP.ps1
-├── scripts/
-│   ├── check_translations.py
-│   ├── compile_mo.py
-│   ├── fill_es_translations.py
-│   ├── fill_translations.py
-│   ├── fix_all_po_headers.py
-│   ├── fix_de_po.py
-│   ├── fix_po_headers.py
-│   ├── update_translations.py
-│   └── update_translations2.py
 ├── management/
 │   ├── __init__.py
 │   └── commands/
@@ -57,6 +49,7 @@ mini-digi/
 │   │       ├── 0004_product_available.py
 │   │       └── seed_products.py
 │   ├── migrations/
+│   │   ├── __init__.py
 │   │   ├── 0001_initial.py
 │   │   ├── 0002_product_image.py
 │   │   ├── 0003_category_image.py
@@ -64,17 +57,22 @@ mini-digi/
 │   │   ├── 0005_newsletter_category_name_fr_category_name_ru_and_more.py
 │   │   ├── 0006_product_color_product_favorited_by_and_more.py
 │   │   ├── 0007_category_name_de_category_name_es_and_more.py
-│   │   └── 0008_remove_product_shop_produc_availab_388fee_idx_and_more.py
+│   │   ├── 0008_remove_product_shop_produc_availab_388fee_idx_and_more.py
+│   │   └── 0009_product_color_size_favorites.py
 │   ├── models/
 │   │   ├── __init__.py
 │   │   ├── cart_models.py
 │   │   ├── category.py
 │   │   ├── newsletter.py
 │   │   └── product.py
+│   ├── templatetags/
+│   │   ├── __init__.py
+│   │   └── shop_tags.py
 │   └── views/
 │       ├── __init__.py
 │       ├── auth.py
 │       ├── chat.py
+│       ├── contact.py
 │       ├── newsletter.py
 │       └── products.py
 ├── cart/
@@ -84,6 +82,7 @@ mini-digi/
 │   ├── urls.py
 │   ├── views.py
 │   └── migrations/
+│       ├── __init__.py
 │       ├── 0001_initial.py
 │       ├── 0002_alter_cartitem_unique_together.py
 │       └── 0003_alter_cartitem_unique_together.py
@@ -93,6 +92,7 @@ mini-digi/
 │   ├── urls.py
 │   ├── views.py
 │   └── migrations/
+│       ├── __init__.py
 │       ├── 0001_initial.py
 │       ├── 0002_order_orders_orde_created_0e92de_idx.py
 │       └── 0003_remove_order_orders_orde_created_0e92de_idx.py
@@ -105,6 +105,7 @@ mini-digi/
 │   ├── urls.py
 │   ├── views.py
 │   └── migrations/
+│       ├── __init__.py
 │       └── 0001_initial.py
 ├── support/
 │   ├── __init__.py
@@ -113,22 +114,48 @@ mini-digi/
 ├── locale/
 │   ├── de/
 │   │   └── LC_MESSAGES/
+│   │       ├── django.mo
 │   │       └── django.po
 │   ├── es/
 │   │   └── LC_MESSAGES/
+│   │       ├── django.mo
 │   │       └── django.po
 │   ├── fr/
 │   │   └── LC_MESSAGES/
+│   │       ├── django.mo
 │   │       └── django.po
 │   └── ru/
 │       └── LC_MESSAGES/
+│           ├── django.mo
 │           └── django.po
 ├── static/
 │   ├── css/
+│   │   ├── dashboard.css
 │   │   └── style.min.css
 │   ├── js/
 │   │   ├── chatbot-widget.js
 │   │   └── main.js
+│   ├── lib/
+│   │   ├── animate/
+│   │   │   ├── animate.min.css
+│   │   │   └── w
+│   │   ├── easing/
+│   │   │   ├── easing.js
+│   │   │   ├── easing.min - Copy.js
+│   │   │   └── easing.min.js
+│   │   └── owlcarousel/
+│   │       ├── LICENSE
+│   │       └── assets/
+│   │           ├── ajax-loader.gif
+│   │           ├── owl.carousel.css
+│   │           ├── owl.carousel.js
+│   │           ├── owl.carousel.min.css
+│   │           ├── owl.carousel.min.js
+│   │           ├── owl.theme.default.css
+│   │           ├── owl.theme.default.min.css
+│   │           ├── owl.theme.green.css
+│   │           ├── owl.theme.green.min.css
+│   │           └── owl.video.play.png
 │   ├── img/
 │   │   ├── about.jpg
 │   │   ├── carousel-1.jpg
@@ -276,9 +303,11 @@ mini-digi/
 │   ├── cart/
 │   │   └── cart_detail.html
 │   ├── components/
+│   │   ├── FAQs.html
 │   │   ├── card.html
 │   │   ├── chatbot.html
 │   │   ├── footer.html
+│   │   ├── helps.html
 │   │   └── navbar.html
 │   ├── dashboard/
 │   │   ├── base.html

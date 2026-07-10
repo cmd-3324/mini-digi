@@ -1,15 +1,8 @@
 @font-face {
     font-family: 'IranYekan';
-    src: url('../fonts/iranyekanwebregular.b95439c1.b95439c1.woff') format('woff');
+    src: url('/static/fonts/iranyekanwebregular.b95439c1.b95439c1.woff') format('woff');
     font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'IranYekan';
-    src: url('../fonts/iranyekanwebmedium.2d4f96e5.2d4f96e5.woff') format('woff');
-    font-weight: 500;
-    font-style: normal
+    font-style: normal;
 }
 
 @font-face {
@@ -55,5 +48,3 @@ button {
 a:hover {
     text-decoration: none !important;
 }
-
-/* @import url(https://fonts.googleapis.com/css?family=Geist+Pixel:regular); */
