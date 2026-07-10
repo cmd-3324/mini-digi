@@ -1,9 +1,14 @@
+
+
 name: Build and Push Docker image
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g., v1, v2)'
+        required: true
+        default: 'v1'
 
 jobs:
   build_and_push:
@@ -24,5 +29,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
+          context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/mini-digi:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/mini-digi:${{ github.event.inputs.version }}
+            ${{ secrets.DOCKER_USERNAME }}/mini-digi:latest
