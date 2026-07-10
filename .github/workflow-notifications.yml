@@ -1,0 +1,13 @@
+# This configuration file defines who gets notified and when
+# It works with the octogeeks/send-workflow-notifications action
+
+workflows:
+  # IMPORTANT: Replace "My Test Workflow" with the EXACT name of your test.yml workflow
+  - workflow: "Django Tests"  # <-- Change this to match your test workflow's 'name'
+    notifications:
+      # List of email addresses to notify
+      - email: ${{ secrets.SMTP_TO }}  # <-- Uses the secret you already created # <-- Replace with your email
+        filter: [ succeeded ]  # Only send when workflow succeeds
+      # Optional: Add more recipients
+      # - email: team-member@example.com
+      #   filter: [ succeeded, failed ]  # Send on both success and failure

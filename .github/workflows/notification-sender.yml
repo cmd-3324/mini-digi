@@ -1,0 +1,21 @@
+name: Send Email Notifications
+
+on:
+  workflow_run:
+    workflows: ["Django Tests"]  # <-- Must match the name in your test.yml
+    types:
+      - completed
+
+jobs:
+  send-notifications:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Send workflow notifications
+        uses: octogeeks/send-workflow-notifications@v1
+        with:
+          smtp-server: smtp.gmail.com  # Or your email provider's SMTP
+          smtp-user: ${{ secrets.SMTP_USERNAME }}
+          smtp-password: ${{ secrets.SMTP_PASSWORD }}
+          configuration: ./.github/workflow-notifications.yml
