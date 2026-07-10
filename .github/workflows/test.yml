@@ -6,7 +6,23 @@ on:
       - main
 
 jobs:
+  check-skip:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - name: Check if should skip
+        id: skip_check
+        run: |
+          if [[ "${{ github.event.head_commit.message }}" == *"[skip-tests]"* ]] || [[ "${{ github.event.head_commit.message }}" == *"[skip-ci]"* ]]; then
+            echo "should_skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+          fi
+
   test:
+    needs: check-skip
+    if: ${{ needs.check-skip.outputs.should_skip == 'false' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
