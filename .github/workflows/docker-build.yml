@@ -1,14 +1,17 @@
-
-
 name: Build and Push Docker image
 
 on:
+  # Allows you to trigger the build manually and specify a version
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Version tag (e.g., v1, v2)'
+      version_tag:
+        description: 'Image version tag (e.g., v1, v2, v3)'
         required: true
         default: 'v1'
+  # Optional: keep this if you still want a standard build on every main push
+  push:
+    branches:
+      - main
 
 jobs:
   build_and_push:
@@ -31,6 +34,7 @@ jobs:
         with:
           context: .
           push: true
+          # This creates BOTH the specific version tag and the 'latest' tag
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/mini-digi:${{ github.event.inputs.version }}
+            ${{ secrets.DOCKER_USERNAME }}/mini-digi:${{ github.event.inputs.version_tag || 'latest' }}
             ${{ secrets.DOCKER_USERNAME }}/mini-digi:latest
