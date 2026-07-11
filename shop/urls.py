@@ -13,5 +13,7 @@ urlpatterns = [
     path("newsletter/subscribe/", newsletter.subscribe, name="newsletter_subscribe"),
     path("about/", products.about, name="about"),
     path("favorite/<int:pk>/", products.toggle_favorite, name="toggle_favorite"),
-]
+    path("help/",products.help, name="help"),
+    path("FAQs/", products.FAQs, name="FAQs")
+]   
  

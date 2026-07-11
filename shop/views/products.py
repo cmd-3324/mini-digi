@@ -129,9 +129,12 @@ def product_search_autocomplete(request):
             }
         )
     return JsonResponse({"results": results})
- 
+def FAQs(request):
+    return render(request,"components/FAQs.html")
 def about(request):
     return render(request, "shop/about.html")
+def help(request):
+    return render(request, "components/helps.html")
 
 def toggle_favorite(request, pk):
     product = get_object_or_404(Product, pk=pk)

@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<div id="faqs" class="faq-section">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">{% trans "Frequently Asked Questions" %}</span>
+    </h2>
+
+    <div class="px-xl-5">
+        <div class="faq-search-wrap">
+            <input type="text" id="faqSearchInput" placeholder="{% trans 'Search a question...' %}" autocomplete="off">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="faq-categories" id="faqCategoryBar">
+            <button type="button" class="faq-cat-btn active" data-category="all">{% trans "All" %}</button>
+            <button type="button" class="faq-cat-btn" data-category="orders">{% trans "Orders & Shipping" %}</button>
+            <button type="button" class="faq-cat-btn" data-category="payment">{% trans "Payment" %}</button>
+            <button type="button" class="faq-cat-btn" data-category="returns">{% trans "Returns & Refunds" %}</button>
+            <button type="button" class="faq-cat-btn" data-category="account">{% trans "Account" %}</button>
+        </div>
+
+        <div id="faqList">
+            <div class="faq-group" data-group="orders">
+                <div class="faq-group-title">{% trans "Orders & Shipping" %}</div>
+
+                <details class="faq-item" data-category="orders">
+                    <summary>
+                        <span>{% trans "How can I track my order?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Go to your dashboard and open \"My Orders\". Every order shows its current
+                                status — pending, paid, or completed — along with the full item list and total." %}</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item" data-category="orders">
+                    <summary>
+                        <span>{% trans "How long does delivery take?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Delivery times depend on your location and the courier assigned to your order.
+                                You'll see an estimated window on your order detail page once it ships." %}</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item" data-category="orders">
+                    <summary>
+                        <span>{% trans "Can I change my shipping address after ordering?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Only if the order hasn't shipped yet. Contact support as soon as possible with
+                                your order number and the corrected address." %}</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-group" data-group="payment">
+                <div class="faq-group-title">{% trans "Payment" %}</div>
+
+                <details class="faq-item" data-category="payment">
+                    <summary>
+                        <span>{% trans "What payment methods do you accept?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "ZarinPal, PayPal, and direct debit/credit card payments. You'll choose your
+                                method at checkout, right before confirming the order." %}</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item" data-category="payment">
+                    <summary>
+                        <span>{% trans "My payment didn't go through — was I charged?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Check \"My Orders\" first — if it shows Pending, you weren't charged and can
+                                retry payment from the order page. If money left your account without a matching order,
+                                contact support with your bank reference number." %}</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item" data-category="payment">
+                    <summary>
+                        <span>{% trans "Is my payment information secure?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Yes. Payments are processed through encrypted gateways — we never see or store
+                                your full card number." %}</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-group" data-group="returns">
+                <div class="faq-group-title">{% trans "Returns & Refunds" %}</div>
+
+                <details class="faq-item" data-category="returns">
+                    <summary>
+                        <span>{% trans "What's your return policy?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Unused items in original packaging can be returned within a reasonable window
+                                of delivery. Reach out to support with your order number to start a return." %}</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item" data-category="returns">
+                    <summary>
+                        <span>{% trans "How long do refunds take?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Once a return is received and inspected, refunds are issued back to your
+                                original payment method. Bank processing times vary after that on our end." %}</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-group" data-group="account">
+                <div class="faq-group-title">{% trans "Account" %}</div>
+
+                <details class="faq-item" data-category="account">
+                    <summary>
+                        <span>{% trans "How do I reset my password?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Use \"Forgot password\" on the login page, or go to Dashboard → My Profile →
+                                Change Password if you're already signed in." %}</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item" data-category="account">
+                    <summary>
+                        <span>{% trans "How do I save items to my wishlist?" %}</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <div class="faq-answer-inner">
+                            <p>{% trans "Click the heart icon on any product. Everything you save shows up under
+                                Dashboard → Wishlist." %}</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="faq-empty-state" id="faqEmptyState">
+            <i class="fas fa-search mb-2" style="font-size:1.8rem;"></i>
+            <p class="mb-0">{% trans "No matching questions. Try different keywords or reach out through Help below." %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %} 
+<script>
+    (function () {
+        var searchInput = document.getElementById('faqSearchInput');
+        var categoryBar = document.getElementById('faqCategoryBar');
+        var faqList = document.getElementById('faqList');
+        var emptyState = document.getElementById('faqEmptyState');
+        if (!searchInput || !faqList) return;
+
+        var items = Array.prototype.slice.call(faqList.querySelectorAll('.faq-item'));
+        var groups = Array.prototype.slice.call(faqList.querySelectorAll('.faq-group'));
+        var activeCategory = 'all';
+
+        function applyFilter() {
+            var query = searchInput.value.trim().toLowerCase();
+            var visibleCount = 0;
+
+            items.forEach(function (item) {
+                var matchesCategory = activeCategory === 'all' || item.dataset.category === activeCategory;
+                var text = item.textContent.toLowerCase();
+                var matchesSearch = query === '' || text.indexOf(query) !== -1;
+                var visible = matchesCategory && matchesSearch;
+
+                item.classList.toggle('faq-hidden', !visible);
+                if (query !== '') item.open = visible;
+                if (visible) visibleCount++;
+            });
+
+            groups.forEach(function (group) {
+                var hasVisible = group.querySelectorAll('.faq-item:not(.faq-hidden)').length > 0;
+                group.style.display = hasVisible ? '' : 'none';
+            });
+
+            emptyState.classList.toggle('show', visibleCount === 0);
+        }
+
+        searchInput.addEventListener('input', applyFilter);
+
+        categoryBar.addEventListener('click', function (e) {
+            var btn = e.target.closest('.faq-cat-btn');
+            if (!btn) return;
+            categoryBar.querySelectorAll('.faq-cat-btn').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            activeCategory = btn.dataset.category;
+            applyFilter();
+        });
+    })();
+</script>

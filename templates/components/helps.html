@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load static %}
+
+<div id="help" class="help-section mt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">{% trans "Need More Help?" %}</span>
+    </h2>
+
+    <div class="px-xl-5">
+        <div class="help-grid">
+            <a href="{% url 'dashboard:orders' %}" class="help-card">
+                <div class="help-card-icon"><i class="fas fa-truck"></i></div>
+                <h6>{% trans "Track an Order" %}</h6>
+                <p>{% trans "Check status on any order you've placed" %}</p>
+            </a>
+
+            <a href="mailto:programmers378@gmail.com" class="help-card">
+                <div class="help-card-icon"><i class="fas fa-envelope"></i></div>
+                <h6>{% trans "Email Support" %}</h6>
+                <p>{% trans "We usually reply within one business day" %}</p>
+            </a>
+
+            <div class="help-card" style="cursor:default;">
+                <div class="help-card-icon"><i class="fas fa-comment-dots"></i></div>
+                <h6>{% trans "Live Chat" %}</h6>
+                <p>{% trans "Open the chat bubble in the corner for instant answers" %}</p>
+            </div>
+
+            <a href="#faqs" class="help-card">
+                <div class="help-card-icon"><i class="fas fa-question"></i></div>
+                <h6>{% trans "Browse FAQs" %}</h6>
+                <p>{% trans "Answers to the most common questions" %}</p>
+            </a>
+        </div>
+    </div>
+</div>

@@ -56,11 +56,11 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    'django_ratelimit.middleware.RatelimitMiddleware',
+    'mini_digi.middleware.GlobalRateLimitMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "allauth.account.middleware.AccountMiddleware",  # ← ADD HERE
+    "allauth.account.middleware.AccountMiddleware",  
 ]
 
 ROOT_URLCONF = "mini_digi.urls"
