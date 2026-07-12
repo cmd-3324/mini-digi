@@ -1,6 +1,7 @@
+{% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
-
+{% block content %}
 <div id="help" class="help-section mt-5">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
         <span class="bg-secondary pr-3">{% trans "Need More Help?" %}</span>
@@ -34,3 +35,6 @@
         </div>
     </div>
 </div>
+
+
+{% endblock %}

@@ -1252,3 +1252,151 @@ msgstr "Prix: Décroissant"
 
 msgid "Clear Filter"
 msgstr "Effacer le filtre"
+
+#: .\templates\components\FAQs.html:4
+msgid "Frequently Asked Questions"
+msgstr "Questions fréquemment posées"
+
+#: .\templates\components\FAQs.html:9
+msgid "Search a question..."
+msgstr "Rechercher une question..."
+
+#: .\templates\components\FAQs.html:14
+msgid "All"
+msgstr "Tout"
+
+#: .\templates\components\FAQs.html:15
+msgid "Orders & Shipping"
+msgstr "Commandes et livraison"
+
+#: .\templates\components\FAQs.html:16
+msgid "Payment"
+msgstr "Paiement"
+
+#: .\templates\components\FAQs.html:17
+msgid "Returns & Refunds"
+msgstr "Retours et remboursements"
+
+#: .\templates\components\FAQs.html:18
+msgid "Account"
+msgstr "Compte"
+
+#: .\templates\components\FAQs.html:23
+msgid "How can I track my order?"
+msgstr "Comment puis-je suivre ma commande ?"
+
+#: .\templates\components\FAQs.html:29
+msgid "Go to your dashboard and open \"My Orders\". Every order shows its current status — pending, paid, or completed — along with the full item list and total."
+msgstr "Allez sur votre tableau de bord et ouvrez \"Mes commandes\". Chaque commande affiche son statut actuel — en attente, payée ou terminée — ainsi que la liste complète des articles et le total."
+
+#: .\templates\components\FAQs.html:37
+msgid "How long does delivery take?"
+msgstr "Combien de temps prend la livraison ?"
+
+#: .\templates\components\FAQs.html:43
+msgid "Delivery times depend on your location and the courier assigned to your order. You'll see an estimated window on your order detail page once it ships."
+msgstr "Les délais de livraison dépendent de votre emplacement et du transporteur assigné à votre commande. Vous verrez une fenêtre estimée sur la page de détails de votre commande une fois qu'elle sera expédiée."
+
+#: .\templates\components\FAQs.html:51
+msgid "Can I change my shipping address after ordering?"
+msgstr "Puis-je modifier mon adresse de livraison après avoir passé commande ?"
+
+#: .\templates\components\FAQs.html:57
+msgid "Only if the order hasn't shipped yet. Contact support as soon as possible with your order number and the corrected address."
+msgstr "Uniquement si la commande n'a pas encore été expédiée. Contactez le support dès que possible avec votre numéro de commande et l'adresse corrigée."
+
+#: .\templates\components\FAQs.html:67
+msgid "What payment methods do you accept?"
+msgstr "Quels moyens de paiement acceptez-vous ?"
+
+#: .\templates\components\FAQs.html:73
+msgid "ZarinPal, PayPal, and direct debit/credit card payments. You'll choose your method at checkout, right before confirming the order."
+msgstr "ZarinPal, PayPal et les paiements par carte de débit/crédit direct. Vous choisirez votre méthode lors du paiement, juste avant de confirmer la commande."
+
+#: .\templates\components\FAQs.html:81
+msgid "My payment didn't go through — was I charged?"
+msgstr "Mon paiement n'a pas abouti — ai-je été débité ?"
+
+#: .\templates\components\FAQs.html:87
+msgid "Check \"My Orders\" first — if it shows Pending, you weren't charged and can retry payment from the order page. If money left your account without a matching order, contact support with your bank reference number."
+msgstr "Vérifiez d'abord \"Mes commandes\" — si elle est marquée En attente, vous n'avez pas été débité et pouvez réessayer le paiement depuis la page de la commande. Si de l'argent a quitté votre compte sans commande correspondante, contactez le support avec votre numéro de référence bancaire."
+
+#: .\templates\components\FAQs.html:95
+msgid "Is my payment information secure?"
+msgstr "Mes informations de paiement sont-elles sécurisées ?"
+
+#: .\templates\components\FAQs.html:101
+msgid "Yes. Payments are processed through encrypted gateways — we never see or store your full card number."
+msgstr "Oui. Les paiements sont traités via des passerelles cryptées — nous ne voyons ni ne stockons jamais votre numéro de carte complet."
+
+#: .\templates\components\FAQs.html:111
+msgid "What's your return policy?"
+msgstr "Quelle est votre politique de retour ?"
+
+#: .\templates\components\FAQs.html:117
+msgid "Unused items in original packaging can be returned within a reasonable window of delivery. Reach out to support with your order number to start a return."
+msgstr "Les articles non utilisés dans leur emballage d'origine peuvent être retournés dans un délai raisonnable après la livraison. Contactez le support avec votre numéro de commande pour initier un retour."
+
+#: .\templates\components\FAQs.html:125
+msgid "How long do refunds take?"
+msgstr "Combien de temps prennent les remboursements ?"
+
+#: .\templates\components\FAQs.html:131
+msgid "Once a return is received and inspected, refunds are issued back to your original payment method. Bank processing times vary after that on our end."
+msgstr "Une fois un retour reçu et inspecté, les remboursements sont émis sur votre moyen de paiement d'origine. Les délais de traitement bancaire varient ensuite de notre côté."
+
+#: .\templates\components\FAQs.html:141
+msgid "How do I reset my password?"
+msgstr "Comment réinitialiser mon mot de passe ?"
+
+#: .\templates\components\FAQs.html:147
+msgid "Use \"Forgot password\" on the login page, or go to Dashboard → My Profile → Change Password if you're already signed in."
+msgstr "Utilisez \"Mot de passe oublié\" sur la page de connexion, ou allez dans Tableau de bord → Mon profil → Changer le mot de passe si vous êtes déjà connecté."
+
+#: .\templates\components\FAQs.html:155
+msgid "How do I save items to my wishlist?"
+msgstr "Comment enregistrer des articles dans ma liste de souhaits ?"
+
+#: .\templates\components\FAQs.html:161
+msgid "Click the heart icon on any product. Everything you save shows up under Dashboard → Wishlist."
+msgstr "Cliquez sur l'icône en forme de cœur sur n'importe quel produit. Tout ce que vous enregistrez apparaît dans Tableau de bord → Liste de souhaits."
+
+#: .\templates\components\FAQs.html:169
+msgid "No matching questions. Try different keywords or reach out through Help below."
+msgstr "Aucune question correspondante. Essayez différents mots-clés ou contactez-nous via l'Aide ci-dessous."
+
+#: .\templates\components\helps.html:4
+msgid "Need More Help?"
+msgstr "Besoin d'aide supplémentaire ?"
+
+#: .\templates\components\helps.html:11
+msgid "Track an Order"
+msgstr "Suivre une commande"
+
+#: .\templates\components\helps.html:12
+msgid "Check status on any order you've placed"
+msgstr "Vérifiez le statut de n'importe quelle commande que vous avez passée"
+
+#: .\templates\components\helps.html:17
+msgid "Email Support"
+msgstr "Support par e-mail"
+
+#: .\templates\components\helps.html:18
+msgid "We usually reply within one business day"
+msgstr "Nous répondons généralement dans un jour ouvré"
+
+#: .\templates\components\helps.html:24
+msgid "Live Chat"
+msgstr "Chat en direct"
+
+#: .\templates\components\helps.html:25
+msgid "Open the chat bubble in the corner for instant answers"
+msgstr "Ouvrez la bulle de chat dans le coin pour des réponses instantanées"
+
+#: .\templates\components\helps.html:30
+msgid "Browse FAQs"
+msgstr "Parcourir les FAQ"
+
+#: .\templates\components\helps.html:31
+msgid "Answers to the most common questions"
+msgstr "Réponses aux questions les plus fréquentes"

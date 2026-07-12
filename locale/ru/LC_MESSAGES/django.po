@@ -1254,3 +1254,151 @@ msgstr "Цена: от высокой к низкой"
 
 msgid "Clear Filter"
 msgstr "Очистить фильтр"
+
+#: .\templates\components\FAQs.html:4
+msgid "Frequently Asked Questions"
+msgstr "Часто задаваемые вопросы"
+
+#: .\templates\components\FAQs.html:9
+msgid "Search a question..."
+msgstr "Поиск вопроса..."
+
+#: .\templates\components\FAQs.html:14
+msgid "All"
+msgstr "Все"
+
+#: .\templates\components\FAQs.html:15
+msgid "Orders & Shipping"
+msgstr "Заказы и доставка"
+
+#: .\templates\components\FAQs.html:16
+msgid "Payment"
+msgstr "Оплата"
+
+#: .\templates\components\FAQs.html:17
+msgid "Returns & Refunds"
+msgstr "Возврат и возмещение"
+
+#: .\templates\components\FAQs.html:18
+msgid "Account"
+msgstr "Аккаунт"
+
+#: .\templates\components\FAQs.html:23
+msgid "How can I track my order?"
+msgstr "Как я могу отследить мой заказ?"
+
+#: .\templates\components\FAQs.html:29
+msgid "Go to your dashboard and open \"My Orders\". Every order shows its current status — pending, paid, or completed — along with the full item list and total."
+msgstr "Перейдите в панель управления и откройте \"Мои заказы\". Каждый заказ показывает его текущий статус — ожидает, оплачен или завершен — вместе с полным списком товаров и итоговой суммой."
+
+#: .\templates\components\FAQs.html:37
+msgid "How long does delivery take?"
+msgstr "Сколько времени занимает доставка?"
+
+#: .\templates\components\FAQs.html:43
+msgid "Delivery times depend on your location and the courier assigned to your order. You'll see an estimated window on your order detail page once it ships."
+msgstr "Сроки доставки зависят от вашего местоположения и курьера, назначенного для вашего заказа. Вы увидите ориентировочное окно на странице деталей заказа после его отправки."
+
+#: .\templates\components\FAQs.html:51
+msgid "Can I change my shipping address after ordering?"
+msgstr "Могу ли я изменить адрес доставки после оформления заказа?"
+
+#: .\templates\components\FAQs.html:57
+msgid "Only if the order hasn't shipped yet. Contact support as soon as possible with your order number and the corrected address."
+msgstr "Только если заказ еще не был отправлен. Свяжитесь с поддержкой как можно скорее с номером вашего заказа и исправленным адресом."
+
+#: .\templates\components\FAQs.html:67
+msgid "What payment methods do you accept?"
+msgstr "Какие способы оплаты вы принимаете?"
+
+#: .\templates\components\FAQs.html:73
+msgid "ZarinPal, PayPal, and direct debit/credit card payments. You'll choose your method at checkout, right before confirming the order."
+msgstr "ZarinPal, PayPal и прямые платежи по дебетовой/кредитной карте. Вы выберете способ оплаты при оформлении заказа, непосредственно перед его подтверждением."
+
+#: .\templates\components\FAQs.html:81
+msgid "My payment didn't go through — was I charged?"
+msgstr "Мой платеж не прошел — были ли списаны средства?"
+
+#: .\templates\components\FAQs.html:87
+msgid "Check \"My Orders\" first — if it shows Pending, you weren't charged and can retry payment from the order page. If money left your account without a matching order, contact support with your bank reference number."
+msgstr "Сначала проверьте \"Мои заказы\" — если отображается \"Ожидает\", средства не были списаны, и вы можете повторить попытку оплаты со страницы заказа. Если деньги были списаны без соответствующего заказа, свяжитесь с поддержкой с номером банковской ссылки."
+
+#: .\templates\components\FAQs.html:95
+msgid "Is my payment information secure?"
+msgstr "Моя платежная информация защищена?"
+
+#: .\templates\components\FAQs.html:101
+msgid "Yes. Payments are processed through encrypted gateways — we never see or store your full card number."
+msgstr "Да. Платежи обрабатываются через зашифрованные шлюзы — мы никогда не видим и не храним полный номер вашей карты."
+
+#: .\templates\components\FAQs.html:111
+msgid "What's your return policy?"
+msgstr "Какова ваша политика возврата?"
+
+#: .\templates\components\FAQs.html:117
+msgid "Unused items in original packaging can be returned within a reasonable window of delivery. Reach out to support with your order number to start a return."
+msgstr "Неиспользованные товары в оригинальной упаковке могут быть возвращены в разумный срок после доставки. Свяжитесь с поддержкой с номером вашего заказа, чтобы инициировать возврат."
+
+#: .\templates\components\FAQs.html:125
+msgid "How long do refunds take?"
+msgstr "Сколько времени занимает возврат средств?"
+
+#: .\templates\components\FAQs.html:131
+msgid "Once a return is received and inspected, refunds are issued back to your original payment method. Bank processing times vary after that on our end."
+msgstr "После получения и проверки возврата средства возвращаются на ваш исходный способ оплаты. Время обработки банком после этого варьируется с нашей стороны."
+
+#: .\templates\components\FAQs.html:141
+msgid "How do I reset my password?"
+msgstr "Как сбросить пароль?"
+
+#: .\templates\components\FAQs.html:147
+msgid "Use \"Forgot password\" on the login page, or go to Dashboard → My Profile → Change Password if you're already signed in."
+msgstr "Используйте \"Забыли пароль?\" на странице входа или перейдите в Панель управления → Мой профиль → Сменить пароль, если вы уже вошли в систему."
+
+#: .\templates\components\FAQs.html:155
+msgid "How do I save items to my wishlist?"
+msgstr "Как сохранить товары в список желаний?"
+
+#: .\templates\components\FAQs.html:161
+msgid "Click the heart icon on any product. Everything you save shows up under Dashboard → Wishlist."
+msgstr "Нажмите на значок сердца на любом товаре. Все, что вы сохраните, появится в Панель управления → Список желаний."
+
+#: .\templates\components\FAQs.html:169
+msgid "No matching questions. Try different keywords or reach out through Help below."
+msgstr "Нет подходящих вопросов. Попробуйте другие ключевые слова или обратитесь через раздел \"Помощь\" ниже."
+
+#: .\templates\components\helps.html:4
+msgid "Need More Help?"
+msgstr "Нужна дополнительная помощь?"
+
+#: .\templates\components\helps.html:11
+msgid "Track an Order"
+msgstr "Отследить заказ"
+
+#: .\templates\components\helps.html:12
+msgid "Check status on any order you've placed"
+msgstr "Проверьте статус любого заказа, который вы оформили"
+
+#: .\templates\components\helps.html:17
+msgid "Email Support"
+msgstr "Поддержка по электронной почте"
+
+#: .\templates\components\helps.html:18
+msgid "We usually reply within one business day"
+msgstr "Мы обычно отвечаем в течение одного рабочего дня"
+
+#: .\templates\components\helps.html:24
+msgid "Live Chat"
+msgstr "Онлайн-чат"
+
+#: .\templates\components\helps.html:25
+msgid "Open the chat bubble in the corner for instant answers"
+msgstr "Откройте чат в углу для мгновенных ответов"
+
+#: .\templates\components\helps.html:30
+msgid "Browse FAQs"
+msgstr "Просмотреть FAQ"
+
+#: .\templates\components\helps.html:31
+msgid "Answers to the most common questions"
+msgstr "Ответы на самые частые вопросы"
