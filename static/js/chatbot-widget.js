@@ -413,6 +413,28 @@
     input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); doSend(); }
     });
+  /* ── FILE ATTACHMENT ────────────────────────────────────── */
+    var attachBtn = document.getElementById('vx-attach');
+    var fileInput = document.getElementById('vx-file-input');
+
+    attachBtn.addEventListener('click', function() {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var size = Math.round(file.size / 1024);
+        if (size > 5000) {
+            addBubble('bot', 'File too large. Maximum 5MB.');
+            fileInput.value = '';
+            return;
+        }
+        addBubble('user', '📎 File: ' + file.name + ' (' + size + 'KB)');
+        input.value = '';
+        input.focus();
+        fileInput.value = '';
+    });
 
     /* ── HISTORY PANEL ────────────────────────────────────── */
     function openHistory() {

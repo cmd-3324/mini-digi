@@ -2,6 +2,18 @@
 {% load i18n %}
 {% load static %}
 {% block content %}
+<!-- Breadcrumb -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30 p-0">
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
+                <span class="breadcrumb-item active">{% trans "Help" %}</span>
+            </nav>
+        </div>
+    </div>
+</div>
+
 <div id="help" class="help-section mt-5">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
         <span class="bg-secondary pr-3">{% trans "Need More Help?" %}</span>

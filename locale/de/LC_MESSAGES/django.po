@@ -1362,12 +1362,9 @@ msgid "Customer Support Lead"
 msgstr "Leiterin des Kundensupports"
 
 #: .\templates\shop\contact.html:27
-msgid ""
-"Receive messages instantly with our PHP and Ajax contact form - available in "
-"the"
-msgstr ""
-"Empfangen Sie Nachrichten sofort mit unserem PHP- und Ajax-Kontaktformular - "
-"verfügbar in der"
+msgid "Questions? Feedback? We'd love to hear from you."
+msgstr "Fragen? Feedback? Wir freuen uns, von Ihnen zu hören."
+
 
 #: .\templates\shop\contact.html:27
 msgid "Pro Version"
@@ -1432,8 +1429,8 @@ msgstr "Kindermode"
 #: .\templates\shop\index.html:62 .\templates\shop\index.html:70
 #: .\templates\shop\index.html:156 .\templates\shop\index.html:166
 #, python-format
-msgid "Save 20%%"
-msgstr "20%% sparen"
+msgid "Save 20%"
+msgstr "20% sparen"
 
 #: .\templates\shop\index.html:63 .\templates\shop\index.html:71
 #: .\templates\shop\index.html:157 .\templates\shop\index.html:167
@@ -1571,8 +1568,7 @@ msgid "Orders & Shipping"
 msgstr "Bestellungen & Versand"
 
 #: .\templates\components\FAQs.html:16
-msgid "Payment"
-msgstr "Zahlung"
+
 
 #: .\templates\components\FAQs.html:17
 msgid "Returns & Refunds"

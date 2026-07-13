@@ -70,7 +70,7 @@
                     <p class="text-muted small">{% trans "No sizes available" %}</p>
                     {% endfor %}
                 </div>
-                <button type="button" id="clear-filters-btn" class="btn btn-outline-secondary btn-block mb-4" style="color:rgb(113, 113, 113); background-color: rgb(255, 252, 248);">{% trans "Clear Filter"%}</button>
+                <button type="button" id="clear-filters-btn" class="btn btn-outline-secondary btn-block mb-4" style="color:rgb(5, 4, 4); background-color: rgb(244, 238, 229); margin-top:25px; padding:15px 15px 15px 15px; border-radius:8%;">{% trans "Clear Filter"%}</button>
             </div>
 
             <div class="col-lg-9 col-md-8">
@@ -87,7 +87,7 @@
                             </div>
 
                             <div class="d-flex">
-                                <select name="sort" class="custom-select form-control filter-input ml-2">
+                                <select name="sort" class="custom-select form-control filter-input ml-2" style="min-width: 170px; margin-right:50xp; border-radius:10%;">
                                     <option value="latest" {% if current_sort == 'latest' %}selected{% endif %}>{% trans "Latest" %}</option>
                                     <option value="popular" {% if current_sort == 'popular' %}selected{% endif %}>{% trans "Popularity" %}</option>
                                     <option value="price_asc" {% if current_sort == 'price_asc' %}selected{% endif %}>{% trans "Price: Low to High" %}
@@ -95,7 +95,7 @@
                                     <option value="price_desc" {% if current_sort == 'price_desc' %}selected{% endif %}>{% trans "Price: High to Low" %}
                                     </option>
                                 </select>
-                                <select name="per_page" class="custom-select form-control filter-input ml-2">
+                                <select name="per_page" class="custom-select form-control filter-input ml-2" style=" min-width: 90px; border-radius:10%;">
                                     <option value="9" {% if current_per_page == '9' %}selected{% endif %}>9</option>
                                     <option value="15" {% if current_per_page == '15' %}selected{% endif %}>15</option>
                                     <option value="30" {% if current_per_page == '30' %}selected{% endif %}>30</option>

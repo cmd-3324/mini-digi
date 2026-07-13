@@ -2,6 +2,17 @@
 {% load i18n %}
 {% load static %}
 {% block content %}
+<!-- Breadcrumb -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30 p-0">
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
+                <span class="breadcrumb-item active">{% trans "FAQs" %}</span>
+            </nav>
+        </div>
+    </div>
+</div>
 <div id="faqs" class="faq-section">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
         <span class="bg-secondary pr-3">{% trans "Frequently Asked Questions" %}</span>
@@ -32,8 +43,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Go to your dashboard and open \"My Orders\". Every order shows its current
-                                status — pending, paid, or completed — along with the full item list and total." %}</p>
+                           <p>{% trans "Go to your dashboard and open \"My Orders\". Every order shows its current status — pending, paid, or completed — along with the full item list and total." %}</p>
                         </div>
                     </div>
                 </details>
@@ -45,8 +55,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Delivery times depend on your location and the courier assigned to your order.
-                                You'll see an estimated window on your order detail page once it ships." %}</p>
+                            <p>{% trans "Delivery times depend on your location and the courier assigned to your order. You'll see an estimated window on your order detail page once it ships." %}</p>
                         </div>
                     </div>
                 </details>
@@ -58,8 +67,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Only if the order hasn't shipped yet. Contact support as soon as possible with
-                                your order number and the corrected address." %}</p>
+                            <p>{% trans "Only if the order hasn't shipped yet. Contact support as soon as possible with your order number and the corrected address." %}</p>
                         </div>
                     </div>
                 </details>
@@ -75,8 +83,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "ZarinPal, PayPal, and direct debit/credit card payments. You'll choose your
-                                method at checkout, right before confirming the order." %}</p>
+                            <p>{% trans "ZarinPal, PayPal, and direct debit/credit card payments. You'll choose your method at checkout, right before confirming the order." %}</p>
                         </div>
                     </div>
                 </details>
@@ -88,9 +95,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Check \"My Orders\" first — if it shows Pending, you weren't charged and can
-                                retry payment from the order page. If money left your account without a matching order,
-                                contact support with your bank reference number." %}</p>
+                            <p>{% trans "Check \"My Orders\" first — if it shows Pending, you weren't charged and can retry payment from the order page. If money left your account without a matching order, contact support with your bank reference number." %}</p>
                         </div>
                     </div>
                 </details>
@@ -102,8 +107,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Yes. Payments are processed through encrypted gateways — we never see or store
-                                your full card number." %}</p>
+                            <p>{% trans "Yes. Payments are processed through encrypted gateways — we never see or store your full card number." %}</p>
                         </div>
                     </div>
                 </details>
@@ -119,8 +123,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Unused items in original packaging can be returned within a reasonable window
-                                of delivery. Reach out to support with your order number to start a return." %}</p>
+                            <p>{% trans "Unused items in original packaging can be returned within a reasonable window of delivery. Reach out to support with your order number to start a return." %}</p>
                         </div>
                     </div>
                 </details>
@@ -132,8 +135,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Once a return is received and inspected, refunds are issued back to your
-                                original payment method. Bank processing times vary after that on our end." %}</p>
+                            <p>{% trans "Once a return is received and inspected, refunds are issued back to your original payment method. Bank processing times vary after that on our end." %}</p>
                         </div>
                     </div>
                 </details>
@@ -149,8 +151,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Use \"Forgot password\" on the login page, or go to Dashboard → My Profile →
-                                Change Password if you're already signed in." %}</p>
+                            <p>{% trans "Use \"Forgot password\" on the login page, or go to Dashboard → My Profile → Change Password if you're already signed in." %}</p>
                         </div>
                     </div>
                 </details>
@@ -162,8 +163,7 @@
                     </summary>
                     <div class="faq-answer-wrap">
                         <div class="faq-answer-inner">
-                            <p>{% trans "Click the heart icon on any product. Everything you save shows up under
-                                Dashboard → Wishlist." %}</p>
+                            <p>{% trans "Click the heart icon on any product. Everything you save shows up under Dashboard → Wishlist." %}</p>
                         </div>
                     </div>
                 </details>

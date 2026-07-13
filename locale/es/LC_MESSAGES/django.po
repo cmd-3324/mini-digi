@@ -1099,8 +1099,6 @@ msgid "No items."
 msgstr "No hay artículos."
 
 #: .\templates\orders\checkout.html:174
-msgid "Payment"
-msgstr "Pago"
 
 #: .\templates\orders\checkout.html:180
 msgid "Paypal"
@@ -1271,10 +1269,9 @@ msgid "Customer Support Lead"
 msgstr "Líder de Soporte"
 
 #: .\templates\shop\contact.html:27
-msgid ""
-"Receive messages instantly with our PHP and Ajax contact form - available in "
-"the"
-msgstr """Recibe mensajes al instante con nuestro formulario de contacto en PHP y Ajax"", disponible en"
+msgid "Questions? Feedback? We'd love to hear from you."
+
+msgstr "¿Preguntas? ¿Comentarios? Nos encantaría saber de usted."
 
 #: .\templates\shop\contact.html:27
 msgid "Pro Version"
@@ -1339,8 +1336,8 @@ msgstr "Moda infantil"
 #: .\templates\shop\index.html:62 .\templates\shop\index.html:70
 #: .\templates\shop\index.html:156 .\templates\shop\index.html:166
 #, python-format
-msgid "Save 20%%"
-msgstr ""
+msgid "Save 20%"
+msgstr "Ahorra un 20 %"
 
 #: .\templates\shop\index.html:63 .\templates\shop\index.html:71
 #: .\templates\shop\index.html:157 .\templates\shop\index.html:167

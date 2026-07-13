@@ -10,8 +10,7 @@
     <meta content="{% trans 'Free HTML Templates' %}" name="keywords">
     <meta content="{% trans 'Free HTML Templates' %}" name="description">
 
-    <!-- Favicon — place any .ico in static/img/favicon.png(.ico preffred) -->
-    <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -33,7 +32,7 @@
 {% endblock %}
 
 
-    <style>
+<style>
         :root {
             --bg-body: #ffffff;
             --bg-card: #ffffff;
@@ -673,7 +672,156 @@
         [data-theme="dark"] .newsletter-toast {
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
         }
-    </style>
+    /* ===== Custom Language Selector ===== */
+.language-select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.language-select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1.5px solid var(--border-color, #dee2e6);
+    border-radius: 20px;
+    padding: 4px 32px 4px 14px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-body, #333);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-width: 90px;
+    height: 32px;
+    line-height: 1;
+}
+
+.language-select-wrapper select:hover {
+    border-color: #ffd333;
+    background-color: rgba(255, 211, 51, 0.08);
+}
+
+.language-select-wrapper select:focus {
+    outline: none;
+    border-color: #ffd333;
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.25);
+}
+
+.language-select-wrapper select option {
+    background-color: var(--bg-card, #fff);
+    color: var(--text-body, #333);
+    padding: 6px 10px;
+}
+
+.language-select-wrapper::after {
+    content: "\f0d7";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-body, #999);
+    font-size: 11px;
+    pointer-events: none;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .language-select-wrapper select {
+    border-color: #444;
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .language-select-wrapper select option {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .language-select-wrapper::after {
+    color: #888;
+}
+/* ===== Custom Currency Selector ===== */
+.currency-select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.currency-select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1.5px solid var(--border-color, #dee2e6);
+    border-radius: 20px;
+    padding: 4px 32px 4px 14px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-body, #333);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-width: 70px;
+    height: 36px;
+    line-height: 1;
+}
+
+.currency-select-wrapper select:hover {
+    border-color: #ffd333;
+    background-color: rgba(255, 211, 51, 0.08);
+}
+
+.currency-select-wrapper select:focus {
+    outline: none;
+    border-color: #ffd333;
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.25);
+}
+
+.currency-select-wrapper select option {
+    background-color: var(--bg-card, #fff);
+    color: var(--text-body, #333);
+    padding: 6px 10px;
+}
+
+.currency-select-wrapper::after {
+    content: "\f0d7";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-body, #999);
+    font-size: 12px;
+    pointer-events: none;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .currency-select-wrapper select {
+    border-color: #444;
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .currency-select-wrapper select option {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .currency-select-wrapper::after {
+    color: #888;
+}
+#vx-tog {
+    right: 8vw !important;
+    left: auto !important;
+    bottom: 30px !important;
+}
+
+#vx-win {
+    right: 8vw !important;
+    left: auto !important;
+    bottom: 96px !important;
+}
+</style>
 </head>
 
 <body>
@@ -739,20 +887,25 @@
                 {% endif %}
                 <!-- Currency -->
 
-                <select class="topbar-select mr-2">
-                    <option>USD</option>
-                    <option>EUR</option>
-                    <option>GBP</option>
-                    <option>CAD</option>
-                </select>
+                <div class="currency-select-wrapper">
+                    <select class="topbar-select mr-2">
+                        <option>USD</option>
+                        <option>EUR</option>
+                        <option>GBP</option>
+                        <option>CAD</option>
+                    </select>
+                </div>
+
                 <!-- Language -->
-                <select class="topbar-select" onchange="window.location.href = '/' + this.value + '{{ clean_next }}'">
-                    {% get_current_language as CURRENT_LANG %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% for code, name in LANGUAGES %}
-                    <option value="{{ code }}" {% if code == CURRENT_LANG %}selected{% endif %}>{{ name }}</option>
-                    {% endfor %}
-                </select>
+                <div class="language-select-wrapper">
+                    <select class="topbar-select" onchange="window.location.href = '/' + this.value + '{{ clean_next }}'">
+                        {% get_current_language as CURRENT_LANG %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for code, name in LANGUAGES %}
+                        <option value="{{ code }}" {% if code == CURRENT_LANG %}selected{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
             <!-- Mobile cart -->
             <div class="d-inline-flex align-items-center d-block d-lg-none">
@@ -790,9 +943,9 @@
         </form>
     </div>
     <div class="col-lg-4 col-6 text-right">
-        <p class="m-0">{% trans "Customer Service" %}</p>
-        <h5 class="m-0">+98 903-196-0860</h5>
-    </div>
+        <p class="m-0 text-body">{% trans "Customer Service" %}</p>
+        <h5 class="m-0 text-primary">+98 903-196-0860</h5>
+    </div>  
 </div>
     <!-- Topbar End -->
 
@@ -880,7 +1033,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <!-- Custom JS -->
     <script src="{% static 'js/main.js' %}"></script>
-<script src="{% static 'js/chatbot-widget.js' %}"></script>
+    <script src="{% static 'js/chatbot-widget.js' %}"></script>
     <script>new WOW().init();</script>
 
     <!-- Search Autocomplete -->

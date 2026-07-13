@@ -6,16 +6,15 @@
 {% block content %}
 
 <!-- Page Header -->
-<div class="container-fluid bg-dark mb-5 py-5 page-header">
-    <div class="container py-5">
-        <h1 class="display-6 text-white mb-3">{{ product.translated_name }}</h1>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a class="text-white" href="{% url 'shop:index' %}">{% trans "Home" %}</a></li>
-                <li class="breadcrumb-item"><a class="text-white" href="{% url 'shop:product_list' %}">{% trans "Shop" %}</a></li>
-                <li class="breadcrumb-item text-primary active">{{ product.translated_name }}</li>
-            </ol>
-        </nav>
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30 p-0">
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
+                <a class="breadcrumb-item text-dark" href="{% url 'shop:product_list' %}">{% trans "Shop" %}</a>
+                <span class="breadcrumb-item active">{{ product.translated_name }}</span>
+            </nav>
+        </div>
     </div>
 </div>
 

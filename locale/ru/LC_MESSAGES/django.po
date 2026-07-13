@@ -994,8 +994,7 @@ msgid "No items."
 msgstr "Нет товаров."
 
 #: .\templates\orders\checkout.html:176
-msgid "Payment"
-msgstr "Оплата"
+
 
 #: .\templates\orders\checkout.html:182
 msgid "Paypal"
@@ -1038,10 +1037,8 @@ msgid "Contact Us"
 msgstr "Свяжитесь с нами"
 
 #: .\templates\shop\contact.html:27
-msgid ""
-"Receive messages instantly with our PHP and Ajax contact form - available in "
-"the"
-msgstr """Получайте сообщения мгновенно с помощью нашей контактной формы PHP и Ajax - ""доступно в"
+msgid "Questions? Feedback? We'd love to hear from you."
+msgstr "Des questions ? Des commentaires ? Nous serions ravis d'avoir de vos nouvelles."
 
 #: .\templates\shop\contact.html:27
 msgid "Pro Version"
@@ -1101,8 +1098,8 @@ msgstr "Детская мода"
 #: .\templates\shop\index.html:67 .\templates\shop\index.html:75
 #: .\templates\shop\index.html:163 .\templates\shop\index.html:173
 #, python-format
-msgid "Save 20%%"
-msgstr ""
+msgid "Save 20%"
+msgstr "Сэкономьте 20%"
 
 #: .\templates\shop\index.html:68 .\templates\shop\index.html:76
 #: .\templates\shop\index.html:164 .\templates\shop\index.html:174
@@ -1402,3 +1399,13 @@ msgstr "Просмотреть FAQ"
 #: .\templates\components\helps.html:31
 msgid "Answers to the most common questions"
 msgstr "Ответы на самые частые вопросы"
+
+
+
+#: .\templates\base.html:720
+msgid "My Cart"
+msgstr "Моя корзина"
+
+#: .\templates\base.html:723
+msgid "My Orders"
+msgstr "Мои заказы"

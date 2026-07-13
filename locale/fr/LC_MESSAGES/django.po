@@ -992,8 +992,7 @@ msgid "No items."
 msgstr "Aucun article."
 
 #: .\templates\orders\checkout.html:176
-msgid "Payment"
-msgstr "Paiement"
+
 
 #: .\templates\orders\checkout.html:182
 msgid "Paypal"
@@ -1036,10 +1035,8 @@ msgid "Contact Us"
 msgstr "Contactez-nous"
 
 #: .\templates\shop\contact.html:27
-msgid ""
-"Receive messages instantly with our PHP and Ajax contact form - available in "
-"the"
-msgstr """Recevez des messages instantanément avec notre formulaire de contact PHP et ""Ajax - disponible dans"
+msgid "Questions? Feedback? We'd love to hear from you."
+msgstr "Fragen? Feedback? Wir freuen uns, von Ihnen zu hören."
 
 #: .\templates\shop\contact.html:27
 msgid "Pro Version"
@@ -1099,8 +1096,8 @@ msgstr "Mode enfant"
 #: .\templates\shop\index.html:67 .\templates\shop\index.html:75
 #: .\templates\shop\index.html:163 .\templates\shop\index.html:173
 #, python-format
-msgid "Save 20%%"
-msgstr ""
+msgid "Save 20%"
+msgstr "Économisez 20 %"
 
 #: .\templates\shop\index.html:68 .\templates\shop\index.html:76
 #: .\templates\shop\index.html:164 .\templates\shop\index.html:174
@@ -1400,3 +1397,13 @@ msgstr "Parcourir les FAQ"
 #: .\templates\components\helps.html:31
 msgid "Answers to the most common questions"
 msgstr "Réponses aux questions les plus fréquentes"
+
+
+#: .\templates\base.html:720
+msgid "My Cart"
+msgstr "Mon panier"
+
+
+#: .\templates\base.html:723
+msgid "My Orders"
+msgstr "Mes commandes"
