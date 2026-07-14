@@ -1697,3 +1697,35 @@ msgstr "FAQs durchsuchen"
 #: .\templates\components\helps.html:31
 msgid "Answers to the most common questions"
 msgstr "Antworten auf die häufigsten Fragen"
+
+
+
+msgid "Total Orders"
+msgstr "Bestellungen insgesamt"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Wishlist"
+msgstr "Wunschliste"
+
+msgid "Recent Orders"
+msgstr "Letzte Bestellungen"
+
+msgid "No orders yet."
+msgstr "Noch keine Bestellungen."
+
+msgid "Your wishlist is empty."
+msgstr "Ihre Wunschliste ist leer."
+
+msgid "Browse Products"
+msgstr "Produkte durchstöbern"
+
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+msgid "Pending"
+msgstr "Ausstehend"
+
+msgid "My Profile"
+msgstr "Mein Profil"

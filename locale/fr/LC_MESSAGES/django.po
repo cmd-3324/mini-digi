@@ -1407,3 +1407,36 @@ msgstr "Mon panier"
 #: .\templates\base.html:723
 msgid "My Orders"
 msgstr "Mes commandes"
+
+msgid "Total Orders"
+msgstr "Commandes totales"
+
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+msgid "Wishlist"
+msgstr "Liste de souhaits"
+
+msgid "Recent Orders"
+msgstr "Commandes récentes"
+
+msgid "No orders yet."
+msgstr "Aucune commande pour le moment."
+
+msgid "Your wishlist is empty."
+msgstr "Votre liste de souhaits est vide."
+
+msgid "Browse Products"
+msgstr "Parcourir les produits"
+
+msgid "My Profile"
+msgstr "Mon profil"
+
+msgid "Email Settings"
+msgstr "Paramètres de messagerie"
+
+msgid "Completed"
+msgstr "Terminé"
+
+msgid "Pending"
+msgstr "En attente"

@@ -866,13 +866,13 @@
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'account_email' %}">
+                        <a class="dropdown-item" href="{% url 'dashboard:home' %}">
                             <i class="fas fa-user-cog fa-fw"></i> {% trans "My Account" %}
                         </a>
                         <a class="dropdown-item" href="{% url 'cart:detail' %}">
                             <i class="fas fa-shopping-cart fa-fw"></i> {% trans "My Cart" %}
                         </a>
-                        <a class="dropdown-item" href="{% url 'orders:checkout' %}">
+                        <a class="dropdown-item" href="{% url 'dashboard:orders' %}">
                             <i class="fas fa-receipt fa-fw"></i> {% trans "My Orders" %}
                         </a>
                         <div class="dropdown-divider"></div>

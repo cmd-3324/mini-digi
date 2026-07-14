@@ -1409,3 +1409,37 @@ msgstr "Моя корзина"
 #: .\templates\base.html:723
 msgid "My Orders"
 msgstr "Мои заказы"
+
+
+msgid "Total Orders"
+msgstr "Всего заказов"
+
+msgid "Dashboard"
+msgstr "Панель управления"
+
+msgid "Wishlist"
+msgstr "Список желаний"
+
+msgid "Recent Orders"
+msgstr "Недавние заказы"
+
+msgid "No orders yet."
+msgstr "Заказов пока нет."
+
+msgid "Your wishlist is empty."
+msgstr "Ваш список желаний пуст."
+
+msgid "Browse Products"
+msgstr "Просмотр товаров"
+
+msgid "My Profile"
+msgstr "Мой профиль"
+
+msgid "Email Settings"
+msgstr "Настройки электронной почты"
+
+msgid "Completed"
+msgstr "Завершён"
+
+msgid "Pending"
+msgstr "В ожидании"
