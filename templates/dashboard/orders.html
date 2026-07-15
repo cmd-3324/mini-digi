@@ -9,8 +9,24 @@
     <h4 class="font-weight-semi-bold mb-0">{% trans "My Orders" %}</h4>
 </div>
 
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="search-wrapper">
+        <input type="text" id="orderSearch" class="form-control form-control-sm"
+            placeholder="{% trans 'Search orders...' %}" style="width:200px;">
+        <div id="orderSearchResults" class="search-dropdown"></div>
+    </div>
+    <div>
+        <select id="orderStatusFilter" class="form-control form-control-sm"
+            onchange="window.location.href='?status='+this.value">
+            <option value="">{% trans "All Status" %}</option>
+            <option value="paid" {% if status == 'paid' %}selected{% endif %}>{% trans "Paid" %}</option>
+            <option value="pending" {% if status == 'pending' %}selected{% endif %}>{% trans "Pending" %}</option>
+        </select>
+    </div>
+</div>
+
 <div class="card border-0 shadow-sm">
-    <div class="card-body p-0">
+    <div class="card-body p-0" id="orderGrid">
         {% if orders %}
         <div class="table-responsive">
             <table class="table table-hover mb-0 dashboard-table">
@@ -40,13 +56,13 @@
                         </td>
                         <td>
                             <div class="btn-group btn-group-sm">
-                                <a href="{% url 'dashboard:order_detail' order.pk %}"
-                                   class="btn btn-outline-primary" title="{% trans 'View' %}">
+                                <a href="{% url 'dashboard:order_detail' order.pk %}" class="btn btn-outline-primary"
+                                    title="{% trans 'View' %}">
                                     <i class="fas fa-eye"></i>
                                 </a>
                                 {% if not order.is_paid %}
-                                <a href="{% url 'dashboard:payment' order.pk %}"
-                                   class="btn btn-outline-success" title="{% trans 'Pay Now' %}">
+                                <a href="{% url 'dashboard:payment' order.pk %}" class="btn btn-outline-success"
+                                    title="{% trans 'Pay Now' %}">
                                     <i class="fas fa-credit-card"></i>
                                 </a>
                                 {% endif %}
@@ -66,4 +82,54 @@
         {% endif %}
     </div>
 </div>
+{% endblock %}
+{% block extra_js %}
+<script>
+    $(document).ready(function () {
+        var orderSearch = $('#orderSearch');
+        var orderResults = $('#orderSearchResults');
+        var debounceTimer;
+
+        orderSearch.on('input', function () {
+            clearTimeout(debounceTimer);
+            var query = $(this).val().trim();
+            if (query.length < 1) {
+                orderResults.removeClass('active').empty();
+                return;
+            }
+            debounceTimer = setTimeout(function () {
+                $.ajax({
+                    url: '{% url "dashboard:orders_search_ajax" %}',
+                    data: { q: query },
+                    success: function (data) {
+                        if (data.results.length === 0) {
+                            orderResults.html('<div class="no-results">{% trans "No orders found" %}</div>').addClass('active');
+                            return;
+                        }
+                        var html = '';
+                        data.results.forEach(function (item) {
+                            html += '<div class="result-item" data-url="' + item.url + '">' +
+                                '<div class="info"><div class="name">Order #' + item.id + '</div>' +
+                                '<div class="category">' + item.date + ' - ' + item.total + ' T</div></div>' +
+                                '<span class="badge ' + (item.is_paid ? 'badge-success' : 'badge-warning') + '">' +
+                                (item.is_paid ? 'Paid' : 'Pending') + '</span>' +
+                                '</div>';
+                        });
+                        orderResults.html(html).addClass('active');
+                    }
+                });
+            }, 300);
+        });
+
+        orderResults.on('click', '.result-item', function () {
+            window.location.href = $(this).data('url');
+        });
+
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.search-wrapper').length) {
+                orderResults.removeClass('active').empty();
+            }
+        });
+    });
+</script>
 {% endblock %}

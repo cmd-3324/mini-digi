@@ -21,23 +21,23 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>{% trans "First Name" %}</label>
-                            <input type="text" class="form-control" name="first_name"
-                                   value="{{ user.first_name }}" required>
+                            <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}"
+                                required>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>{% trans "Last Name" %}</label>
-                            <input type="text" class="form-control" name="last_name"
-                                   value="{{ user.last_name }}" required>
+                            <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}"
+                                required>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>{% trans "Email" %}</label>
-                            <input type="email" class="form-control" name="email"
-                                   value="{{ user.email }}" required>
+                            <input type="email" class="form-control" name="email" value="{{ user.email }}" required>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>{% trans "Phone" %}</label>
-                            <input type="tel" class="form-control" name="phone"
-                                   value="{{ profile.phone }}">
+                            <input type="tel" class="form-control" name="phone" value="{{ profile.phone }}"
+                                pattern="^\+?[0-9]{7,15}$" title="Enter a valid phone number (e.g., +1234567890)"
+                                id="phoneInput">
                         </div>
                     </div>
                     <hr>
@@ -46,27 +46,37 @@
                         <div class="col-md-6 form-group">
                             <label>{% trans "Address Line 1" %}</label>
                             <input type="text" class="form-control" name="address_line1"
-                                   value="{{ profile.address_line1 }}">
+                                value="{{ profile.address_line1 }}">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>{% trans "Address Line 2" %}</label>
                             <input type="text" class="form-control" name="address_line2"
-                                   value="{{ profile.address_line2 }}">
+                                value="{{ profile.address_line2 }}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{% trans "City" %}</label>
-                            <input type="text" class="form-control" name="city"
-                                   value="{{ profile.city }}">
+                            <input type="text" class="form-control" name="city" value="{{ profile.city }}">
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{% trans "State" %}</label>
-                            <input type="text" class="form-control" name="state"
-                                   value="{{ profile.state }}">
+                            <select class="form-control" name="state" id="stateSelect">
+                                <option value="">{% trans "Select State" %}</option>
+                                <option value="AZ" {% if profile.state == 'AZ' %}selected{% endif %}>Arizona</option>
+                                <option value="CA" {% if profile.state == 'CA' %}selected{% endif %}>California</option>
+                                <option value="NY" {% if profile.state == 'NY' %}selected{% endif %}>New York</option>
+                                <option value="TX" {% if profile.state == 'TX' %}selected{% endif %}>Texas</option>
+                                <option value="FL" {% if profile.state == 'FL' %}selected{% endif %}>Florida</option>
+                                <option value="IL" {% if profile.state == 'IL' %}selected{% endif %}>Illinois</option>
+                                <option value="WA" {% if profile.state == 'WA' %}selected{% endif %}>Washington</option>
+                                <option value="MA" {% if profile.state == 'MA' %}selected{% endif %}>Massachusetts
+                                </option>
+                                <option value="PA" {% if profile.state == 'PA' %}selected{% endif %}>Pennsylvania</option>
+                                <option value="OH" {% if profile.state == 'OH' %}selected{% endif %}>Ohio</option>
+                            </select>
                         </div>
                         <div class="col-md-4 form-group">
                             <label>{% trans "ZIP Code" %}</label>
-                            <input type="text" class="form-control" name="zip_code"
-                                   value="{{ profile.zip_code }}">
+                            <input type="text" class="form-control" name="zip_code" value="{{ profile.zip_code }}">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary px-4" id="profileSaveBtn">
@@ -109,59 +119,67 @@
 
 {% block extra_js %}
 <script>
-$(document).ready(function() {
-    $('#profileForm').on('submit', function(e) {
-        e.preventDefault();
-        var btn = $('#profileSaveBtn');
-        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Saving...');
-        var data = {};
-        $(this).serializeArray().forEach(function(field) {
-            if (field.name !== 'csrfmiddlewaretoken') data[field.name] = field.value;
-        });
-        $.ajax({
-            url: '{% url "dashboard:profile_update" %}',
-            method: 'POST',
-            headers: {'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json'},
-            data: JSON.stringify(data),
-            success: function(resp) {
-                if (resp.ok) showToast(resp.message);
-            },
-            error: function() { showToast('Error saving profile.'); },
-            complete: function() {
-                btn.prop('disabled', false).html('<i class="fas fa-save mr-1"></i> Save Changes');
+    $(document).ready(function () {
+        // Phone number validation
+        $('#phoneInput').on('input', function () {
+            this.value = this.value.replace(/[^0-9+]/g, '');
+            if (this.value.length > 0 && !this.value.startsWith('+')) {
+                this.value = '+' + this.value.replace(/\+/g, '');
             }
         });
-    });
 
-    $('#passwordForm').on('submit', function(e) {
-        e.preventDefault();
-        var btn = $('#passwordSaveBtn');
-        var errDiv = $('#passwordError');
-        errDiv.hide();
-        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Updating...');
-        var data = {};
-        $(this).serializeArray().forEach(function(field) {
-            if (field.name !== 'csrfmiddlewaretoken') data[field.name] = field.value;
-        });
-        $.ajax({
-            url: '{% url "dashboard:change_password" %}',
-            method: 'POST',
-            headers: {'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json'},
-            data: JSON.stringify(data),
-            success: function(resp) {
-                if (resp.ok) {
-                    showToast(resp.message);
-                    $('#passwordForm')[0].reset();
-                } else {
-                    errDiv.text(resp.error).show();
+        $('#profileForm').on('submit', function (e) {
+            e.preventDefault();
+            var btn = $('#profileSaveBtn');
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Saving...');
+            var data = {};
+            $(this).serializeArray().forEach(function (field) {
+                if (field.name !== 'csrfmiddlewaretoken') data[field.name] = field.value;
+            });
+            $.ajax({
+                url: '{% url "dashboard:profile_update" %}',
+                method: 'POST',
+                headers: { 'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json' },
+                data: JSON.stringify(data),
+                success: function (resp) {
+                    if (resp.ok) showToast(resp.message);
+                },
+                error: function () { showToast('Error saving profile.'); },
+                complete: function () {
+                    btn.prop('disabled', false).html('<i class="fas fa-save mr-1"></i> Save Changes');
                 }
-            },
-            error: function() { errDiv.text('Error changing password.').show(); },
-            complete: function() {
-                btn.prop('disabled', false).html('<i class="fas fa-key mr-1"></i> Update Password');
-            }
+            });
+        });
+
+        $('#passwordForm').on('submit', function (e) {
+            e.preventDefault();
+            var btn = $('#passwordSaveBtn');
+            var errDiv = $('#passwordError');
+            errDiv.hide();
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Updating...');
+            var data = {};
+            $(this).serializeArray().forEach(function (field) {
+                if (field.name !== 'csrfmiddlewaretoken') data[field.name] = field.value;
+            });
+            $.ajax({
+                url: '{% url "dashboard:change_password" %}',
+                method: 'POST',
+                headers: { 'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json' },
+                data: JSON.stringify(data),
+                success: function (resp) {
+                    if (resp.ok) {
+                        showToast(resp.message);
+                        $('#passwordForm')[0].reset();
+                    } else {
+                        errDiv.text(resp.error).show();
+                    }
+                },
+                error: function () { errDiv.text('Error changing password.').show(); },
+                complete: function () {
+                    btn.prop('disabled', false).html('<i class="fas fa-key mr-1"></i> Update Password');
+                }
+            });
         });
     });
-});
 </script>
 {% endblock %}

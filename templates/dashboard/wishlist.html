@@ -7,24 +7,83 @@
 {% block dashboard_content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="font-weight-semi-bold mb-0">{% trans "Wishlist" %}</h4>
-    <small class="text-muted">{{ products|length }} {% trans "item(s)" %}</small>
+    <div class="d-flex gap-2 align-items-center">
+        <div class="search-wrapper">
+            <input type="text" id="wishlistSearch" class="form-control form-control-sm"
+                placeholder="{% trans 'Search wishlist...' %}" style="width:200px;">
+            <div id="wishlistSearchResults" class="search-dropdown"></div>
+        </div>
+        <small class="text-muted">{{ products|length }} {% trans "item(s)" %}</small>
+    </div>
 </div>
 
-{% if products %}
-<div class="row">
-    {% for product in products %}
-    <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
-        {% include 'components/card.html' with product=product %}
+<div id="wishlistGrid">
+    {% if products %}
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+            {% include 'components/card.html' with product=product %}
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
-{% else %}
-<div class="card border-0 shadow-sm">
-    <div class="text-center py-5">
-        <i class="fas fa-heart" style="font-size:3rem;color:#dee2e6;"></i>
-        <p class="mt-3 text-muted">{% trans "Your wishlist is empty." %}</p>
-        <a href="{% url 'shop:product_list' %}" class="btn btn-primary">{% trans "Browse Products" %}</a>
+    {% else %}
+    <div class="card border-0 shadow-sm">
+        <div class="text-center py-5">
+            <i class="fas fa-heart" style="font-size:3rem;color:#dee2e6;"></i>
+            <p class="mt-3 text-muted">{% trans "Your wishlist is empty." %}</p>
+            <a href="{% url 'shop:product_list' %}" class="btn btn-primary">{% trans "Browse Products" %}</a>
+        </div>
     </div>
+    {% endif %}
 </div>
-{% endif %}
+{% endblock %}
+{% block extra_js %}
+<script>
+    $(document).ready(function () {
+        var wishlistSearch = $('#wishlistSearch');
+        var wishlistResults = $('#wishlistSearchResults');
+        var debounceTimer;
+
+        wishlistSearch.on('input', function () {
+            clearTimeout(debounceTimer);
+            var query = $(this).val().trim();
+            if (query.length < 2) {
+                wishlistResults.removeClass('active').empty();
+                return;
+            }
+            debounceTimer = setTimeout(function () {
+                $.ajax({
+                    url: '{% url "dashboard:wishlist_search_ajax" %}',
+                    data: { q: query },
+                    success: function (data) {
+                        if (data.results.length === 0) {
+                            wishlistResults.html('<div class="no-results">{% trans "No products found" %}</div>').addClass('active');
+                            return;
+                        }
+                        var html = '';
+                        data.results.forEach(function (item) {
+                            html += '<div class="result-item" data-url="' + item.url + '">' +
+                                (item.image ? '<img src="' + item.image + '" alt="' + item.name + '">' :
+                                    '<div class="img-placeholder"><i class="fa fa-cube"></i></div>') +
+                                '<div class="info"><div class="name">' + item.name + '</div></div>' +
+                                '<div class="price">' + item.price + ' T</div>' +
+                                '</div>';
+                        });
+                        wishlistResults.html(html).addClass('active');
+                    }
+                });
+            }, 300);
+        });
+
+        wishlistResults.on('click', '.result-item', function () {
+            window.location.href = $(this).data('url');
+        });
+
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.search-wrapper').length) {
+                wishlistResults.removeClass('active').empty();
+            }
+        });
+    });
+</script>
 {% endblock %}

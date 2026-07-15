@@ -29,7 +29,8 @@
                         </div>
                         <div>
                             <strong>{% trans "ZarinPal" %}</strong>
-                            <div class="text-muted" style="font-size:13px;">{% trans "Pay with ZarinPal Gateway" %}</div>
+                            <div class="text-muted" style="font-size:13px;">{% trans "Pay with ZarinPal Gateway" %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,8 @@
                     <span class="h5 mb-0">{% trans "Total" %}</span>
                     <span class="h5 mb-0 text-primary font-weight-bold">{{ order.total_price|floatformat:0 }} T</span>
                 </div>
-                <a href="{% url 'dashboard:payment_gateway' order.pk %}" class="btn btn-success btn-block mt-3 py-3 font-weight-bold">
+                <a href="{% url 'dashboard:payment_gateway' order.pk %}"
+                    class="btn btn-success btn-block mt-3 py-3 font-weight-bold">
                     <i class="fas fa-lock mr-2"></i> {% trans "Proceed to Payment" %}
                 </a>
                 <p class="text-center text-muted mt-2 mb-0" style="font-size:12px;">
@@ -106,13 +108,13 @@
 
 {% block extra_js %}
 <script>
-$(document).ready(function() {
-    $('.payment-method-card').on('click', function() {
-        $('.payment-method-card').removeClass('active');
-        $(this).addClass('active');
-        $('.payment-method-card .fa-check-circle').removeClass('fa-check-circle').addClass('fa-circle far');
-        $(this).find('.payment-radio i').removeClass('fa-circle far').addClass('fa-check-circle text-success');
+    $(document).ready(function () {
+        $('.payment-method-card').on('click', function () {
+            $('.payment-method-card').removeClass('active');
+            $(this).addClass('active');
+            $('.payment-method-card .fa-check-circle').removeClass('fa-check-circle').addClass('fa-circle far');
+            $(this).find('.payment-radio i').removeClass('fa-circle far').addClass('fa-check-circle text-success');
+        });
     });
-});
 </script>
 {% endblock %}

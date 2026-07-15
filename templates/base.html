@@ -9,7 +9,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="{% trans 'Free HTML Templates' %}" name="keywords">
     <meta content="{% trans 'Free HTML Templates' %}" name="description">
-
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
 
 
     <!-- Google Web Fonts -->
@@ -848,7 +848,7 @@
                                 {{ user.username|first|upper }}
                             {% endif %}
                         </span>
-                        <span class="user-name">{{ user.username|truncatechars:10 }}</span>
+                        <span class="user-name">{{ user.get_full_name|default:user.username|truncatechars:10 }}</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right user-dropdown-menu">
@@ -861,7 +861,7 @@
                                 {% endif %}
                             </span>
                             <div>
-                                <strong>{{ user.username }}</strong>
+                                <strong>{{ user.first_name }}</strong>
                                 <small>{{ user.email }}</small>
                             </div>
                         </div>
@@ -993,12 +993,12 @@
                         </div>
                         <!-- Wishlist + Cart icons — matching original exactly -->
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-flex align-items-center">
-                            <a href="{% url 'shop:product_list' %}" class="btn px-0 mr-3 position-relative">
+                            <a href="{% url 'dashboard:wishlist' %}" class="btn px-0 mr-3 position-relative">
                                 <i class="fas fa-heart text-primary"></i>
                                 <span class="badge badge-pill badge-danger position-absolute"
                                     style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">{% if favorite_count %}{{ favorite_count }}{% else %}0{% endif %}</span>
                             </a>
-                            <a href="{% url 'cart:detail' %}" class="btn px-0 mr-3 position-relative">
+                            <a href="{% url 'shop:product_list' %}" class="btn px-0 mr-3 position-relative">
                                 <i class="fas fa-shopping-cart text-primary"></i>
                                 <span class="badge badge-pill badge-danger position-absolute"
                                     style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">{% if cart_count %}{{ cart_count }}{% else %}0{% endif %}</span>
