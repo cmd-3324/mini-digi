@@ -26,6 +26,7 @@ mini-digi/
 ├── mini_digi/
 │   ├── __init__.py
 │   ├── asgi.py
+│   ├── middleware.py
 │   ├── settings.py
 │   ├── urls.py
 │   ├── views.py
@@ -100,7 +101,6 @@ mini-digi/
 │   ├── __init__.py
 │   ├── admin.py
 │   ├── apps.py
-│   ├── middleware.py
 │   ├── models.py
 │   ├── urls.py
 │   ├── views.py
@@ -131,6 +131,7 @@ mini-digi/
 ├── static/
 │   ├── css/
 │   │   ├── dashboard.css
+│   │   ├── faq-help.css
 │   │   └── style.min.css
 │   ├── js/
 │   │   ├── chatbot-widget.js
@@ -305,7 +306,6 @@ mini-digi/
 │   ├── components/
 │   │   ├── FAQs.html
 │   │   ├── card.html
-│   │   ├── chatbot.html
 │   │   ├── footer.html
 │   │   ├── helps.html
 │   │   └── navbar.html
@@ -316,7 +316,8 @@ mini-digi/
 │   │   ├── orders.html
 │   │   ├── payment.html
 │   │   ├── payment_gateway.html
-│   │   └── profile.html
+│   │   ├── profile.html
+│   │   └── wishlist.html
 │   ├── orders/
 │   │   ├── checkout.html
 │   │   └── confirmation.html

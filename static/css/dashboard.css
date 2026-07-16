@@ -67,6 +67,7 @@
     width: 18px;
     color: var(--dash-muted);
     transition: color .15s ease;
+    margin-right:12px;
 }
 
 .dashboard-sidebar .list-group-item:hover {
@@ -186,8 +187,10 @@
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
     right: 0;
+    left: auto;
+    min-width: 380px;
+    margin-left: -180px;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -345,6 +348,8 @@
         flex-direction: row;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        gap: 8px;
+        /* padding:4px 8px; */
     }
 
     .dashboard-sidebar .list-group-item {

@@ -7,11 +7,13 @@
 {% block dashboard_content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="font-weight-semi-bold mb-0">{% trans "Wishlist" %}</h4>
-    <div class="d-flex gap-2 align-items-center">
-        <div class="search-wrapper">
+    <div class="d-flex align-items-center gap-3">
+        <div class="input-group" style="max-width: 300px;">
             <input type="text" id="wishlistSearch" class="form-control form-control-sm"
-                placeholder="{% trans 'Search wishlist...' %}" style="width:200px;">
-            <div id="wishlistSearchResults" class="search-dropdown"></div>
+                placeholder="{% trans 'Search wishlist...' %}" value="{{ q }}">
+            <div class="input-group-append">
+                <span class="input-group-text bg-transparent text-primary"><i class="fa fa-search"></i></span>
+            </div>
         </div>
         <small class="text-muted">{{ products|length }} {% trans "item(s)" %}</small>
     </div>
@@ -40,49 +42,40 @@
 {% block extra_js %}
 <script>
     $(document).ready(function () {
-        var wishlistSearch = $('#wishlistSearch');
-        var wishlistResults = $('#wishlistSearchResults');
+        var searchInput = $('#wishlistSearch');
+        var wishlistGrid = $('#wishlistGrid');
         var debounceTimer;
+        var baseUrl = '{% url "dashboard:wishlist" %}';
 
-        wishlistSearch.on('input', function () {
-            clearTimeout(debounceTimer);
-            var query = $(this).val().trim();
-            if (query.length < 2) {
-                wishlistResults.removeClass('active').empty();
-                return;
-            }
-            debounceTimer = setTimeout(function () {
-                $.ajax({
-                    url: '{% url "dashboard:wishlist_search_ajax" %}',
-                    data: { q: query },
-                    success: function (data) {
-                        if (data.results.length === 0) {
-                            wishlistResults.html('<div class="no-results">{% trans "No products found" %}</div>').addClass('active');
-                            return;
-                        }
-                        var html = '';
-                        data.results.forEach(function (item) {
-                            html += '<div class="result-item" data-url="' + item.url + '">' +
-                                (item.image ? '<img src="' + item.image + '" alt="' + item.name + '">' :
-                                    '<div class="img-placeholder"><i class="fa fa-cube"></i></div>') +
-                                '<div class="info"><div class="name">' + item.name + '</div></div>' +
-                                '<div class="price">' + item.price + ' T</div>' +
-                                '</div>';
-                        });
-                        wishlistResults.html(html).addClass('active');
+        function fetchWishlist() {
+            var params = new URLSearchParams();
+            var q = searchInput.val().trim();
+            if (q) params.set('q', q);
+            var url = baseUrl + (params.toString() ? '?' + params.toString() : '');
+
+            wishlistGrid.css('opacity', '0.5');
+            fetch(url)
+                .then(function (res) { return res.text(); })
+                .then(function (html) {
+                    var doc = new DOMParser().parseFromString(html, 'text/html');
+                    var newGrid = doc.getElementById('wishlistGrid');
+                    if (newGrid) {
+                        wishlistGrid.html(newGrid.innerHTML);
+                        window.history.pushState(null, '', url);
                     }
+                    wishlistGrid.css('opacity', '1');
                 });
-            }, 300);
+        }
+
+        searchInput.on('input', function () {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(fetchWishlist, 500);
         });
 
-        wishlistResults.on('click', '.result-item', function () {
-            window.location.href = $(this).data('url');
-        });
-
-        $(document).on('click', function (e) {
-            if (!$(e.target).closest('.search-wrapper').length) {
-                wishlistResults.removeClass('active').empty();
-            }
+        window.addEventListener('popstate', function () {
+            var params = new URLSearchParams(window.location.search);
+            searchInput.val(params.get('q') || '');
+            fetchWishlist();
         });
     });
 </script>

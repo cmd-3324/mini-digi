@@ -10,14 +10,15 @@
 </div>
 
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <div class="search-wrapper">
+    <div class="input-group" style="max-width: 300px;">
         <input type="text" id="orderSearch" class="form-control form-control-sm"
-            placeholder="{% trans 'Search orders...' %}" style="width:200px;">
-        <div id="orderSearchResults" class="search-dropdown"></div>
+            placeholder="{% trans 'Search orders...' %}" value="{{ q }}">
+        <div class="input-group-append">
+            <span class="input-group-text bg-transparent text-primary"><i class="fa fa-search"></i></span>
+        </div>
     </div>
     <div>
-        <select id="orderStatusFilter" class="form-control form-control-sm"
-            onchange="window.location.href='?status='+this.value">
+        <select id="orderStatusFilter" class="form-control form-control-sm">
             <option value="">{% trans "All Status" %}</option>
             <option value="paid" {% if status == 'paid' %}selected{% endif %}>{% trans "Paid" %}</option>
             <option value="pending" {% if status == 'pending' %}selected{% endif %}>{% trans "Pending" %}</option>
@@ -86,49 +87,46 @@
 {% block extra_js %}
 <script>
     $(document).ready(function () {
-        var orderSearch = $('#orderSearch');
-        var orderResults = $('#orderSearchResults');
+        var searchInput = $('#orderSearch');
+        var statusFilter = $('#orderStatusFilter');
+        var orderGrid = $('#orderGrid');
         var debounceTimer;
+        var baseUrl = '{% url "dashboard:orders" %}';
 
-        orderSearch.on('input', function () {
-            clearTimeout(debounceTimer);
-            var query = $(this).val().trim();
-            if (query.length < 1) {
-                orderResults.removeClass('active').empty();
-                return;
-            }
-            debounceTimer = setTimeout(function () {
-                $.ajax({
-                    url: '{% url "dashboard:orders_search_ajax" %}',
-                    data: { q: query },
-                    success: function (data) {
-                        if (data.results.length === 0) {
-                            orderResults.html('<div class="no-results">{% trans "No orders found" %}</div>').addClass('active');
-                            return;
-                        }
-                        var html = '';
-                        data.results.forEach(function (item) {
-                            html += '<div class="result-item" data-url="' + item.url + '">' +
-                                '<div class="info"><div class="name">Order #' + item.id + '</div>' +
-                                '<div class="category">' + item.date + ' - ' + item.total + ' T</div></div>' +
-                                '<span class="badge ' + (item.is_paid ? 'badge-success' : 'badge-warning') + '">' +
-                                (item.is_paid ? 'Paid' : 'Pending') + '</span>' +
-                                '</div>';
-                        });
-                        orderResults.html(html).addClass('active');
+        function fetchOrders() {
+            var params = new URLSearchParams();
+            var q = searchInput.val().trim();
+            var status = statusFilter.val();
+            if (q) params.set('q', q);
+            if (status) params.set('status', status);
+            var url = baseUrl + (params.toString() ? '?' + params.toString() : '');
+
+            orderGrid.css('opacity', '0.5');
+            fetch(url)
+                .then(function (res) { return res.text(); })
+                .then(function (html) {
+                    var doc = new DOMParser().parseFromString(html, 'text/html');
+                    var newGrid = doc.getElementById('orderGrid');
+                    if (newGrid) {
+                        orderGrid.html(newGrid.innerHTML);
+                        window.history.pushState(null, '', url);
                     }
+                    orderGrid.css('opacity', '1');
                 });
-            }, 300);
+        }
+
+        searchInput.on('input', function () {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(fetchOrders, 500);
         });
 
-        orderResults.on('click', '.result-item', function () {
-            window.location.href = $(this).data('url');
-        });
+        statusFilter.on('change', fetchOrders);
 
-        $(document).on('click', function (e) {
-            if (!$(e.target).closest('.search-wrapper').length) {
-                orderResults.removeClass('active').empty();
-            }
+        window.addEventListener('popstate', function () {
+            var params = new URLSearchParams(window.location.search);
+            searchInput.val(params.get('q') || '');
+            statusFilter.val(params.get('status') || '');
+            fetchOrders();
         });
     });
 </script>
