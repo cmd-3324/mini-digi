@@ -14,6 +14,7 @@ urlpatterns = [
     path("about/", products.about, name="about"),
     path("favorite/<int:pk>/", products.toggle_favorite, name="toggle_favorite"),
     path("help/",products.help, name="help"),
-    path("FAQs/", products.FAQs, name="FAQs")
+    path("FAQs/", products.FAQs, name="FAQs"),
+    path("currency/set/", products.set_currency, name="set_currency"),
 ]   
  

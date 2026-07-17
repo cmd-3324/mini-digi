@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load shop_tags %}
 {% block title %}{{ product.translated_name }}{% endblock %}
-
 {% block content %}
 
 <!-- Page Header -->
@@ -33,7 +33,7 @@
             <div class="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
                 <h2 class="fw-bold">{{ product.translated_name }}</h2>
                 <div class="d-flex mb-3">
-                    <span class="text-primary fs-4 fw-bold me-3">{{ product.price|floatformat:0 }} T</span>
+                    <span class="text-primary fs-4 fw-bold me-3">{{ CURRENCY_CODE|currency_symbol }}{{ product.price|floatformat:0 }}</span>
                     <span class="badge bg-{% if product.stock > 0 %}success{% else %}danger{% endif %} align-self-center">
                         {% if product.stock > 0 %}{% blocktrans %}In Stock ({{ product.stock }}){% endblocktrans %}{% else %}{% trans "Out of Stock" %}{% endif %}
                     </span>
@@ -42,7 +42,7 @@
                 <p class="text-muted mb-4">{% trans "Category:" %} <a href="{% url 'shop:product_list' %}?category={{ product.category.slug }}">{{ product.category.translated_name }}</a></p>
 
                 {% if product.stock > 0 %}
-                <form method="post" action="{% url 'cart:add' product.pk %}">
+                <form method="post" action="{% url 'cart:add' product.pk %}" class="js-add-to-cart">
                     {% csrf_token %}
                     <div class="d-flex mb-4" style="max-width: 300px;">
                         <input type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" class="form-control me-2">

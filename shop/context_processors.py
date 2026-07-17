@@ -21,3 +21,16 @@ def favorite_count(request):
     if request.user.is_authenticated:
         count = Product.objects.filter(favorited_by=request.user).count()
     return {"favorite_count": count}
+
+def currency(request):
+    """Make currency available in templates"""
+    code = request.GET.get('currency')
+    if code and code in ('USD', 'EUR', 'GBP', 'CAD'):
+        request.session['currency'] = code
+    return {
+        'CURRENCY_CODE': request.session.get('currency', 'USD'),
+    }
+
+def all_count(request):
+    count = Product.objects.filter(available=True).count()
+    return {"all_count": count}

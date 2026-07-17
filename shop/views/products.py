@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.urls import reverse
 from shop.models import Product, Category
-
+from django.http import HttpResponseRedirect
 def index(request):
     categories = Category.objects.all()
     products = Product.objects.filter(available=True).order_by("-created")[:8]
@@ -139,12 +139,29 @@ def help(request):
 def toggle_favorite(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if not request.user.is_authenticated:
+        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+            return JsonResponse({"success": False, "login_required": True}, status=401)
         return redirect("account_login")
-    if request.user in product.favorited_by.all():
+    is_favorited = request.user in product.favorited_by.all()
+    if is_favorited:
         product.favorited_by.remove(request.user)
         product.favorites_count = max(product.favorites_count - 1, 0)
     else:
         product.favorited_by.add(request.user)
         product.favorites_count += 1
     product.save(update_fields=["favorites_count"])
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+        return JsonResponse({
+            "success": True,
+            "is_favorited": not is_favorited,
+            "favorites_count": product.favorites_count,
+        })
     return redirect(request.GET.get("next", "shop:product_list"))
+
+
+
+def set_currency(request):
+    code = request.GET.get("currency", "USD")
+    if code in ("USD", "EUR", "GBP", "CAD"):
+        request.session["currency"] = code
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))

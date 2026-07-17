@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load shop_tags %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 
@@ -888,11 +889,11 @@
                 <!-- Currency -->
 
                 <div class="currency-select-wrapper">
-                    <select class="topbar-select mr-2">
-                        <option>USD</option>
-                        <option>EUR</option>
-                        <option>GBP</option>
-                        <option>CAD</option>
+                    <select class="topbar-select mr-2" onchange="window.location.href='?currency='+this.value">
+                        <option value="USD" {% if CURRENCY_CODE == 'USD' %}selected{% endif %}>USD</option>
+                        <option value="EUR" {% if CURRENCY_CODE == 'EUR' %}selected{% endif %}>EUR</option>
+                        <option value="GBP" {% if CURRENCY_CODE == 'GBP' %}selected{% endif %}>GBP</option>
+                        <option value="CAD" {% if CURRENCY_CODE == 'CAD' %}selected{% endif %}>CAD</option>
                     </select>
                 </div>
 
@@ -1042,6 +1043,7 @@
     {% trans "Search unavailable. Please try again." as tr_search_unavail %}
     {% trans "See all results for" as tr_see_all %}
     <script>
+    const currencySymbol = "{{ CURRENCY_CODE|currency_symbol }}";
         (function ($) {
             'use strict';
 
@@ -1116,7 +1118,7 @@
                                 + '<div class="name">' + highlightMatch(escapeHtml(item.name), query) + '</div>'
                                 + (item.category ? '<div class="category"><i class="fa fa-tag"></i> ' + escapeHtml(item.category) + '</div>' : '')
                                 + '</div>'
-                                + '<div class="price">' + escapeHtml(item.price) + ' T</div>'
+                                + '<div class="price">' + currencySymbol + escapeHtml(item.price) + '</div>'
                                 + '</div>';
                         });
 

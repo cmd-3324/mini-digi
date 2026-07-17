@@ -79,6 +79,7 @@ TEMPLATES = [
                 'shop.context_processors.categories',
                 'shop.context_processors.clean_next_path',
                 'shop.context_processors.favorite_count',
+                "shop.context_processors.currency",
             ],
         },
     },

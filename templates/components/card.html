@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load shop_tags %}
 <div class="product-item bg-light mb-4">
     <div class="product-img position-relative overflow-hidden">
         {% if product.image %}
@@ -9,19 +10,21 @@
         {% endif %}
         <div class="product-action">
             <a class="btn btn-outline-dark btn-square" href="{% url 'shop:product_detail' product.pk %}"><i class="fa fa-search"></i></a>
-            <form method="post" action="{% url 'cart:add' product.pk %}" class="d-inline">
+            <form method="post" action="{% url 'cart:add' product.pk %}" class="d-inline js-add-to-cart">
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
                 <button type="submit" class="btn btn-outline-dark btn-square"><i class="fa fa-shopping-cart"></i></button>
             </form>
-            <a class="btn btn-outline-dark btn-square" href="{% url 'shop:toggle_favorite' product.pk %}?next={{ request.path|urlencode }}"><i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i></a>
+            <a class="btn btn-outline-dark btn-square js-toggle-favorite" href="{% url 'shop:toggle_favorite' product.pk %}"><i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i></a>
             <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
         </div>
     </div>
     <div class="text-center py-4">
         <a class="h6 text-decoration-none text-truncate" href="{% url 'shop:product_detail' product.pk %}">{{ product.translated_name }}</a>
         <div class="d-flex align-items-center justify-content-center mt-2">
-            <h5>{{ product.price|floatformat:0 }} T</h5>
+            <h5>{{ CURRENCY_CODE|currency_symbol }}{{ item.product.price|floatformat:0 }}
+
+</h5>
         </div>
         <div class="d-flex align-items-center justify-content-center mb-1">
             <small class="fa fa-star text-primary mr-1"></small>

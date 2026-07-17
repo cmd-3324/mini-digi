@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import JsonResponse
 from .models import Cart, CartItem
 from shop.models import Product
 
@@ -24,6 +25,8 @@ def cart_detail(request):
 
 def add_to_cart(request, product_id):
     if not request.user.is_authenticated:
+        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+            return JsonResponse({"success": False, "login_required": True}, status=401)
         return redirect("account_login")
     product = get_object_or_404(Product, id=product_id)
     cart, _ = Cart.objects.get_or_create(user=request.user)
@@ -31,6 +34,8 @@ def add_to_cart(request, product_id):
     if not created:
         item.quantity += int(request.POST.get("quantity", 1))
         item.save()
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+        return JsonResponse({"success": True, "cart_count": cart.items.count()})
     return redirect("cart:detail")
 
 
