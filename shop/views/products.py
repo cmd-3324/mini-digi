@@ -155,6 +155,7 @@ def toggle_favorite(request, pk):
             "success": True,
             "is_favorited": not is_favorited,
             "favorites_count": product.favorites_count,
+            "user_favorite_count": Product.objects.filter(favorited_by=request.user).count(),
         })
     return redirect(request.GET.get("next", "shop:product_list"))
 

@@ -86,7 +86,14 @@
                                             class="fa fa-search"></i></span>
                                 </div>
                             </div>
-
+                            <span class="all_count"
+                                style="display:inline-flex; align-items:center; background:#f8f9fa; border:1px solid #eee; border-radius:20px; padding:6px 14px; font-size:13px; color:#666; white-space:nowrap;">
+                                <i class="fas fa-box" style="font-size:11px; margin-right:6px; color:#999;"></i>{{ all_count }} {% trans "Products" %}
+                            </span>
+                            <span class="all_fav"
+                                style="display:inline-flex; align-items:center; background:#fdf1f1; border:1px solid #f5d6d6; border-radius:20px; padding:6px 14px; font-size:13px; color:#d9534f; margin-left:8px; white-space:nowrap;">
+                                <i class="fas fa-heart" style="font-size:11px; margin-right:6px;"></i>{{ favorite_count }} {% trans "favorites" %}
+                            </span>
                             <div class="d-flex">
                                 <select name="sort" class="custom-select form-control filter-input ml-2" style="min-width: 170px; margin-right:50xp; border-radius:10%;">
                                     <option value="latest" {% if current_sort == 'latest' %}selected{% endif %}>{% trans "Latest" %}</option>
@@ -244,7 +251,7 @@
             .catch(function() { btn.disabled = false; });
         }, true);
 
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             var heart = e.target.closest('.js-toggle-favorite');
             if (!heart) return;
             e.preventDefault();
@@ -252,21 +259,24 @@
                 method: 'GET',
                 headers: { 'X-Requested-With': 'XMLHttpRequest' }
             })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.login_required) {
-                    window.location.href = '/accounts/login/';
-                    return;
-                }
-                var icon = heart.querySelector('i');
-                if (data.is_favorited) {
-                    icon.classList.remove('far');
-                    icon.classList.add('fas');
-                } else {
-                    icon.classList.remove('fas');
-                    icon.classList.add('far');
-                }
-            });
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data.login_required) {
+                        window.location.href = '/accounts/login/';
+                        return;
+                    }
+                    var icon = heart.querySelector('i');
+                    if (data.is_favorited) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                    }
+                    document.querySelectorAll('.favorite-count-badge').forEach(function (badge) {
+                        badge.textContent = data.user_favorite_count;
+                    });
+                });
         }, true);
 
         window.addEventListener('popstate', () => fetchProducts(window.location.href));

@@ -80,6 +80,9 @@ TEMPLATES = [
                 'shop.context_processors.clean_next_path',
                 'shop.context_processors.favorite_count',
                 "shop.context_processors.currency",
+                "shop.context_processors.all_count",
+                "django.template.context_processors.i18n",
+                "shop.context_processors.favorite_count"
             ],
         },
     },
