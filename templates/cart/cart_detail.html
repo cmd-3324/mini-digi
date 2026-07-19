@@ -64,7 +64,7 @@
 
 </td>
                         <td class="align-middle">
-                            <form method="post" action="{% url 'cart:remove' item.pk %}">
+                            <form method="post" action="{% url 'cart:remove' item.pk %}" data-remove-url="{% url 'cart:remove' item.pk %}" class="js-remove-form">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
                             </form>

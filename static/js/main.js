@@ -152,6 +152,23 @@
         button.parent().parent().find('input').val(newVal);
     });
     
+    // AJAX Remove from Cart
+    $(document).on('submit', '.js-remove-form', function (e) {
+        e.preventDefault();
+        var $form = $(this);
+        var $row = $form.closest('tr');
+        $.ajax({
+            url: $form.data('remove-url'),
+            method: 'POST',
+            data: $form.serialize(),
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            success: function (data) {
+                $row.fadeOut(300, function () { $(this).remove(); });
+                $('.cart-count-badge').text(data.cart_count);
+            }
+        });
+    });
+    
 })(jQuery);
 
  

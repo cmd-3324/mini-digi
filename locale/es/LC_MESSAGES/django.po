@@ -940,7 +940,7 @@ msgid "Duo stet tempor ipsum sit amet magna ipsum tempor est."
 msgstr "Duo stet tempor ipsum sit amet magna ipsum tempor est."
 
 #: .\templates\components\footer.html:12 .\templates\shop\contact.html:54
-msgid "123 Street, New York, USA"
+msgid "332 Nilufar, Tehran, Iran"
 msgstr "123 Calle, Nueva York, EE. UU."
 
 #: .\templates\components\footer.html:25

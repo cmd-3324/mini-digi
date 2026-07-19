@@ -32,6 +32,7 @@ huggingface_hub==1.23.0
 idna==3.18
 jiter==0.16.0
 livekit==1.1.13
+mysqlclient==2.2.8
 numpy==2.5.0
 openai==2.44.0
 packaging==26.2
@@ -44,9 +45,11 @@ pyasn1_modules==0.4.2
 pycparser==3.0
 pydantic==2.13.4
 pydantic_core==2.46.4
+PyMySQL==1.2.0
 pyproject_hooks==1.2.0
 pytailwindcss==0.3.1
 python-decouple==3.8
+python-dotenv==1.2.2
 PyYAML==6.0.3
 redis==8.0.1
 requests==2.34.2
