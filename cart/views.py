@@ -42,16 +42,40 @@ def add_to_cart(request, product_id):
 def update_cart(request, item_id):
     item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
     quantity = int(request.POST.get("quantity", 1))
+    cart = item.cart
+
     if quantity > 0:
         item.quantity = quantity
         item.save()
+        item_total = int(item.total_price)
+        removed = False
     else:
         item.delete()
+        item_total = 0
+        removed = True
+
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+        items = cart.items.select_related("product").all()
+        return JsonResponse({
+            "success": True,
+            "item_total": item_total,
+            "cart_total": int(sum(i.total_price for i in items)),
+            "cart_count": cart.items.count(),
+            "removed": removed,
+        })
     return redirect("cart:detail")
 
 
 def remove_from_cart(request, item_id):
     item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
+    cart = item.cart
     item.delete()
+
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+        items = cart.items.select_related("product").all()
+        return JsonResponse({
+            "success": True,
+            "cart_total": int(sum(i.total_price for i in items)),
+            "cart_count": cart.items.count(),
+        })
     return redirect("cart:detail")
- 

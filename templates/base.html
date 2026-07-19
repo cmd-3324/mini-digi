@@ -999,7 +999,7 @@
                                 <span class="badge badge-pill badge-danger position-absolute favorite-count-badge"
                                     style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">{% if favorite_count %}{{ favorite_count }}{% else %}0{% endif %}</span>
                             </a>
-                            <a href="{% url 'shop:product_list' %}" class="btn px-0 mr-3 position-relative">
+                            <a href="{% url 'dashboard:orders' %}" class="btn px-0 mr-3 position-relative">
                                 <i class="fas fa-shopping-cart text-primary"></i>
                                 <span class="badge badge-pill badge-danger position-absolute cart-count-badge"
                                     style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">{% if cart_count %}{{ cart_count }}{% else %}0{% endif %}</span>

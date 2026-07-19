@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load shop_tags %}
+{% load humanize %}
 {% block title %}{{ product.translated_name }}{% endblock %}
 {% block content %}
 
@@ -33,7 +34,7 @@
             <div class="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
                 <h2 class="fw-bold">{{ product.translated_name }}</h2>
                 <div class="d-flex mb-3">
-                    <span class="text-primary fs-4 fw-bold me-3">{{ CURRENCY_CODE|currency_symbol }}{{ product.price|floatformat:0 }}</span>
+                    <span class="text-primary fs-4 fw-bold me-3">{{ CURRENCY_CODE|currency_symbol }}{{ product.price|floatformat:0|intcomma }}</span>
                     <span class="badge bg-{% if product.stock > 0 %}success{% else %}danger{% endif %} align-self-center">
                         {% if product.stock > 0 %}{% blocktrans %}In Stock ({{ product.stock }}){% endblocktrans %}{% else %}{% trans "Out of Stock" %}{% endif %}
                     </span>
@@ -53,14 +54,83 @@
                 <button class="btn btn-secondary py-3 px-4" disabled>{% trans "Out of Stock" %}</button>
                 {% endif %}
                 <div class="mt-3">
-                    <a href="{% url 'shop:toggle_favorite' product.pk %}?next={{ request.path|urlencode }}" class="btn btn-outline-danger">
-                        <i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i>
-                        {% if user in product.favorited_by.all %}{% trans "Remove from Favorites" %}{% else %}{% trans "Add to Favorites" %}{% endif %}
-                    </a>
+                        <a href="{% url 'shop:toggle_favorite' product.pk %}?next={{ request.path|urlencode }}"
+                            class="btn btn-outline-danger js-toggle-favorite">
+                            <i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i>
+                            {% if user in product.favorited_by.all %}{% trans "Remove from Favorites" %}{% else %}{% trans "Add to Favorites"
+                            %}{% endif %}
+                        </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function getCookie(name) {
+            const v = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+            return v ? v.pop() : '';
+        }
 
+        // 1️⃣ Add to Cart AJAX
+        document.addEventListener('submit', function (e) {
+            if (!e.target.classList.contains('js-add-to-cart')) return;
+            e.preventDefault();
+            var formEl = e.target;
+            var btn = formEl.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            fetch(formEl.action, {
+                method: 'POST',
+                body: new FormData(formEl),
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    btn.disabled = false;
+                    if (data.login_required) {
+                        window.location.href = '/accounts/login/';
+                        return;
+                    }
+                    document.querySelectorAll('.cart-count-badge').forEach(function (badge) {
+                        badge.textContent = data.cart_count;
+                        badge.style.display = data.cart_count ? '' : 'none';
+                    });
+                    btn.innerHTML = '<i class="fa fa-check"></i>';
+                    setTimeout(function () { btn.innerHTML = '<i class="fa fa-shopping-cart"></i>'; }, 1500);
+                })
+                .catch(function () { btn.disabled = false; });
+        }, true);
+
+        // 2️⃣ Toggle Favorite AJAX
+        document.addEventListener('click', function (e) {
+            var heart = e.target.closest('.js-toggle-favorite');
+            if (!heart) return;
+            e.preventDefault();
+            fetch(heart.href, {
+                method: 'GET',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data.login_required) {
+                        window.location.href = '/accounts/login/';
+                        return;
+                    }
+                    var icon = heart.querySelector('i');
+                    if (data.is_favorited) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                    }
+                    document.querySelectorAll('.favorite-count-badge').forEach(function (badge) {
+                        badge.textContent = data.user_favorite_count;
+                    });
+                });
+        }, true);
+    });
+</script>
+{% endblock %}
 {% endblock %} 

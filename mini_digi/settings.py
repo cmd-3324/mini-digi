@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "orders",
     "support",
     "dashboard",
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

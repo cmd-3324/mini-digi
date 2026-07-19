@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load shop_tags %}
+{% load humanize %}
 {% block title %}{% trans "Shopping Cart" %}{% endblock %}
 
 {% block content %}
@@ -29,20 +30,19 @@
                         <th>{% trans "Total" %}</th>
                         <th>{% trans "Remove" %}</th>
                     </tr>
+                    <tr data-item-id="{{ item.pk }}"></tr>
                 </thead>
                 <tbody class="align-middle">
                     {% if user.is_authenticated and items %}
                     {% for item in items %}
-                    <tr>
+                    <tr data-item-id="{{ item.pk }}">
                         <td class="align-middle">
                             {% if item.product.image %}
                             <img src="{{ item.product.image.url }}" alt="{{ item.product.translated_name }}" style="width: 50px;">
                             {% endif %}
                             {{ item.product.translated_name }}
                         </td>
-                        <td class="align-middle">{{ CURRENCY_CODE|currency_symbol }}{{ item.product.price|floatformat:0 }}
-
-</td>
+                        <td class="align-middle">{{ CURRENCY_CODE|currency_symbol }}{{ item.product.price|floatformat:0|intcomma }} </td>
                         <td class="align-middle">
                             <form method="post" action="{% url 'cart:update' item.pk %}"
                                 class="d-flex justify-content-center" style="max-width: 120px; margin: auto;">
@@ -60,9 +60,7 @@
                                 </div>
                             </form>
                         </td>
-                        <td class="align-middle">{{ CURRENCY_CODE|currency_symbol }}{{ item.product.price|floatformat:0 }}
-
-</td>
+                        <td class="align-middle"><span class="row-total" data-symbol="{{ CURRENCY_CODE|currency_symbol }}">{{ CURRENCY_CODE|currency_symbol }}{{ item.total_price|floatformat:0|intcomma }}</span></td>
                         <td class="align-middle">
                             <form method="post" action="{% url 'cart:remove' item.pk %}" data-remove-url="{% url 'cart:remove' item.pk %}" class="js-remove-form">
                                 {% csrf_token %}
@@ -101,9 +99,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-3 pt-1">
                         <h6 class="font-weight-medium">{% trans "Subtotal" %}</h6>
-                        <h6 class="font-weight-medium">{{ CURRENCY_CODE|currency_symbol }}{{ item.product.price|floatformat:0 }}
-
-</h6>
+                        <h6 class="font-weight-medium"><span class="cart-subtotal" data-symbol="{{ CURRENCY_CODE|currency_symbol }}">{{ CURRENCY_CODE|currency_symbol }}{{ total|floatformat:0|intcomma }}</span></h6>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h6 class="font-weight-medium">{% trans "Shipping" %}</h6>
@@ -113,9 +109,7 @@
                 <div class="card-footer border-secondary bg-transparent">
                     <div class="d-flex justify-content-between mt-2">
                         <h5 class="font-weight-bold">{% trans "Total" %}</h5>
-                        <h5 class="font-weight-bold">{{ CURRENCY_CODE|currency_symbol }}{{ item.product.price|floatformat:0 }}
-
-</h5>
+                        <h5 class="font-weight-bold"><span class="cart-total" data-symbol="{{ CURRENCY_CODE|currency_symbol }}">{{ CURRENCY_CODE|currency_symbol }}{{ total|floatformat:0|intcomma }}</span></h5>
                     </div>
                     <a href="{% url 'orders:checkout' %}" class="btn btn-block btn-primary my-3 py-3">{% trans "Proceed To Checkout" %}</a>
                 </div>
@@ -123,4 +117,73 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        function applyCartTotals(data) {
+            document.querySelectorAll('.cart-subtotal, .cart-total').forEach(function (el) {
+                el.textContent = el.dataset.symbol + data.cart_total.toLocaleString();
+            });
+            document.querySelectorAll('.cart-count-badge').forEach(function (badge) {
+                badge.textContent = data.cart_count;
+                badge.style.display = data.cart_count ? '' : 'none';
+            });
+        }
+
+        function submitQuantity(row, form, quantity) {
+            const token = form.querySelector('[name=csrfmiddlewaretoken]').value;
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest', 'X-CSRFToken': token },
+                body: new URLSearchParams({ quantity: quantity }),
+            })
+                .then(r => r.json())
+                .then(function (data) {
+                    if (data.removed) {
+                        row.remove();
+                    } else {
+                        const rt = row.querySelector('.row-total');
+                        rt.textContent = rt.dataset.symbol + data.item_total.toLocaleString();
+                    }
+                    applyCartTotals(data);
+                });
+        }
+
+        document.querySelectorAll('.btn-minus, .btn-plus').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const row = btn.closest('tr');
+                const form = btn.closest('form');
+                const input = form.querySelector('input[name="quantity"]');
+                let qty = parseInt(input.value, 10) || 1;
+                qty = btn.classList.contains('btn-plus') ? qty + 1 : Math.max(qty - 1, 1);
+                input.value = qty;
+                submitQuantity(row, form, qty);
+            });
+        });
+
+        document.addEventListener('submit', function (e) {
+            if (!e.target.classList.contains('js-remove-form')) return;
+            e.preventDefault();
+            const form = e.target;
+            const row = form.closest('tr');
+            const token = form.querySelector('[name=csrfmiddlewaretoken]').value;
+            fetch(form.dataset.removeUrl, {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest', 'X-CSRFToken': token },
+            })
+                .then(r => r.json())
+                .then(function (data) {
+                    row.remove();
+                    applyCartTotals(data);
+                    if (data.cart_count === 0) {
+                        document.querySelector('tbody').innerHTML =
+                            '<tr><td colspan="5" class="text-center py-4 text-muted">' +
+                            '{% trans "Your cart is empty." %} <a href="{% url "shop:product_list" %}">{% trans "Continue shopping" %}</a>.' +
+                            '</td></tr>';
+                    }
+                });
+        }, true);
+
+    });
+</script>
 {% endblock %}
