@@ -1440,3 +1440,6 @@ msgstr "Terminé"
 
 msgid "Pending"
 msgstr "En attente"
+
+msgid "Add to Favorites"
+msgstr "Ajouter aux favoris"

@@ -1,32 +1,31 @@
 from django.contrib import admin
-from .models import Product, Category, Newsletter
+from .models import Product, Category, ProductImage, Newsletter
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
 
+@admin.register(Newsletter)
+class NewsletterAdmin(admin.ModelAdmin):
+    list_display = ('email', 'is_active')
+    list_filter = ('is_active',)
+    search_fields = ('email',)
+
+@admin.register(ProductImage)
+class ProductImageAdmin(admin.ModelAdmin):
+    list_display = ('product', 'image', 'is_primary')
+
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "name_fr", "name_ru", "price", "available")
+    list_display = ("name", "price", "available")
     list_editable = ("price", "available")
-    prepopulated_fields = {"slug": ("name",)} if hasattr(Product, "slug") else {}
+    prepopulated_fields = {"slug": ("name",)}
+    readonly_fields = ("created",)
+    
     fieldsets = (
         ("English", {"fields": ("name", "description")}),
-        ("Fran\u00e7ais", {"fields": ("name_fr", "description_fr")}),
-        ("\u0420\u0443\u0441\u0441\u043a\u0438\u0439", {"fields": ("name_ru", "description_ru")}),
-        ("Meta", {"fields": ("category", "price", "stock", "available", "image")}),
+        ("Details", {"fields": ("category", "price", "stock", "available", "image")}),
+        ("Attributes", {"fields": ("color", "size")}),
+        ("SEO", {"fields": ("slug", "meta_title", "meta_description")}),
+        ("System", {"fields": ("favorited_by", "favorites_count")}),
     )
-
-
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "name_fr", "name_ru", "name_es", "name_de")
-    fieldsets = (
-        ("English", {"fields": ("name", "slug")}),
-        ("Fran\u00e7ais", {"fields": ("name_fr",)}),
-        ("\u0420\u0443\u0441\u0441\u043a\u0438\u0439", {"fields": ("name_ru",)}),
-        ("Espa\u00f1ol", {"fields": ("name_es",)}),
-        ("Deutsch", {"fields": ("name_de",)}),
-        ("Meta", {"fields": ("image",)}),
-    )
-
-
-admin.site.register(Product, ProductAdmin)
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Newsletter)
- 

@@ -1729,3 +1729,6 @@ msgstr "Ausstehend"
 
 msgid "My Profile"
 msgstr "Mein Profil"
+
+msgid "Add to Favorites"
+msgstr "Zu Favoriten hinzufügen"

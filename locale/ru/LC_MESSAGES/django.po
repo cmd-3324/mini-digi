@@ -1443,3 +1443,6 @@ msgstr "Завершён"
 
 msgid "Pending"
 msgstr "В ожидании"
+
+msgid "Add to Favorites"
+msgstr "Добавить в избранное"

@@ -36,7 +36,7 @@
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
                                         {% if item.product.image %}
-                                        <img src="{{ item.product.image.url }}" alt="{{ item.product.translated_name }}"
+                                        <img  loading="lazy" src="{{ item.product.image.url }}" alt="{{ item.product.translated_name }}"
                                             style="width:48px;height:48px;object-fit:cover;border-radius:6px;">
                                         {% else %}
                                         <div class="d-flex align-items-center justify-content-center"

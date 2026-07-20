@@ -159,11 +159,11 @@ TIME_ZONE = "UTC"
 LANGUAGE_CODE = "en"
 
 LANGUAGES = [
-    ("en", "English"),
-    ("fr", "Français"),
-    ("ru", "Русский"),
-    ("de", "Deutsch"),
-    ("es", "Español"),
+    ("en", "&#x1f1ec;&#x1f1e7; English"),
+    ("fr", "&#x1f1eb;&#x1f1f7; Français"),
+    ("ru", "&#x1f1f7;&#x1f1fa; Русский"),
+    ("de", "&#x1f1e9;&#x1f1ea; Deutsch"),
+    ("es", "&#x1f1ea;&#x1f1f8; Español"),
 ]
 
 LOCALE_PATHS = [BASE_DIR / "locale"]

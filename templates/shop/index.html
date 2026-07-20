@@ -17,7 +17,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item position-relative active" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="{% static 'img/carousel-1.jpg' %}"
+                        <img  loading="lazy"class="position-absolute w-100 h-100" src="{% static 'img/carousel-1.jpg' %}"
                             style="object-fit: cover;">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="{% static 'img/carousel-2.jpg' %}"
+                        <img loading="lazy"  class="position-absolute w-100 h-100" src="{% static 'img/carousel-2.jpg' %}"
                             style="object-fit: cover;">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="carousel-item position-relative" style="height: 430px;">
-                        <img class="position-absolute w-100 h-100" src="{% static 'img/carousel-3.jpg' %}"
+                        <img  loading="lazy" class="position-absolute w-100 h-100" src="{% static 'img/carousel-3.jpg' %}"
                             style="object-fit: cover;">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
@@ -57,7 +57,7 @@
         </div>
         <div class="col-lg-4">
             <div class="product-offer mb-30" style="height: 200px;">
-                <img class="img-fluid" src="{% static 'img/offer-1.jpg' %}" alt="">
+                <img loading="lazy" class="img-fluid" src="{% static 'img/offer-1.jpg' %}" alt="">
                 <div class="offer-text">
                     <h6 class="text-white text-uppercase">{% trans "Save 20%" %}</h6>
                     <h3 class="text-white mb-3">{% trans "Special Offer" %}</h3>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="product-offer mb-30" style="height: 200px;">
-                <img class="img-fluid" src="{% static 'img/offer-2.jpg' %}" alt="">
+                <img  loading="lazy" class="img-fluid" src="{% static 'img/offer-2.jpg' %}" alt="">
                 <div class="offer-text">
                     <h6 class="text-white text-uppercase">{% trans "Save 20%" %}</h6>
                     <h3 class="text-white mb-3">{% trans "Special Offer" %}</h3>
@@ -116,9 +116,9 @@
                 <div class="cat-item d-flex align-items-center mb-4">
                     <div class="overflow-hidden" style="width: 100px; height: 100px;">
                         {% if category.image %}
-                        <img class="img-fluid" src="{{ category.image.url }}" alt="{{ category.translated_name }}">
+                        <img  loading="lazy" class="img-fluid" src="{{ category.image.url }}" alt="{{ category.translated_name }}">
                         {% else %}
-                        <img class="img-fluid" src="{% static 'img/cat-1.jpg' %}" alt="{{ category.translated_name }}">
+                        <img  loading="lazy" class="img-fluid" src="{% static 'img/cat-1.jpg' %}" alt="{{ category.translated_name }}">
                         {% endif %}
                     </div>
                     <div class="flex-fill pl-3">
@@ -151,7 +151,7 @@
     <div class="row px-xl-5">
         <div class="col-md-6">
             <div class="product-offer mb-30" style="height: 300px;">
-                <img class="img-fluid" src="{% static 'img/offer-1.jpg' %}" alt="">
+                <img  loading="lazy" class="img-fluid" src="{% static 'img/offer-1.jpg' %}" alt="">
                 <div class="offer-text">
                     <h6 class="text-white text-uppercase">{% trans "Save 20%" %}</h6>
                     <h3 class="text-white mb-3">{% trans "Special Offer" %}</h3>
@@ -161,7 +161,7 @@
         </div>
         <div class="col-md-6">
             <div class="product-offer mb-30" style="height: 300px;">
-                <img class="img-fluid" src="{% static 'img/offer-2.jpg' %}" alt="">
+                <img  loading="lazy" class="img-fluid" src="{% static 'img/offer-2.jpg' %}" alt="">
                 <div class="offer-text">
                     <h6 class="text-white text-uppercase">{% trans "Save 20%" %}</h6>
                     <h3 class="text-white mb-3">{% trans "Special Offer" %}</h3>
@@ -189,14 +189,14 @@
     <div class="row px-xl-5">
         <div class="col">
             <div class="owl-carousel vendor-carousel">
-                <img src="{% static 'img/vendor-1.jpg' %}" alt="{% trans 'Vendor' %} 1">
-                <img src="{% static 'img/vendor-2.jpg' %}" alt="{% trans 'Vendor' %} 2">
-                <img src="{% static 'img/vendor-3.jpg' %}" alt="{% trans 'Vendor' %} 3">
-                <img src="{% static 'img/vendor-4.jpg' %}" alt="{% trans 'Vendor' %} 4">
-                <img src="{% static 'img/vendor-5.jpg' %}" alt="{% trans 'Vendor' %} 5">
-                <img src="{% static 'img/vendor-6.jpg' %}" alt="{% trans 'Vendor' %} 6">
-                <img src="{% static 'img/vendor-7.jpg' %}" alt="{% trans 'Vendor' %} 7">
-                <img src="{% static 'img/vendor-8.jpg' %}" alt="{% trans 'Vendor' %} 8">
+                <img  loading="lazy" src="{% static 'img/vendor-1.jpg' %}" alt="{% trans 'Vendor' %} 1">
+                <img  loading="lazy" src="{% static 'img/vendor-2.jpg' %}" alt="{% trans 'Vendor' %} 2">
+                <img  loading="lazy" src="{% static 'img/vendor-3.jpg' %}" alt="{% trans 'Vendor' %} 3">
+                <img  loading="lazy" src="{% static 'img/vendor-4.jpg' %}" alt="{% trans 'Vendor' %} 4">
+                <img  loading="lazy" src="{% static 'img/vendor-5.jpg' %}" alt="{% trans 'Vendor' %} 5">
+                <img  loading="lazy" src="{% static 'img/vendor-6.jpg' %}" alt="{% trans 'Vendor' %} 6">
+                <img  loading="lazy" src="{% static 'img/vendor-7.jpg' %}" alt="{% trans 'Vendor' %} 7">
+                <img  loading="lazy" src="{% static 'img/vendor-8.jpg' %}" alt="{% trans 'Vendor' %} 8">
             </div>
         </div>
     </div>

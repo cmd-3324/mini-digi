@@ -5,7 +5,7 @@ from django.http import JsonResponse
 
 
 class GlobalRateLimitMiddleware:
-    RATE_LIMIT = 10
+    RATE_LIMIT = 25
     WINDOW = 60
 
     def __init__(self, get_response):

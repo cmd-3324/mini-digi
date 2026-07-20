@@ -38,7 +38,7 @@
                     <tr data-item-id="{{ item.pk }}">
                         <td class="align-middle">
                             {% if item.product.image %}
-                            <img src="{{ item.product.image.url }}" alt="{{ item.product.translated_name }}" style="width: 50px;">
+                            <img loading="lazy" src="{{ item.product.image.url }}" alt="{{ item.product.translated_name }}" style="width: 50px;">
                             {% endif %}
                             {{ item.product.translated_name }}
                         </td>

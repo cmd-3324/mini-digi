@@ -25,9 +25,9 @@
             <!-- Image -->
             <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.translated_name }}">
+                    <img  loading="lazy" src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.translated_name }}">
                 {% else %}
-                    <img src="{% static 'img/product-1.jpg' %}" class="img-fluid rounded" alt="{{ product.translated_name }}">
+                    <img  loading="lazy" src="{% static 'img/product-1.jpg' %}" class="img-fluid rounded" alt="{{ product.translated_name }}">
                 {% endif %}
             </div>
             <!-- Details -->
@@ -57,8 +57,7 @@
                         <a href="{% url 'shop:toggle_favorite' product.pk %}?next={{ request.path|urlencode }}"
                             class="btn btn-outline-danger js-toggle-favorite">
                             <i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i>
-                            {% if user in product.favorited_by.all %}{% trans "Remove from Favorites" %}{% else %}{% trans "Add to Favorites"
-                            %}{% endif %}
+                            {% if user in product.favorited_by.all %}{% trans "Remove from Favorites" %}{% else %}{% trans "Add to Favorites" %}{% endif %}
                         </a>
                 </div>
             </div>
