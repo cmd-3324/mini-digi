@@ -3,8 +3,12 @@ from .models import Product, Category, ProductImage, Newsletter
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-
+    list_display = ('name', 'slug')
+    prepopulated_fields = {"slug": ("name",)}
+    
+    fieldsets = (
+        ("Category Info", {"fields": ("name", "slug", "image")}),
+    )
 @admin.register(Newsletter)
 class NewsletterAdmin(admin.ModelAdmin):
     list_display = ('email', 'is_active')

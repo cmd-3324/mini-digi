@@ -1443,3 +1443,35 @@ msgstr "En attente"
 
 msgid "Add to Favorites"
 msgstr "Ajouter aux favoris"
+
+
+msgid "Electronics"
+msgstr "Électronique"
+
+msgid "Clothing"
+msgstr "Vêtements"
+
+msgid "Home & Kitchen"
+msgstr "Maison et Cuisine"
+
+msgid "Books"
+msgstr "Livres"
+
+msgid "favorites"
+msgstr "favoris"
+
+msgid ""
+"MultiShop is your trusted destination for quality products across "
+"electronics, fashion, home & kitchen, and books. We pride ourselves on "
+"offering the best prices, fast delivery, and exceptional customer service. "
+"Our team works around the clock to curate the finest products from "
+"around the world, ensuring every item meets our rigorous quality "
+"standards before reaching your doorstep."
+msgstr ""
+"MultiShop est votre destination de confiance pour des produits de qualité "
+"dans les domaines de l'électronique, de la mode, de la maison et de la "
+"cuisine, ainsi que des livres. Nous sommes fiers d'offrir les meilleurs "
+"prix, une livraison rapide et un service client exceptionnel. Notre "
+"équipe travaille 24 heures sur 24 pour sélectionner les meilleurs "
+"produits du monde entier, en veillant à ce que chaque article réponde à "
+"nos normes de qualité rigoureuses avant d'arriver à votre porte."

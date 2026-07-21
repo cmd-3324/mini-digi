@@ -1732,3 +1732,34 @@ msgstr "Mein Profil"
 
 msgid "Add to Favorites"
 msgstr "Zu Favoriten hinzufügen"
+
+msgid "Electronics"
+msgstr "Elektronik"
+
+msgid "Clothing"
+msgstr "Bekleidung"
+
+msgid "Home & Kitchen"
+msgstr "Haus & Küche"
+
+msgid "Books"
+msgstr "Bücher"
+
+msgid "favorites"
+msgstr "Favoriten"
+
+msgid ""
+"MultiShop is your trusted destination for quality products across "
+"electronics, fashion, home & kitchen, and books. We pride ourselves on "
+"offering the best prices, fast delivery, and exceptional customer service. "
+"Our team works around the clock to curate the finest products from "
+"around the world, ensuring every item meets our rigorous quality "
+"standards before reaching your doorstep."
+msgstr ""
+"MultiShop ist Ihr vertrauenswürdiges Ziel für Qualitätsprodukte aus den "
+"Bereichen Elektronik, Mode, Haus & Küche und Bücher. Wir sind stolz "
+"darauf, die besten Preise, schnelle Lieferung und außergewöhnlichen "
+"Kundenservice zu bieten. Unser Team arbeitet rund um die Uhr, um die "
+"feinsten Produkte aus aller Welt zusammenzustellen und sicherzustellen, "
+"dass jedes Produkt unsere strengen Qualitätsstandards erfüllt, bevor es "
+"an Ihre Haustür geliefert wird."
