@@ -16,4 +16,5 @@ urlpatterns = [
     path("orders/<int:pk>/payment/", views.payment, name="payment"),
     path("orders/<int:pk>/payment/gateway/", views.payment_gateway, name="payment_gateway"),
     path("orders/<int:pk>/payment/return/", views.payment_return, name="payment_return"),
+    # path("support")
 ]

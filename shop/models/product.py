@@ -29,29 +29,16 @@ class Product(models.Model):
 
     @property
     def translated_name(self):
-        lang = get_language()
-        if lang == "fr" and self.name_fr:
-            return self.name_fr
-        if lang == "ru" and self.name_ru:
-            return self.name_ru
-        if lang == "de" and self.name_ru:
-            return self.name_ru
-        if lang == "es" and self.name_ru:
-            return self.name_ru
-        return self.name
+        # Since you use .po files, we just return the name.
+        # If you want Django to check the .po file for a translation of this exact string:
+        from django.utils.translation import gettext as _
+        return _(self.name)
 
     @property
     def translated_description(self):
-        lang = get_language()
-        if lang == "fr" and self.description_fr:
-            return self.description_fr
-        if lang == "ru" and self.description_ru:
-            return self.description_ru
-        if lang == "de" and self.description_ru:
-            return self.description_ru
-        if lang == "es" and self.description_ru:
-            return self.description_ru
-        return self.description
+        from django.utils.translation import gettext as _
+        return _(self.description)
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)

@@ -16,8 +16,7 @@
                 id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                 <div class="navbar-nav w-100">
                     {% for cat in categories %}
-                    <a href="{% url 'shop:product_list' %}?category={{ cat.slug }}" class="nav-item nav-link">{{
-                        cat.translated_name }}</a>
+                    <a href="{% url 'shop:product_list' %}?category={{ cat.slug }}" class="nav-item nav-link">{{ cat.translated_name }}</a>
                     {% endfor %}
                 </div>
             </nav>

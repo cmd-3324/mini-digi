@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shop', '0010_add_de_es_translations'),
+        ('shop', '0009_product_color_size_favorites'),
     ]
 
     operations = [

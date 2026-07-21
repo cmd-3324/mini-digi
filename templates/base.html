@@ -1,6 +1,10 @@
 {% load static %}
 {% load i18n %}
 {% load shop_tags %}
+{% load emoji_tags %}
+
+{{ name|decode_emoji }}
+
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 
@@ -903,7 +907,7 @@
                         {% get_current_language as CURRENT_LANG %}
                         {% get_available_languages as LANGUAGES %}
                         {% for code, name in LANGUAGES %}
-                        <option value="{{ code }}" {% if code == CURRENT_LANG %}selected{% endif %}>{{ name }}</option>
+                        <option value="{{ code }}" {% if code == CURRENT_LANG %}selected{% endif %}>{{ name|safe }}</option>
                         {% endfor %}
                     </select>
                 </div>

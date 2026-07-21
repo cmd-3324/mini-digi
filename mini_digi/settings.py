@@ -85,7 +85,8 @@ TEMPLATES = [
                 "shop.context_processors.currency",
                 "shop.context_processors.all_count",
                 "django.template.context_processors.i18n",
-                "shop.context_processors.favorite_count"
+                "shop.context_processors.favorite_count",
+                "support.context_processors.ticket_count",
             ],
         },
     },
@@ -159,17 +160,25 @@ TIME_ZONE = "UTC"
 LANGUAGE_CODE = "en"
 
 LANGUAGES = [
-    ("en", "&#x1f1ec;&#x1f1e7; English"),
-    ("fr", "&#x1f1eb;&#x1f1f7; Français"),
-    ("ru", "&#x1f1f7;&#x1f1fa; Русский"),
-    ("de", "&#x1f1e9;&#x1f1ea; Deutsch"),
-    ("es", "&#x1f1ea;&#x1f1f8; Español"),
+    ("en", "🇬🇧 English"),
+    ("fr", "🇫🇷 Français"),
+    ("ru", "🇷🇺 Русский"),
+    ("de", "🇩🇪 Deutsch"),
+    ("es", "🇸 Español"),
 ]
 
 LOCALE_PATHS = [BASE_DIR / "locale"]
 USE_I18N = True
 USE_TZ = True
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'miniwicket@gmail.com' 
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD') 
+DEFAULT_FROM_EMAIL = 'miniwicket@gmail.com'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 

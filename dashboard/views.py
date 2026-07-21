@@ -10,7 +10,7 @@ from orders.models import Order
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.urls import reverse
-
+from support.models import Ticket
 @login_required
 def home(request):
     orders = request.user.orders.order_by("-created_at")[:5]
@@ -193,3 +193,8 @@ def payment_return(request, pk):
         "order": order,
         "success": status == "success",
     })
+
+@login_required
+def dashboard_tickets(request):
+    tickets = Ticket.objects.filter(user=request.user).order_by('-created_at')
+    return render(request, 'dashboard/tickets.html', {'tickets': tickets})
