@@ -1,21 +1,22 @@
 mini-digi/
 ├── .dockerignore
+├── .gitignore
+├── .env
+├── Dockerfile
+├── docker-compose.yml
+├── flowchart.txt
+├── HOW_TO_INTEGRATE.md
+├── LICENSE
+├── manage.py
+├── README.md
+├── requirements.txt
+├── robots.txt
 ├── .github/
 │   ├── workflow-notifications.yml
 │   └── workflows/
 │       ├── docker-build.yml
 │       ├── notification-sender.yml
 │       └── test.yml
-├── .gitignore
-├── Dockerfile
-├── HOW_TO_INTEGRATE.md
-├── LICENSE
-├── README.md
-├── db.sqlite3
-├── docker-compose.yml
-├── manage.py
-├── requirements.txt
-├── robots.txt
 ├── files/
 │   └── STATIC_SETUP.ps1
 ├── management/
@@ -49,33 +50,37 @@ mini-digi/
 │   │       ├── __init__.py
 │   │       ├── 0004_product_available.py
 │   │       └── seed_products.py
-│   ├── migrations/
-│   │   ├── __init__.py
-│   │   ├── 0001_initial.py
-│   │   ├── 0002_product_image.py
-│   │   ├── 0003_category_image.py
-│   │   ├── 0004_product_available.py
-│   │   ├── 0005_newsletter_category_name_fr_category_name_ru_and_more.py
-│   │   ├── 0006_product_color_product_favorited_by_and_more.py
-│   │   ├── 0007_category_name_de_category_name_es_and_more.py
-│   │   ├── 0008_remove_product_shop_produc_availab_388fee_idx_and_more.py
-│   │   └── 0009_product_color_size_favorites.py
 │   ├── models/
 │   │   ├── __init__.py
 │   │   ├── cart_models.py
 │   │   ├── category.py
 │   │   ├── newsletter.py
-│   │   └── product.py
+│   │   ├── product.py
+│   │   └── product_image.py
 │   ├── templatetags/
 │   │   ├── __init__.py
+│   │   ├── emoji_tags.py
 │   │   └── shop_tags.py
-│   └── views/
+│   ├── views/
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── chat.py
+│   │   ├── contact.py
+│   │   ├── newsletter.py
+│   │   └── products.py
+│   └── migrations/
 │       ├── __init__.py
-│       ├── auth.py
-│       ├── chat.py
-│       ├── contact.py
-│       ├── newsletter.py
-│       └── products.py
+│       ├── 0001_initial.py
+│       ├── 0002_product_image.py
+│       ├── 0003_category_image.py
+│       ├── 0004_product_available.py
+│       ├── 0005_newsletter_category_name_fr_category_name_ru_and_more.py
+│       ├── 0006_product_color_product_favorited_by_and_more.py
+│       ├── 0007_category_name_de_category_name_es_and_more.py
+│       ├── 0008_remove_product_shop_produc_availab_388fee_idx_and_more.py
+│       ├── 0009_product_color_size_favorites.py
+│       ├── 0011_product_meta_description_product_meta_title_and_more.py
+│       └── 0012_remove_category_name_de_remove_category_name_es_and_more.py
 ├── cart/
 │   ├── __init__.py
 │   ├── context_processors.py
@@ -109,8 +114,17 @@ mini-digi/
 │       └── 0001_initial.py
 ├── support/
 │   ├── __init__.py
+│   ├── admin.py
+│   ├── context_processors.py
+│   ├── models.py
 │   ├── urls.py
-│   └── views.py
+│   ├── views.py
+│   ├── migrations/
+│   │   ├── __init__.py
+│   │   └── 0001_initial.py
+│   └── templatetags/
+│       ├── __init__.py
+│       └── support_tags.py
 ├── locale/
 │   ├── de/
 │   │   └── LC_MESSAGES/
@@ -203,23 +217,25 @@ mini-digi/
 │   │   ├── cat-2.jpg
 │   │   ├── cat-3.jpg
 │   │   └── cat-4.jpg
-│   └── products/
-│       ├── about.jpg
-│       ├── carousel-1.jpg
-│       ├── carousel-2.jpg
-│       ├── payments.png
-│       ├── product-1.jpg
-│       ├── product-2.jpg
-│       ├── product-3.jpg
-│       ├── product-3_cC54kxt.jpg
-│       ├── product-4.jpg
-│       ├── product-5.jpg
-│       ├── product-6.jpg
-│       ├── product-7.jpg
-│       ├── product-8.jpg
-│       ├── product-9.jpg
-│       ├── testimonial-2.jpg
-│       └── vendor-3.jpg
+│   ├── products/
+│   │   ├── about.jpg
+│   │   ├── carousel-1.jpg
+│   │   ├── carousel-2.jpg
+│   │   ├── payments.png
+│   │   ├── product-1.jpg
+│   │   ├── product-2.jpg
+│   │   ├── product-3.jpg
+│   │   ├── product-3_cC54kxt.jpg
+│   │   ├── product-4.jpg
+│   │   ├── product-5.jpg
+│   │   ├── product-6.jpg
+│   │   ├── product-7.jpg
+│   │   ├── product-8.jpg
+│   │   ├── product-9.jpg
+│   │   ├── testimonial-2.jpg
+│   │   └── vendor-3.jpg
+│   └── tickets/
+│       └── attachments/
 ├── templates/
 │   ├── base.html
 │   ├── account/
@@ -304,8 +320,8 @@ mini-digi/
 │   ├── cart/
 │   │   └── cart_detail.html
 │   ├── components/
-│   │   ├── FAQs.html
 │   │   ├── card.html
+│   │   ├── FAQs.html
 │   │   ├── footer.html
 │   │   ├── helps.html
 │   │   └── navbar.html
@@ -317,6 +333,9 @@ mini-digi/
 │   │   ├── payment.html
 │   │   ├── payment_gateway.html
 │   │   ├── profile.html
+│   │   ├── ticket_create.html
+│   │   ├── ticket_detail.html
+│   │   ├── ticket_list.html
 │   │   └── wishlist.html
 │   ├── orders/
 │   │   ├── checkout.html
@@ -324,9 +343,10 @@ mini-digi/
 │   ├── partials/
 │   │   ├── head.html
 │   │   └── scripts.html
-│   └── shop/
-│       ├── about.html
-│       ├── contact.html
-│       ├── index.html
-│       ├── product_detail.html
-│       └── product_list.html
+│   ├── shop/
+│   │   ├── about.html
+│   │   ├── contact.html
+│   │   ├── index.html
+│   │   ├── product_detail.html
+│   │   └── product_list.html
+│   └── support/

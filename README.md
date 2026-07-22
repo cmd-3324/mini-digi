@@ -28,43 +28,115 @@ Mini-Digi is a full-featured, production-grade e-commerce web application that c
 
 ```
 mini-digi/
+├── .env                    # Environment variables
+├── .gitignore
+├── .dockerignore
+├── Dockerfile              # Docker container configuration
+├── docker-compose.yml
+├── flowchart.txt           # Full project file tree
+├── HOW_TO_INTEGRATE.md
+├── LICENSE
+├── manage.py
+├── README.md
+├── requirements.txt        # Python dependencies
+├── robots.txt
+├── .github/                # CI/CD configuration
+│   ├── workflow-notifications.yml
+│   └── workflows/
+│       ├── docker-build.yml
+│       ├── notification-sender.yml
+│       └── test.yml
+├── files/
+│   └── STATIC_SETUP.ps1
+├── management/             # Project-level management commands
+│   └── commands/
+│       └── compile_with_date.py
+├── mini_digi/              # Project settings and configuration
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── middleware.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── views.py
+│   ├── wsgi.py
+│   └── views/
+│       └── products.py
+├── migrations/             # Project-level migrations
+│   └── 0001_initial.py
+├── shop/                   # Core product and catalog application
+│   ├── admin.py
+│   ├── apps.py
+│   ├── context_processors.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── validators.py
+│   ├── management/
+│   │   └── commands/
+│   │       ├── 0004_product_available.py
+│   │       └── seed_products.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── cart_models.py
+│   │   ├── category.py
+│   │   ├── newsletter.py
+│   │   ├── product.py
+│   │   └── product_image.py
+│   ├── templatetags/
+│   │   ├── emoji_tags.py
+│   │   └── shop_tags.py
+│   ├── views/
+│   │   ├── auth.py
+│   │   ├── chat.py
+│   │   ├── contact.py
+│   │   ├── newsletter.py
+│   │   └── products.py
+│   └── migrations/         # 12 migrations (0001-0009, 0011-0012)
 ├── cart/                   # Shopping cart application
 │   ├── context_processors.py
-│   ├── models.py           # Cart and CartItem models
+│   ├── models.py
 │   ├── urls.py
 │   └── views.py
 ├── orders/                 # Order management application
-│   ├── models.py           # Order and OrderItem models
+│   ├── models.py
 │   ├── urls.py
 │   └── views.py
-├── shop/                   # Core product and catalog application
-│   ├── management/         # Custom management commands (e.g., seed_products.py)
-│   ├── models/             # Split models (Product, Category)
-│   ├── views/              # Split views (products, auth, chat)
+├── dashboard/              # User dashboard application
 │   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
 │   ├── urls.py
-│   └── apps.py
-├── support/                # Chatbot/AI assistant application
-│   ├── views.py            # Logic for the "Vex" chatbot
-│   └── urls.py
-├── static/                 # Static assets (CSS, JavaScript, images)
+│   └── views.py
+├── support/                # Support & ticketing application
+│   ├── admin.py
+│   ├── context_processors.py
+│   ├── models.py
+│   ├── urls.py
+│   ├── views.py
+│   ├── migrations/
+│   └── templatetags/
+│       └── support_tags.py
+├── locale/                 # Internationalization (de, es, fr, ru)
+├── static/                 # Static assets (CSS, JavaScript, images, fonts)
 │   ├── css/
 │   ├── js/
-│   └── img/
-├── templates/              # Django HTML templates
-│   ├── base.html
-│   ├── components/         # Reusable partials (navbar, footer, card)
-│   ├── shop/
-│   ├── cart/
-│   └── orders/
-├── mini_digi/              # Project settings and configuration
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── media/                  # User-uploaded media (product images)
-├── requirements.txt        # Python dependencies
-├── Dockerfile              # Docker container configuration
-└── manage.py
+│   ├── lib/
+│   ├── img/
+│   └── fonts/
+├── media/                  # User-uploaded media
+│   ├── categories/
+│   ├── products/
+│   └── tickets/
+│       └── attachments/
+└── templates/              # Django HTML templates
+    ├── base.html
+    ├── account/            # Allauth authentication templates
+    ├── cart/
+    ├── components/         # Reusable partials (navbar, footer, card)
+    ├── dashboard/          # User dashboard (profile, orders, tickets, wishlist)
+    ├── orders/             # Checkout & confirmation
+    ├── partials/
+    ├── shop/
+    └── support/
 ```
 
 ---
