@@ -7,7 +7,7 @@ from .models import Ticket, TicketMessage, TicketAttachment
 @login_required
 def ticket_list(request):
     """User's ticket list - like wishlist"""
-    tickets = Ticket.objects.filter(user=request.user).order_by('-created_at')
+    tickets = Ticket.objects.filter(user=request.user).order_by('created_at') # -create => DESC and create => ASc
     return render(request, 'dashboard/ticket_list.html', {'tickets': tickets})
 
 @login_required
@@ -33,7 +33,7 @@ def ticket_detail(request, pk):
             message=f"User replied. Check: {request.build_absolute_uri('/admin/support/ticket/' + str(ticket.pk) + '/change/')}",
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=['miniwicket@gmail.com'],
-            fail_silently=False,
+            fail_silently=True,
         )
         
         return redirect('support:ticket_detail', pk=ticket.pk)
@@ -60,7 +60,7 @@ def create_ticket(request):
             message=f"User: {request.user.email}\n\n{body}",
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=['miniwicket@gmail.com'],
-            fail_silently=False,
+            fail_silently=True,
         )
         
         return redirect('support:ticket_list')

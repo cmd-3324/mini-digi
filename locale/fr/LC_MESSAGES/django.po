@@ -1460,18 +1460,98 @@ msgstr "Livres"
 msgid "favorites"
 msgstr "favoris"
 
+msgid "Our Story"
+msgstr "Notre histoire"
+
+msgid "We've Been Serving Since 2019"
+msgstr "Nous servons depuis 2019"
+
+#: .\templates\shop\about.html:35
 msgid ""
 "MultiShop is your trusted destination for quality products across "
 "electronics, fashion, home & kitchen, and books. We pride ourselves on "
-"offering the best prices, fast delivery, and exceptional customer service. "
-"Our team works around the clock to curate the finest products from "
-"around the world, ensuring every item meets our rigorous quality "
-"standards before reaching your doorstep."
+"offering the best prices, fast delivery, and exceptional customer service."
 msgstr ""
 "MultiShop est votre destination de confiance pour des produits de qualité "
 "dans les domaines de l'électronique, de la mode, de la maison et de la "
 "cuisine, ainsi que des livres. Nous sommes fiers d'offrir les meilleurs "
-"prix, une livraison rapide et un service client exceptionnel. Notre "
-"équipe travaille 24 heures sur 24 pour sélectionner les meilleurs "
-"produits du monde entier, en veillant à ce que chaque article réponde à "
-"nos normes de qualité rigoureuses avant d'arriver à votre porte."
+"prix, une livraison rapide et un service client exceptionnel."
+
+msgid "Our team works around the clock to curate the finest products from around the world, ensuring every item meets our rigorous quality standards before reaching your doorstep."
+msgstr "Notre équipe travaille 24 heures sur 24 pour sélectionner les meilleurs produits du monde entier, en veillant à ce que chaque article réponde à nos normes de qualité rigoureuses avant d'arriver à votre porte."
+
+msgid "Explore Shop"
+msgstr "Explorer la boutique"
+
+msgid "Happy Customers"
+msgstr "Clients satisfaits"
+
+msgid "Products Sold"
+msgstr "Produits vendus"
+
+msgid "Deliveries Made"
+msgstr "Livraisons effectuées"
+
+msgid "Store Branches"
+msgstr "Succursales"
+
+msgid "Why Choose Us"
+msgstr "Pourquoi nous choisir"
+
+msgid "What Makes Us Different"
+msgstr "Ce qui nous rend différents"
+
+msgid "Free Shipping"
+msgstr "Livraison gratuite"
+
+msgid "Free delivery on all orders above $50"
+msgstr "Livraison gratuite pour toutes les commandes supérieures à 50 $"
+
+msgid "Easy Returns"
+msgstr "Retours faciles"
+
+msgid "30-day hassle-free return policy"
+msgstr "Politique de retour sans souci de 30 jours"
+
+msgid "Secure Payment"
+msgstr "Paiement sécurisé"
+
+msgid "100% secure checkout & encrypted data"
+msgstr "Paiement 100% sécurisé et données cryptées"
+
+msgid "24/7 Support"
+msgstr "Support 24/7"
+
+msgid "Round-the-clock customer assistance"
+msgstr "Assistance clientèle 24 heures sur 24"
+
+msgid "Our Team"
+msgstr "Notre équipe"
+
+msgid "Meet the People Behind MultiShop"
+msgstr "Rencontrez l'équipe derrière MultiShop"
+
+msgid "Ali Mohammadi"
+msgstr "Ali Mohammadi"
+
+msgid "CEO & Founder"
+msgstr "PDG et fondateur"
+
+msgid "Sara Naderi"
+msgstr "Sara Naderi"
+
+msgid "Head of Operations"
+msgstr "Responsable des opérations"
+
+msgid "Reza Karimi"
+msgstr "Reza Karimi"
+
+msgid "Product Manager"
+msgstr "Chef de produit"
+
+msgid "Maryam Hosseini"
+msgstr "Maryam Hosseini"
+
+msgid "Customer Support Lead"
+msgstr "Responsable du support client"
+

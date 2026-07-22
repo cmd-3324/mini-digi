@@ -7,6 +7,10 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>My Support Tickets</h2>
+        <span class="all_count"
+            style="display:inline-flex; align-items:center; background:#f8f9fa; border:1px solid #eee; border-radius:20px; padding:6px 14px; font-size:13px; color:#666; white-space:nowrap; margin-right: 420px;">
+            <i class="fas fa-box" style="font-size:11px; margin-right:6px; color:#999;"></i> {{ tickets|length }} {% if tickets|length == 1 %}{% trans "Ticket" %}{% else %}{% trans "Tickets" %}{% endif %}
+        </span>
         <a href="{% url 'support:create_ticket' %}" class="btn btn-primary">+ New Ticket</a>
     </div>
 
