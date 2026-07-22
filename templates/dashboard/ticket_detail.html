@@ -1,0 +1,55 @@
+{% extends "dashboard/base.html" %}
+
+{% block dashboard_content %}
+<div class="container mt-4">
+    <a href="{% url 'support:ticket_list' %}" class="btn btn-secondary mb-3">← Back to Tickets</a>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Ticket #{{ ticket.pk }}: {{ ticket.subject }}</h4>
+            <span class="badge bg-primary">{{ ticket.get_status_display }}</span>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="card-body" style="max-height: 500px; overflow-y: auto; background-color: #f8f9fa;">
+            {% for message in ticket.messages.all %}
+            <div
+                class="mb-3 p-3 rounded {% if message.is_staff_reply %}bg-light border-start border-4 border-primary{% else %}bg-white border-start border-4 border-success{% endif %}">
+                <div class="d-flex justify-content-between mb-2">
+                    <strong>{% if message.is_staff_reply %}Support Team{% else %}You{% endif %}</strong>
+                    <small class="text-muted">{{ message.created_at|date:"M d, Y H:i" }}</small>
+                </div>
+                <p class="mb-2">{{ message.body|linebreaksbr }}</p>
+
+                {% for attachment in message.attachments.all %}
+                <a href="{{ attachment.file.url }}" target="_blank" class="btn btn-sm btn-outline-secondary mt-2">
+                    {{ attachment.file.name|cut:"tickets/attachments/" }}
+                </a>
+                {% endfor %}
+            </div>
+            {% empty %}
+            <p class="text-center text-muted">No messages yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Reply Form -->
+    <div class="card">
+        <div class="card-header">Send a Reply</div>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <textarea name="body" class="form-control" rows="4" placeholder="Type your message..."
+                        required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Attach Files (Optional)</label>
+                    <input type="file" name="attachments" class="form-control" multiple>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Reply</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

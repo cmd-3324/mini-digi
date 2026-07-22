@@ -1,0 +1,50 @@
+
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load  support_tags %}
+{% block dashboard_content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>My Support Tickets</h2>
+        <a href="{% url 'support:create_ticket' %}" class="btn btn-primary">+ New Ticket</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Created</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                <tr>
+                    <td>#{{ ticket.pk }}</td>
+                    <td>{{ ticket.subject }}</td>
+                    <td>
+                        <span
+                            class="badge bg-{% if ticket.status == 'open' %}warning{% elif ticket.status == 'replied' %}success{% else %}secondary{% endif %}">
+                            {{ ticket.get_status_display }}
+                        </span>
+                    </td>
+                    <td>{{ ticket.created_at|date:"M d, Y" }}</td>
+                    <td>
+                        <a href="{% url 'support:ticket_detail' ticket.pk %}" class="btn btn-sm btn-info">View</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted">No tickets yet. <a
+                            href="{% url 'support:create_ticket' %}">Create one</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

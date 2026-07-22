@@ -1,0 +1,31 @@
+{% extends "dashboard/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <a href="{% url 'support:ticket_list' %}" class="btn btn-secondary mb-3">← Back</a>
+
+    <div class="card">
+        <div class="card-header">
+            <h4 class="mb-0">Create New Support Ticket</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Subject</label>
+                    <input type="text" name="subject" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea name="body" class="form-control" rows="6" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Attachments (Optional)</label>
+                    <input type="file" name="attachments" class="form-control" multiple>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Ticket</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
