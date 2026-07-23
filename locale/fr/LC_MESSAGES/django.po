@@ -1132,9 +1132,8 @@ msgid "Vendor"
 msgstr "Fournisseur"
 
 #: .\templates\shop\product_detail.html:39
-#, python-format
-msgid "In Stock (%(product.stock)s)"
-msgstr "En stock (%(product.stock)s)"
+msgid "In Stock"
+msgstr "En stock"
 
 #: .\templates\shop\product_detail.html:39
 #: .\templates\shop\product_detail.html:54
@@ -1501,9 +1500,6 @@ msgstr "Pourquoi nous choisir"
 msgid "What Makes Us Different"
 msgstr "Ce qui nous rend différents"
 
-msgid "Free Shipping"
-msgstr "Livraison gratuite"
-
 msgid "Free delivery on all orders above $50"
 msgstr "Livraison gratuite pour toutes les commandes supérieures à 50 $"
 
@@ -1518,9 +1514,6 @@ msgstr "Paiement sécurisé"
 
 msgid "100% secure checkout & encrypted data"
 msgstr "Paiement 100% sécurisé et données cryptées"
-
-msgid "24/7 Support"
-msgstr "Support 24/7"
 
 msgid "Round-the-clock customer assistance"
 msgstr "Assistance clientèle 24 heures sur 24"

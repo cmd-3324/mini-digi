@@ -10,7 +10,7 @@
             <img  loading="lazy" class="img-fluid w-100" src="{% static 'img/product-1.jpg' %}" alt="{{ product.translated_name }}">
         {% endif %}
         <div class="product-action">
-            <a class="btn btn-outline-dark btn-square" href="{% url 'shop:product_detail' product.pk %}"><i class="fa fa-search"></i></a>
+            <a class="btn btn-outline-dark btn-square" href="{% url 'shop:product_detail' product.slug %}"><i class="fa fa-search"></i></a>
             <form method="post" action="{% url 'cart:add' product.pk %}" class="d-inline js-add-to-cart">
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="text-center py-4">
-        <a class="h6 text-decoration-none text-truncate" href="{% url 'shop:product_detail' product.pk %}">{{ product.translated_name }}</a>
+        <a class="h6 text-decoration-none text-truncate" href="{% url 'shop:product_detail' product.slug %}">{{ product.translated_name }}</a>
         <div class="d-flex align-items-center justify-content-center mt-2">
             <h5>{{ CURRENCY_CODE|currency_symbol }}{{ product.price|floatformat:0|intcomma }}</h5>
         </div>

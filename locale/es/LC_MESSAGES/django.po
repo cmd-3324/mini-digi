@@ -1170,6 +1170,9 @@ msgid ""
 "the world, ensuring every item meets our rigorous quality standards before "
 "reaching your doorstep."
 msgstr ""
+"Nuestro equipo trabaja las 24 horas para seleccionar los mejores "
+"productos de todo el mundo, asegurando que cada artículo cumpla con "
+"nuestros rigurosos estándares de calidad antes de llegar a tu puerta."
 
 #: .\templates\shop\about.html:37
 msgid "Explore Shop"
@@ -1376,9 +1379,8 @@ msgid "Vendor"
 msgstr "Proveedor"
 
 #: .\templates\shop\product_detail.html:39
-#, python-format
-msgid "In Stock (%(product.stock)s)"
-msgstr "En stock (%(product.stock)s)"
+msgid "In Stock"
+msgstr "En stock"
 
 #: .\templates\shop\product_detail.html:39
 #: .\templates\shop\product_detail.html:54

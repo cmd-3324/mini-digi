@@ -33,11 +33,17 @@
             <!-- Details -->
             <div class="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
                 <h2 class="fw-bold">{{ product.translated_name }}</h2>
-                <div class="d-flex mb-3">
+                <div class="d-flex mb-3 align-items-center">
                     <span class="text-primary fs-4 fw-bold me-3">{{ CURRENCY_CODE|currency_symbol }}{{ product.price|floatformat:0|intcomma }}</span>
-                    <span class="badge bg-{% if product.stock > 0 %}success{% else %}danger{% endif %} align-self-center">
-                        {% if product.stock > 0 %}{% blocktrans %}In Stock ({{ product.stock }}){% endblocktrans %}{% else %}{% trans "Out of Stock" %}{% endif %}
-                    </span>
+                    {% if product.stock > 0 %}
+                        <span class="stock-badge badge-success">
+                            <i class="fa fa-check-circle me-1"></i>{% trans "In Stock" %} ({{ product.stock }})
+                        </span>
+                    {% else %}
+                        <span class="stock-badge badge-danger">
+                            <i class="fa fa-times-circle me-1"></i>{% trans "Out of Stock" %}
+                        </span>
+                    {% endif %}
                 </div>
                 <p class="mb-4">{{ product.translated_description }}</p>
                 <p class="text-muted mb-4">{% trans "Category:" %} <a href="{% url 'shop:product_list' %}?category={{ product.category.slug }}">{{ product.category.translated_name }}</a></p>
@@ -54,7 +60,7 @@
                 <button class="btn btn-secondary py-3 px-4" disabled>{% trans "Out of Stock" %}</button>
                 {% endif %}
                 <div class="mt-3">
-                        <a href="{% url 'shop:toggle_favorite' product.pk %}?next={{ request.path|urlencode }}"
+                        <a href="{% url 'shop:toggle_favorite' product.slug %}?next={{ request.path|urlencode }}"
                             class="btn btn-outline-danger js-toggle-favorite">
                             <i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i>
                             {% if user in product.favorited_by.all %}{% trans "Remove from Favorites" %}{% else %}{% trans "Add to Favorites" %}{% endif %}
@@ -64,6 +70,27 @@
         </div>
     </div>
 </div>
+
+<style>
+    .stock-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+    .stock-badge.badge-success {
+        background-color: #d1e7dd;
+        color: #0f5132;
+    }
+    .stock-badge.badge-danger {
+        background-color: #f8d7da;
+        color: #842029;
+    }
+</style>
+
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function () {

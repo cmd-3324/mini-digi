@@ -1465,9 +1465,8 @@ msgid "Vendor"
 msgstr "Anbieter"
 
 #: .\templates\shop\product_detail.html:39
-#, python-format
-msgid "In Stock (%(product.stock)s)"
-msgstr "Auf Lager (%(product.stock)s)"
+msgid "In Stock"
+msgstr "Auf Lager"
 
 #: .\templates\shop\product_detail.html:39
 #: .\templates\shop\product_detail.html:54

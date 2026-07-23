@@ -1134,9 +1134,8 @@ msgid "Vendor"
 msgstr "Поставщик"
 
 #: .\templates\shop\product_detail.html:39
-#, python-format
-msgid "In Stock (%(product.stock)s)"
-msgstr "В наличии (%(product.stock)s)"
+msgid "In Stock"
+msgstr "В наличии"
 
 #: .\templates\shop\product_detail.html:39
 #: .\templates\shop\product_detail.html:54
@@ -1464,16 +1463,128 @@ msgid "favorites"
 msgstr "избранное"
 
 
+#: .\templates\shop\about.html:4 .\templates\shop\about.html:10
+#: .\templates\shop\about.html:14
+msgid "About Us"
+msgstr "О нас"
+
+#: .\templates\shop\about.html:33
+msgid "Our Story"
+msgstr "Наша история"
+
+#: .\templates\shop\about.html:34
+msgid "We've Been Serving Since 2019"
+msgstr "Мы работаем с 2019 года"
+
 #: .\templates\shop\about.html:35
 msgid ""
 "MultiShop is your trusted destination for quality products across "
 "electronics, fashion, home & kitchen, and books. We pride ourselves on "
 "offering the best prices, fast delivery, and exceptional customer service."
 msgstr ""
-"MultiShop est votre destination de confiance pour des produits de qualité "
-"dans les domaines de l'électronique, de la mode, de la maison et de la "
-"cuisine, ainsi que des livres. Nous sommes fiers d'offrir les meilleurs "
-"prix, une livraison rapide et un service client exceptionnel."
+"MultiShop — это ваш надёжный магазин качественных товаров в категориях "
+"электроники, моды, дома и кухни, а также книг. Мы гордимся тем, что "
+"предлагаем лучшие цены, быструю доставку и превосходный сервис."
 
-msgid "Our team works around the clock to curate the finest products from around the world, ensuring every item meets our rigorous quality standards before reaching your doorstep."
-msgstr "Notre équipe travaille 24 heures sur 24 pour sélectionner les meilleurs produits du monde entier, en veillant à ce que chaque article réponde à nos normes de qualité rigoureuses avant d'arriver à votre porte."
+#: .\templates\shop\about.html:36
+msgid ""
+"Our team works around the clock to curate the finest products from around "
+"the world, ensuring every item meets our rigorous quality standards before "
+"reaching your doorstep."
+msgstr ""
+"Наша команда работает круглосуточно, чтобы подобрать лучшие товары со "
+"всего мира, гарантируя, что каждый товар соответствует нашим строгим "
+"стандартам качества до доставки к вам."
+
+#: .\templates\shop\about.html:37
+msgid "Explore Shop"
+msgstr "Перейти в магазин"
+
+#: .\templates\shop\about.html:51
+msgid "Happy Customers"
+msgstr "Довольных клиентов"
+
+#: .\templates\shop\about.html:58
+msgid "Products Sold"
+msgstr "Товаров продано"
+
+#: .\templates\shop\about.html:65
+msgid "Deliveries Made"
+msgstr "Доставок выполнено"
+
+#: .\templates\shop\about.html:72
+msgid "Store Branches"
+msgstr "Магазинов"
+
+#: .\templates\shop\about.html:83
+msgid "Why Choose Us"
+msgstr "Почему выбирают нас"
+
+#: .\templates\shop\about.html:84
+msgid "What Makes Us Different"
+msgstr "Чем мы отличаемся"
+
+#: .\templates\shop\about.html:92
+msgid "Free delivery on all orders above $50"
+msgstr "Бесплатная доставка для всех заказов от $50"
+
+#: .\templates\shop\about.html:100
+msgid "Easy Returns"
+msgstr "Простой возврат"
+
+#: .\templates\shop\about.html:101
+msgid "30-day hassle-free return policy"
+msgstr "30-дневная политика возврата без проблем"
+
+#: .\templates\shop\about.html:109
+msgid "Secure Payment"
+msgstr "Безопасная оплата"
+
+#: .\templates\shop\about.html:110
+#, python-format
+msgid "100%% secure checkout & encrypted data"
+msgstr "100%% безопасная оплата и зашифрованные данные"
+
+#: .\templates\shop\about.html:119
+msgid "Round-the-clock customer assistance"
+msgstr "Круглосуточная поддержка клиентов"
+
+#: .\templates\shop\about.html:131
+msgid "Our Team"
+msgstr "Наша команда"
+
+#: .\templates\shop\about.html:132
+msgid "Meet the People Behind MultiShop"
+msgstr "Знакомьтесь с людьми, стоящими за MultiShop"
+
+#: .\templates\shop\about.html:141
+msgid "Ali Mohammadi"
+msgstr "Ali Mohammadi"
+
+#: .\templates\shop\about.html:142
+msgid "CEO & Founder"
+msgstr "Генеральный директор и основатель"
+
+#: .\templates\shop\about.html:152
+msgid "Sara Naderi"
+msgstr "Sara Naderi"
+
+#: .\templates\shop\about.html:153
+msgid "Head of Operations"
+msgstr "Руководитель операций"
+
+#: .\templates\shop\about.html:163
+msgid "Reza Karimi"
+msgstr "Reza Karimi"
+
+#: .\templates\shop\about.html:164
+msgid "Product Manager"
+msgstr "Менеджер по продуктам"
+
+#: .\templates\shop\about.html:174
+msgid "Maryam Hosseini"
+msgstr "Maryam Hosseini"
+
+#: .\templates\shop\about.html:175
+msgid "Customer Support Lead"
+msgstr "Руководитель службы поддержки"

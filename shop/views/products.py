@@ -99,8 +99,8 @@ def product_list(request):
         },
     )
 
-def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk, available=True)
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
     return render(request, "shop/product_detail.html", {"product": product})
 
 def contact(request):
@@ -125,7 +125,7 @@ def product_search_autocomplete(request):
                 "price": str(p.price),
                 "category": p.category.name if p.category else "",
                 "image": p.image.url if p.image else "",
-                "url": reverse("shop:product_detail", args=[p.id]),
+                "url": reverse("shop:product_detail", args=[p.slug]),
             }
         )
     return JsonResponse({"results": results})
