@@ -4,159 +4,856 @@
 {% load shop_tags %}
 {% load humanize %}
 {% block title %}{{ product.translated_name }}{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ===== Product Detail Page ===== */
+.pd-wrapper {
+    padding: 30px 0 60px;
+}
+
+/* (breadcrumb uses base.html styles) */
+
+/* Main grid */
+.pd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Image section */
+.pd-image-section {
+    position: sticky;
+    top: 100px;
+}
+.pd-main-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f8f8f8;
+    aspect-ratio: 1 / 1;
+    cursor: crosshair;
+}
+.pd-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.pd-main-image:hover img {
+    transform: scale(1.08);
+}
+.pd-image-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    display: flex;
+    gap: 8px;
+}
+.pd-image-badge .badge-pill {
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+.pd-badge-new {
+    background: #000;
+    color: #fff;
+}
+.pd-badge-sale {
+    background: #e8340e;
+    color: #fff;
+}
+
+/* Info section */
+.pd-info {
+    padding-top: 8px;
+}
+.pd-category-link {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #999;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+.pd-category-link:hover {
+    color: var(--pd-accent);
+    text-decoration: none;
+}
+.pd-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+
+/* Rating */
+.pd-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.pd-stars {
+    display: flex;
+    gap: 2px;
+}
+.pd-stars .fa-star,
+.pd-stars .fas {
+    color: #ffc107;
+    font-size: 14px;
+}
+.pd-stars .far {
+    color: #ddd;
+    font-size: 14px;
+}
+.pd-rating-text {
+    font-size: 13px;
+    color: #999;
+}
+
+/* Price */
+.pd-price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+.pd-price {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--pd-accent);
+    line-height: 1;
+}
+.pd-price-original {
+    font-size: 18px;
+    color: #bbb;
+    text-decoration: line-through;
+    font-weight: 400;
+}
+.pd-price-note {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 24px;
+}
+
+/* Stock */
+.pd-stock {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+.pd-stock-in {
+    background: #d4edda;
+    color: #155724;
+}
+.pd-stock-out {
+    background: #f8d7da;
+    color: #721c24;
+}
+.pd-stock i {
+    font-size: 11px;
+}
+
+/* Divider */
+.pd-divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 0 0 24px;
+}
+
+/* Description */
+.pd-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 28px;
+}
+
+/* Attributes (color, size, etc.) */
+.pd-attributes {
+    margin-bottom: 28px;
+}
+.pd-attr-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.pd-attr-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.pd-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    background: #fff;
+    cursor: default;
+    transition: all 0.2s;
+}
+.pd-chip.active {
+    border-color: var(--pd-accent);
+    color: var(--pd-accent);
+    background: rgba(255, 211, 51, 0.08);
+}
+.pd-chip i {
+    font-size: 11px;
+}
+
+/* Quantity */
+.pd-quantity-section {
+    margin-bottom: 28px;
+}
+.pd-quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.pd-quantity-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.pd-qty-control {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+}
+.pd-qty-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    transition: all 0.2s;
+}
+.pd-qty-btn:hover {
+    background: #f5f5f5;
+    color: var(--pd-accent);
+}
+.pd-qty-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.pd-qty-input {
+    width: 56px;
+    height: 44px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    background: transparent;
+    outline: none;
+    -moz-appearance: textfield;
+}
+.pd-qty-input::-webkit-outer-spin-button,
+.pd-qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Action buttons */
+.pd-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+.pd-btn-cart {
+    flex: 1;
+    min-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: var(--pd-accent);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 211, 51, 0.3);
+}
+.pd-btn-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 211, 51, 0.4);
+    color: #1a1a2e;
+    text-decoration: none;
+}
+.pd-btn-cart:active {
+    transform: translateY(0);
+}
+.pd-btn-cart i {
+    font-size: 18px;
+}
+.pd-btn-cart.disabled {
+    background: #ddd;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.pd-btn-cart.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.pd-btn-fav {
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e0e0e0;
+    border-radius: 14px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 20px;
+    color: #999;
+    flex-shrink: 0;
+}
+.pd-btn-fav:hover {
+    border-color: #e8340e;
+    color: #e8340e;
+    background: #fff5f5;
+}
+.pd-btn-fav.active {
+    border-color: #e8340e;
+    color: #e8340e;
+    background: #fff5f5;
+}
+
+/* Share */
+.pd-share {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+.pd-share-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+.pd-share-btn {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+}
+.pd-share-btn:hover {
+    background: #f5f5f5;
+    color: var(--pd-accent);
+    border-color: var(--pd-accent);
+    text-decoration: none;
+}
+
+/* Info cards */
+.pd-info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+}
+.pd-info-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+}
+.pd-info-card i {
+    font-size: 22px;
+    color: var(--pd-accent);
+    flex-shrink: 0;
+}
+.pd-info-card .text {
+    font-size: 12px;
+    line-height: 1.4;
+}
+.pd-info-card .text strong {
+    display: block;
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+}
+.pd-info-card .text span {
+    color: #999;
+}
+
+/* Dark mode */
+[data-theme="dark"] .pd-title {
+    color: #f0f0f0;
+}
+[data-theme="dark"] .pd-main-image {
+    background: #2a2a2a;
+}
+[data-theme="dark"] .pd-price {
+    color: #FFD333;
+}
+[data-theme="dark"] .pd-desc {
+    color: #aaa;
+}
+[data-theme="dark"] .pd-attr-label,
+[data-theme="dark"] .pd-quantity-label,
+[data-theme="dark"] .pd-share-label {
+    color: #e0e0e0;
+}
+[data-theme="dark"] .pd-chip {
+    border-color: #444;
+    color: #ccc;
+    background: #2a2a2a;
+}
+[data-theme="dark"] .pd-chip.active {
+    border-color: #FFD333;
+    color: #FFD333;
+    background: rgba(255, 211, 51, 0.1);
+}
+[data-theme="dark"] .pd-qty-control {
+    border-color: #444;
+    background: #2a2a2a;
+}
+[data-theme="dark"] .pd-qty-btn {
+    color: #ccc;
+}
+[data-theme="dark"] .pd-qty-btn:hover {
+    background: #333;
+}
+[data-theme="dark"] .pd-qty-input {
+    color: #e0e0e0;
+}
+[data-theme="dark"] .pd-btn-fav {
+    border-color: #444;
+    background: #2a2a2a;
+    color: #888;
+}
+[data-theme="dark"] .pd-btn-fav:hover,
+[data-theme="dark"] .pd-btn-fav.active {
+    border-color: #e8340e;
+    color: #e8340e;
+    background: rgba(232, 52, 14, 0.1);
+}
+[data-theme="dark"] .pd-share-btn {
+    border-color: #444;
+    background: #2a2a2a;
+    color: #aaa;
+}
+[data-theme="dark"] .pd-share-btn:hover {
+    border-color: #FFD333;
+    color: #FFD333;
+    background: rgba(255, 211, 51, 0.08);
+}
+[data-theme="dark"] .pd-info-card {
+    background: #1e1e1e;
+    border-color: #333;
+}
+[data-theme="dark"] .pd-info-card .text strong {
+    color: #e0e0e0;
+}
+[data-theme="dark"] .pd-info-card .text span {
+    color: #888;
+}
+[data-theme="dark"] .pd-divider {
+    border-color: #333;
+}
+[data-theme="dark"] .pd-rating-text {
+    color: #777;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .pd-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .pd-image-section {
+        position: static;
+    }
+    .pd-title {
+        font-size: 24px;
+    }
+    .pd-price {
+        font-size: 28px;
+    }
+    .pd-info-cards {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 575px) {
+    .pd-wrapper {
+        padding: 20px 0 40px;
+    }
+    .pd-actions {
+        flex-direction: column;
+    }
+    .pd-btn-cart {
+        min-width: unset;
+    }
+    .pd-quantity-row {
+        flex-wrap: wrap;
+    }
+}
+</style>
+{% endblock %}
+
 {% block content %}
-
-<!-- Page Header -->
-<div class="container-fluid">
-    <div class="row px-xl-5">
-        <div class="col-12">
-            <nav class="breadcrumb bg-light mb-30 p-0">
-                <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
-                <a class="breadcrumb-item text-dark" href="{% url 'shop:product_list' %}">{% trans "Shop" %}</a>
-                <span class="breadcrumb-item active">{{ product.translated_name }}</span>
-            </nav>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid py-5">
+<div class="container-fluid pd-wrapper">
     <div class="container">
-        <div class="row g-5">
-            <!-- Image -->
-            <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                {% if product.image %}
-                    <img  loading="lazy" src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.translated_name }}">
-                {% else %}
-                    <img  loading="lazy" src="{% static 'img/product-1.jpg' %}" class="img-fluid rounded" alt="{{ product.translated_name }}">
-                {% endif %}
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <nav class="breadcrumb bg-light mb-30 p-0">
+                    <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
+                    <a class="breadcrumb-item text-dark" href="{% url 'shop:product_list' %}">{% trans "Shop" %}</a>
+                    <span class="breadcrumb-item active">{{ product.translated_name }}</span>
+                </nav>
             </div>
-            <!-- Details -->
-            <div class="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
-                <h2 class="fw-bold">{{ product.translated_name }}</h2>
-                <div class="d-flex mb-3 align-items-center">
-                    <span class="text-primary fs-4 fw-bold me-3">{{ CURRENCY_CODE|currency_symbol }}{{ product.price|floatformat:0|intcomma }}</span>
-                    {% if product.stock > 0 %}
-                        <span class="stock-badge badge-success">
-                            <i class="fa fa-check-circle me-1"></i>{% trans "In Stock" %} ({{ product.stock }})
-                        </span>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="pd-grid">
+            <!-- Image -->
+            <div class="pd-image-section">
+                <div class="pd-main-image" id="pdImageWrap">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.translated_name }}" id="pdMainImg">
                     {% else %}
-                        <span class="stock-badge badge-danger">
-                            <i class="fa fa-times-circle me-1"></i>{% trans "Out of Stock" %}
-                        </span>
+                        <img src="{% static 'img/product-1.jpg' %}" alt="{{ product.translated_name }}" id="pdMainImg">
                     {% endif %}
                 </div>
-                <p class="mb-4">{{ product.translated_description }}</p>
-                <p class="text-muted mb-4">{% trans "Category:" %} <a href="{% url 'shop:product_list' %}?category={{ product.category.slug }}">{{ product.category.translated_name }}</a></p>
+            </div>
+
+            <!-- Info -->
+            <div class="pd-info">
+                <a href="{% url 'shop:product_list' %}?category={{ product.category.slug }}" class="pd-category-link">
+                    {{ product.category.translated_name }}
+                </a>
+
+                <h1 class="pd-title">{{ product.translated_name }}</h1>
+
+                <!-- Rating -->
+                <div class="pd-rating">
+                    <div class="pd-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="pd-rating-text">(4.5) &middot; 120 {% trans "reviews" %}</span>
+                </div>
+
+                <!-- Price -->
+                <div class="pd-price-block">
+                    <span class="pd-price">{{ CURRENCY_CODE|currency_symbol }}{{ product.price|floatformat:0|intcomma }}</span>
+                </div>
+                <p class="pd-price-note">{% trans "Tax included. Shipping calculated at checkout." %}</p>
+
+                <!-- Stock -->
+                {% if product.stock > 0 %}
+                    <div class="pd-stock pd-stock-in">
+                        <i class="fas fa-check-circle"></i>
+                        {% trans "In Stock" %} — {{ product.stock }} {% trans "units available" %}
+                    </div>
+                {% else %}
+                    <div class="pd-stock pd-stock-out">
+                        <i class="fas fa-times-circle"></i>
+                        {% trans "Out of Stock" %}
+                    </div>
+                {% endif %}
+
+                <hr class="pd-divider">
+
+                <!-- Description -->
+                <p class="pd-desc">{{ product.translated_description }}</p>
+
+                <!-- Attributes -->
+                {% if product.color or product.size %}
+                <div class="pd-attributes">
+                    {% if product.color %}
+                    <div class="pd-attr-label">{% trans "Color" %}</div>
+                    <div class="pd-attr-chips">
+                        <span class="pd-chip active">
+                            <i class="fas fa-circle" style="font-size:10px;"></i>
+                            {{ product.color|capfirst }}
+                        </span>
+                    </div>
+                    {% endif %}
+
+                    {% if product.size %}
+                    <div class="pd-attr-label" style="margin-top:16px;">{% trans "Size" %}</div>
+                    <div class="pd-attr-chips">
+                        <span class="pd-chip active">{{ product.size|upper }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
 
                 {% if product.stock > 0 %}
-                <form method="post" action="{% url 'cart:add' product.pk %}" class="js-add-to-cart">
+                <form method="post" action="{% url 'cart:add' product.pk %}" class="js-add-to-cart" id="pdCartForm">
                     {% csrf_token %}
-                    <div class="d-flex mb-4" style="max-width: 300px;">
-                        <input type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" class="form-control me-2">
-                        <button type="submit" class="btn btn-primary py-3 px-4">{% trans "Add to Cart" %}</button>
+                    <div class="pd-quantity-section">
+                        <div class="pd-quantity-row">
+                            <span class="pd-quantity-label">{% trans "Quantity" %}</span>
+                            <div class="pd-qty-control">
+                                <button type="button" class="pd-qty-btn" id="qtyMinus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" name="quantity" id="qtyInput" value="1" min="1" max="{{ product.stock }}" class="pd-qty-input" readonly>
+                                <button type="button" class="pd-qty-btn" id="qtyPlus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="pd-actions">
+                        <button type="submit" class="pd-btn-cart" id="addToCartBtn">
+                            <i class="fas fa-shopping-cart"></i>
+                            {% trans "Add to Cart" %}
+                        </button>
+                        <a href="{% url 'shop:toggle_favorite' product.slug %}?next={{ request.path|urlencode }}"
+                           class="pd-btn-fav js-toggle-favorite {% if user in product.favorited_by.all %}active{% endif %}"
+                           id="favBtn" data-slug="{{ product.slug }}">
+                            <i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i>
+                        </a>
                     </div>
                 </form>
                 {% else %}
-                <button class="btn btn-secondary py-3 px-4" disabled>{% trans "Out of Stock" %}</button>
+                <div class="pd-actions">
+                    <button class="pd-btn-cart disabled" disabled>
+                        <i class="fas fa-ban"></i>
+                        {% trans "Out of Stock" %}
+                    </button>
+                    <a href="{% url 'shop:toggle_favorite' product.slug %}?next={{ request.path|urlencode }}"
+                       class="pd-btn-fav js-toggle-favorite {% if user in product.favorited_by.all %}active{% endif %}"
+                       id="favBtn" data-slug="{{ product.slug }}">
+                        <i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i>
+                    </a>
+                </div>
                 {% endif %}
-                <div class="mt-3">
-                        <a href="{% url 'shop:toggle_favorite' product.slug %}?next={{ request.path|urlencode }}"
-                            class="btn btn-outline-danger js-toggle-favorite">
-                            <i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i>
-                            {% if user in product.favorited_by.all %}{% trans "Remove from Favorites" %}{% else %}{% trans "Add to Favorites" %}{% endif %}
-                        </a>
+
+                <!-- Share -->
+                <div class="pd-share">
+                    <span class="pd-share-label">{% trans "Share" %}:</span>
+                    <a href="#" class="pd-share-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="pd-share-btn" title="X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="pd-share-btn" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="pd-share-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+
+                <!-- Info cards -->
+                <div class="pd-info-cards">
+                    <div class="pd-info-card">
+                        <i class="fas fa-truck"></i>
+                        <div class="text">
+                            <strong>{% trans "Free Shipping" %}</strong>
+                            <span>{% trans "On orders over $50" %}</span>
+                        </div>
+                    </div>
+                    <div class="pd-info-card">
+                        <i class="fas fa-undo"></i>
+                        <div class="text">
+                            <strong>{% trans "Easy Returns" %}</strong>
+                            <span>{% trans "30-day return policy" %}</span>
+                        </div>
+                    </div>
+                    <div class="pd-info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="text">
+                            <strong>{% trans "Warranty" %}</strong>
+                            <span>{% trans "1 year guarantee" %}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<style>
-    .stock-badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 0.3px;
-    }
-    .stock-badge.badge-success {
-        background-color: #d1e7dd;
-        color: #0f5132;
-    }
-    .stock-badge.badge-danger {
-        background-color: #f8d7da;
-        color: #842029;
-    }
-</style>
+{% endblock %}
 
 {% block extra_js %}
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        function getCookie(name) {
-            const v = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-            return v ? v.pop() : '';
+document.addEventListener('DOMContentLoaded', function () {
+    // ── Quantity controls ──
+    var qtyInput = document.getElementById('qtyInput');
+    var qtyMinus = document.getElementById('qtyMinus');
+    var qtyPlus = document.getElementById('qtyPlus');
+    var maxStock = qtyInput ? (parseInt(qtyInput.max) || 99) : 99;
+
+    if (qtyMinus && qtyPlus && qtyInput) {
+        function updateQtyBtns() {
+            var v = parseInt(qtyInput.value);
+            qtyMinus.disabled = v <= 1;
+            qtyPlus.disabled = v >= maxStock;
         }
+        qtyMinus.addEventListener('click', function() {
+            var v = parseInt(qtyInput.value);
+            if (v > 1) { qtyInput.value = v - 1; updateQtyBtns(); }
+        });
+        qtyPlus.addEventListener('click', function() {
+            var v = parseInt(qtyInput.value);
+            if (v < maxStock) { qtyInput.value = v + 1; updateQtyBtns(); }
+        });
+        updateQtyBtns();
+    }
 
-        // 1️⃣ Add to Cart AJAX
-        document.addEventListener('submit', function (e) {
-            if (!e.target.classList.contains('js-add-to-cart')) return;
-            e.preventDefault();
-            var formEl = e.target;
-            var btn = formEl.querySelector('button[type="submit"]');
-            btn.disabled = true;
-            fetch(formEl.action, {
-                method: 'POST',
-                body: new FormData(formEl),
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-            })
-                .then(function (r) { return r.json(); })
-                .then(function (data) {
-                    btn.disabled = false;
-                    if (data.login_required) {
-                        window.location.href = '/accounts/login/';
-                        return;
-                    }
-                    document.querySelectorAll('.cart-count-badge').forEach(function (badge) {
-                        badge.textContent = data.cart_count;
-                        badge.style.display = data.cart_count ? '' : 'none';
-                    });
-                    btn.innerHTML = '<i class="fa fa-check"></i>';
-                    setTimeout(function () { btn.innerHTML = '<i class="fa fa-shopping-cart"></i>'; }, 1500);
-                })
-                .catch(function () { btn.disabled = false; });
-        }, true);
+    // ── Image zoom on hover ──
+    var imgWrap = document.getElementById('pdImageWrap');
+    var mainImg = document.getElementById('pdMainImg');
+    if (imgWrap && mainImg) {
+        imgWrap.addEventListener('mousemove', function(e) {
+            var rect = imgWrap.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width * 100;
+            var y = (e.clientY - rect.top) / rect.height * 100;
+            mainImg.style.transformOrigin = x + '% ' + y + '%';
+        });
+        imgWrap.addEventListener('mouseleave', function() {
+            mainImg.style.transformOrigin = 'center center';
+        });
+    }
 
-        // 2️⃣ Toggle Favorite AJAX
-        document.addEventListener('click', function (e) {
-            var heart = e.target.closest('.js-toggle-favorite');
-            if (!heart) return;
-            e.preventDefault();
-            fetch(heart.href, {
-                method: 'GET',
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-            })
-                .then(function (r) { return r.json(); })
-                .then(function (data) {
-                    if (data.login_required) {
-                        window.location.href = '/accounts/login/';
-                        return;
-                    }
-                    var icon = heart.querySelector('i');
-                    if (data.is_favorited) {
-                        icon.classList.remove('far');
-                        icon.classList.add('fas');
-                    } else {
-                        icon.classList.remove('fas');
-                        icon.classList.add('far');
-                    }
-                    document.querySelectorAll('.favorite-count-badge').forEach(function (badge) {
-                        badge.textContent = data.user_favorite_count;
-                    });
-                });
-        }, true);
-    });
+    // ── Heart pop animation (CSS injected once) ──
+    (function injectFavStyle() {
+        var s = document.createElement('style');
+        s.textContent = '@keyframes pdHeartPop{0%{transform:scale(1)}30%{transform:scale(1.35)}60%{transform:scale(0.9)}100%{transform:scale(1)}} .pd-btn-fav.pop i{animation:pdHeartPop .4s ease}';
+        document.head.appendChild(s);
+    })();
+
+    // ── Add to Cart AJAX ──
+    document.addEventListener('submit', function (e) {
+        var formEl = e.target;
+        if (!formEl.classList.contains('js-add-to-cart')) return;
+        e.preventDefault();
+        var btn = formEl.querySelector('.pd-btn-cart');
+        var origHTML = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {% trans "Adding..." %}';
+
+        fetch(formEl.action, {
+            method: 'POST',
+            body: new FormData(formEl),
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            btn.disabled = false;
+            if (data.login_required) {
+                window.location.href = '/accounts/login/';
+                return;
+            }
+            document.querySelectorAll('.cart-count-badge').forEach(function(badge) {
+                badge.textContent = data.cart_count;
+                badge.style.display = data.cart_count ? '' : 'none';
+            });
+            btn.innerHTML = '<i class="fas fa-check"></i> {% trans "Added!" %}';
+            btn.style.background = '#28a745';
+            btn.style.color = '#fff';
+            setTimeout(function() {
+                btn.innerHTML = origHTML;
+                btn.style.background = '';
+                btn.style.color = '';
+            }, 1800);
+        })
+        .catch(function() {
+            btn.disabled = false;
+            btn.innerHTML = origHTML;
+        });
+    }, true);
+
+    // ── Toggle Favorite AJAX ──
+    document.addEventListener('click', function (e) {
+        var heart = e.target.closest('.js-toggle-favorite');
+        if (!heart) return;
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Prevent double-click
+        if (heart.dataset.loading === '1') return;
+        heart.dataset.loading = '1';
+
+        fetch(heart.href, {
+            method: 'GET',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            heart.dataset.loading = '0';
+            if (data.login_required) {
+                window.location.href = '/accounts/login/';
+                return;
+            }
+            var icon = heart.querySelector('i');
+            if (data.is_favorited) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                heart.classList.add('active');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                heart.classList.remove('active');
+            }
+            // Pop animation
+            heart.classList.remove('pop');
+            void heart.offsetWidth;
+            heart.classList.add('pop');
+
+            document.querySelectorAll('.favorite-count-badge').forEach(function(badge) {
+                badge.textContent = data.user_favorite_count;
+            });
+        })
+        .catch(function() { heart.dataset.loading = '0'; });
+    }, true);
+});
 </script>
 {% endblock %}
-{% endblock %} 

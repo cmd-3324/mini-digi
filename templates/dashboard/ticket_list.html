@@ -1,54 +1,780 @@
-
 {% extends "dashboard/base.html" %}
 {% load static %}
 {% load i18n %}
-{% load  support_tags %}
+{% load support_tags %}
+
 {% block dashboard_content %}
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>My Support Tickets</h2>
-        <span class="all_count"
-            style="display:inline-flex; align-items:center; background:#f8f9fa; border:1px solid #eee; border-radius:20px; padding:6px 14px; font-size:13px; color:#666; white-space:nowrap; margin-right: 420px;">
-            <i class="fas fa-box" style="font-size:11px; margin-right:6px; color:#999;"></i> {{ tickets|length }} {% if tickets|length == 1 %}{% trans "Ticket" %}{% else %}{% trans "Tickets" %}{% endif %}
-        </span>
-        <a href="{% url 'support:create_ticket' %}" class="btn btn-primary">+ New Ticket</a>
+<style>
+/* ===== Ticket List ===== */
+.tk-wrapper { padding: 0 0 40px; }
+
+.tk-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.tk-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.tk-header-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: rgba(0, 123, 255, 0.12);
+    color: #007bff;
+    flex-shrink: 0;
+}
+.tk-header h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+}
+.tk-header small {
+    font-size: 12px;
+    color: #999;
+}
+.tk-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #666;
+}
+.tk-count i { font-size: 11px; color: #999; }
+
+/* New Ticket Button */
+.tk-btn-new {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--dash-primary);
+    color: var(--dash-primary-text);
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 211, 51, 0.3);
+    text-decoration: none;
+}
+.tk-btn-new:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 211, 51, 0.4);
+    color: var(--dash-primary-text);
+    text-decoration: none;
+}
+.tk-btn-new:active { transform: translateY(0); }
+
+/* Filter Bar */
+.tk-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.tk-search {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 360px;
+}
+.tk-search i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: #bbb;
+}
+.tk-search input {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-body, #333);
+    background: var(--bg-card);
+    outline: none;
+    transition: all 0.2s;
+}
+.tk-search input:focus {
+    border-color: var(--dash-primary);
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.12);
+}
+.tk-filter-select {
+    padding: 10px 36px 10px 14px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-body, #333);
+    background: var(--bg-card);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+.tk-filter-select:focus {
+    border-color: var(--dash-primary);
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.12);
+}
+
+/* Ticket Cards */
+.tk-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.tk-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+.tk-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-color: rgba(255, 211, 51, 0.3);
+    transform: translateY(-1px);
+    text-decoration: none;
+    color: inherit;
+}
+.tk-card-id {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+    background: rgba(255, 211, 51, 0.12);
+    color: #b38f00;
+}
+.tk-card-body {
+    flex: 1;
+    min-width: 0;
+}
+.tk-card-subject {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tk-card-meta {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.tk-card-meta i { font-size: 11px; }
+
+/* Status Badges */
+.tk-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.tk-status-open {
+    background: rgba(255, 193, 7, 0.15);
+    color: #856404;
+}
+.tk-status-replied {
+    background: rgba(40, 167, 69, 0.12);
+    color: #155724;
+}
+.tk-status-closed {
+    background: rgba(108, 117, 125, 0.12);
+    color: #495057;
+}
+.tk-status i { font-size: 8px; }
+
+.tk-card-arrow {
+    font-size: 16px;
+    color: #ccc;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+.tk-card:hover .tk-card-arrow { color: var(--dash-primary-dark); }
+
+/* Empty state */
+.tk-empty {
+    text-align: center;
+    padding: 60px 20px;
+}
+.tk-empty-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 211, 51, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 32px;
+    color: #ccc;
+}
+.tk-empty h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+.tk-empty p {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 24px;
+}
+
+/* ===== Modal ===== */
+.tk-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+.tk-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+.tk-modal {
+    background: var(--bg-card);
+    border-radius: 18px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s;
+}
+.tk-modal-overlay.active .tk-modal {
+    transform: translateY(0);
+}
+.tk-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+.tk-modal-header h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.tk-modal-close {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.tk-modal-close:hover { background: #eee; color: #333; }
+.tk-modal-body { padding: 24px 28px; }
+.tk-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 28px 24px;
+}
+
+/* Modal form */
+.tk-form-group { margin-bottom: 20px; }
+.tk-form-group:last-child { margin-bottom: 0; }
+.tk-form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+.tk-form-group input,
+.tk-form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-body, #333);
+    background: var(--bg-card);
+    outline: none;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+.tk-form-group input:focus,
+.tk-form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+.tk-form-group textarea { resize: vertical; min-height: 100px; }
+.tk-form-group .tk-file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.tk-form-group .tk-file-label:hover {
+    border-color: #007bff;
+    color: #007bff;
+}
+.tk-form-group input[type="file"] { display: none; }
+.tk-file-names {
+    font-size: 12px;
+    color: #888;
+    margin-top: 6px;
+}
+
+/* Modal buttons */
+.tk-btn-cancel {
+    padding: 12px 24px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.tk-btn-cancel:hover { border-color: #999; color: #333; }
+.tk-btn-submit {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    background: #007bff;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+.tk-btn-submit:hover { background: #0069d9; transform: translateY(-1px); }
+.tk-btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.tk-btn-submit:active { transform: translateY(0); }
+
+/* Modal error */
+.tk-modal-error {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(220, 53, 69, 0.08);
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    border-radius: 10px;
+    color: #dc3545;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+/* Dark mode */
+[data-theme="dark"] .tk-header h4 { color: #e0e0e0; }
+[data-theme="dark"] .tk-count { background: #2a2a2a; border-color: #444; color: #aaa; }
+[data-theme="dark"] .tk-card { border-color: #333; }
+[data-theme="dark"] .tk-card:hover { border-color: rgba(255, 211, 51, 0.25); }
+[data-theme="dark"] .tk-card-subject { color: #e0e0e0; }
+[data-theme="dark"] .tk-card-meta { color: #777; }
+[data-theme="dark"] .tk-card-id { background: rgba(255, 211, 51, 0.08); color: #FFD333; }
+[data-theme="dark"] .tk-empty h5 { color: #e0e0e0; }
+[data-theme="dark"] .tk-search input {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+}
+[data-theme="dark"] .tk-search input:focus {
+    border-color: #FFD333;
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.1);
+}
+[data-theme="dark"] .tk-search i { color: #666; }
+[data-theme="dark"] .tk-filter-select {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] .tk-filter-select:focus {
+    border-color: #FFD333;
+}
+[data-theme="dark"] .tk-modal { background: #1e1e1e; }
+[data-theme="dark"] .tk-modal-header { border-color: #333; }
+[data-theme="dark"] .tk-modal-header h5 { color: #e0e0e0; }
+[data-theme="dark"] .tk-modal-close { background: #333; color: #aaa; }
+[data-theme="dark"] .tk-modal-close:hover { background: #444; color: #e0e0e0; }
+[data-theme="dark"] .tk-form-group label { color: #aaa; }
+[data-theme="dark"] .tk-form-group input,
+[data-theme="dark"] .tk-form-group textarea {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+}
+[data-theme="dark"] .tk-form-group input:focus,
+[data-theme="dark"] .tk-form-group textarea:focus {
+    border-color: #FFD333;
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.1);
+}
+[data-theme="dark"] .tk-form-group .tk-file-label { border-color: #444; color: #777; }
+[data-theme="dark"] .tk-form-group .tk-file-label:hover { border-color: #FFD333; color: #FFD333; }
+[data-theme="dark"] .tk-btn-cancel { border-color: #444; color: #aaa; }
+[data-theme="dark"] .tk-btn-cancel:hover { border-color: #777; color: #e0e0e0; }
+[data-theme="dark"] .tk-modal-error {
+    background: rgba(220, 53, 69, 0.12);
+    border-color: rgba(220, 53, 69, 0.25);
+}
+[data-theme="dark"] .tk-status-open { background: rgba(255, 193, 7, 0.12); color: #ffc107; }
+[data-theme="dark"] .tk-status-replied { background: rgba(40, 167, 69, 0.1); color: #28a745; }
+[data-theme="dark"] .tk-status-closed { background: rgba(108, 117, 125, 0.15); color: #adb5bd; }
+
+/* New card flash */
+@keyframes tkNewCard {
+    0% { background: rgba(40, 167, 69, 0.1); border-color: #28a745; }
+    100% { background: var(--bg-card); border-color: var(--border-color); }
+}
+.tk-card.tk-new { animation: tkNewCard 1.5s ease; }
+
+@media (max-width: 575px) {
+    .tk-header { flex-direction: column; align-items: flex-start; }
+    .tk-card { flex-wrap: wrap; gap: 12px; }
+    .tk-card-arrow { display: none; }
+}
+</style>
+
+<div class="tk-wrapper">
+    <!-- Header -->
+    <div class="tk-header">
+        <div class="tk-header-left">
+            <div class="tk-header-icon"><i class="fas fa-headset"></i></div>
+            <div>
+                <h4>{% trans "Support Tickets" %}</h4>
+                <small>{% trans "Track and manage your support requests" %}</small>
+            </div>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+            <span class="tk-count" style="margin-right: 20px;" id="tkCount">
+                <i class="fas fa-ticket-alt"></i>
+                {{ tickets|length }} {% trans "total" %}
+            </span>
+            <button class="tk-btn-new" id="newTicketBtn">
+                <i class="fas fa-plus"></i> {% trans "New Ticket" %}
+            </button>
+        </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead class="table-light">
-                <tr>
-                    <th>ID</th>
-                    <th>Subject</th>
-                    <th>Status</th>
-                    <th>Created</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for ticket in tickets %}
-                <tr>
-                    <td>#{{ ticket.pk }}</td>
-                    <td>{{ ticket.subject }}</td>
-                    <td>
-                        <span
-                            class="badge bg-{% if ticket.status == 'open' %}warning{% elif ticket.status == 'replied' %}success{% else %}secondary{% endif %}">
-                            {{ ticket.get_status_display }}
-                        </span>
-                    </td>
-                    <td>{{ ticket.created_at|date:"M d, Y" }}</td>
-                    <td>
-                        <a href="{% url 'support:ticket_detail' ticket.pk %}" class="btn btn-sm btn-info">View</a>
-                    </td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="5" class="text-center text-muted">No tickets yet. <a
-                            href="{% url 'support:create_ticket' %}">Create one</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <!-- Filter Bar -->
+    <div class="tk-filters" id="tkFilters">
+        <div class="tk-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="tkSearch" value="{{ q }}" placeholder="{% trans 'Search tickets...' %}">
+        </div>
+        <select id="tkStatusFilter" class="tk-filter-select">
+            <option value="">{% trans "All Status" %}</option>
+            <option value="open" {% if status == 'open' %}selected{% endif %}>{% trans "Open" %}</option>
+            <option value="replied" {% if status == 'replied' %}selected{% endif %}>{% trans "Replied" %}</option>
+            <option value="closed" {% if status == 'closed' %}selected{% endif %}>{% trans "Closed" %}</option>
+        </select>
+        <select id="tkSortFilter" class="tk-filter-select">
+            <option value="-created_at" {% if sort == '-created_at' %}selected{% endif %}>{% trans "Newest First" %}</option>
+            <option value="created_at" {% if sort == 'created_at' %}selected{% endif %}>{% trans "Oldest First" %}</option>
+            <option value="subject" {% if sort == 'subject' %}selected{% endif %}>{% trans "Subject A-Z" %}</option>
+            <option value="-subject" {% if sort == '-subject' %}selected{% endif %}>{% trans "Subject Z-A" %}</option>
+        </select>
+    </div>
+
+    <!-- Ticket List -->
+    <div class="tk-list" id="ticketList">
+        {% for ticket in tickets %}
+        <a href="{% url 'support:ticket_detail' ticket.pk %}" class="tk-card">
+            <div class="tk-card-id">#{{ ticket.pk }}</div>
+            <div class="tk-card-body">
+                <div class="tk-card-subject">{{ ticket.subject }}</div>
+                <div class="tk-card-meta">
+                    <span><i class="far fa-clock"></i> {{ ticket.created_at|date:"M d, Y" }}</span>
+                    <span><i class="far fa-comment-dots"></i> {{ ticket.messages.count }} {% trans "replies" %}</span>
+                </div>
+            </div>
+            <span class="tk-status tk-status-{{ ticket.status }}">
+                <i class="fas fa-circle"></i>
+                {{ ticket.get_status_display }}
+            </span>
+            <i class="fas fa-chevron-right tk-card-arrow"></i>
+        </a>
+        {% empty %}
+        <div class="tk-empty" id="emptyState">
+            <div class="tk-empty-icon"><i class="far fa-envelope-open"></i></div>
+            <h5>{% trans "No tickets found" %}</h5>
+            <p>{% trans "Need help? Create a support ticket and we'll get back to you." %}</p>
+            <button class="tk-btn-new" onclick="document.getElementById('newTicketBtn').click()">
+                <i class="fas fa-plus"></i> {% trans "Create First Ticket" %}
+            </button>
+        </div>
+        {% endfor %}
     </div>
 </div>
+
+<!-- Create Ticket Modal -->
+<div class="tk-modal-overlay" id="ticketModal">
+    <div class="tk-modal">
+        <div class="tk-modal-header">
+            <h5><i class="fas fa-headset"></i> {% trans "New Support Ticket" %}</h5>
+            <button class="tk-modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="tk-modal-body">
+            <div class="tk-modal-error" id="modalError">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="modalErrorMsg"></span>
+            </div>
+            <form id="ticketForm" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="tk-form-group">
+                    <label>{% trans "Subject" %}</label>
+                    <input type="text" name="subject" required placeholder="{% trans 'Brief description of your issue' %}">
+                </div>
+                <div class="tk-form-group">
+                    <label>{% trans "Message" %}</label>
+                    <textarea name="body" rows="5" required placeholder="{% trans 'Describe your issue in detail...' %}"></textarea>
+                </div>
+                <div class="tk-form-group">
+                    <label>{% trans "Attachments" %} <span style="color:#bbb;font-weight:400;text-transform:none;">({% trans "optional" %})</span></label>
+                    <label class="tk-file-label" for="ticketFiles">
+                        <i class="fas fa-paperclip"></i> {% trans "Choose files" %}
+                    </label>
+                    <input type="file" name="attachments" id="ticketFiles" multiple>
+                    <div class="tk-file-names" id="fileNames"></div>
+                </div>
+            </form>
+        </div>
+        <div class="tk-modal-footer">
+            <button class="tk-btn-cancel" id="modalCancel">{% trans "Cancel" %}</button>
+            <button class="tk-btn-submit" id="modalSubmit">
+                <i class="fas fa-paper-plane"></i> {% trans "Submit Ticket" %}
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    var modal = document.getElementById('ticketModal');
+    var form = document.getElementById('ticketForm');
+    var btnNew = document.getElementById('newTicketBtn');
+    var btnClose = document.getElementById('modalClose');
+    var btnCancel = document.getElementById('modalCancel');
+    var btnSubmit = document.getElementById('modalSubmit');
+    var errBox = document.getElementById('modalError');
+    var errMsg = document.getElementById('modalErrorMsg');
+    var fileInput = document.getElementById('ticketFiles');
+    var fileNames = document.getElementById('fileNames');
+
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        form.reset();
+        fileNames.textContent = '';
+        errBox.style.display = 'none';
+    }
+
+    btnNew.addEventListener('click', openModal);
+    btnClose.addEventListener('click', closeModal);
+    btnCancel.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+    });
+
+    // File name display
+    fileInput.addEventListener('change', function() {
+        var names = [];
+        for (var i = 0; i < this.files.length; i++) names.push(this.files[i].name);
+        fileNames.textContent = names.join(', ');
+    });
+
+    // Submit AJAX
+    btnSubmit.addEventListener('click', function() {
+        errBox.style.display = 'none';
+        var formData = new FormData(form);
+
+        if (!formData.get('subject').trim() || !formData.get('body').trim()) {
+            errMsg.textContent = '{% trans "Subject and message are required." %}';
+            errBox.style.display = 'flex';
+            return;
+        }
+
+        var origHTML = btnSubmit.innerHTML;
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {% trans "Submitting..." %}';
+
+        fetch('{% url "support:create_ticket" %}', {
+            method: 'POST',
+            body: formData,
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = origHTML;
+            if (data.ok) {
+                closeModal();
+                // Remove empty state if exists
+                var empty = document.getElementById('emptyState');
+                if (empty) empty.remove();
+                // Prepend new ticket card
+                var t = data.ticket;
+                var statusCls = 'tk-status-' + t.status_key;
+                var html = '<a href="' + t.url + '" class="tk-card tk-new">'
+                    + '<div class="tk-card-id">#' + t.id + '</div>'
+                    + '<div class="tk-card-body">'
+                    + '<div class="tk-card-subject">' + escapeHtml(t.subject) + '</div>'
+                    + '<div class="tk-card-meta">'
+                    + '<span><i class="far fa-clock"></i> ' + t.created_at + '</span>'
+                    + '<span><i class="far fa-comment-dots"></i> 0 {% trans "replies" %}</span>'
+                    + '</div></div>'
+                    + '<span class="tk-status ' + statusCls + '"><i class="fas fa-circle"></i> ' + t.status + '</span>'
+                    + '<i class="fas fa-chevron-right tk-card-arrow"></i></a>';
+                document.getElementById('ticketList').insertAdjacentHTML('afterbegin', html);
+                // Update count
+                var countEl = document.querySelector('.tk-count');
+                if (countEl) {
+                    var current = parseInt(countEl.textContent) || 0;
+                    countEl.innerHTML = '<i class="fas fa-ticket-alt"></i> ' + (current + 1) + ' {% trans "total" %}';
+                }
+                if (typeof showToast === 'function') showToast(data.message);
+            } else {
+                errMsg.textContent = data.error || '{% trans "Something went wrong." %}';
+                errBox.style.display = 'flex';
+            }
+        })
+        .catch(function() {
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = origHTML;
+            errMsg.textContent = '{% trans "Network error. Please try again." %}';
+            errBox.style.display = 'flex';
+        });
+    });
+
+    function escapeHtml(str) {
+        var d = document.createElement('div');
+        d.textContent = str;
+        return d.innerHTML;
+    }
+
+    // ── Search / Sort / Filter AJAX ──
+    var searchInput = document.getElementById('tkSearch');
+    var statusFilter = document.getElementById('tkStatusFilter');
+    var sortFilter = document.getElementById('tkSortFilter');
+    var ticketList = document.getElementById('ticketList');
+    var baseUrl = '{% url "support:ticket_list" %}';
+    var debounceTimer;
+
+    function fetchTickets() {
+        var params = new URLSearchParams();
+        var q = searchInput.value.trim();
+        var st = statusFilter.value;
+        var srt = sortFilter.value;
+        if (q) params.set('q', q);
+        if (st) params.set('status', st);
+        if (srt) params.set('sort', srt);
+        var url = baseUrl + (params.toString() ? '?' + params.toString() : '');
+
+        ticketList.style.opacity = '0.4';
+        ticketList.style.transition = 'opacity 0.2s';
+        fetch(url)
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var newList = doc.getElementById('ticketList');
+                if (newList) {
+                    ticketList.innerHTML = newList.innerHTML;
+                    window.history.pushState(null, '', url);
+                }
+                ticketList.style.opacity = '1';
+            })
+            .catch(function() { ticketList.style.opacity = '1'; });
+    }
+
+    searchInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(fetchTickets, 400);
+    });
+    statusFilter.addEventListener('change', fetchTickets);
+    sortFilter.addEventListener('change', fetchTickets);
+
+    window.addEventListener('popstate', function() {
+        var params = new URLSearchParams(window.location.search);
+        searchInput.value = params.get('q') || '';
+        statusFilter.value = params.get('status') || '';
+        sortFilter.value = params.get('sort') || '-created_at';
+        fetchTickets();
+    });
+})();
+</script>
 {% endblock %}

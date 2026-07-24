@@ -136,8 +136,8 @@ def about(request):
 def help(request):
     return render(request, "components/helps.html")
 
-def toggle_favorite(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+def toggle_favorite(request, slug):
+    product = get_object_or_404(Product, slug=slug)
     if not request.user.is_authenticated:
         if request.headers.get("X-Requested-With") == "XMLHttpRequest":
             return JsonResponse({"success": False, "login_required": True}, status=401)

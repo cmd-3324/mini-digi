@@ -16,7 +16,7 @@
                 <input type="hidden" name="quantity" value="1">
                 <button type="submit" class="btn btn-outline-dark btn-square"><i class="fa fa-shopping-cart"></i></button>
             </form>
-            <a class="btn btn-outline-dark btn-square js-toggle-favorite" href="{% url 'shop:toggle_favorite' product.pk %}"><i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i></a>
+            <a class="btn btn-outline-dark btn-square js-toggle-favorite" href="{% url 'shop:toggle_favorite' product.slug %}"><i class="{% if user in product.favorited_by.all %}fas{% else %}far{% endif %} fa-heart"></i></a>
             <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
         </div>
     </div>

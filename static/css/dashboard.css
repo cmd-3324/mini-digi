@@ -23,15 +23,14 @@
 }
 
 /* ---------- Generic card override inside dashboard ---------- */
-.dashboard-sidebar,
-.dashboard-stat-card,
-.container-fluid.py-4 .card {
+.dashboard-stat-card {
     background-color: var(--bg-card);
     border-radius: var(--dash-radius);
     box-shadow: var(--dash-shadow);
     transition: box-shadow .2s ease, transform .2s ease;
 }
 
+/* ---------- Card header override ---------- */
 .container-fluid.py-4 .card-header {
     background-color: var(--bg-card) !important;
     border-bottom: 1px solid var(--border-color);

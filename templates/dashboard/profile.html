@@ -4,62 +4,410 @@
 
 {% block title %}{% trans "My Profile" %} - {{ block.super }}{% endblock %}
 
-{% block dashboard_content %}
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h4 class="font-weight-semi-bold mb-0">{% trans "My Profile" %}</h4>
-</div>
+{% block extra_css %}
+{{ block.super }}
+<style>
+/* ===== Profile Page ===== */
+.pf-wrapper { padding: 0 0 40px; }
 
-<div class="row g-3">
-    <div class="col-md-7">
-        <div class="card border-0 shadow-sm">
-            <div class="card-header bg-white py-3">
-                <h5 class="mb-0 font-weight-semi-bold">{% trans "Personal Information" %}</h5>
+/* Header */
+.pf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.pf-header h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+}
+.pf-header .pf-subtitle {
+    font-size: 13px;
+    color: #999;
+    margin-top: 2px;
+}
+.pf-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: rgba(255, 211, 51, 0.12);
+    border: 1px solid rgba(255, 211, 51, 0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #b38f00;
+}
+
+/* Profile grid */
+.pf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* Card */
+.pf-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+.pf-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.pf-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+.pf-card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.pf-card-icon.primary {
+    background: rgba(255, 211, 51, 0.15);
+    color: #b38f00;
+}
+.pf-card-icon.danger {
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+}
+.pf-card-icon.info {
+    background: rgba(0, 123, 255, 0.12);
+    color: #007bff;
+}
+.pf-card-header-text h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+    line-height: 1;
+}
+.pf-card-header-text small {
+    font-size: 12px;
+    color: #999;
+}
+.pf-card-body {
+    padding: 28px;
+}
+
+/* Form styles */
+.pf-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 0;
+}
+.pf-form-group {
+    margin-bottom: 20px;
+}
+.pf-form-group:last-child {
+    margin-bottom: 0;
+}
+.pf-form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+.pf-form-group input,
+.pf-form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-body, #333);
+    background: var(--bg-card);
+    outline: none;
+    transition: all 0.2s;
+}
+.pf-form-group input:focus,
+.pf-form-group select:focus {
+    border-color: var(--dash-primary);
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.15);
+}
+.pf-form-group input::placeholder {
+    color: #bbb;
+}
+.pf-form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+}
+
+/* Section divider */
+.pf-section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0 20px;
+}
+.pf-section-divider span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+.pf-section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+/* Buttons */
+.pf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.pf-btn-primary {
+    background: var(--dash-primary);
+    color: var(--dash-primary-text);
+    box-shadow: 0 4px 15px rgba(255, 211, 51, 0.3);
+}
+.pf-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 211, 51, 0.4);
+}
+.pf-btn-primary:active { transform: translateY(0); }
+.pf-btn-outline {
+    background: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+.pf-btn-outline:hover {
+    background: #007bff;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+.pf-btn-outline:active { transform: translateY(0); }
+.pf-btn-danger-outline {
+    background: transparent;
+    color: #dc3545;
+    border: 2px solid rgba(220, 53, 69, 0.3);
+}
+.pf-btn-danger-outline:hover {
+    background: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+    transform: translateY(-2px);
+}
+.pf-btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Password strength bar */
+.pf-strength {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+.pf-strength-bar {
+    height: 4px;
+    flex: 1;
+    border-radius: 2px;
+    background: #e0e0e0;
+    transition: background 0.3s;
+}
+.pf-strength-bar.active-weak { background: #dc3545; }
+.pf-strength-bar.active-medium { background: #ffc107; }
+.pf-strength-bar.active-strong { background: #28a745; }
+
+/* Error box */
+.pf-error {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(220, 53, 69, 0.08);
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    border-radius: 10px;
+    color: #dc3545;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 16px;
+}
+
+/* Success state */
+.pf-success-flash {
+    animation: pfSuccessPulse 0.4s ease;
+}
+@keyframes pfSuccessPulse {
+    0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+/* Dark mode */
+[data-theme="dark"] .pf-header h4 { color: #e0e0e0; }
+[data-theme="dark"] .pf-header-badge {
+    background: rgba(255, 211, 51, 0.08);
+    border-color: rgba(255, 211, 51, 0.2);
+    color: #FFD333;
+}
+[data-theme="dark"] .pf-card-header-text h5 { color: #e0e0e0; }
+[data-theme="dark"] .pf-form-group label { color: #aaa; }
+[data-theme="dark"] .pf-form-group input,
+[data-theme="dark"] .pf-form-group select {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+}
+[data-theme="dark"] .pf-form-group input:focus,
+[data-theme="dark"] .pf-form-group select:focus {
+    border-color: #FFD333;
+    box-shadow: 0 0 0 3px rgba(255, 211, 51, 0.12);
+}
+[data-theme="dark"] .pf-form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-color: #2a2a2a;
+}
+[data-theme="dark"] .pf-section-divider span { color: #666; }
+[data-theme="dark"] .pf-strength-bar { background: #444; }
+[data-theme="dark"] .pf-card {
+    border-color: #333;
+}
+[data-theme="dark"] .pf-card-header {
+    border-color: #333;
+}
+[data-theme="dark"] .pf-error {
+    background: rgba(220, 53, 69, 0.12);
+    border-color: rgba(220, 53, 69, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .pf-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 575px) {
+    .pf-form-row {
+        grid-template-columns: 1fr;
+    }
+    .pf-card-body { padding: 20px; }
+    .pf-card-header { padding: 20px; }
+    .pf-header { flex-direction: column; align-items: flex-start; }
+}
+</style>
+{% endblock %}
+
+{% block dashboard_content %}
+<div class="pf-wrapper">
+    <!-- Header -->
+    <div class="pf-header">
+        <div>
+            <h4>{% trans "My Profile" %}</h4>
+            <div class="pf-subtitle">{% trans "Manage your personal information and password" %}</div>
+        </div>
+        <div class="pf-header-badge">
+            <i class="fas fa-shield-alt"></i>
+            {% trans "Account Verified" %}
+        </div>
+    </div>
+
+    <div class="pf-grid">
+        <!-- Personal Info Card -->
+        <div class="pf-card">
+            <div class="pf-card-header">
+                <div class="pf-card-icon primary"><i class="fas fa-user"></i></div>
+                <div class="pf-card-header-text">
+                    <h5>{% trans "Personal Information" %}</h5>
+                    <small>{% trans "Update your name, email, and address" %}</small>
+                </div>
             </div>
-            <div class="card-body">
+            <div class="pf-card-body">
                 <form id="profileForm">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-6 form-group">
+                    <div class="pf-form-row">
+                        <div class="pf-form-group">
                             <label>{% trans "First Name" %}</label>
-                            <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}"
-                                required>
+                            <input type="text" name="first_name" value="{{ user.first_name }}" required
+                                placeholder="{% trans 'John' %}">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="pf-form-group">
                             <label>{% trans "Last Name" %}</label>
-                            <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}"
-                                required>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>{% trans "Email" %}</label>
-                            <input type="email" class="form-control" name="email" value="{{ user.email }}" required>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>{% trans "Phone" %}</label>
-                            <input type="tel" class="form-control" name="phone" value="{{ profile.phone }}"
-                                pattern="^\+?[0-9]{7,15}$" title="Enter a valid phone number (e.g., +1234567890)"
-                                id="phoneInput">
+                            <input type="text" name="last_name" value="{{ user.last_name }}" required
+                                placeholder="{% trans 'Doe' %}">
                         </div>
                     </div>
-                    <hr>
-                    <h6 class="font-weight-semi-bold mb-3">{% trans "Address" %}</h6>
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label>{% trans "Address Line 1" %}</label>
-                            <input type="text" class="form-control" name="address_line1"
-                                value="{{ profile.address_line1 }}">
+                    <div class="pf-form-row">
+                        <div class="pf-form-group">
+                            <label>{% trans "Email" %}</label>
+                            <input type="email" name="email" value="{{ user.email }}" required
+                                placeholder="{% trans 'you@example.com' %}">
                         </div>
-                        <div class="col-md-6 form-group">
-                            <label>{% trans "Address Line 2" %}</label>
-                            <input type="text" class="form-control" name="address_line2"
-                                value="{{ profile.address_line2 }}">
+                        <div class="pf-form-group">
+                            <label>{% trans "Phone" %}</label>
+                            <input type="tel" name="phone" value="{{ profile.phone }}"
+                                pattern="^\+?[0-9]{7,15}$"
+                                title="{% trans 'Enter a valid phone number (e.g., +1234567890)' %}"
+                                id="phoneInput"
+                                placeholder="{% trans '+1234567890' %}">
                         </div>
-                        <div class="col-md-4 form-group">
+                    </div>
+
+                    <div class="pf-section-divider">
+                        <span><i class="fas fa-map-marker-alt mr-1"></i> {% trans "Address" %}</span>
+                    </div>
+
+                    <div class="pf-form-group">
+                        <label>{% trans "Address Line 1" %}</label>
+                        <input type="text" name="address_line1" value="{{ profile.address_line1 }}"
+                            placeholder="{% trans '123 Main Street' %}">
+                    </div>
+                    <div class="pf-form-group">
+                        <label>{% trans "Address Line 2" %}</label>
+                        <input type="text" name="address_line2" value="{{ profile.address_line2 }}"
+                            placeholder="{% trans 'Apartment, suite, etc. (optional)' %}">
+                    </div>
+                    <div class="pf-form-row">
+                        <div class="pf-form-group">
                             <label>{% trans "City" %}</label>
-                            <input type="text" class="form-control" name="city" value="{{ profile.city }}">
+                            <input type="text" name="city" value="{{ profile.city }}"
+                                placeholder="{% trans 'New York' %}">
                         </div>
-                        <div class="col-md-4 form-group">
+                        <div class="pf-form-group">
                             <label>{% trans "State" %}</label>
-                            <select class="form-control" name="state" id="stateSelect">
+                            <select name="state" id="stateSelect">
                                 <option value="">{% trans "Select State" %}</option>
                                 <option value="AZ" {% if profile.state == 'AZ' %}selected{% endif %}>Arizona</option>
                                 <option value="CA" {% if profile.state == 'CA' %}selected{% endif %}>California</option>
@@ -68,49 +416,91 @@
                                 <option value="FL" {% if profile.state == 'FL' %}selected{% endif %}>Florida</option>
                                 <option value="IL" {% if profile.state == 'IL' %}selected{% endif %}>Illinois</option>
                                 <option value="WA" {% if profile.state == 'WA' %}selected{% endif %}>Washington</option>
-                                <option value="MA" {% if profile.state == 'MA' %}selected{% endif %}>Massachusetts
-                                </option>
+                                <option value="MA" {% if profile.state == 'MA' %}selected{% endif %}>Massachusetts</option>
                                 <option value="PA" {% if profile.state == 'PA' %}selected{% endif %}>Pennsylvania</option>
                                 <option value="OH" {% if profile.state == 'OH' %}selected{% endif %}>Ohio</option>
                             </select>
                         </div>
-                        <div class="col-md-4 form-group">
-                            <label>{% trans "ZIP Code" %}</label>
-                            <input type="text" class="form-control" name="zip_code" value="{{ profile.zip_code }}">
-                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary px-4" id="profileSaveBtn">
-                        <i class="fas fa-save mr-1"></i> {% trans "Save Changes" %}
-                    </button>
+                    <div class="pf-form-group">
+                        <label>{% trans "ZIP Code" %}</label>
+                        <input type="text" name="zip_code" value="{{ profile.zip_code }}"
+                            placeholder="{% trans '10001' %}" style="max-width:200px;">
+                    </div>
+
+                    <div style="margin-top:28px;">
+                        <button type="submit" class="pf-btn pf-btn-primary" id="profileSaveBtn">
+                            <i class="fas fa-save"></i> {% trans "Save Changes" %}
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
-    </div>
-    <div class="col-md-5">
-        <div class="card border-0 shadow-sm mb-3">
-            <div class="card-header bg-white py-3">
-                <h5 class="mb-0 font-weight-semi-bold">{% trans "Change Password" %}</h5>
+
+        <!-- Password Card -->
+        <div>
+            <div class="pf-card" style="margin-bottom:28px;">
+                <div class="pf-card-header">
+                    <div class="pf-card-icon info"><i class="fas fa-lock"></i></div>
+                    <div class="pf-card-header-text">
+                        <h5>{% trans "Change Password" %}</h5>
+                        <small>{% trans "Keep your account secure" %}</small>
+                    </div>
+                </div>
+                <div class="pf-card-body">
+                    <form id="passwordForm">
+                        {% csrf_token %}
+                        <div class="pf-form-group">
+                            <label>{% trans "Current Password" %}</label>
+                            <input type="password" name="old_password" required
+                                placeholder="{% trans 'Enter current password' %}">
+                        </div>
+                        <div class="pf-form-group">
+                            <label>{% trans "New Password" %}</label>
+                            <input type="password" name="new_password1" required id="newPasswordInput"
+                                placeholder="{% trans 'Enter new password' %}">
+                            <div class="pf-strength" id="strengthBars">
+                                <div class="pf-strength-bar" id="str1"></div>
+                                <div class="pf-strength-bar" id="str2"></div>
+                                <div class="pf-strength-bar" id="str3"></div>
+                                <div class="pf-strength-bar" id="str4"></div>
+                            </div>
+                        </div>
+                        <div class="pf-form-group">
+                            <label>{% trans "Confirm New Password" %}</label>
+                            <input type="password" name="new_password2" required
+                                placeholder="{% trans 'Re-enter new password' %}">
+                        </div>
+                        <div style="margin-top:24px;">
+                            <button type="submit" class="pf-btn pf-btn-outline" id="passwordSaveBtn">
+                                <i class="fas fa-key"></i> {% trans "Update Password" %}
+                            </button>
+                        </div>
+                        <div class="pf-error" id="passwordError">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span id="passwordErrorMsg"></span>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="card-body">
-                <form id="passwordForm">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label>{% trans "Current Password" %}</label>
-                        <input type="password" class="form-control" name="old_password" required>
+
+            <!-- Danger Zone -->
+            <div class="pf-card">
+                <div class="pf-card-header">
+                    <div class="pf-card-icon danger"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="pf-card-header-text">
+                        <h5>{% trans "Danger Zone" %}</h5>
+                        <small>{% trans "Irreversible account actions" %}</small>
                     </div>
-                    <div class="form-group">
-                        <label>{% trans "New Password" %}</label>
-                        <input type="password" class="form-control" name="new_password1" required>
-                    </div>
-                    <div class="form-group">
-                        <label>{% trans "Confirm New Password" %}</label>
-                        <input type="password" class="form-control" name="new_password2" required>
-                    </div>
-                    <button type="submit" class="btn btn-outline-primary px-4" id="passwordSaveBtn">
-                        <i class="fas fa-key mr-1"></i> {% trans "Update Password" %}
+                </div>
+                <div class="pf-card-body">
+                    <p style="font-size:13px;color:#888;margin-bottom:20px;">
+                        {% trans "Once you delete your account, there is no going back. Please be certain." %}
+                    </p>
+                    <button class="pf-btn pf-btn-danger-outline" disabled title="{% trans 'Contact support to delete' %}">
+                        <i class="fas fa-trash-alt"></i> {% trans "Delete Account" %}
                     </button>
-                </form>
-                <div id="passwordError" class="text-danger mt-2" style="display:none;font-size:13px;"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -128,39 +518,68 @@
             }
         });
 
+        // Password strength indicator
+        $('#newPasswordInput').on('input', function () {
+            var val = $(this).val();
+            var score = 0;
+            if (val.length >= 6) score++;
+            if (val.length >= 10) score++;
+            if (/[A-Z]/.test(val) && /[a-z]/.test(val)) score++;
+            if (/[0-9]/.test(val) || /[^A-Za-z0-9]/.test(val)) score++;
+
+            var cls = score <= 1 ? 'active-weak' : score <= 2 ? 'active-medium' : 'active-strong';
+            for (var i = 1; i <= 4; i++) {
+                var bar = $('#str' + i);
+                bar.removeClass('active-weak active-medium active-strong');
+                if (i <= score) bar.addClass(cls);
+            }
+        });
+
+        // Profile form AJAX
         $('#profileForm').on('submit', function (e) {
             e.preventDefault();
             var btn = $('#profileSaveBtn');
-            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Saving...');
+            var origHTML = btn.html();
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> {% trans "Saving..." %}');
+
             var data = {};
             $(this).serializeArray().forEach(function (field) {
                 if (field.name !== 'csrfmiddlewaretoken') data[field.name] = field.value;
             });
+
             $.ajax({
                 url: '{% url "dashboard:profile_update" %}',
                 method: 'POST',
                 headers: { 'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json' },
                 data: JSON.stringify(data),
                 success: function (resp) {
-                    if (resp.ok) showToast(resp.message);
+                    if (resp.ok) {
+                        showToast(resp.message);
+                        btn.closest('.pf-card').addClass('pf-success-flash');
+                        setTimeout(function() { btn.closest('.pf-card').removeClass('pf-success-flash'); }, 600);
+                    }
                 },
-                error: function () { showToast('Error saving profile.'); },
+                error: function () { showToast('{% trans "Error saving profile." %}'); },
                 complete: function () {
-                    btn.prop('disabled', false).html('<i class="fas fa-save mr-1"></i> Save Changes');
+                    btn.prop('disabled', false).html(origHTML);
                 }
             });
         });
 
+        // Password form AJAX
         $('#passwordForm').on('submit', function (e) {
             e.preventDefault();
             var btn = $('#passwordSaveBtn');
-            var errDiv = $('#passwordError');
-            errDiv.hide();
-            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Updating...');
+            var origHTML = btn.html();
+            var errBox = $('#passwordError');
+            errBox.hide();
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> {% trans "Updating..." %}');
+
             var data = {};
             $(this).serializeArray().forEach(function (field) {
                 if (field.name !== 'csrfmiddlewaretoken') data[field.name] = field.value;
             });
+
             $.ajax({
                 url: '{% url "dashboard:change_password" %}',
                 method: 'POST',
@@ -170,13 +589,18 @@
                     if (resp.ok) {
                         showToast(resp.message);
                         $('#passwordForm')[0].reset();
+                        $('.pf-strength-bar').removeClass('active-weak active-medium active-strong');
                     } else {
-                        errDiv.text(resp.error).show();
+                        $('#passwordErrorMsg').text(resp.error);
+                        errBox.show();
                     }
                 },
-                error: function () { errDiv.text('Error changing password.').show(); },
+                error: function () {
+                    $('#passwordErrorMsg').text('{% trans "Error changing password." %}');
+                    errBox.show();
+                },
                 complete: function () {
-                    btn.prop('disabled', false).html('<i class="fas fa-key mr-1"></i> Update Password');
+                    btn.prop('disabled', false).html(origHTML);
                 }
             });
         });
