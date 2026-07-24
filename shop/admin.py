@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, ProductImage, Newsletter
+from .models import Product, Category, ProductImage, Newsletter, ProductVariant
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -33,3 +33,13 @@ class ProductAdmin(admin.ModelAdmin):
         ("SEO", {"fields": ("slug", "meta_title", "meta_description")}),
         ("System", {"fields": ("favorited_by", "favorites_count")}),
     )
+
+
+
+
+@admin.register(ProductVariant)
+class ProductVariantAdmin(admin.ModelAdmin):
+    list_display = ('product', 'size', 'color', 'stock', 'final_price', 'is_active')
+    list_filter = ('is_active', 'product__category')
+    search_fields = ('product__name', 'sku', 'size', 'color')
+    list_editable = ('stock', 'is_active')

@@ -33,17 +33,26 @@ def product_list(request):
     if price and "-" in price:
         try:
             min_p, max_p = price.split("-")
-            products = products.filter(price__gte=min_p, price__lte=max_p)
+            # Check if ANY variant's price OR the base product price falls in the range
+            products = products.filter(
+                Q(variants__price_override__gte=min_p, variants__price_override__lte=max_p) |
+                Q(price__gte=min_p, price__lte=max_p)
+            ).distinct()
         except (ValueError, TypeError):
             pass
 
     color_list = request.GET.getlist("color")
     if color_list:
-        products = products.filter(color__in=color_list)
+        products = products.filter(variants__color__in=color_list, 
+        variants__is_active=True
+        ).distinct()
 
     size_list = request.GET.getlist("size")
     if size_list:
-        products = products.filter(size__in=size_list)
+        products = products.filter(
+        variants__size__in=size_list, 
+        variants__is_active=True
+        ).distinct()
 
     sort = request.GET.get("sort", "latest")
     if sort == "popular":

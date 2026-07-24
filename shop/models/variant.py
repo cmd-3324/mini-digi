@@ -34,3 +34,7 @@ class ProductVariant(models.Model):
     def final_price(self):
         # If a specific price is set for this variant, use it. Otherwise, use the main product price.
         return self.price_override if self.price_override is not None else self.product.price
+
+    @property
+    def is_in_stock(self):
+        return self.stock > 0
