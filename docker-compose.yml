@@ -1,19 +1,19 @@
-version: '3.8'
+
 
 services:
   db:
-    image: postgres:16
+    image: mysql:8.0
     container_name: minidigi_db
     environment:
-      POSTGRES_USER: minidigi_user
-      POSTGRES_PASSWORD: secure_password
-      POSTGRES_DB: minidigi
+      MYSQL_DATABASE: minidigi
+      MYSQL_USER: minidigi_user
+      MYSQL_PASSWORD: secure_password
+      MYSQL_ROOT_PASSWORD: root_secure_password
     ports:
-      - "5432:5432"
+      - "3306:3306"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - mysql_data:/var/lib/mysql
 
-  
   app:
     build: .
     container_name: minidigi_app
@@ -27,9 +27,9 @@ services:
       DB_USER: minidigi_user
       DB_PASSWORD: secure_password
       DB_HOST: db
-      DB_PORT: 5432
+      DB_PORT: 3306
     volumes:
-      - .:/app # Mount your code for live updates
+      - .:/app
 
 volumes:
-  postgres_data:
+  mysql_data:
