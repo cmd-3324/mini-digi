@@ -280,7 +280,7 @@
     color: #333;
     background: transparent;
     outline: none;
-    -moz-appearance: textfield;
+    /* -moz-appearance: textfield; */
 }
 .pd-qty-input::-webkit-outer-spin-button,
 .pd-qty-input::-webkit-inner-spin-button {
@@ -543,15 +543,188 @@
         flex-wrap: wrap;
     }
 }
+/* ── Tab Divider ── */
+.pd-tabs-divider {
+    margin: 48px 0 32px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    opacity: 0.8;
+}
+
+/* ── Tab Navigation ── */
+.pd-tabs .nav-tabs {
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0;
+    gap: 0;
+    flex-wrap: wrap;
+}
+.pd-tabs .nav-item {
+    margin-bottom: -2px; /* Overlap the border */
+}
+.pd-tabs .nav-link {
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #888;
+    background: transparent;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.pd-tabs .nav-link:hover {
+    color: #1a1a2e;
+    border-bottom-color: #ccc;
+}
+/* Red underline for ACTIVE tab (matching screenshots) */
+.pd-tabs .nav-link.active {
+    color: #1a1a2e;
+    border-bottom-color: #e8340e; /* Red accent */
+    background: transparent;
+    font-weight: 700;
+}
+.pd-tabs .nav-link:focus {
+    outline: none;
+}
+
+/* ── Tab Content ── */
+.pd-tabs .tab-content {
+    padding: 30px 4px 10px 4px;
+    background: transparent;
+    border: none;
+}
+.pd-tabs .tab-pane {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+}
+.pd-tabs .tab-pane h5,
+.pd-tabs .tab-pane h6 {
+    font-weight: 700;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    color: #1a1a2e;
+}
+.pd-tabs .tab-pane ul {
+    padding-left: 20px;
+}
+.pd-tabs .tab-pane ul li {
+    margin-bottom: 8px;
+}
+
+/* ── Dark Mode ── */
+[data-theme="dark"] .pd-tabs-divider {
+    border-top-color: #444;
+}
+[data-theme="dark"] .pd-tabs .nav-tabs {
+    border-bottom-color: #444;
+}
+[data-theme="dark"] .pd-tabs .nav-link {
+    color: #999;
+}
+[data-theme="dark"] .pd-tabs .nav-link:hover {
+    color: #f0f0f0;
+}
+[data-theme="dark"] .pd-tabs .nav-link.active {
+    color: #f0f0f0;
+    border-bottom-color: #e8340e;
+}
+[data-theme="dark"] .pd-tabs .tab-pane {
+    color: #aaa;
+}
+[data-theme="dark"] .pd-tabs .tab-pane h5,
+[data-theme="dark"] .pd-tabs .tab-pane h6 {
+    color: #f0f0f0;
+}
+/* ── Read More / Less ── */
+.pd-tab-pane-wrapper {
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    max-height: 300px; /* collapsed height */
+}
+.pd-tab-pane-wrapper.expanded {
+    max-height: none;
+}
+.pd-tab-pane-wrapper .pd-fade-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, #fff);
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+[data-theme="dark"] .pd-tab-pane-wrapper .pd-fade-overlay {
+    background: linear-gradient(to bottom, transparent, #1a1a2e);
+}
+.pd-tab-pane-wrapper.expanded .pd-fade-overlay {
+    opacity: 0;
+}
+.pd-read-more-btn {
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #e8340e;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color 0.2s;
+}
+.pd-read-more-btn:hover {
+    color: #c02c0a;
+    text-decoration: underline;
+}
+
+.zoom-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+.zoom-btn {
+    width: 45px;
+    height: 47px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    font-size: 22px;
+    font-weight: bold;
+    color: #050505;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+.zoom-btn:hover {
+    background: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.product-image-wrapper {
+    position: relative; /* Required for absolute positioning */
+    overflow: hidden;   /* Prevents zoomed image from spilling out */
+}
+
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid pd-wrapper">
     <div class="container">
-        <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30 p-0">
+        <div class="row px-xl-5" >
+            <div class="col-12" >
+                <nav class="breadcrumb bg-light mb-30 p-0" style="margin-right: 20px;">
                     <a class="breadcrumb-item text-dark" href="{% url 'shop:index' %}">{% trans "Home" %}</a>
                     <a class="breadcrumb-item text-dark" href="{% url 'shop:product_list' %}">{% trans "Shop" %}</a>
                     <span class="breadcrumb-item active">{{ product.translated_name }}</span>
@@ -564,6 +737,10 @@
             <!-- Image -->
             <div class="pd-image-section">
                 <div class="pd-main-image" id="pdImageWrap">
+                    <div class="zoom-controls">
+                        <button type="button" class="zoom-btn" id="zoom-in" aria-label="Zoom In">+</button>
+                        <button type="button" class="zoom-btn" id="zoom-out" aria-label="Zoom Out">−</button>
+                    </div>
                     {% if product.image %}
                         <img src="{{ product.image.url }}" alt="{{ product.translated_name }}" id="pdMainImg">
                     {% else %}
@@ -686,10 +863,10 @@
                 <!-- Share -->
                 <div class="pd-share">
                     <span class="pd-share-label">{% trans "Share" %}:</span>
-                    <a href="#" class="pd-share-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="pd-share-btn" title="X"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" class="pd-share-btn" title="Pinterest"><i class="fab fa-pinterest"></i></a>
-                    <a href="#" class="pd-share-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=URL_ENCODED_PAGE_URL" target="_blank" class="pd-share-btn" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/intent/tweet?text=URL_ENCODED_PRODUCT_TITLE&url=URL_ENCODED_PAGE_URL" rel="noopener noreferrer"  target="_blank" class="pd-share-btn" title="X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://pinterest.com/pin/create/button/?url=URL_ENCODED_PAGE_URL&description=URL_ENCODED_PRODUCT_TITLE" rel="noopener noreferrer"  target="_blank" class="pd-share-btn" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="https://api.whatsapp.com/send?text=URL_ENCODED_PRODUCT_TITLE%20-%20URL_ENCODED_PAGE_URL"  target="_blank" rel="noopener noreferrer" class="pd-share-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
 
                 <!-- Info cards -->
@@ -718,6 +895,70 @@
                 </div>
             </div>
         </div>
+        <!-- ═══ TAB DIVIDER (HR LINE) ═══ -->
+        <hr class="pd-tabs-divider">
+
+        
+        <!-- ═══ TABS SECTION ═══ -->
+        <div class="pd-tabs">
+            <ul class="nav nav-tabs" id="pdTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button"
+                        role="tab">
+                        {% trans "Description" %}
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tasting-tab" data-bs-toggle="tab" data-bs-target="#tasting" type="button"
+                        role="tab">
+                        {% trans "Tasting Notes" %}
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pairing-tab" data-bs-toggle="tab" data-bs-target="#pairing" type="button"
+                        role="tab">
+                        {% trans "Food Pairing" %}
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
+                        role="tab">
+                        {% trans "Reviews" %}
+                    </button>
+                </li>
+            </ul>
+        
+            <div class="tab-content" id="pdTabContent">
+                <!-- Description Pane -->
+                <div class="tab-pane fade show active" id="desc" role="tabpanel">
+                    {{ product.translated_description|linebreaks }}
+                </div>
+        
+                <!-- Tasting Notes Pane -->
+                <div class="tab-pane fade" id="tasting" role="tabpanel">
+                    {% if product.translated_tasting_notes %}
+                    {{ product.translated_tasting_notes|linebreaks }}
+                    {% else %}
+                    <p>{% trans "No tasting notes yet." %}</p>
+                    {% endif %}
+                </div>
+        
+                <!-- Food Pairing Pane -->
+                <div class="tab-pane fade" id="pairing" role="tabpanel">
+                    {% if product.translated_food_pairing %}
+                    {{ product.translated_food_pairing|linebreaks }}
+                    {% else %}
+                    <p>{% trans "No food pairing suggestions yet." %}</p>
+                    {% endif %}
+                </div>
+        
+                <!-- Reviews Pane -->
+                <div class="tab-pane fade" id="reviews" role="tabpanel">
+                    <p>{% trans "Reviews feature coming soon..." %}</p>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
 {% endblock %}
@@ -855,5 +1096,95 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(function() { heart.dataset.loading = '0'; });
     }, true);
 });
+    // ── Tab switching fallback (if Bootstrap JS not loaded) ──
+    document.querySelectorAll('.pd-tabs .nav-link[data-bs-toggle="tab"]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-bs-target');
+            // Remove active from all
+            document.querySelectorAll('.pd-tabs .nav-link').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.pd-tabs .tab-pane').forEach(p => p.classList.remove('show', 'active'));
+            // Add active to current
+            this.classList.add('active');
+            document.querySelector(targetId).classList.add('show', 'active');
+        });
+    });
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // ✅ FIXED: Using the CORRECT ID from your HTML
+        const img = document.getElementById('pdMainImg');
+        const btnIn = document.getElementById('zoom-in');
+        const btnOut = document.getElementById('zoom-out');
+
+        if (!img || !btnIn || !btnOut) return;
+
+        let currentScale = 1;
+        const STEP = 0.25;
+        const MAX = 3;
+        const MIN = 1;
+
+        // Apply essential styles directly since extra_css is empty
+        Object.assign(img.style, {
+            transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            transformOrigin: 'center center',
+            width: '100%',
+            height: 'auto',
+            display: 'block'
+        });
+
+        // Ensure parent has relative positioning for absolute buttons
+        const wrap = document.getElementById('pdImageWrap');
+        if (wrap && getComputedStyle(wrap).position === 'static') {
+            wrap.style.position = 'relative';
+            wrap.style.overflow = 'hidden';
+        }
+
+        // Style buttons inline
+        [btnIn, btnOut].forEach(btn => {
+            Object.assign(btn.style, {
+                width: '36px', height: '36px', border: 'none',
+                borderRadius: '50%', background: 'rgba(255,255,255,0.9)',
+                color: '#333', fontSize: '18px', fontWeight: '600',
+                cursor: 'pointer', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+                transition: 'all 0.2s ease'
+            });
+            btn.onmouseenter = () => { if (!btn.disabled) btn.style.transform = 'scale(1.1)'; };
+            btn.onmouseleave = () => { btn.style.transform = 'scale(1)'; };
+        });
+
+        // Style controls container
+        const controls = document.querySelector('.zoom-controls');
+        if (controls) {
+            Object.assign(controls.style, {
+                position: 'absolute', top: '10px', right: '10px',
+                display: 'flex', gap: '8px', zIndex: '10'
+            });
+        }
+
+        function updateZoom() {
+            img.style.transform = `scale(${currentScale})`;
+            btnOut.disabled = currentScale <= MIN;
+            btnIn.disabled = currentScale >= MAX;
+            btnOut.style.opacity = btnOut.disabled ? '0.3' : '1';
+            btnIn.style.opacity = btnIn.disabled ? '0.3' : '1';
+        }
+
+        updateZoom();
+
+        btnIn.onclick = () => {
+            if (currentScale < MAX) { currentScale += STEP; updateZoom(); }
+        };
+
+        btnOut.onclick = () => {
+            if (currentScale > MIN) { currentScale -= STEP; updateZoom(); }
+        };
+
+        img.ondblclick = () => { currentScale = 1; updateZoom(); };
+    });
+
 </script>
 {% endblock %}

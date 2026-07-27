@@ -869,7 +869,7 @@
                             </span>
                             <div>
                                 <strong>{{ user.first_name }}</strong>
-                                <small>{{ user.email }}</small>
+                                <small>{{ user.last_name|first|upper }}</small>
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>

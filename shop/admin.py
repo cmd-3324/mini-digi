@@ -29,6 +29,7 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = (
         ("English", {"fields": ("name", "description")}),
         ("Details", {"fields": ("category", "price", "stock", "available", "image")}),
+        ("Tasting & Pairing", {"fields": ("tasting_notes", "food_pairing")}),
         ("Attributes", {"fields": ("color", "size")}),
         ("SEO", {"fields": ("slug", "meta_title", "meta_description")}),
         ("System", {"fields": ("favorited_by", "favorites_count")}),

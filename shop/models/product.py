@@ -26,7 +26,8 @@ class Product(models.Model):
         settings.AUTH_USER_MODEL, blank=True, related_name="favorite_products"
     )
     favorites_count = models.PositiveIntegerField(default=0)
-
+    tasting_notes = models.TextField(blank=True, default="")
+    food_pairing = models.TextField(blank=True, default="")
     @property
     def translated_name(self):
         # Since you use .po files, we just return the name.
@@ -38,7 +39,15 @@ class Product(models.Model):
     def translated_description(self):
         from django.utils.translation import gettext as _
         return _(self.description)
-    
+    @property
+    def translated_tasting_notes(self):
+        from django.utils.translation import gettext as _
+        return _(self.tasting_notes)
+
+    @property
+    def translated_food_pairing(self):
+        from django.utils.translation import gettext as _
+        return _(self.food_pairing)
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)

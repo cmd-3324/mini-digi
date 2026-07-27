@@ -1,4 +1,4 @@
-# yourapp/management/commands/compile_with_date.py
+
 
 import re
 import os

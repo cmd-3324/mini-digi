@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "support",
     "dashboard",
     'django.contrib.humanize',
+    "management",  
+    "mini_digi",
 ]
 
 MIDDLEWARE = [

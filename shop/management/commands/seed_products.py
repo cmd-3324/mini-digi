@@ -2,11 +2,24 @@ import shutil
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from shop.models import Category, Product
-
+import random
 
 class Command(BaseCommand):
     help = "Seed demo categories and products"
-
+    TASTING_SAMPLES = [
+        "Deep ruby with purple reflections. Silky texture...",
+        "Bright garnet with ripe cherries and plums...",
+        "Pale straw yellow with citrus and white flowers...",
+        "Intense ruby red with blackberry and vanilla...",
+        "Golden amber with dried fruit and honey...",
+    ]
+    FOOD_SAMPLES = [
+        "Grilled ribeye, lamb rack, aged cheeses...",
+        "Roasted duck, mushroom risotto, Parmesan...",
+        "Seafood, grilled fish, fresh goat cheese...",
+        "Hard cheeses, dried meats, dark chocolate...",
+        "Spicy dishes, BBQ ribs, blue cheese...",
+    ]
     def handle(self, *args, **kwargs):
         # Copy static/img files → media/
         static_img = settings.BASE_DIR / "static" / "img"
@@ -178,6 +191,9 @@ class Command(BaseCommand):
                 color=color,
                 size=size,
             )
-
+        for product in Product.objects.all():
+            product.tasting_notes = random.choice(self.TASTING_SAMPLES)
+            product.food_pairing = random.choice(self.FOOD_SAMPLES)
+            product.save()
         self.stdout.write(self.style.SUCCESS("✅ 4 categories + 12 products seeded!"))
  

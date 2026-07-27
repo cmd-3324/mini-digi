@@ -13,7 +13,11 @@
 ├── 📁 dashboard
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
+│   │   ├── 🐍 0002_profile_delete_userprofile.py
 │   │   └── 🐍 __init__.py
+│   ├── 📁 models
+│   │   ├── 🐍 __init__.py
+│   │   └── 🐍 profile.py
 │   ├── 🐍 __init__.py
 │   ├── 🐍 admin.py
 │   ├── 🐍 apps.py
@@ -42,8 +46,10 @@
 ├── 📁 management
 │   ├── 📁 commands
 │   │   ├── 🐍 __init__.py
+│   │   ├── 🐍 cache_cleanup.py
 │   │   └── 🐍 compile_with_date.py
-│   └── 🐍 __init__.py
+│   ├── 🐍 __init__.py
+│   └── 🐍 apps.py
 ├── 📁 media
 │   ├── 📁 categories
 │   │   ├── 🖼️ cat-1.jpg
@@ -90,6 +96,22 @@
 │   ├── 🐍 models.py
 │   ├── 🐍 urls.py
 │   └── 🐍 views.py
+├── 📁 reviews
+│   ├── 📁 management
+│   │   ├── 📁 commands
+│   │   └── 🐍 __init__.py
+│   ├── 📁 migrations
+│   │   └── 🐍 __init__.py
+│   ├── 📁 models
+│   ├── 📁 templatetags
+│   ├── 📁 views
+│   ├── 🐍 __init__.py
+│   ├── 🐍 admin.py
+│   ├── 🐍 apps.py
+│   ├── 🐍 context_processors.py
+│   ├── 🐍 models.py
+│   ├── 🐍 tests.py
+│   └── 🐍 views.py
 ├── 📁 shop
 │   ├── 📁 management
 │   │   └── 📁 commands
@@ -108,6 +130,8 @@
 │   │   ├── 🐍 0009_product_color_size_favorites.py
 │   │   ├── 🐍 0011_product_meta_description_product_meta_title_and_more.py
 │   │   ├── 🐍 0012_remove_category_name_de_remove_category_name_es_and_more.py
+│   │   ├── 🐍 0013_productvariant.py
+│   │   ├── 🐍 0014_product_food_pairing_product_tasting_notes.py
 │   │   └── 🐍 __init__.py
 │   ├── 📁 models
 │   │   ├── 🐍 __init__.py
@@ -115,7 +139,8 @@
 │   │   ├── 🐍 category.py
 │   │   ├── 🐍 newsletter.py
 │   │   ├── 🐍 product.py
-│   │   └── 🐍 product_image.py
+│   │   ├── 🐍 product_image.py
+│   │   └── 🐍 variant.py
 │   ├── 📁 templatetags
 │   │   ├── 🐍 __init__.py
 │   │   ├── 🐍 emoji_tags.py
@@ -332,7 +357,6 @@
 │   │   ├── 🌐 product_detail.html
 │   │   └── 🌐 product_list.html
 │   └── 🌐 base.html
-├── 🎬 92739112-3620-4650-a2f2-26669c7a0c1c.mp4
 ├── 📄 docker-compose.yml
 ├── 📄 Dockerfile
 ├── 📘 HOW_TO_INTEGRATE.md
