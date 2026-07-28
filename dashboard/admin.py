@@ -1,28 +1,35 @@
 from django.contrib import admin
-from .models import Profile
+from .models import Profile, Notification
+
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    
     list_display = (
-        "user", 
-        "phone_number", 
-        "address", 
-        "created_at", 
-        "updated_at", 
-        "has_avatar"
+        "user",
+        "phone_number",
+        "address",
+        "created_at",
+        "updated_at",
+        "has_avatar",
     )
-    
-    
     search_fields = ("user__username", "user__email", "phone_number")
-    
-    
     readonly_fields = ("user", "created_at", "updated_at")
-    
-    
     list_filter = ("created_at",)
 
-    # Custom column to show if they have an avatar
     @admin.display(description="Avatar")
     def has_avatar(self, obj):
         return "✅" if obj.avatar else "❌"
+
+
+@admin.register(Notification)
+class NotificationAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "user",
+        "notification_type",
+        "is_read",
+        "created_at",
+    )
+    search_fields = ("title", "message", "user__username")
+    list_filter = ("notification_type", "is_read", "created_at")
+    readonly_fields = ("created_at",)

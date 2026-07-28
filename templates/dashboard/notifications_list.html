@@ -1,0 +1,302 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Notifications" %} - {{ block.super }}{% endblock %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="font-weight-semi-bold mb-0">
+        {% trans "Notifications" %}
+        {% if unread_count %}
+        <span class="badge badge-pill badge-primary ml-2 notif-unread-badge">{{ unread_count }}</span>
+        {% endif %}
+    </h4>
+    <div class="d-flex align-items-center gap-2">
+        {% if notifications %}
+        <button class="btn btn-sm btn-outline-primary" id="btnMarkAllRead" title="{% trans 'Mark all as read' %}">
+            <i class="fas fa-check-double mr-1"></i> {% trans "Mark all read" %}
+        </button>
+        <button class="btn btn-sm btn-outline-danger" id="btnDeleteAll" title="{% trans 'Clear all notifications' %}">
+            <i class="fas fa-trash mr-1"></i> {% trans "Clear all" %}
+        </button>
+        {% endif %}
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex gap-2">
+        <select id="notifTypeFilter" class="form-control form-control-sm notif-filter-select">
+            <option value="">{% trans "All Types" %}</option>
+            <option value="order" {% if filter_type == 'order' %}selected{% endif %}>{% trans "Orders" %}</option>
+            <option value="promo" {% if filter_type == 'promo' %}selected{% endif %}>{% trans "Promotions" %}</option>
+            <option value="system" {% if filter_type == 'system' %}selected{% endif %}>{% trans "System" %}</option>
+            <option value="support" {% if filter_type == 'support' %}selected{% endif %}>{% trans "Support" %}</option>
+        </select>
+        <select id="notifReadFilter" class="form-control form-control-sm notif-filter-select">
+            <option value="">{% trans "All Status" %}</option>
+            <option value="unread" {% if filter_read == 'unread' %}selected{% endif %}>{% trans "Unread" %}</option>
+            <option value="read" {% if filter_read == 'read' %}selected{% endif %}>{% trans "Read" %}</option>
+        </select>
+    </div>
+    <small class="text-muted">{{ notifications|length }} {% trans "notification(s)" %}</small>
+</div>
+
+<div id="notifListContainer">
+    {% if notifications %}
+    <div class="notif-list">
+        {% for notif in notifications %}
+        <div class="notif-item {% if not notif.is_read %}notif-unread{% endif %}" data-id="{{ notif.pk }}">
+            <div class="notif-icon notif-icon-{{ notif.notification_type }}">
+                {% if notif.notification_type == 'order' %}
+                <i class="fas fa-receipt"></i>
+                {% elif notif.notification_type == 'promo' %}
+                <i class="fas fa-tag"></i>
+                {% elif notif.notification_type == 'support' %}
+                <i class="fas fa-headset"></i>
+                {% else %}
+                <i class="fas fa-info-circle"></i>
+                {% endif %}
+            </div>
+            <div class="notif-body">
+                <div class="notif-header">
+                    <span class="notif-title">{{ notif.title }}</span>
+                    <span class="notif-time">{{ notif.created_at|timesince }} {% trans "ago" %}</span>
+                </div>
+                <p class="notif-message">{{ notif.message|truncatewords:30 }}</p>
+                <div class="notif-actions">
+                    {% if notif.link %}
+                    <a href="{{ notif.link }}" class="btn btn-sm btn-link p-0 notif-link-btn js-notif-read"
+                       data-id="{{ notif.pk }}">{% trans "View" %} <i class="fas fa-arrow-right ml-1"></i></a>
+                    {% endif %}
+                    {% if not notif.is_read %}
+                    <button class="btn btn-sm btn-link p-0 notif-link-btn js-notif-read" data-id="{{ notif.pk }}">
+                        {% trans "Mark read" %}
+                    </button>
+                    {% endif %}
+                    <button class="btn btn-sm btn-link p-0 text-danger js-notif-delete" data-id="{{ notif.pk }}">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            {% if not notif.is_read %}
+            <div class="notif-dot"></div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if page_obj.has_other_pages %}
+    <nav class="mt-3">
+        <ul class="pagination pagination-sm justify-content-center notif-pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link notif-page-link" href="#" data-page="{{ page_obj.previous_page_number }}">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            </li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="page-item active"><span class="page-link notif-page-link">{{ num }}</span></li>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <li class="page-item">
+                <a class="page-link notif-page-link" href="#" data-page="{{ num }}">{{ num }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link notif-page-link" href="#" data-page="{{ page_obj.next_page_number }}">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+    {% else %}
+    <div class="card border-0 shadow-sm notif-empty-card">
+        <div class="text-center py-5">
+            <div class="notif-empty-icon">
+                <i class="fas fa-bell-slash"></i>
+            </div>
+            <p class="mt-3 text-muted mb-0">{% trans "No notifications yet." %}</p>
+            <small class="text-muted">{% trans "You'll see order updates, promotions, and system messages here." %}</small>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+    var container = document.getElementById('notifListContainer');
+    var typeFilter = document.getElementById('notifTypeFilter');
+    var readFilter = document.getElementById('notifReadFilter');
+    var btnMarkAll = document.getElementById('btnMarkAllRead');
+    var btnDeleteAll = document.getElementById('btnDeleteAll');
+    var unreadBadge = document.querySelector('.notif-unread-badge');
+    var baseUrl = '{% url "dashboard:notifications" %}';
+
+    function getParams() {
+        var params = new URLSearchParams();
+        var t = typeFilter.value;
+        var r = readFilter.value;
+        if (t) params.set('type', t);
+        if (r) params.set('read', r);
+        return params;
+    }
+
+    function fetchList() {
+        var params = getParams();
+        var url = baseUrl + (params.toString() ? '?' + params.toString() : '');
+        container.style.opacity = '0.4';
+        fetch(url)
+            .then(function (res) { return res.text(); })
+            .then(function (html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var newList = doc.getElementById('notifListContainer');
+                if (newList) {
+                    container.innerHTML = newList.innerHTML;
+                    window.history.pushState(null, '', url);
+                    rebind();
+                }
+                container.style.opacity = '1';
+            });
+    }
+
+    function updateBadge(count) {
+        if (unreadBadge) {
+            if (count > 0) {
+                unreadBadge.textContent = count;
+                unreadBadge.style.display = '';
+            } else {
+                unreadBadge.style.display = 'none';
+            }
+        } else if (count > 0) {
+            var h4 = document.querySelector('.font-weight-semi-bold');
+            if (h4) {
+                var span = document.createElement('span');
+                span.className = 'badge badge-pill badge-primary ml-2 notif-unread-badge';
+                span.textContent = count;
+                h4.appendChild(span);
+                unreadBadge = span;
+            }
+        }
+    }
+
+    function postAjax(url, callback) {
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': getCSRF()
+            }
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+            if (data.ok) {
+                if (data.unread_count !== undefined) updateBadge(data.unread_count);
+                if (callback) callback(data);
+            }
+        });
+    }
+
+    function rebind() {
+        container.querySelectorAll('.js-notif-read').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                var id = el.getAttribute('data-id');
+                var item = el.closest('.notif-item');
+                postAjax('{% url "dashboard:notification_mark_read" 0 %}'.replace('0', id), function () {
+                    if (item) item.classList.remove('notif-unread');
+                    var dot = item ? item.querySelector('.notif-dot') : null;
+                    if (dot) dot.remove();
+                    var readBtn = item ? item.querySelector('.js-notif-read') : null;
+                    if (readBtn && readBtn.textContent.trim().indexOf('Mark') !== -1) readBtn.remove();
+                });
+            });
+        });
+
+        container.querySelectorAll('.js-notif-delete').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                var id = el.getAttribute('data-id');
+                var item = el.closest('.notif-item');
+                postAjax('{% url "dashboard:notification_delete" 0 %}'.replace('0', id), function () {
+                    if (item) {
+                        item.style.transition = 'opacity .25s ease, transform .25s ease';
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateX(30px)';
+                        setTimeout(function () {
+                            item.remove();
+                            if (!container.querySelector('.notif-item')) fetchList();
+                        }, 260);
+                    }
+                });
+            });
+        });
+
+        container.querySelectorAll('.notif-page-link').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                var page = el.getAttribute('data-page');
+                if (!page) return;
+                var params = getParams();
+                params.set('page', page);
+                var url = baseUrl + '?' + params.toString();
+                container.style.opacity = '0.4';
+                fetch(url)
+                    .then(function (res) { return res.text(); })
+                    .then(function (html) {
+                        var doc = new DOMParser().parseFromString(html, 'text/html');
+                        var newList = doc.getElementById('notifListContainer');
+                        if (newList) {
+                            container.innerHTML = newList.innerHTML;
+                            window.history.pushState(null, '', url);
+                            rebind();
+                        }
+                        container.style.opacity = '1';
+                    });
+            });
+        });
+    }
+
+    typeFilter.addEventListener('change', fetchList);
+    readFilter.addEventListener('change', fetchList);
+
+    if (btnMarkAll) {
+        btnMarkAll.addEventListener('click', function () {
+            postAjax('{% url "dashboard:notification_mark_all_read" %}', function () {
+                container.querySelectorAll('.notif-unread').forEach(function (el) {
+                    el.classList.remove('notif-unread');
+                    var dot = el.querySelector('.notif-dot');
+                    if (dot) dot.remove();
+                });
+            });
+        });
+    }
+
+    if (btnDeleteAll) {
+        btnDeleteAll.addEventListener('click', function () {
+            if (!confirm('{% trans "Clear all notifications?" %}')) return;
+            postAjax('{% url "dashboard:notification_delete_all" %}', function () {
+                fetchList();
+            });
+        });
+    }
+
+    window.addEventListener('popstate', function () {
+        var params = new URLSearchParams(window.location.search);
+        typeFilter.value = params.get('type') || '';
+        readFilter.value = params.get('read') || '';
+        fetchList();
+    });
+
+    rebind();
+})();
+</script>
+{% endblock %}

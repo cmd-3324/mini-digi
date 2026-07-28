@@ -11,6 +11,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.urls import reverse
 from support.models import Ticket
+from .models import Notification
 @login_required
 def home(request):
     orders = request.user.orders.order_by("-created_at")[:5]
@@ -198,3 +199,78 @@ def payment_return(request, pk):
 def dashboard_tickets(request):
     tickets = Ticket.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'dashboard/tickets.html', {'tickets': tickets})
+
+
+@login_required
+def notifications_list(request):
+    notifs = Notification.objects.filter(user=request.user)
+
+    filter_type = request.GET.get("type", "")
+    if filter_type in ("order", "promo", "system", "support"):
+        notifs = notifs.filter(notification_type=filter_type)
+
+    filter_read = request.GET.get("read", "")
+    if filter_read == "unread":
+        notifs = notifs.filter(is_read=False)
+    elif filter_read == "read":
+        notifs = notifs.filter(is_read=True)
+
+    unread_count = Notification.objects.filter(
+        user=request.user, is_read=False
+    ).count()
+
+    page_obj = Paginator(notifs, 15).get_page(request.GET.get("page"))
+    return render(request, "dashboard/notifications_list.html", {
+        "notifications": page_obj,
+        "page_obj": page_obj,
+        "unread_count": unread_count,
+        "filter_type": filter_type,
+        "filter_read": filter_read,
+    })
+
+
+@login_required
+@require_POST
+def notification_mark_read(request, pk):
+    try:
+        notif = Notification.objects.get(pk=pk, user=request.user)
+        notif.is_read = True
+        notif.save(update_fields=["is_read"])
+        unread = Notification.objects.filter(user=request.user, is_read=False).count()
+        return JsonResponse({"ok": True, "unread_count": unread})
+    except Notification.DoesNotExist:
+        return JsonResponse({"ok": False, "error": "Notification not found."}, status=404)
+
+
+@login_required
+@require_POST
+def notification_mark_all_read(request):
+    updated = Notification.objects.filter(
+        user=request.user, is_read=False
+    ).update(is_read=True)
+    return JsonResponse({"ok": True, "message": f"{updated} notification(s) marked as read.", "unread_count": 0})
+
+
+@login_required
+@require_POST
+def notification_delete(request, pk):
+    try:
+        notif = Notification.objects.get(pk=pk, user=request.user)
+        notif.delete()
+        unread = Notification.objects.filter(user=request.user, is_read=False).count()
+        return JsonResponse({"ok": True, "unread_count": unread})
+    except Notification.DoesNotExist:
+        return JsonResponse({"ok": False, "error": "Notification not found."}, status=404)
+
+
+@login_required
+@require_POST
+def notification_delete_all(request):
+    Notification.objects.filter(user=request.user).delete()
+    return JsonResponse({"ok": True, "message": "All notifications cleared."})
+
+
+@login_required
+def notification_unread_count(request):
+    count = Notification.objects.filter(user=request.user, is_read=False).count()
+    return JsonResponse({"unread_count": count})

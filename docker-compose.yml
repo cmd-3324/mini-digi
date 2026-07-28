@@ -5,12 +5,12 @@ services:
     image: mysql:8.0
     container_name: minidigi_db
     environment:
-      MYSQL_DATABASE: minidigi
+      MYSQL_DATABASE: mini_digi
       MYSQL_USER: minidigi_user
       MYSQL_PASSWORD: secure_password
       MYSQL_ROOT_PASSWORD: root_secure_password
     ports:
-      - "3306:3306"
+      - "3327:3327"
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -27,7 +27,7 @@ services:
       DB_USER: minidigi_user
       DB_PASSWORD: secure_password
       DB_HOST: db
-      DB_PORT: 3306
+      DB_PORT: 3327
     volumes:
       - .:/app
 

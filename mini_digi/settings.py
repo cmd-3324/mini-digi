@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     "support",
     "dashboard",
     'django.contrib.humanize',
-    "management",  
+    "commands",
     "mini_digi",
 ]
 
