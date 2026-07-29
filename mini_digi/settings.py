@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     "commands",
     "mini_digi",
+    "reviews",
 ]
 
 MIDDLEWARE = [
@@ -109,6 +110,17 @@ DATABASES = {
         'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
         'PORT': os.environ.get('DB_PORT', '3327'),
         'OPTIONS': {'charset': 'utf8mb4'},
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379', 
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'IGNORE_EXCEPTIONS': True,  # Fallback to MySQL if Redis fails
+        }
     }
 }
 # DATABASES = {

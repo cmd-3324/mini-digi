@@ -9,12 +9,15 @@ class Profile(models.Model):
         on_delete=models.CASCADE, 
         related_name='profile'
     )
-    phone_number = models.CharField(max_length=20, blank=True, default="")
+    phone = models.CharField(max_length=20, blank=True, default="")
     bio = models.TextField(blank=True, default="")
     avatar = models.ImageField(upload_to="avatars/", blank=True, null=True)
-    address = models.CharField(max_length=255, blank=True, default="")
     
-    # Add these for tracking
+    address_line1 = models.CharField(max_length=255, blank=True, default="")
+    address_line2 = models.CharField(max_length=255, blank=True, default="")
+    city = models.CharField(max_length=100, blank=True, default="")
+    state = models.CharField(max_length=50, blank=True, default="")
+    zip_code = models.CharField(max_length=20, blank=True, default="")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

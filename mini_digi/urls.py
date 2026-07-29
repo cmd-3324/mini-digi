@@ -17,5 +17,6 @@ urlpatterns += i18n_patterns(
     path('dashboard/', include('dashboard.urls')),
     path('accounts/', include('allauth.urls')),
     path("support/", include("support.urls")),
+    path("reviews/", include("reviews.urls")),
     prefix_default_language=True,
 )

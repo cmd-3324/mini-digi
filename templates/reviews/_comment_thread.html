@@ -1,0 +1,65 @@
+{% load i18n %}
+{% load review_tags}
+{% for comment in comments %}
+<div class="rv-item" data-id="{{ comment.id }}">
+    <div class="d-flex align-items-start">
+        <div class="flex-shrink-0 me-3">
+            {% if comment.user.profile.avatar %}
+            <img src="{{ comment.user.profile.avatar.url }}" alt="{{ comment.user.username }}" class="rounded-circle"
+                width="40" height="40">
+            {% else %}
+            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                style="width:40px;height:40px;font-weight:bold;">
+                {{ comment.user.username|first|upper }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="flex-grow-1">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <strong>{{ comment.user.get_full_name|default:comment.user.username }}</strong>
+                    <span class="text-muted ms-2 small">{{ comment.created_at|date:"M d, Y" }}</span>
+                    {% if comment.rating %}
+                    <span class="text-warning ms-2">
+                        {% for i in "12345"|make_list %}
+                        {% if forloop.counter <= comment.rating %} <i class="fas fa-star fa-sm"></i>
+                            {% else %}
+                            <i class="far fa-star fa-sm"></i>
+                            {% endif %}
+                            {% endfor %}
+                    </span>
+                    {% endif %}
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-secondary rv-like-btn" data-id="{{ comment.id }}">
+                        <i class="fas fa-thumbs-up"></i> <span class="rv-like-count">{{ comment.like_count }}</span>
+                    </button>
+                    <button class="btn btn-outline-secondary rv-dislike-btn" data-id="{{ comment.id }}">
+                        <i class="fas fa-thumbs-down"></i> <span class="rv-dislike-count">{{ comment.dislike_count
+                            }}</span>
+                    </button>
+                </div>
+            </div>
+            <div class="rv-body">{{ comment.body }}</div>
+            <div class="mt-1">
+                <button class="btn btn-link btn-sm rv-reply-btn" data-id="{{ comment.id }}">{% trans "Reply" %}</button>
+                {% if comment.user == request.user %}
+                <button class="btn btn-link btn-sm rv-edit-btn" data-id="{{ comment.id }}">{% trans "Edit" %}</button>
+                <button class="btn btn-link btn-sm text-danger rv-delete-btn" data-id="{{ comment.id }}">{% trans
+                    "Delete" %}</button>
+                {% endif %}
+            </div>
+            <!-- Reply form slot -->
+            <div id="rv-reply-form-{{ comment.id }}" class="mt-2"></div>
+            <!-- Replies -->
+            <div class="rv-replies ms-4 mt-2">
+                {% for reply in comment.replies.all %}
+                {% include "reviews/_comment_single.html" with comment=reply %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% empty %}
+<p class="text-muted">{% trans "No reviews yet. Be the first!" %}</p>
+{% endfor %}

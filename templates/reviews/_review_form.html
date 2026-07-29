@@ -1,0 +1,19 @@
+{% load i18n %}
+
+<div class="review-form-component mt-4" data-create-url="{{ create_url }}">
+    <h5>{% trans "Write a Review" %}</h5>
+    <form class="rv-new-review-form">
+        {% csrf_token %}
+        <div class="rv-rating-input mb-2">
+            <i class="far fa-star" data-value="1"></i>
+            <i class="far fa-star" data-value="2"></i>
+            <i class="far fa-star" data-value="3"></i>
+            <i class="far fa-star" data-value="4"></i>
+            <i class="far fa-star" data-value="5"></i>
+        </div>
+        <input type="hidden" class="rv-rating-value" value="">
+        <textarea name="body" class="form-control" rows="3" placeholder="{% trans 'Your review...' %}"></textarea>
+        <button type="submit" class="btn btn-primary mt-2">{% trans "Submit Review" %}</button>
+    </form>
+    <div class="rv-form-status mt-2"></div>
+</div>

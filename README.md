@@ -46,8 +46,6 @@ mini-digi/
 │       ├── docker-build.yml
 │       ├── notification-sender.yml
 │       └── test.yml
-├── files/
-│   └── STATIC_SETUP.ps1
 ├── management/             # Project-level management commands
 │   └── commands/
 │       └── compile_with_date.py

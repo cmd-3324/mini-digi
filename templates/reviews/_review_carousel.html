@@ -1,0 +1,51 @@
+{% load i18n %}
+
+<div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-inner">
+    {% for review in reviews %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <div class="review-card d-flex flex-column align-items-center text-center p-4">
+        <div class="mb-2 text-warning">
+          {% for i in "12345"|make_list %}
+            {% if forloop.counter <= review.rating %}
+              <i class="fas fa-star"></i>
+            {% else %}
+              <i class="far fa-star"></i>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <blockquote class="blockquote mb-2">
+          <p class="mb-0" style="font-size:1.1rem;">“{{ review.body|truncatewords:20 }}”</p>
+        </blockquote>
+        <div class="d-flex align-items-center mt-2">
+          {% if review.user.profile.avatar %}
+            <img src="{{ review.user.profile.avatar.url }}" alt="{{ review.user.username }}" class="rounded-circle me-2" width="48" height="48">
+          {% else %}
+            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-2" style="width:48px;height:48px;font-weight:bold;">
+              {{ review.user.username|first|upper }}
+            </div>
+          {% endif %}
+          <div class="text-start">
+            <div class="fw-bold">{{ review.user.get_full_name|default:review.user.username }}</div>
+            <small class="text-muted">{{ review.created_at|date:"M d, Y" }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="carousel-item active">
+      <div class="text-center p-5">
+        <p class="text-muted">{% trans "No reviews yet." %}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

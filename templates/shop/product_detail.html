@@ -715,7 +715,20 @@
     position: relative; /* Required for absolute positioning */
     overflow: hidden;   /* Prevents zoomed image from spilling out */
 }
+.pd-tabs-divider {
+    margin: 48px 0 32px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    opacity: 0.8;
+}
 
+/* Prevent flash of default tab when using hash persistence */
+.pd-tabs .tab-pane {
+    display: none;
+}
+.pd-tabs .tab-pane.show.active {
+    display: block;
+}
 </style>
 {% endblock %}
 
@@ -903,7 +916,7 @@
         <div class="pd-tabs">
             <ul class="nav nav-tabs" id="pdTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button"
+                    <button class="nav-link" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button"
                         role="tab">
                         {% trans "Description" %}
                     </button>
@@ -930,7 +943,7 @@
         
             <div class="tab-content" id="pdTabContent">
                 <!-- Description Pane -->
-                <div class="tab-pane fade show active" id="desc" role="tabpanel">
+                <div class="tab-pane fade " id="desc" role="tabpanel">
                     {{ product.translated_description|linebreaks }}
                 </div>
         
@@ -954,7 +967,59 @@
         
                 <!-- Reviews Pane -->
                 <div class="tab-pane fade" id="reviews" role="tabpanel">
-                    <p>{% trans "Reviews feature coming soon..." %}</p>
+                    <!-- Carousel Section -->
+                    <div class="review-carousel-wrapper" id="reviewCarouselWrapper">
+                        <!-- Loaded by AJAX -->
+                    </div>
+                
+                    <!-- Divider with same margin as tabs -->
+                    <hr class="pd-tabs-divider">
+                
+                    <!-- Filter & Sort Bar -->
+                    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                        <div id="rvFilterPills">
+                            <span class="badge bg-secondary rv-pill active" data-rating="all">All</span>
+                            <span class="badge bg-light text-dark rv-pill" data-rating="5">5 ★</span>
+                            <span class="badge bg-light text-dark rv-pill" data-rating="4">4 ★</span>
+                            <span class="badge bg-light text-dark rv-pill" data-rating="3">3 ★</span>
+                            <span class="badge bg-light text-dark rv-pill" data-rating="2">2 ★</span>
+                            <span class="badge bg-light text-dark rv-pill" data-rating="1">1 ★</span>
+                        </div>
+                        <select id="rvSortSelect" class="form-select form-select-sm" style="width:auto;">
+                            <option value="-created_at">Newest</option>
+                            <option value="-rating">Highest Rated</option>
+                            <option value="rating">Lowest Rated</option>
+                        </select>
+                    </div>
+                
+                    <!-- Full Thread -->
+                    <div id="commentList" data-product-slug="{{ product.slug }}"
+                        data-list-url="{% url 'reviews:comment_list' product.slug %}"
+                        data-create-url="{% url 'reviews:comment_create' product.slug %}"
+                        data-edit-url-base="{% url 'reviews:comment_update' 0 %}"
+                        data-delete-url-base="{% url 'reviews:comment_delete' 0 %}"
+                        data-like-url-base="{% url 'reviews:comment_like' 0 %}"
+                        data-dislike-url-base="{% url 'reviews:comment_dislike' 0 %}">
+                        <!-- Loaded by AJAX -->
+                    </div>
+                
+                    <!-- New Review Form -->
+                    <div class="mt-4">
+                        <h5>Write a Review</h5>
+                        <form id="rvNewReviewForm">
+                            {% csrf_token %}
+                            <div id="rvRatingInput" class="mb-2">
+                                <i class="far fa-star" data-value="1"></i>
+                                <i class="far fa-star" data-value="2"></i>
+                                <i class="far fa-star" data-value="3"></i>
+                                <i class="far fa-star" data-value="4"></i>
+                                <i class="far fa-star" data-value="5"></i>
+                            </div>
+                            <input type="hidden" id="rvRatingValue" value="">
+                            <textarea name="body" class="form-control" rows="3" placeholder="Your review..."></textarea>
+                            <button type="submit" class="btn btn-primary mt-2">Submit Review</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1098,6 +1163,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
     // ── Tab switching fallback (if Bootstrap JS not loaded) ──
     document.querySelectorAll('.pd-tabs .nav-link[data-bs-toggle="tab"]').forEach(function (btn) {
+        // ── Save hash on click ──
         btn.addEventListener('click', function (e) {
             e.preventDefault();
             var targetId = this.getAttribute('data-bs-target');
@@ -1107,8 +1173,17 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add active to current
             this.classList.add('active');
             document.querySelector(targetId).classList.add('show', 'active');
+            // ⬇️ UPDATE URL HASH ⬇️
+            if (history.replaceState) history.replaceState(null, '', targetId);
         });
     });
+
+    // ── On load, activate tab from URL hash ──
+    if (location.hash) {
+        var hash = location.hash;
+        var targetBtn = document.querySelector('.pd-tabs .nav-link[data-bs-target="' + hash + '"]');
+        if (targetBtn) targetBtn.click();
+    }
 
 
 
@@ -1185,6 +1260,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
         img.ondblclick = () => { currentScale = 1; updateZoom(); };
     });
+
+        $(document).ready(function () {
+    var container = $('#commentList');
+        var slug = container.data('product-slug');
+        var listUrl = container.data('list-url');
+
+        // Load Carousel
+        $.get(listUrl, {carousel: 1 }).done(function (data) {
+            $('#reviewCarouselWrapper').html(data.html);
+        // Initialize Bootstrap carousel if available
+        if (typeof bootstrap !== 'undefined') {
+            var carouselEl = document.querySelector('#reviewCarousel');
+        if (carouselEl) new bootstrap.Carousel(carouselEl, {interval: 5000 });
+        }
+    });
+
+        // Load Full Thread (your existing comments.js will handle this)
+        // But to be safe, we load it here as well.
+        $.get(listUrl).done(function (data) {
+            container.html(data.html);
+    });
+
+        // Filter & Sort events (already in comments.js, but we'll wire them)
+        $('#rvFilterPills').on('click', '.rv-pill', function () {
+        var rating = $(this).data('rating');
+        var sort = $('#rvSortSelect').val();
+        $.get(listUrl, {rating: rating, sort: sort }).done(function (data) {
+            container.html(data.html);
+        });
+    });
+
+        $('#rvSortSelect').on('change', function () {
+        var sort = $(this).val();
+        var rating = $('#rvFilterPills .rv-pill.active').data('rating') || 'all';
+        $.get(listUrl, {rating: rating, sort: sort }).done(function (data) {
+            container.html(data.html);
+        });
+    });
+});
 
 </script>
 {% endblock %}

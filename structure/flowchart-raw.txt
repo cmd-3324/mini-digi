@@ -10,22 +10,31 @@
 │   ├── 🐍 models.py
 │   ├── 🐍 urls.py
 │   └── 🐍 views.py
+├── 📁 commands
+│   ├── 📁 management
+│   │   ├── 📁 commands
+│   │   │   ├── 🐍 __init__.py
+│   │   │   ├── 🐍 cache_cleanup.py
+│   │   │   └── 🐍 compile_with_date.py
+│   │   └── 🐍 __init__.py
+│   ├── 🐍 __init__.py
+│   └── 🐍 apps.py
 ├── 📁 dashboard
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
 │   │   ├── 🐍 0002_profile_delete_userprofile.py
+│   │   ├── 🐍 0003_add_notification.py
+│   │   ├── 🐍 0004_rename_phone_number_profile_phone_and_more.py
 │   │   └── 🐍 __init__.py
 │   ├── 📁 models
 │   │   ├── 🐍 __init__.py
+│   │   ├── 🐍 notification.py
 │   │   └── 🐍 profile.py
 │   ├── 🐍 __init__.py
 │   ├── 🐍 admin.py
 │   ├── 🐍 apps.py
-│   ├── 🐍 models.py
 │   ├── 🐍 urls.py
 │   └── 🐍 views.py
-├── 📁 files
-│   └── 📄 STATIC_SETUP.ps1
 ├── 📁 locale
 │   ├── 📁 de
 │   │   └── 📁 LC_MESSAGES
@@ -43,14 +52,9 @@
 │       └── 📁 LC_MESSAGES
 │           ├── 📄 django.mo
 │           └── 📄 django.po
-├── 📁 management
-│   ├── 📁 commands
-│   │   ├── 🐍 __init__.py
-│   │   ├── 🐍 cache_cleanup.py
-│   │   └── 🐍 compile_with_date.py
-│   ├── 🐍 __init__.py
-│   └── 🐍 apps.py
 ├── 📁 media
+│   ├── 📁 avatars
+│   │   └── 🖼️ Nice-For-cover-image-4k.png
 │   ├── 📁 categories
 │   │   ├── 🖼️ cat-1.jpg
 │   │   ├── 🖼️ cat-2.jpg
@@ -99,19 +103,26 @@
 ├── 📁 reviews
 │   ├── 📁 management
 │   │   ├── 📁 commands
+│   │   │   └── 🐍 __init__.py
 │   │   └── 🐍 __init__.py
 │   ├── 📁 migrations
+│   │   ├── 🐍 0001_initial.py
 │   │   └── 🐍 __init__.py
 │   ├── 📁 models
+│   │   ├── 🐍 __init__.py
+│   │   └── 🐍 comments.py
 │   ├── 📁 templatetags
+│   │   ├── 🐍 __init__.py
+│   │   └── 🐍 review_tags.py
 │   ├── 📁 views
+│   │   ├── 🐍 __init__.py
+│   │   └── 🐍 comments.py
 │   ├── 🐍 __init__.py
 │   ├── 🐍 admin.py
 │   ├── 🐍 apps.py
 │   ├── 🐍 context_processors.py
-│   ├── 🐍 models.py
 │   ├── 🐍 tests.py
-│   └── 🐍 views.py
+│   └── 🐍 urls.py
 ├── 📁 shop
 │   ├── 📁 management
 │   │   └── 📁 commands
@@ -206,6 +217,7 @@
 │   │   └── 🖼️ vendor-8.jpg
 │   ├── 📁 js
 │   │   ├── ✨ chatbot-widget.js
+│   │   ├── ✨ comments.js
 │   │   └── ✨ main.js
 │   └── 📁 lib
 │       ├── 📁 animate
@@ -335,6 +347,7 @@
 │   ├── 📁 dashboard
 │   │   ├── 🌐 base.html
 │   │   ├── 🌐 home.html
+│   │   ├── 🌐 notifications_list.html
 │   │   ├── 🌐 order_detail.html
 │   │   ├── 🌐 orders.html
 │   │   ├── 🌐 payment.html
@@ -350,6 +363,10 @@
 │   ├── 📁 partials
 │   │   ├── 🌐 head.html
 │   │   └── 🌐 scripts.html
+│   ├── 📁 reviews
+│   │   ├── 🌐 _comment_thread.html
+│   │   ├── 🌐 _review_carousel.html
+│   │   └── 🌐 _review_form.html
 │   ├── 📁 shop
 │   │   ├── 🌐 about.html
 │   │   ├── 🌐 contact.html

@@ -41,15 +41,18 @@ def profile_update(request):
     data = json.loads(request.body)
     user = request.user
     profile = user.profile
+
     user.first_name = data.get("first_name", user.first_name)
     user.last_name = data.get("last_name", user.last_name)
     user.email = data.get("email", user.email)
+
     profile.phone = data.get("phone", profile.phone)
     profile.address_line1 = data.get("address_line1", profile.address_line1)
     profile.address_line2 = data.get("address_line2", profile.address_line2)
     profile.city = data.get("city", profile.city)
     profile.state = data.get("state", profile.state)
     profile.zip_code = data.get("zip_code", profile.zip_code)
+
     user.save()
     profile.save()
     return JsonResponse({"ok": True, "message": _("Profile updated successfully!")})

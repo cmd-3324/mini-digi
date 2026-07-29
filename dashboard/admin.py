@@ -6,20 +6,22 @@ from .models import Profile, Notification
 class ProfileAdmin(admin.ModelAdmin):
     list_display = (
         "user",
-        "phone_number",
-        "address",
+        "phone",
+        "address_line1",
+        "address_line2",
+        "city",
+        "state",
+        "zip_code",
         "created_at",
-        "updated_at",
         "has_avatar",
     )
-    search_fields = ("user__username", "user__email", "phone_number")
+    search_fields = ("user__username", "user__email", "phone", "city", "state")
     readonly_fields = ("user", "created_at", "updated_at")
-    list_filter = ("created_at",)
+    list_filter = ("state", "city", "created_at")
 
     @admin.display(description="Avatar")
     def has_avatar(self, obj):
         return "✅" if obj.avatar else "❌"
-
 
 @admin.register(Notification)
 class NotificationAdmin(admin.ModelAdmin):
