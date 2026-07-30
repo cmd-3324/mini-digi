@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, ProductImage, Newsletter, ProductVariant
+from .models import Product, Category, Newsletter, ProductVariant
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -15,9 +15,6 @@ class NewsletterAdmin(admin.ModelAdmin):
     list_filter = ('is_active',)
     search_fields = ('email',)
 
-@admin.register(ProductImage)
-class ProductImageAdmin(admin.ModelAdmin):
-    list_display = ('product', 'image', 'is_primary')
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -28,7 +25,7 @@ class ProductAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ("English", {"fields": ("name", "description")}),
-        ("Details", {"fields": ("category", "price", "stock", "available", "image")}),
+        ("Details", {"fields": ("category", "price", "stock", "available")}),
         ("Tasting & Pairing", {"fields": ("tasting_notes", "food_pairing")}),
         ("Attributes", {"fields": ("color", "size")}),
         ("SEO", {"fields": ("slug", "meta_title", "meta_description")}),
@@ -41,6 +38,6 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(ProductVariant)
 class ProductVariantAdmin(admin.ModelAdmin):
     list_display = ('product', 'size', 'color', 'stock', 'final_price', 'is_active')
-    list_filter = ('is_active', 'product__category')
+    list_filter = ('is_active', 'is_default', 'product__category')
     search_fields = ('product__name', 'sku', 'size', 'color')
     list_editable = ('stock', 'is_active')

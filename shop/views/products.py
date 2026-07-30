@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
+from django.core.cache import cache
 from django.http import JsonResponse
 from django.db.models import Q
 from django.urls import reverse
-from shop.models import Product, Category
+from shop.models import Product, Category , ProductVariant
 from django.http import HttpResponseRedirect
 def index(request):
     categories = Category.objects.all()
@@ -75,14 +76,20 @@ def product_list(request):
     page_obj = paginator.get_page(page_number)
 
     available_colors = (
-        Product.objects.filter(available=True)
+        ProductVariant.objects.filter(
+            product__available=True,
+            is_active=True
+        )
         .exclude(color="")
         .values_list("color", flat=True)
         .distinct()
         .order_by("color")
     )
     available_sizes = (
-        Product.objects.filter(available=True)
+        ProductVariant.objects.filter(
+            product__available=True,
+            is_active=True
+        )
         .exclude(size="")
         .values_list("size", flat=True)
         .distinct()
@@ -110,7 +117,13 @@ def product_list(request):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    return render(request, "shop/product_detail.html", {"product": product})
+    variants = product.variants.filter(is_active=True)
+    gallery = variants.exclude(image="")
+    return render(request, "shop/product_detail.html", {
+        "product": product,
+        "variants": variants,
+        "gallery": gallery,
+    })
 
 def contact(request):
     return render(request, "shop/contact.html")

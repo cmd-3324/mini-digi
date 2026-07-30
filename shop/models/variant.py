@@ -4,8 +4,8 @@ class ProductVariant(models.Model):
     product = models.ForeignKey(
         'Product', on_delete=models.CASCADE, related_name='variants'
     )
-    
-    # The specific attributes for this variant
+    is_active = models.BooleanField(default=True)
+    is_default = models.BooleanField(default=False)   
     sku = models.CharField(max_length=100, unique=True, blank=True, null=True)
     size = models.CharField(max_length=20, blank=True, default="")
     color = models.CharField(max_length=50, blank=True, default="")
@@ -20,8 +20,13 @@ class ProductVariant(models.Model):
     
     image = models.ImageField(upload_to="products/variants/", blank=True, null=True)
     
-    is_active = models.BooleanField(default=True)
-
+    def save(self, *args, **kwargs):
+            if self.is_default:
+                ProductVariant.objects.filter(
+                    product=self.product, is_default=True
+                ).exclude(pk=self.pk).update(is_default=False)
+            super().save(*args, **kwargs)
+            
     def __str__(self):
         # Example: "T-Shirt - Blue / Large"
         attrs = []

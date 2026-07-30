@@ -10,7 +10,7 @@ class Product(models.Model):
     )
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    slug = models.SlugField(max_length=220, blank=True, default="")
+    slug = models.SlugField(max_length=220, blank=True, default="", unique=True)
     meta_title = models.CharField(max_length=70, blank=True, default="")
     meta_description = models.CharField(max_length=160, blank=True, default="")
     price = models.DecimalField(
@@ -18,7 +18,7 @@ class Product(models.Model):
     )
     stock = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=True)
-    image = models.ImageField(upload_to="products/", blank=True, null=True)
+    
     created = models.DateTimeField(auto_now_add=True)
     color = models.CharField(max_length=50, blank=True, default="")
     size = models.CharField(max_length=10, blank=True, default="")
@@ -28,6 +28,13 @@ class Product(models.Model):
     favorites_count = models.PositiveIntegerField(default=0)
     tasting_notes = models.TextField(blank=True, default="")
     food_pairing = models.TextField(blank=True, default="")
+
+    @property
+    def display_image(self):
+        variant = self.variants.filter(is_active=True, is_default=True).exclude(image="").first()
+        if not variant:
+            variant = self.variants.filter(is_active=True).exclude(image="").first()
+        return variant.image if variant else None
     @property
     def translated_name(self):
         # Since you use .po files, we just return the name.
