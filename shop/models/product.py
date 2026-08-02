@@ -35,10 +35,18 @@ class Product(models.Model):
         if not variant:
             variant = self.variants.filter(is_active=True).exclude(image="").first()
         return variant.image if variant else None
+
+    @property
+    def default_variant(self):
+        return self.variants.filter(is_default=True).first() or self.variants.first()
+    @property
+    def review_count(self):
+        return self.comments.filter(parent__isnull=True).count()
+
+
     @property
     def translated_name(self):
-        # Since you use .po files, we just return the name.
-        # If you want Django to check the .po file for a translation of this exact string:
+        
         from django.utils.translation import gettext as _
         return _(self.name)
 

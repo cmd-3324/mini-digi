@@ -61,22 +61,46 @@
 │   │   ├── 🖼️ cat-3.jpg
 │   │   └── 🖼️ cat-4.jpg
 │   └── 📁 products
-│       ├── 🖼️ about.jpg
-│       ├── 🖼️ carousel-1.jpg
-│       ├── 🖼️ carousel-2.jpg
-│       ├── 🖼️ payments.png
-│       ├── 🖼️ product-1.jpg
-│       ├── 🖼️ product-2.jpg
-│       ├── 🖼️ product-3.jpg
-│       ├── 🖼️ product-3_cC54kxt.jpg
-│       ├── 🖼️ product-4.jpg
-│       ├── 🖼️ product-5.jpg
-│       ├── 🖼️ product-6.jpg
-│       ├── 🖼️ product-7.jpg
-│       ├── 🖼️ product-8.jpg
-│       ├── 🖼️ product-9.jpg
-│       ├── 🖼️ testimonial-2.jpg
-│       └── 🖼️ vendor-3.jpg
+│       ├── 📁 blender
+│       │   ├── 🖼️ default.jpg
+│       │   └── 🖼️ variant_2.jpg
+│       ├── 📁 coffee-maker
+│       │   ├── 🖼️ default.jpg
+│       │   └── 🖼️ variant_2.jpg
+│       ├── 📁 cookware-set
+│       │   └── 🖼️ default.jpg
+│       ├── 📁 django-for-beginners
+│       │   └── 🖼️ default.jpg
+│       ├── 📁 iphone-15
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   └── 🖼️ variant_3.jpg
+│       ├── 📁 laptop-asus
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   └── 🖼️ variant_3.jpg
+│       ├── 📁 mens-jacket
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   ├── 🖼️ variant_3.jpg
+│       │   └── 🖼️ variant_4.jpg
+│       ├── 📁 python-programming
+│       │   └── 🖼️ default.jpg
+│       ├── 📁 running-shoes
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   └── 🖼️ variant_3.jpg
+│       ├── 📁 samsung-tv-55
+│       │   ├── 🖼️ default.jpg
+│       │   └── 🖼️ variant_2.jpg
+│       ├── 📁 wireless-mouse
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   └── 🖼️ variant_3.jpg
+│       └── 📁 womens-dress
+│           ├── 🖼️ default.jpg
+│           ├── 🖼️ variant_2.jpg
+│           └── 🖼️ variant_3.jpg
 ├── 📁 migrations
 │   ├── 🐍 0001_initial.py
 │   └── 🐍 __init__.py
@@ -143,6 +167,9 @@
 │   │   ├── 🐍 0012_remove_category_name_de_remove_category_name_es_and_more.py
 │   │   ├── 🐍 0013_productvariant.py
 │   │   ├── 🐍 0014_product_food_pairing_product_tasting_notes.py
+│   │   ├── 🐍 0015_productvariant_is_default_alter_product_slug_and_more.py
+│   │   ├── 🐍 0016_remove_product_image.py
+│   │   ├── 🐍 0017_alter_productvariant_image.py
 │   │   └── 🐍 __init__.py
 │   ├── 📁 models
 │   │   ├── 🐍 __init__.py
@@ -150,7 +177,6 @@
 │   │   ├── 🐍 category.py
 │   │   ├── 🐍 newsletter.py
 │   │   ├── 🐍 product.py
-│   │   ├── 🐍 product_image.py
 │   │   └── 🐍 variant.py
 │   ├── 📁 templatetags
 │   │   ├── 🐍 __init__.py
@@ -172,8 +198,10 @@
 │   └── 🐍 validators.py
 ├── 📁 static
 │   ├── 📁 css
+│   │   ├── 🎨 base.css
 │   │   ├── 🎨 dashboard.css
 │   │   ├── 🎨 faq-help.css
+│   │   ├── 🎨 product_detail.css
 │   │   └── 🎨 style.min.css
 │   ├── 📁 fonts
 │   │   ├── 📄 cube.6cd810dd.6cd810dd.woff
@@ -182,6 +210,7 @@
 │   │   └── 📄 iranyekanwebregular.b95439c1.b95439c1.woff
 │   ├── 📁 img
 │   │   ├── 🖼️ about.jpg
+│   │   ├── 🖼️ bell.png
 │   │   ├── 🖼️ carousel-1.jpg
 │   │   ├── 🖼️ carousel-2.jpg
 │   │   ├── 🖼️ carousel-3.jpg
@@ -190,9 +219,20 @@
 │   │   ├── 🖼️ cat-3.jpg
 │   │   ├── 🖼️ cat-4.jpg
 │   │   ├── 🖼️ favicon.png
+│   │   ├── 🖼️ fullscreen.png
+│   │   ├── 🖼️ handshake.png
+│   │   ├── 🖼️ headset.png
+│   │   ├── 🖼️ heart-minus.png
+│   │   ├── 🖼️ heart-plus.png
+│   │   ├── 🖼️ heart.png
+│   │   ├── 🖼️ list-sort-ascending.png
+│   │   ├── 🖼️ list-sort-descending.png
+│   │   ├── 🖼️ mail.png
+│   │   ├── 🖼️ moon.png
 │   │   ├── 🖼️ offer-1.jpg
 │   │   ├── 🖼️ offer-2.jpg
 │   │   ├── 🖼️ payments.png
+│   │   ├── 🖼️ pencil.png
 │   │   ├── 🖼️ product-1.jpg
 │   │   ├── 🖼️ product-2.jpg
 │   │   ├── 🖼️ product-3.jpg
@@ -202,6 +242,14 @@
 │   │   ├── 🖼️ product-7.jpg
 │   │   ├── 🖼️ product-8.jpg
 │   │   ├── 🖼️ product-9.jpg
+│   │   ├── 🖼️ save.png
+│   │   ├── 🖼️ scan-barcode.png
+│   │   ├── 🖼️ scan-search.png
+│   │   ├── 🖼️ search.png
+│   │   ├── 🖼️ share-2.png
+│   │   ├── 🖼️ shopping-cart.png
+│   │   ├── 🖼️ sun (1).png
+│   │   ├── 🖼️ sun.png
 │   │   ├── 🖼️ testimonial-1.jpg
 │   │   ├── 🖼️ testimonial-2.jpg
 │   │   ├── 🖼️ testimonial-3.jpg
@@ -214,11 +262,20 @@
 │   │   ├── 🖼️ vendor-5.jpg
 │   │   ├── 🖼️ vendor-6.jpg
 │   │   ├── 🖼️ vendor-7.jpg
-│   │   └── 🖼️ vendor-8.jpg
+│   │   ├── 🖼️ vendor-8.jpg
+│   │   ├── 🖼️ zoom-in.png
+│   │   └── 🖼️ zoom-out.png
 │   ├── 📁 js
 │   │   ├── ✨ chatbot-widget.js
 │   │   ├── ✨ comments.js
-│   │   └── ✨ main.js
+│   │   ├── ✨ FAQs.js
+│   │   ├── ✨ footer.js
+│   │   ├── ✨ main.js
+│   │   ├── ✨ notification_list.js
+│   │   ├── ✨ orders.js
+│   │   ├── ✨ product_detail.js
+│   │   ├── ✨ product_list.js
+│   │   └── ✨ profile.js
 │   └── 📁 lib
 │       ├── 📁 animate
 │       │   ├── 🎨 animate.min.css
@@ -379,6 +436,7 @@
 ├── 📘 HOW_TO_INTEGRATE.md
 ├── ⚖️ LICENSE
 ├── 🐍 manage.py
+├── 📄 mini_digi_backup.sql
 ├── 📘 README.md
 ├── 📝 requirements.txt
 └── 📝 robots.txt

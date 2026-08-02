@@ -67,6 +67,7 @@ class Command(BaseCommand):
                 "price": 25000000,
                 "desc": "Powerful laptop for work/gaming",
                 "stock": 15,
+                "rate" : 4,
                 "variants": [
                     {"color": "silver", "size": "", "image": "products/product-1.jpg"},
                     {"color": "gray", "size": "", "image": ""},
@@ -79,6 +80,7 @@ class Command(BaseCommand):
                 "price": 45000000,
                 "desc": "Latest Apple smartphone",
                 "stock": 8,
+                "rate" : 3,
                 "variants": [
                     {"color": "black", "size": "", "image": "products/product-2.jpg"},
                     {"color": "white", "size": "", "image": ""},
@@ -91,6 +93,7 @@ class Command(BaseCommand):
                 "price": 32000000,
                 "desc": "4K Smart TV",
                 "stock": 5,
+                "rate" : 1.5,
                 "variants": [
                     {"color": "gray", "size": "", "image": "products/product-3.jpg"},
                     {"color": "black", "size": "", "image": ""},
@@ -102,6 +105,7 @@ class Command(BaseCommand):
                 "price": 450000,
                 "desc": "Ergonomic wireless mouse",
                 "stock": 50,
+                "rate" : 4,
                 "variants": [
                     {"color": "black", "size": "", "image": "products/product-4.jpg"},
                     {"color": "white", "size": "", "image": ""},
@@ -114,6 +118,7 @@ class Command(BaseCommand):
                 "price": 1200000,
                 "desc": "Winter warm jacket",
                 "stock": 30,
+                "rate" : 4,
                 "variants": [
                     {"color": "black", "size": "S", "image": "products/product-5.jpg"},
                     {"color": "black", "size": "M", "image": ""},
@@ -127,6 +132,7 @@ class Command(BaseCommand):
                 "price": 890000,
                 "desc": "Summer collection dress",
                 "stock": 25,
+                "rate" : 3.5,
                 "variants": [
                     {"color": "red", "size": "M", "image": "products/product-6.jpg"},
                     {"color": "blue", "size": "S", "image": ""},
@@ -139,6 +145,7 @@ class Command(BaseCommand):
                 "price": 2100000,
                 "desc": "Lightweight sports shoes",
                 "stock": 20,
+                "rate" : 3.5,
                 "variants": [
                     {"color": "white", "size": "42", "image": "products/product-7.jpg"},
                     {"color": "black", "size": "42", "image": ""},
@@ -151,6 +158,7 @@ class Command(BaseCommand):
                 "price": 5600000,
                 "desc": "Automatic espresso machine",
                 "stock": 12,
+                "rate" : 3.5,
                 "variants": [
                     {"color": "silver", "size": "", "image": "products/product-8.jpg"},
                     {"color": "black", "size": "", "image": ""},
@@ -162,6 +170,7 @@ class Command(BaseCommand):
                 "price": 3200000,
                 "desc": "High-speed kitchen blender",
                 "stock": 18,
+                "rate" : 3.5,
                 "variants": [
                     {"color": "white", "size": "", "image": "products/product-1.jpg"},
                     {"color": "black", "size": "", "image": ""},
@@ -173,6 +182,7 @@ class Command(BaseCommand):
                 "price": 4500000,
                 "desc": "10-piece non-stick set",
                 "stock": 10,
+                "rate" : 3.5,
                 "variants": [
                     {"color": "stainless", "size": "", "image": "products/product-2.jpg"},
                 ]
@@ -183,6 +193,7 @@ class Command(BaseCommand):
                 "price": 350000,
                 "desc": "Learn Python programming",
                 "stock": 40,
+                "rate" : 3.5,
                 "variants": [
                     {"color": "", "size": "", "image": "products/product-3.jpg"},
                 ]
@@ -193,6 +204,7 @@ class Command(BaseCommand):
                 "price": 280000,
                 "desc": "Build web apps with Django",
                 "stock": 35,
+                "rate" : 3.5,
                 "variants": [
                     {"color": "", "size": "", "image": "products/product-4.jpg"},
                 ]

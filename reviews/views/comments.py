@@ -20,12 +20,12 @@ def comment_list(request, product_slug):
         .prefetch_related("replies__user")
     )
 
-    rating = request.GET.get("rating")
+    rating = request.GET.get("rate")
     if rating in ("1", "2", "3", "4", "5"):
         reviews = reviews.filter(rating=int(rating))
 
     sort = request.GET.get("sort", "-created_at")
-    if sort not in ("-created_at", "created_at", "-rating", "rating"):
+    if sort not in ("-created_at", "created_at", "-rate", "rate"):
         sort = "-created_at"
     reviews = reviews.order_by(sort)
 
@@ -47,7 +47,7 @@ def comment_create(request, product_slug):
     parent_id = data.get("parent_id")
     parent = get_object_or_404(Comment, pk=parent_id, product=product) if parent_id else None
 
-    rating = data.get("rating") if parent is None else None
+    rating = data.get("rate") if parent is None else None
     if parent is None and not rating:
         return JsonResponse({"ok": False, "error": "Rating required for a review."}, status=400)
 
@@ -74,9 +74,9 @@ def comment_update(request, pk):
 
     comment.body = body
     if comment.parent_id is None and data.get("rating"):
-        comment.rating = data["rating"]
+        comment.rate = data["rate"]
     comment.save()
-    return JsonResponse({"ok": True, "body": comment.body, "rating": comment.rating})
+    return JsonResponse({"ok": True, "body": comment.body, "rating": comment.rate})
 
 
 @login_required

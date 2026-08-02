@@ -9,3 +9,12 @@ def review_form(product_slug):
     return {
         'create_url': reverse('reviews:comment_create', args=[product_slug])
     }
+
+
+@register.filter
+def star_range(rate):
+    rate = float(rate or 0)
+    full = int(rate)
+    half = 1 if (rate - full) >= 0.5 else 0
+    empty = 5 - full - half
+    return {"full": range(full), "half": range(half), "empty": range(empty)}

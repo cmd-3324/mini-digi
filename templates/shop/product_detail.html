@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load review_tags %}
 {% load i18n %}
 {% load shop_tags %}
 {% load humanize %}
@@ -58,14 +59,14 @@
 
                 <!-- Rating -->
                 <div class="pd-rating">
+                    {% with stars=product.default_variant.rate|star_range %}
                     <div class="pd-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                        {% for _ in stars.full %}<i class="fas fa-star"></i>{% endfor %}
+                        {% for _ in stars.half %}<i class="fas fa-star-half-alt"></i>{% endfor %}
+                        {% for _ in stars.empty %}<i class="far fa-star"></i>{% endfor %}
                     </div>
-                    <span class="pd-rating-text">(4.5) &middot; 120 {% trans "reviews" %}</span>
+                    {% endwith %}
+                    <span class="pd-rating-text">({{ product.default_variant.rate }}) &middot; {{ product.review_count }} {% trans "reviews" %}</span>
                 </div>
 
                 <!-- Price -->

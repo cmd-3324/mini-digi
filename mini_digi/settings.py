@@ -13,6 +13,8 @@ from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 import os
 
+import warnings
+from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 OPENROUTER_API_KEY = os.environ.get('OPENROUTER_API_KEY', '')
@@ -29,6 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+
+# Method 1: Silence specific warning 
+SILENCED_SYSTEM_CHECKS = ["models.W036"]
 
 # Application definition
 

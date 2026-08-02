@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load review_tags}
+{% load review_tags %}
 {% for comment in comments %}
 <div class="rv-item" data-id="{{ comment.id }}">
     <div class="d-flex align-items-start">
@@ -19,10 +19,10 @@
                 <div>
                     <strong>{{ comment.user.get_full_name|default:comment.user.username }}</strong>
                     <span class="text-muted ms-2 small">{{ comment.created_at|date:"M d, Y" }}</span>
-                    {% if comment.rating %}
+                    {% if comment.rate %}
                     <span class="text-warning ms-2">
                         {% for i in "12345"|make_list %}
-                        {% if forloop.counter <= comment.rating %} <i class="fas fa-star fa-sm"></i>
+                        {% if forloop.counter <= comment.rate %} <i class="fas fa-star fa-sm"></i>
                             {% else %}
                             <i class="far fa-star fa-sm"></i>
                             {% endif %}

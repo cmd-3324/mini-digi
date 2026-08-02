@@ -2,7 +2,7 @@ from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
-from shop.models import Product
+from shop.models import Product,ProductVariant
 
 
 class Comment(models.Model):
@@ -11,9 +11,12 @@ class Comment(models.Model):
     parent = models.ForeignKey(
         "self", on_delete=models.CASCADE, null=True, blank=True, related_name="replies"
     )
-    rating = models.PositiveSmallIntegerField(
-        null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
+    rate = models.DecimalField(
+        max_digits=2, 
+        decimal_places=1, 
+        default=0.0,
+        validators=[MinValueValidator(0), MaxValueValidator(5)]
+        )
     likes = models.ManyToManyField(
         settings.AUTH_USER_MODEL, 
         blank=True, 
@@ -32,11 +35,11 @@ class Comment(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"{self.user} on {self.product} ({'review' if self.rating else 'comment'})"
+        return f"{self.user} on {self.product} ({'review' if self.rate else 'comment'})"
 
     @property
     def is_review(self):
-        return self.parent_id is None and self.rating is not None
+        return self.parent_id is None and self.rate is not None
 
     @property
     def like_count(self):
@@ -48,4 +51,4 @@ class Comment(models.Model):
 
     @property
     def rating_score(self):
-        return self.rating or 0
+        return self.rate or 0

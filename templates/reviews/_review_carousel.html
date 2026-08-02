@@ -7,7 +7,7 @@
       <div class="review-card d-flex flex-column align-items-center text-center p-4">
         <div class="mb-2 text-warning">
           {% for i in "12345"|make_list %}
-            {% if forloop.counter <= review.rating %}
+            {% if forloop.counter <= review.rate %}
               <i class="fas fa-star"></i>
             {% else %}
               <i class="far fa-star"></i>

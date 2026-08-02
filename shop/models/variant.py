@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 def variant_image_path(instance, filename):
     return f"products/{instance.product_id}/{filename}"
@@ -12,7 +12,12 @@ class ProductVariant(models.Model):
     sku = models.CharField(max_length=100, unique=True, blank=True, null=True)
     size = models.CharField(max_length=20, blank=True, default="")
     color = models.CharField(max_length=50, blank=True, default="")
-    
+    rate = models.DecimalField(
+    max_digits=2, 
+    decimal_places=1, 
+    default=0.0,
+    validators=[MinValueValidator(0), MaxValueValidator(5)]
+    )
     
     stock = models.PositiveIntegerField(default=0)
     price_override = models.DecimalField(
