@@ -5,10 +5,11 @@ from django.core.management.base import BaseCommand
 from django.conf import settings
 from shop.models import Category, Product, ProductVariant
 
-
+from django.db import connection
+import itertools
 class Command(BaseCommand):
     help = "Seed demo categories and products with multiple variants"
-
+    STATIC_PRODUCT_IMAGES = [f"product-{i}.jpg" for i in range(1, 10)]
     TASTING_SAMPLES = [
         "Deep ruby with purple reflections. Silky texture...",
         "Bright garnet with ripe cherries and plums...",
@@ -39,18 +40,21 @@ class Command(BaseCommand):
             if src.exists() and not dst.exists():
                 shutil.copy(src, dst)
 
-        for i in range(1, 9):
-            src = static_img / f"product-{i}.jpg"
-            dst = media_prod / f"product-{i}.jpg"
-            if src.exists() and not dst.exists():
-                shutil.copy(src, dst)
+        
 
         self.stdout.write("✅ Images copied")
 
-        ProductVariant.objects.all().delete()
-        Product.objects.all().delete()
-        Category.objects.all().delete()
-
+        with connection.cursor() as cursor:
+            cursor.execute("SET FOREIGN_KEY_CHECKS = 0")
+            cursor.execute("TRUNCATE TABLE reviews_comment")
+            cursor.execute("TRUNCATE TABLE shop_product_favorited_by")
+            cursor.execute("TRUNCATE TABLE shop_productvariant")
+            cursor.execute("TRUNCATE TABLE shop_product")
+            cursor.execute("TRUNCATE TABLE shop_category")
+            cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
+        for old_folder in media_prod.glob("*"):
+            if old_folder.is_dir():
+                shutil.rmtree(old_folder)
         electronics = Category.objects.create(name="Electronics", slug="electronics", image="categories/cat-1.jpg")
         clothing = Category.objects.create(name="Clothing", slug="clothing", image="categories/cat-2.jpg")
         home = Category.objects.create(name="Home & Kitchen", slug="home", image="categories/cat-3.jpg")
@@ -195,6 +199,8 @@ class Command(BaseCommand):
             },
         ]
 
+        image_cycle = itertools.cycle(self.STATIC_PRODUCT_IMAGES)
+
         for p_data in products_data:
             product = Product.objects.create(
                 name=p_data["name"],
@@ -205,19 +211,17 @@ class Command(BaseCommand):
                 available=True,
             )
 
-            product_folder = media_prod / f"product_{product.id}"
+            product_folder = media_prod / product.slug
             product_folder.mkdir(parents=True, exist_ok=True)
 
             for i, v_data in enumerate(p_data["variants"]):
-                img_src = v_data["image"]
+                img_name = v_data["image"].rsplit("/", 1)[-1] if v_data["image"] else next(image_cycle)
+                src_file = static_img / img_name
+                new_name = "default.jpg" if i == 0 else f"variant_{i+1}.jpg"
                 db_image_path = ""
-                if img_src:
-                    src_file = media_root / img_src
-                    if src_file.exists():
-                        new_name = f"default_{product.id}.jpg" if i == 0 else f"variant_{i+1}_{product.id}.jpg"
-                        dst_file = product_folder / new_name
-                        shutil.copy(src_file, dst_file)
-                        db_image_path = f"products/product_{product.id}/{new_name}"
+                if src_file.exists():
+                    shutil.copy(src_file, product_folder / new_name)
+                    db_image_path = f"products/{product.slug}/{new_name}"
 
                 ProductVariant.objects.create(
                     product=product,

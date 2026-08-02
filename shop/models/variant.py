@@ -1,5 +1,8 @@
 from django.db import models
 
+
+def variant_image_path(instance, filename):
+    return f"products/{instance.product_id}/{filename}"
 class ProductVariant(models.Model):
     product = models.ForeignKey(
         'Product', on_delete=models.CASCADE, related_name='variants'
@@ -18,7 +21,7 @@ class ProductVariant(models.Model):
     )
     
     
-    image = models.ImageField(upload_to="products/variants/", blank=True, null=True)
+    image = models.ImageField(upload_to=variant_image_path, blank=True, null=True)
     
     def save(self, *args, **kwargs):
             if self.is_default:
