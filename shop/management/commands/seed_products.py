@@ -9,7 +9,7 @@ from django.db import connection
 import itertools
 class Command(BaseCommand):
     help = "Seed demo categories and products with multiple variants"
-    STATIC_PRODUCT_IMAGES = [f"product-{i}.jpg" for i in range(1, 10)]
+    STATIC_PRODUCT_IMAGES = [f"product-{i}.webp" for i in range(1, 10)]
     TASTING_SAMPLES = [
         "Deep ruby with purple reflections. Silky texture...",
         "Bright garnet with ripe cherries and plums...",
@@ -35,8 +35,8 @@ class Command(BaseCommand):
         media_prod.mkdir(parents=True, exist_ok=True)
 
         for i in range(1, 5):
-            src = static_img / f"cat-{i}.jpg"
-            dst = media_cat / f"cat-{i}.jpg"
+            src = static_img / f"cat-{i}.webp"
+            dst = media_cat / f"cat-{i}.webp"
             if src.exists() and not dst.exists():
                 shutil.copy(src, dst)
 
@@ -55,10 +55,10 @@ class Command(BaseCommand):
         for old_folder in media_prod.glob("*"):
             if old_folder.is_dir():
                 shutil.rmtree(old_folder)
-        electronics = Category.objects.create(name="Electronics", slug="electronics", image="categories/cat-1.jpg")
-        clothing = Category.objects.create(name="Clothing", slug="clothing", image="categories/cat-2.jpg")
-        home = Category.objects.create(name="Home & Kitchen", slug="home", image="categories/cat-3.jpg")
-        books = Category.objects.create(name="Books", slug="books", image="categories/cat-4.jpg")
+        electronics = Category.objects.create(name="Electronics", slug="electronics", image="categories/cat-1.webp")
+        clothing = Category.objects.create(name="Clothing", slug="clothing", image="categories/cat-2.webp")
+        home = Category.objects.create(name="Home & Kitchen", slug="home", image="categories/cat-3.webp")
+        books = Category.objects.create(name="Books", slug="books", image="categories/cat-4.webp")
 
         products_data = [
             {
@@ -69,7 +69,7 @@ class Command(BaseCommand):
                 "stock": 15,
                 "rate" : 4,
                 "variants": [
-                    {"color": "silver", "size": "", "image": "products/product-1.jpg"},
+                    {"color": "silver", "size": "", "image": "products/product-1.webp"},
                     {"color": "gray", "size": "", "image": ""},
                     {"color": "gold", "size": "", "image": ""},
                 ]
@@ -82,7 +82,7 @@ class Command(BaseCommand):
                 "stock": 8,
                 "rate" : 3,
                 "variants": [
-                    {"color": "black", "size": "", "image": "products/product-2.jpg"},
+                    {"color": "black", "size": "", "image": "products/product-2.webp"},
                     {"color": "white", "size": "", "image": ""},
                     {"color": "gold", "size": "", "image": ""},
                 ]
@@ -95,7 +95,7 @@ class Command(BaseCommand):
                 "stock": 5,
                 "rate" : 1.5,
                 "variants": [
-                    {"color": "gray", "size": "", "image": "products/product-3.jpg"},
+                    {"color": "gray", "size": "", "image": "products/product-3.webp"},
                     {"color": "black", "size": "", "image": ""},
                 ]
             },
@@ -107,7 +107,7 @@ class Command(BaseCommand):
                 "stock": 50,
                 "rate" : 4,
                 "variants": [
-                    {"color": "black", "size": "", "image": "products/product-4.jpg"},
+                    {"color": "black", "size": "", "image": "products/product-4.webp"},
                     {"color": "white", "size": "", "image": ""},
                     {"color": "red", "size": "", "image": ""},
                 ]
@@ -120,7 +120,7 @@ class Command(BaseCommand):
                 "stock": 30,
                 "rate" : 4,
                 "variants": [
-                    {"color": "black", "size": "S", "image": "products/product-5.jpg"},
+                    {"color": "black", "size": "S", "image": "products/product-5.webp"},
                     {"color": "black", "size": "M", "image": ""},
                     {"color": "black", "size": "L", "image": ""},
                     {"color": "blue", "size": "M", "image": ""},
@@ -134,7 +134,7 @@ class Command(BaseCommand):
                 "stock": 25,
                 "rate" : 3.5,
                 "variants": [
-                    {"color": "red", "size": "M", "image": "products/product-6.jpg"},
+                    {"color": "red", "size": "M", "image": "products/product-6.webp"},
                     {"color": "blue", "size": "S", "image": ""},
                     {"color": "green", "size": "L", "image": ""},
                 ]
@@ -147,7 +147,7 @@ class Command(BaseCommand):
                 "stock": 20,
                 "rate" : 3.5,
                 "variants": [
-                    {"color": "white", "size": "42", "image": "products/product-7.jpg"},
+                    {"color": "white", "size": "42", "image": "products/product-7.webp"},
                     {"color": "black", "size": "42", "image": ""},
                     {"color": "white", "size": "44", "image": ""},
                 ]
@@ -160,7 +160,7 @@ class Command(BaseCommand):
                 "stock": 12,
                 "rate" : 3.5,
                 "variants": [
-                    {"color": "silver", "size": "", "image": "products/product-8.jpg"},
+                    {"color": "silver", "size": "", "image": "products/product-8.webp"},
                     {"color": "black", "size": "", "image": ""},
                 ]
             },
@@ -172,7 +172,7 @@ class Command(BaseCommand):
                 "stock": 18,
                 "rate" : 3.5,
                 "variants": [
-                    {"color": "white", "size": "", "image": "products/product-1.jpg"},
+                    {"color": "white", "size": "", "image": "products/product-1.webp"},
                     {"color": "black", "size": "", "image": ""},
                 ]
             },
@@ -184,7 +184,7 @@ class Command(BaseCommand):
                 "stock": 10,
                 "rate" : 3.5,
                 "variants": [
-                    {"color": "stainless", "size": "", "image": "products/product-2.jpg"},
+                    {"color": "stainless", "size": "", "image": "products/product-2.webp"},
                 ]
             },
             {
@@ -195,7 +195,7 @@ class Command(BaseCommand):
                 "stock": 40,
                 "rate" : 3.5,
                 "variants": [
-                    {"color": "", "size": "", "image": "products/product-3.jpg"},
+                    {"color": "", "size": "", "image": "products/product-3.webp"},
                 ]
             },
             {
@@ -206,7 +206,7 @@ class Command(BaseCommand):
                 "stock": 35,
                 "rate" : 3.5,
                 "variants": [
-                    {"color": "", "size": "", "image": "products/product-4.jpg"},
+                    {"color": "", "size": "", "image": "products/product-4.webp"},
                 ]
             },
         ]
@@ -229,7 +229,7 @@ class Command(BaseCommand):
             for i, v_data in enumerate(p_data["variants"]):
                 img_name = v_data["image"].rsplit("/", 1)[-1] if v_data["image"] else next(image_cycle)
                 src_file = static_img / img_name
-                new_name = "default.jpg" if i == 0 else f"variant_{i+1}.jpg"
+                new_name = "default.webp" if i == 0 else f"variant_{i+1}.webp"
                 db_image_path = ""
                 if src_file.exists():
                     shutil.copy(src_file, product_folder / new_name)

@@ -46,27 +46,27 @@
 │   └── 🐍 __init__.py
 ├── 📁 media
 │   ├── 📁 categories
-│   │   ├── 🖼️ cat-1.jpg
-│   │   ├── 🖼️ cat-2.jpg
-│   │   ├── 🖼️ cat-3.jpg
-│   │   └── 🖼️ cat-4.jpg
+│   │   ├── 🖼️ cat-1.webp
+│   │   ├── 🖼️ cat-2.webp
+│   │   ├── 🖼️ cat-3.webp
+│   │   └── 🖼️ cat-4.webp
 │   └── 📁 products
-│       ├── 🖼️ about.jpg
-│       ├── 🖼️ carousel-1.jpg
-│       ├── 🖼️ carousel-2.jpg
+│       ├── 🖼️ about.webp
+│       ├── 🖼️ carousel-1.webp
+│       ├── 🖼️ carousel-2.webp
 │       ├── 🖼️ payments.png
-│       ├── 🖼️ product-1.jpg
-│       ├── 🖼️ product-2.jpg
-│       ├── 🖼️ product-3.jpg
-│       ├── 🖼️ product-3_cC54kxt.jpg
-│       ├── 🖼️ product-4.jpg
-│       ├── 🖼️ product-5.jpg
-│       ├── 🖼️ product-6.jpg
-│       ├── 🖼️ product-7.jpg
-│       ├── 🖼️ product-8.jpg
-│       ├── 🖼️ product-9.jpg
-│       ├── 🖼️ testimonial-2.jpg
-│       └── 🖼️ vendor-3.jpg
+│       ├── 🖼️ product-1.webp
+│       ├── 🖼️ product-2.webp
+│       ├── 🖼️ product-3.webp
+│       ├── 🖼️ product-3_cC54kxt.webp
+│       ├── 🖼️ product-4.webp
+│       ├── 🖼️ product-5.webp
+│       ├── 🖼️ product-6.webp
+│       ├── 🖼️ product-7.webp
+│       ├── 🖼️ product-8.webp
+│       ├── 🖼️ product-9.webp
+│       ├── 🖼️ testimonial-2.webp
+│       └── 🖼️ vendor-3.webp
 ├── 📁 migrations
 │   ├── 🐍 0001_initial.py
 │   └── 🐍 __init__.py
@@ -145,40 +145,40 @@
 │   │   ├── 📄 iranyekanwebmedium.2d4f96e5.2d4f96e5.woff
 │   │   └── 📄 iranyekanwebregular.b95439c1.b95439c1.woff
 │   ├── 📁 img
-│   │   ├── 🖼️ about.jpg
-│   │   ├── 🖼️ carousel-1.jpg
-│   │   ├── 🖼️ carousel-2.jpg
-│   │   ├── 🖼️ carousel-3.jpg
-│   │   ├── 🖼️ cat-1.jpg
-│   │   ├── 🖼️ cat-2.jpg
-│   │   ├── 🖼️ cat-3.jpg
-│   │   ├── 🖼️ cat-4.jpg
+│   │   ├── 🖼️ about.webp
+│   │   ├── 🖼️ carousel-1.webp
+│   │   ├── 🖼️ carousel-2.webp
+│   │   ├── 🖼️ carousel-3.webp
+│   │   ├── 🖼️ cat-1.webp
+│   │   ├── 🖼️ cat-2.webp
+│   │   ├── 🖼️ cat-3.webp
+│   │   ├── 🖼️ cat-4.webp
 │   │   ├── 🖼️ favicon.png
-│   │   ├── 🖼️ offer-1.jpg
-│   │   ├── 🖼️ offer-2.jpg
+│   │   ├── 🖼️ offer-1.webp
+│   │   ├── 🖼️ offer-2.webp
 │   │   ├── 🖼️ payments.png
-│   │   ├── 🖼️ product-1.jpg
-│   │   ├── 🖼️ product-2.jpg
-│   │   ├── 🖼️ product-3.jpg
-│   │   ├── 🖼️ product-4.jpg
-│   │   ├── 🖼️ product-5.jpg
-│   │   ├── 🖼️ product-6.jpg
-│   │   ├── 🖼️ product-7.jpg
-│   │   ├── 🖼️ product-8.jpg
-│   │   ├── 🖼️ product-9.jpg
-│   │   ├── 🖼️ testimonial-1.jpg
-│   │   ├── 🖼️ testimonial-2.jpg
-│   │   ├── 🖼️ testimonial-3.jpg
-│   │   ├── 🖼️ testimonial-4.jpg
-│   │   ├── 🖼️ user.jpg
-│   │   ├── 🖼️ vendor-1.jpg
-│   │   ├── 🖼️ vendor-2.jpg
-│   │   ├── 🖼️ vendor-3.jpg
-│   │   ├── 🖼️ vendor-4.jpg
-│   │   ├── 🖼️ vendor-5.jpg
-│   │   ├── 🖼️ vendor-6.jpg
-│   │   ├── 🖼️ vendor-7.jpg
-│   │   └── 🖼️ vendor-8.jpg
+│   │   ├── 🖼️ product-1.webp
+│   │   ├── 🖼️ product-2.webp
+│   │   ├── 🖼️ product-3.webp
+│   │   ├── 🖼️ product-4.webp
+│   │   ├── 🖼️ product-5.webp
+│   │   ├── 🖼️ product-6.webp
+│   │   ├── 🖼️ product-7.webp
+│   │   ├── 🖼️ product-8.webp
+│   │   ├── 🖼️ product-9.webp
+│   │   ├── 🖼️ testimonial-1.webp
+│   │   ├── 🖼️ testimonial-2.webp
+│   │   ├── 🖼️ testimonial-3.webp
+│   │   ├── 🖼️ testimonial-4.webp
+│   │   ├── 🖼️ user.webp
+│   │   ├── 🖼️ vendor-1.webp
+│   │   ├── 🖼️ vendor-2.webp
+│   │   ├── 🖼️ vendor-3.webp
+│   │   ├── 🖼️ vendor-4.webp
+│   │   ├── 🖼️ vendor-5.webp
+│   │   ├── 🖼️ vendor-6.webp
+│   │   ├── 🖼️ vendor-7.webp
+│   │   └── 🖼️ vendor-8.webp
 │   ├── 📁 js
 │   │   ├── ✨ chatbot-widget.js
 │   │   └── ✨ main.js

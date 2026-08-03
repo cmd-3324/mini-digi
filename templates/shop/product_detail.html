@@ -123,7 +123,7 @@
                     <div class="d-flex flex-wrap gap-2">
                         {% for variant in variants %}
                         <button class="btn btn-outline-secondary variant-selector {% if variant.is_default %}active{% endif %}"
-                            data-variant-id="{{ variant.id }}" data-image="{% if variant.image %}{{ variant.image.url }}{% else %}{% static 'img/product-1.jpg' %}{% endif %}"
+                            data-variant-id="{{ variant.id }}" data-image="{% if variant.image %}{{ variant.image.url }}{% else %}{% static 'img/product-1.webp' %}{% endif %}"
                             data-price="{{ variant.final_price }}" data-stock="{{ variant.stock }}" data-sku="{{ variant.sku }}"
                             style="border-radius:20px;padding:8px 16px;font-size:13px;">
                             {% if variant.color %}{{ variant.color|capfirst }}{% endif %}

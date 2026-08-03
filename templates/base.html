@@ -14,7 +14,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="{% trans 'Free HTML Templates' %}" name="keywords">
     <meta content="{% trans 'Free HTML Templates' %}" name="description">
-    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+    <link rel="icon" href="{% static 'img/favicon.webp' %}" type="image/png">
 
 
     <!-- Google Web Fonts -->
@@ -212,21 +212,21 @@
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-flex align-items-center">
                             <!-- Wishlist icon -->
                             <a href="{% url 'dashboard:wishlist' %}" class="btn px-0 mr-3 position-relative">
-                                <img src="{% static 'img/heart-plus.png' %}" alt="Wishlist" style="width:20px; height:20px; object-fit:contain;">
+                                <img src="{% static 'img/heart-plus.webp' %}" alt="Wishlist" style="width:20px; height:20px; object-fit:contain;">
                                 <span class="badge badge-pill badge-danger position-absolute favorite-count-badge"
                                     style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">
                                     {% if favorite_count %}{{ favorite_count }}{% else %}0{% endif %}
                                 </span>
                             </a>
                             <a href="{% url 'dashboard:orders' %}" class="btn px-0 mr-3 position-relative">
-                                <img src="{% static 'img/shopping-cart.png' %}" alt="Cart" style="width:20px; height:20px; object-fit:contain;">
+                                <img src="{% static 'img/shopping-cart.webp' %}" alt="Cart" style="width:20px; height:20px; object-fit:contain;">
                                 <span class="badge badge-pill badge-danger position-absolute cart-count-badge"
                                     style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">
                                     {% if cart_count %}{{ cart_count }}{% else %}0{% endif %}
                                 </span>
                             </a>
                             <button class="theme-toggle ml-2" id="themeToggle">
-                                <img src="{% static 'img/moon.png' %}" id="themeIcon" alt="Toggle theme" style="width:20px; height:20px;">
+                                <img src="{% static 'img/moon.webp' %}" id="themeIcon" alt="Toggle theme" style="width:20px; height:20px;">
                             </button>
                         </div>
                     </div>
