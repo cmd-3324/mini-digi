@@ -29,7 +29,7 @@ $(document).ready(function () {
         e.preventDefault();
         var btn = $('#profileSaveBtn');
         var origHTML = btn.html();
-        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> {% trans "Saving..." %}');
+        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> ' + (window.profileStrings ? window.profileStrings.saving : 'Saving...'));
 
         var data = {};
         $(this).serializeArray().forEach(function (field) {
@@ -37,7 +37,7 @@ $(document).ready(function () {
         });
 
         $.ajax({
-            url: '{% url "dashboard:profile_update" %}',
+            url: window.profileUpdateUrl,
             method: 'POST',
             headers: { 'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json' },
             data: JSON.stringify(data),
@@ -48,7 +48,7 @@ $(document).ready(function () {
                     setTimeout(function() { btn.closest('.pf-card').removeClass('pf-success-flash'); }, 600);
                 }
             },
-            error: function () { showToast('{% trans "Error saving profile." %}'); },
+            error: function () { showToast(window.profileStrings ? window.profileStrings.error : 'Error saving profile.'); },
             complete: function () {
                 btn.prop('disabled', false).html(origHTML);
             }
@@ -62,7 +62,7 @@ $(document).ready(function () {
         var origHTML = btn.html();
         var errBox = $('#passwordError');
         errBox.hide();
-        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> {% trans "Updating..." %}');
+        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> ' + (window.profileStrings ? window.profileStrings.updating : 'Updating...'));
 
         var data = {};
         $(this).serializeArray().forEach(function (field) {
@@ -70,7 +70,7 @@ $(document).ready(function () {
         });
 
         $.ajax({
-            url: '{% url "dashboard:change_password" %}',
+            url: window.changePasswordUrl,
             method: 'POST',
             headers: { 'X-CSRFToken': getCSRF(), 'Content-Type': 'application/json' },
             data: JSON.stringify(data),
@@ -85,7 +85,7 @@ $(document).ready(function () {
                 }
             },
             error: function () {
-                $('#passwordErrorMsg').text('{% trans "Error changing password." %}');
+                $('#passwordErrorMsg').text(window.profileStrings ? window.profileStrings.pwdError : 'Error changing password.');
                 errBox.show();
             },
             complete: function () {

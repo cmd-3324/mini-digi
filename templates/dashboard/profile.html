@@ -508,6 +508,16 @@
 {% endblock %}
 
 {% block extra_js %}
+<script>
+    window.profileUpdateUrl = "{% url 'dashboard:profile_update' %}";
+    window.changePasswordUrl = "{% url 'dashboard:change_password' %}";
+    window.profileStrings = {
+        saving: "{% trans 'Saving...' %}",
+        error: "{% trans 'Error saving profile.' %}",
+        updating: "{% trans 'Updating...' %}",
+        pwdError: "{% trans 'Error changing password.' %}"
+    };
+</script>
 <script src="{% static 'js/profile.js'%}"></script>
 
 {% endblock %}

@@ -7,7 +7,8 @@
 {% block title %}{{ product.translated_name }}{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/product_detail.css' %}" />
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}?v=5" />
 {% endblock %}
 
 {% block content %}
@@ -38,8 +39,9 @@
                 {% if gallery %}
                 <div class="pd-gallery mt-3 d-flex gap-2 flex-wrap">
                     {% for variant in gallery %}
-                    <div class="pd-gallery-thumb" data-variant-id="{{ variant.id }}" data-image="{{ variant.image.url }}"
+                    <div class="pd-gallery-thumb {% if variant.is_default %}active{% endif %}" data-variant-id="{{ variant.id }}" data-image="{{ variant.image.url }}"
                         data-price="{{ variant.final_price }}" data-stock="{{ variant.stock }}"
+                        data-color="{{ variant.color }}" data-size="{{ variant.size }}"
                         style="width:70px;height:70px;border:2px solid #ddd;border-radius:8px;cursor:pointer;overflow:hidden;">
                         <img src="{{ variant.image.url }}" alt="{{ product.translated_name }}"
                             style="width:100%;height:100%;object-fit:cover;">
@@ -98,33 +100,34 @@
                 {% if default.color or default.size %}
                 <div class="pd-attributes">
                     {% if default.color %}
-                    <div class="pd-attr-label">{% trans "Color" %}</div>
-                    <div class="pd-attr-chips">
-                        <span class="pd-chip active">
+                    <div class="pd-attr-label" id="pdColorLabel">{% trans "Color" %}</div>
+                    <div class="pd-attr-chips" id="pdColorChips">
+                        <span class="pd-chip active" id="pdColorChip">
                             <i class="fas fa-circle" style="font-size:10px;"></i>
-                            {{ default.color|capfirst }}
+                            <span id="pdColorText">{{ default.color|capfirst }}</span>
                         </span>
                     </div>
                     {% endif %}
                 
                     {% if default.size %}
-                    <div class="pd-attr-label" style="margin-top:16px;">{% trans "Size" %}</div>
-                    <div class="pd-attr-chips">
-                        <span class="pd-chip active">{{ default.size|upper }}</span>
+                    <div class="pd-attr-label" style="margin-top:16px;" id="pdSizeLabel">{% trans "Size" %}</div>
+                    <div class="pd-attr-chips" id="pdSizeChips">
+                        <span class="pd-chip active" id="pdSizeChip">{{ default.size|upper }}</span>
                     </div>
                     {% endif %}
                 </div>
                 {% endif %}
                 {% endwith %}
                 <!-- Variant Selector -->
-                {% if variants %}
+                {% if variants and has_options %}
                 <div class="pd-variants mb-4">
                     <h6 class="fw-bold">{% trans "Options" %}</h6>
-                    <div class="d-flex flex-wrap gap-2">
+                    <div class="d-flex flex-wrap pd-options-row">
                         {% for variant in variants %}
-                        <button class="btn btn-outline-secondary variant-selector {% if variant.is_default %}active{% endif %}"
+                        <button class="variant-selector {% if variant.is_default %}active{% endif %}"
                             data-variant-id="{{ variant.id }}" data-image="{% if variant.image %}{{ variant.image.url }}{% else %}{% static 'img/product-1.webp' %}{% endif %}"
                             data-price="{{ variant.final_price }}" data-stock="{{ variant.stock }}" data-sku="{{ variant.sku }}"
+                            data-color="{{ variant.color }}" data-size="{{ variant.size }}"
                             style="border-radius:20px;padding:8px 16px;font-size:13px;">
                             {% if variant.color %}{{ variant.color|capfirst }}{% endif %}
                             {% if variant.size %} ({{ variant.size|upper }}){% endif %}
@@ -221,7 +224,7 @@
 
         
         <!-- ═══ TABS SECTION ═══ -->
-        <div class="pd-tabs">
+        <div class="pd-tabs" style="visibility:hidden;">
             <ul class="nav nav-tabs" id="pdTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button"
@@ -251,7 +254,7 @@
         
             <div class="tab-content" id="pdTabContent">
                 <!-- Description Pane -->
-                <div class="tab-pane fade " id="desc" role="tabpanel">
+                <div class="tab-pane fade show active" id="desc" role="tabpanel">
                     {{ product.translated_description|linebreaks }}
                 </div>
         
@@ -331,12 +334,34 @@
                 </div>
             </div>
         </div>
+<script>
+(function () {
+    var tabKey = 'pd_active_tab';
+    var clEl = document.getElementById('commentList');
+    if (clEl && clEl.getAttribute('data-product-slug')) tabKey += '_' + clEl.getAttribute('data-product-slug');
+    window.pdTabKey = tabKey;
+    var saved;
+    try { saved = localStorage.getItem(tabKey); } catch (e) {}
+    var targetId = '#desc';
+    if (saved) {
+        var link = document.querySelector('.pd-tabs .nav-link[data-bs-target="' + saved + '"]');
+        var target = document.querySelector(saved);
+        if (link && target) targetId = saved;
+    }
+    document.querySelectorAll('.pd-tabs .nav-link').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('.pd-tabs .tab-pane').forEach(function (p) { p.classList.remove('show', 'active'); });
+    document.querySelector('.pd-tabs .nav-link[data-bs-target="' + targetId + '"]').classList.add('active');
+    document.querySelector(targetId).classList.add('show', 'active');
+    var tabsEl = document.querySelector('.pd-tabs');
+    if (tabsEl) tabsEl.style.visibility = 'visible';
+})();
+</script>
         
     </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/product_detail.js'%}"></script>
+<script src="{% static 'js/product_detail.js'%}?v=3"></script>
 {% endblock %}
 

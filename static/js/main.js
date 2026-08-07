@@ -1,32 +1,44 @@
 (function ($) {
     "use strict";
 
-    // Dark/Light theme toggle
-    function setTheme(theme) {
-        $('html').attr('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        var $icon = $('#themeIcon');
-        if (theme === 'dark') {
-            $icon.removeClass('fa-moon').addClass('fa-sun');
-        } else {
-            $icon.removeClass('fa-sun').addClass('fa-moon');
-        }
-    }
+  // Dark/Light theme toggle
+ function setTheme(theme) {
+     var p = window.iconPaths || {
+         wishlistLight: "/static/img/heart-plus-light.webp",
+         cartLight:     "/static/img/shopping-cart-light.webp",
+         wishlistDark:  "/static/img/heart-plus.webp",
+         cartDark:      "/static/img/shopping-cart.webp",
+         toggleLight:   "/static/img/sun.webp",
+         toggleDark:    "/static/img/moon.webp"
+     };
 
-    // Load saved theme on page load
-    $(document).ready(function () {
-        var saved = localStorage.getItem('theme');
-        if (!saved) {
-            saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-        setTheme(saved);
+     $('html').attr('data-theme', theme);
+     localStorage.setItem('theme', theme);
 
-        $('#themeToggle').on('click', function () {
-            var current = $('html').attr('data-theme');
-            setTheme(current === 'dark' ? 'light' : 'dark');
-        });
-    });
-    
+     if (theme === 'dark') {
+         $('.theme-toggle img').attr('src', p.toggleLight);   // sun
+         $('#wishlistIcon').attr('src', p.wishlistLight);
+         $('#cartIcon').attr('src', p.cartLight);
+     } else {
+         $('.theme-toggle img').attr('src', p.toggleDark);    // moon
+         $('#wishlistIcon').attr('src', p.wishlistDark);
+         $('#cartIcon').attr('src', p.cartDark);
+     }
+ }
+
+ // Load saved theme on page load
+ $(document).ready(function () {
+     var saved = localStorage.getItem('theme');
+     if (!saved) {
+         saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+     }
+     setTheme(saved);
+
+     $('#themeToggle').off('click').on('click', function () {
+         var current = $('html').attr('data-theme');
+         setTheme(current === 'dark' ? 'light' : 'dark');
+     });
+ });
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {

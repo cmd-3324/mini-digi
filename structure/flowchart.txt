@@ -1,27 +1,39 @@
 📁
+├── 📁 .github
+│   ├── 📁 workflows
+│   │   ├── 📝 docker-build.yml
+│   │   ├── 📝 notification-sender.yml
+│   │   └── 📝 test.yml
+│   └── 📝 workflow-notifications.yml
 ├── 📁 cart
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
 │   │   ├── 🐍 0002_alter_cartitem_unique_together.py
-│   │   ├── 🐍 0003_alter_cartitem_unique_together.py
-│   │   └── 🐍 __init__.py
-│   ├── 🐍 __init__.py
+│   │   └── 🐍 0003_alter_cartitem_unique_together.py
 │   ├── 🐍 context_processors.py
 │   ├── 🐍 models.py
 │   ├── 🐍 urls.py
 │   └── 🐍 views.py
+├── 📁 commands
+│   ├── 📁 management
+│   │   └── 📁 commands
+│   │       ├── 🐍 cache_cleanup.py
+│   │       ├── 🐍 compile_with_date.py
+│   │       └── 🐍 touch_flow.py
+│   └── 🐍 apps.py
 ├── 📁 dashboard
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
-│   │   └── 🐍 __init__.py
-│   ├── 🐍 __init__.py
+│   │   ├── 🐍 0002_profile_delete_userprofile.py
+│   │   ├── 🐍 0003_add_notification.py
+│   │   └── 🐍 0004_rename_phone_number_profile_phone_and_more.py
+│   ├── 📁 models
+│   │   ├── 🐍 notification.py
+│   │   └── 🐍 profile.py
 │   ├── 🐍 admin.py
 │   ├── 🐍 apps.py
-│   ├── 🐍 models.py
 │   ├── 🐍 urls.py
 │   └── 🐍 views.py
-├── 📁 files
-│   └── 📄 STATIC_SETUP.ps1
 ├── 📁 locale
 │   ├── 📁 de
 │   │   └── 📁 LC_MESSAGES
@@ -39,41 +51,71 @@
 │       └── 📁 LC_MESSAGES
 │           ├── 📄 django.mo
 │           └── 📄 django.po
-├── 📁 management
-│   ├── 📁 commands
-│   │   ├── 🐍 __init__.py
-│   │   └── 🐍 compile_with_date.py
-│   └── 🐍 __init__.py
+├── 📁 MD
+│   ├── 📁 POWERSHELL_7_CMD
+│   │   ├── 📄 ChatGPT.md
+│   │   ├── ⚙️ deepseek_powershell_20260802_7e39be.ps1
+│   │   ├── ⚙️ deepseek_powershell_20260802_d15302.ps1
+│   │   ├── 📄 powershell-cheatsheet.md
+│   │   └── 📄 Working_with_files_and_folders_-_PowerShell.md
+│   ├── 📄 deepseek_markdown_20260803_5e783d.md
+│   ├── 📄 django.md
+│   ├── 📄 mini_digi_commands_reference.md
+│   └── 📄 mysql_complete_guide.md
 ├── 📁 media
+│   ├── 📁 avatars
+│   │   └── 🖼️ Nice-For-cover-image-4k.png
 │   ├── 📁 categories
-│   │   ├── 🖼️ cat-1.webp
-│   │   ├── 🖼️ cat-2.webp
-│   │   ├── 🖼️ cat-3.webp
-│   │   └── 🖼️ cat-4.webp
+│   │   ├── 🖼️ cat-1.jpg
+│   │   ├── 🖼️ cat-2.jpg
+│   │   ├── 🖼️ cat-3.jpg
+│   │   └── 🖼️ cat-4.jpg
 │   └── 📁 products
-│       ├── 🖼️ about.webp
-│       ├── 🖼️ carousel-1.webp
-│       ├── 🖼️ carousel-2.webp
-│       ├── 🖼️ payments.png
-│       ├── 🖼️ product-1.webp
-│       ├── 🖼️ product-2.webp
-│       ├── 🖼️ product-3.webp
-│       ├── 🖼️ product-3_cC54kxt.webp
-│       ├── 🖼️ product-4.webp
-│       ├── 🖼️ product-5.webp
-│       ├── 🖼️ product-6.webp
-│       ├── 🖼️ product-7.webp
-│       ├── 🖼️ product-8.webp
-│       ├── 🖼️ product-9.webp
-│       ├── 🖼️ testimonial-2.webp
-│       └── 🖼️ vendor-3.webp
+│       ├── 📁 blender
+│       │   ├── 🖼️ default.jpg
+│       │   └── 🖼️ variant_2.jpg
+│       ├── 📁 coffee-maker
+│       │   ├── 🖼️ default.jpg
+│       │   └── 🖼️ variant_2.jpg
+│       ├── 📁 cookware-set
+│       │   └── 🖼️ default.jpg
+│       ├── 📁 django-for-beginners
+│       │   └── 🖼️ default.jpg
+│       ├── 📁 iphone-15
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   └── 🖼️ variant_3.jpg
+│       ├── 📁 laptop-asus
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   └── 🖼️ variant_3.jpg
+│       ├── 📁 mens-jacket
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   ├── 🖼️ variant_3.jpg
+│       │   └── 🖼️ variant_4.jpg
+│       ├── 📁 python-programming
+│       │   └── 🖼️ default.jpg
+│       ├── 📁 running-shoes
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   └── 🖼️ variant_3.jpg
+│       ├── 📁 samsung-tv-55
+│       │   ├── 🖼️ default.jpg
+│       │   └── 🖼️ variant_2.jpg
+│       ├── 📁 wireless-mouse
+│       │   ├── 🖼️ default.jpg
+│       │   ├── 🖼️ variant_2.jpg
+│       │   └── 🖼️ variant_3.jpg
+│       └── 📁 womens-dress
+│           ├── 🖼️ default.jpg
+│           ├── 🖼️ variant_2.jpg
+│           └── 🖼️ variant_3.jpg
 ├── 📁 migrations
-│   ├── 🐍 0001_initial.py
-│   └── 🐍 __init__.py
+│   └── 🐍 0001_initial.py
 ├── 📁 mini_digi
 │   ├── 📁 views
 │   │   └── 🐍 products.py
-│   ├── 🐍 __init__.py
 │   ├── 🐍 asgi.py
 │   ├── 🐍 middleware.py
 │   ├── 🐍 settings.py
@@ -84,17 +126,31 @@
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
 │   │   ├── 🐍 0002_order_orders_orde_created_0e92de_idx.py
-│   │   ├── 🐍 0003_remove_order_orders_orde_created_0e92de_idx.py
-│   │   └── 🐍 __init__.py
-│   ├── 🐍 __init__.py
+│   │   └── 🐍 0003_remove_order_orders_orde_created_0e92de_idx.py
 │   ├── 🐍 models.py
 │   ├── 🐍 urls.py
 │   └── 🐍 views.py
+├── 📁 reviews
+│   ├── 📁 management
+│   │   └── 📁 commands
+│   ├── 📁 migrations
+│   │   ├── 🐍 0001_initial.py
+│   │   └── 🐍 0002_remove_comment_rating_comment_rate.py
+│   ├── 📁 models
+│   │   └── 🐍 comments.py
+│   ├── 📁 templatetags
+│   │   └── 🐍 review_tags.py
+│   ├── 📁 views
+│   │   └── 🐍 comments.py
+│   ├── 🐍 admin.py
+│   ├── 🐍 apps.py
+│   ├── 🐍 context_processors.py
+│   ├── 🐍 tests.py
+│   └── 🐍 urls.py
 ├── 📁 shop
 │   ├── 📁 management
 │   │   └── 📁 commands
 │   │       ├── 🐍 0004_product_available.py
-│   │       ├── 🐍 __init__.py
 │   │       └── 🐍 seed_products.py
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
@@ -108,26 +164,27 @@
 │   │   ├── 🐍 0009_product_color_size_favorites.py
 │   │   ├── 🐍 0011_product_meta_description_product_meta_title_and_more.py
 │   │   ├── 🐍 0012_remove_category_name_de_remove_category_name_es_and_more.py
-│   │   └── 🐍 __init__.py
+│   │   ├── 🐍 0013_productvariant.py
+│   │   ├── 🐍 0014_product_food_pairing_product_tasting_notes.py
+│   │   ├── 🐍 0015_productvariant_is_default_alter_product_slug_and_more.py
+│   │   ├── 🐍 0016_remove_product_image.py
+│   │   ├── 🐍 0017_alter_productvariant_image.py
+│   │   └── 🐍 0018_productvariant_rate.py
 │   ├── 📁 models
-│   │   ├── 🐍 __init__.py
 │   │   ├── 🐍 cart_models.py
 │   │   ├── 🐍 category.py
 │   │   ├── 🐍 newsletter.py
 │   │   ├── 🐍 product.py
-│   │   └── 🐍 product_image.py
+│   │   └── 🐍 variant.py
 │   ├── 📁 templatetags
-│   │   ├── 🐍 __init__.py
 │   │   ├── 🐍 emoji_tags.py
 │   │   └── 🐍 shop_tags.py
 │   ├── 📁 views
-│   │   ├── 🐍 __init__.py
 │   │   ├── 🐍 auth.py
 │   │   ├── 🐍 chat.py
 │   │   ├── 🐍 contact.py
 │   │   ├── 🐍 newsletter.py
 │   │   └── 🐍 products.py
-│   ├── 🐍 __init__.py
 │   ├── 🐍 admin.py
 │   ├── 🐍 apps.py
 │   ├── 🐍 context_processors.py
@@ -136,16 +193,21 @@
 │   └── 🐍 validators.py
 ├── 📁 static
 │   ├── 📁 css
+│   │   ├── 🎨 base.css
 │   │   ├── 🎨 dashboard.css
 │   │   ├── 🎨 faq-help.css
+│   │   ├── 🎨 product_detail.css
 │   │   └── 🎨 style.min.css
 │   ├── 📁 fonts
-│   │   ├── 📄 cube.6cd810dd.6cd810dd.woff
-│   │   ├── 📄 iranyekanwebbold.e298fdc6.e298fdc6.woff
-│   │   ├── 📄 iranyekanwebmedium.2d4f96e5.2d4f96e5.woff
-│   │   └── 📄 iranyekanwebregular.b95439c1.b95439c1.woff
+│   │   ├── 🔤 cube.6cd810dd.6cd810dd.woff
+│   │   ├── 🔤 iranyekanwebbold.e298fdc6.e298fdc6.woff
+│   │   ├── 🔤 iranyekanwebmedium.2d4f96e5.2d4f96e5.woff
+│   │   └── 🔤 iranyekanwebregular.b95439c1.b95439c1.woff
 │   ├── 📁 img
 │   │   ├── 🖼️ about.webp
+│   │   ├── 🖼️ arrow-down-a-z.png
+│   │   ├── 🖼️ arrow-down-z-a.png
+│   │   ├── 🖼️ bell.webp
 │   │   ├── 🖼️ carousel-1.webp
 │   │   ├── 🖼️ carousel-2.webp
 │   │   ├── 🖼️ carousel-3.webp
@@ -153,10 +215,26 @@
 │   │   ├── 🖼️ cat-2.webp
 │   │   ├── 🖼️ cat-3.webp
 │   │   ├── 🖼️ cat-4.webp
-│   │   ├── 🖼️ favicon.png
+│   │   ├── 🖼️ clock-arrow-down.png
+│   │   ├── 🖼️ clock-arrow-up.png
+│   │   ├── 🖼️ favicon.webp
+│   │   ├── 🖼️ fullscreen.webp
+│   │   ├── 🖼️ handshake.webp
+│   │   ├── 🖼️ headset.webp
+│   │   ├── 🖼️ heart-minus.webp
+│   │   ├── 🖼️ heart-plus.webp
+│   │   ├── 🖼️ heart.webp
+│   │   ├── 🖼️ list-sort-ascending.png
+│   │   ├── 🖼️ list-sort-ascending.webp
+│   │   ├── 🖼️ list-sort-descending (1).png
+│   │   ├── 🖼️ list-sort-descending.png
+│   │   ├── 🖼️ list-sort-descending.webp
+│   │   ├── 🖼️ mail.webp
+│   │   ├── 🖼️ moon.webp
 │   │   ├── 🖼️ offer-1.webp
 │   │   ├── 🖼️ offer-2.webp
-│   │   ├── 🖼️ payments.png
+│   │   ├── 🖼️ payments.webp
+│   │   ├── 🖼️ pencil.webp
 │   │   ├── 🖼️ product-1.webp
 │   │   ├── 🖼️ product-2.webp
 │   │   ├── 🖼️ product-3.webp
@@ -166,6 +244,14 @@
 │   │   ├── 🖼️ product-7.webp
 │   │   ├── 🖼️ product-8.webp
 │   │   ├── 🖼️ product-9.webp
+│   │   ├── 🖼️ save.webp
+│   │   ├── 🖼️ scan-barcode.webp
+│   │   ├── 🖼️ scan-search.webp
+│   │   ├── 🖼️ search.webp
+│   │   ├── 🖼️ share-2.webp
+│   │   ├── 🖼️ shopping-cart.webp
+│   │   ├── 🖼️ sun (1).webp
+│   │   ├── 🖼️ sun.webp
 │   │   ├── 🖼️ testimonial-1.webp
 │   │   ├── 🖼️ testimonial-2.webp
 │   │   ├── 🖼️ testimonial-3.webp
@@ -178,10 +264,20 @@
 │   │   ├── 🖼️ vendor-5.webp
 │   │   ├── 🖼️ vendor-6.webp
 │   │   ├── 🖼️ vendor-7.webp
-│   │   └── 🖼️ vendor-8.webp
+│   │   ├── 🖼️ vendor-8.webp
+│   │   ├── 🖼️ zoom-in.webp
+│   │   └── 🖼️ zoom-out.webp
 │   ├── 📁 js
 │   │   ├── ✨ chatbot-widget.js
-│   │   └── ✨ main.js
+│   │   ├── ✨ comments.js
+│   │   ├── ✨ FAQs.js
+│   │   ├── ✨ footer.js
+│   │   ├── ✨ main.js
+│   │   ├── ✨ notification_list.js
+│   │   ├── ✨ orders.js
+│   │   ├── ✨ product_detail.js
+│   │   ├── ✨ product_list.js
+│   │   └── ✨ profile.js
 │   └── 📁 lib
 │       ├── 📁 animate
 │       │   ├── 🎨 animate.min.css
@@ -192,7 +288,7 @@
 │       │   └── ✨ easing.min.js
 │       └── 📁 owlcarousel
 │           ├── 📁 assets
-│           │   ├── 🎞️ ajax-loader.gif
+│           │   ├── 🖼️ ajax-loader.gif
 │           │   ├── 🎨 owl.carousel.css
 │           │   ├── ✨ owl.carousel.js
 │           │   ├── 🎨 owl.carousel.min.css
@@ -202,18 +298,16 @@
 │           │   ├── 🎨 owl.theme.green.css
 │           │   ├── 🎨 owl.theme.green.min.css
 │           │   └── 🖼️ owl.video.play.png
-│           └── ⚖️ LICENSE
+│           └── 📄 LICENSE
 ├── 📁 structure
-│   ├── 📝 flowchart-raw.txt
-│   └── 📝 flowchart.txt
+│   ├── 📄 flowchart-raw.txt
+│   ├── 📄 flowchart.txt
+│   └── 📄 flowchart_raw.txt
 ├── 📁 support
 │   ├── 📁 migrations
-│   │   ├── 🐍 0001_initial.py
-│   │   └── 🐍 __init__.py
+│   │   └── 🐍 0001_initial.py
 │   ├── 📁 templatetags
-│   │   ├── 🐍 __init__.py
 │   │   └── 🐍 support_tags.py
-│   ├── 🐍 __init__.py
 │   ├── 🐍 admin.py
 │   ├── 🐍 context_processors.py
 │   ├── 🐍 models.py
@@ -222,49 +316,49 @@
 ├── 📁 templates
 │   ├── 📁 account
 │   │   ├── 📁 email
-│   │   │   ├── 📝 account_already_exists_message.txt
-│   │   │   ├── 📝 account_already_exists_subject.txt
-│   │   │   ├── 📝 base_message.txt
-│   │   │   ├── 📝 base_notification.txt
-│   │   │   ├── 📝 email_changed_message.txt
-│   │   │   ├── 📝 email_changed_subject.txt
-│   │   │   ├── 📝 email_confirm_message.txt
-│   │   │   ├── 📝 email_confirm_subject.txt
-│   │   │   ├── 📝 email_confirmation_message.txt
-│   │   │   ├── 📝 email_confirmation_signup_message.txt
-│   │   │   ├── 📝 email_confirmation_signup_subject.txt
-│   │   │   ├── 📝 email_confirmation_subject.txt
-│   │   │   ├── 📝 email_deleted_message.txt
-│   │   │   ├── 📝 email_deleted_subject.txt
-│   │   │   ├── 📝 login_code_message.txt
-│   │   │   ├── 📝 login_code_subject.txt
-│   │   │   ├── 📝 password_changed_message.txt
-│   │   │   ├── 📝 password_changed_subject.txt
-│   │   │   ├── 📝 password_reset_code_message.txt
-│   │   │   ├── 📝 password_reset_code_subject.txt
-│   │   │   ├── 📝 password_reset_key_message.txt
-│   │   │   ├── 📝 password_reset_key_subject.txt
-│   │   │   ├── 📝 password_reset_message.txt
-│   │   │   ├── 📝 password_reset_subject.txt
-│   │   │   ├── 📝 password_set_message.txt
-│   │   │   ├── 📝 password_set_subject.txt
-│   │   │   ├── 📝 unknown_account_message.txt
-│   │   │   └── 📝 unknown_account_subject.txt
+│   │   │   ├── 📄 account_already_exists_message.txt
+│   │   │   ├── 📄 account_already_exists_subject.txt
+│   │   │   ├── 📄 base_message.txt
+│   │   │   ├── 📄 base_notification.txt
+│   │   │   ├── 📄 email_changed_message.txt
+│   │   │   ├── 📄 email_changed_subject.txt
+│   │   │   ├── 📄 email_confirm_message.txt
+│   │   │   ├── 📄 email_confirm_subject.txt
+│   │   │   ├── 📄 email_confirmation_message.txt
+│   │   │   ├── 📄 email_confirmation_signup_message.txt
+│   │   │   ├── 📄 email_confirmation_signup_subject.txt
+│   │   │   ├── 📄 email_confirmation_subject.txt
+│   │   │   ├── 📄 email_deleted_message.txt
+│   │   │   ├── 📄 email_deleted_subject.txt
+│   │   │   ├── 📄 login_code_message.txt
+│   │   │   ├── 📄 login_code_subject.txt
+│   │   │   ├── 📄 password_changed_message.txt
+│   │   │   ├── 📄 password_changed_subject.txt
+│   │   │   ├── 📄 password_reset_code_message.txt
+│   │   │   ├── 📄 password_reset_code_subject.txt
+│   │   │   ├── 📄 password_reset_key_message.txt
+│   │   │   ├── 📄 password_reset_key_subject.txt
+│   │   │   ├── 📄 password_reset_message.txt
+│   │   │   ├── 📄 password_reset_subject.txt
+│   │   │   ├── 📄 password_set_message.txt
+│   │   │   ├── 📄 password_set_subject.txt
+│   │   │   ├── 📄 unknown_account_message.txt
+│   │   │   └── 📄 unknown_account_subject.txt
 │   │   ├── 📁 messages
-│   │   │   ├── 📝 cannot_delete_primary_email.txt
-│   │   │   ├── 📝 email_confirmation_failed.txt
-│   │   │   ├── 📝 email_confirmation_sent.txt
-│   │   │   ├── 📝 email_confirmed.txt
-│   │   │   ├── 📝 email_deleted.txt
-│   │   │   ├── 📝 logged_in.txt
-│   │   │   ├── 📝 logged_out.txt
-│   │   │   ├── 📝 login_code_sent.txt
-│   │   │   ├── 📝 password_changed.txt
-│   │   │   ├── 📝 password_set.txt
-│   │   │   ├── 📝 phone_verification_sent.txt
-│   │   │   ├── 📝 phone_verified.txt
-│   │   │   ├── 📝 primary_email_set.txt
-│   │   │   └── 📝 unverified_primary_email.txt
+│   │   │   ├── 📄 cannot_delete_primary_email.txt
+│   │   │   ├── 📄 email_confirmation_failed.txt
+│   │   │   ├── 📄 email_confirmation_sent.txt
+│   │   │   ├── 📄 email_confirmed.txt
+│   │   │   ├── 📄 email_deleted.txt
+│   │   │   ├── 📄 logged_in.txt
+│   │   │   ├── 📄 logged_out.txt
+│   │   │   ├── 📄 login_code_sent.txt
+│   │   │   ├── 📄 password_changed.txt
+│   │   │   ├── 📄 password_set.txt
+│   │   │   ├── 📄 phone_verification_sent.txt
+│   │   │   ├── 📄 phone_verified.txt
+│   │   │   ├── 📄 primary_email_set.txt
+│   │   │   └── 📄 unverified_primary_email.txt
 │   │   ├── 📁 snippets
 │   │   │   ├── 🌐 already_logged_in.html
 │   │   │   └── 🌐 warn_no_email.html
@@ -310,6 +404,7 @@
 │   ├── 📁 dashboard
 │   │   ├── 🌐 base.html
 │   │   ├── 🌐 home.html
+│   │   ├── 🌐 notifications_list.html
 │   │   ├── 🌐 order_detail.html
 │   │   ├── 🌐 orders.html
 │   │   ├── 🌐 payment.html
@@ -325,6 +420,10 @@
 │   ├── 📁 partials
 │   │   ├── 🌐 head.html
 │   │   └── 🌐 scripts.html
+│   ├── 📁 reviews
+│   │   ├── 🌐 _comment_thread.html
+│   │   ├── 🌐 _review_carousel.html
+│   │   └── 🌐 _review_form.html
 │   ├── 📁 shop
 │   │   ├── 🌐 about.html
 │   │   ├── 🌐 contact.html
@@ -332,12 +431,16 @@
 │   │   ├── 🌐 product_detail.html
 │   │   └── 🌐 product_list.html
 │   └── 🌐 base.html
-├── 🎬 92739112-3620-4650-a2f2-26669c7a0c1c.mp4
-├── 📄 docker-compose.yml
+├── 📄 .dockerignore
+├── 📄 .env
+├── 📄 .gitignore
+├── 📝 docker-compose.yml
 ├── 📄 Dockerfile
-├── 📘 HOW_TO_INTEGRATE.md
-├── ⚖️ LICENSE
+├── 📄 HOW_TO_INTEGRATE.md
+├── 📄 LICENSE
 ├── 🐍 manage.py
-├── 📘 README.md
-├── 📝 requirements.txt
-└── 📝 robots.txt
+├── 📄 MD - Shortcut.lnk
+├── 📄 mini_digi_backup.sql
+├── 📄 README.md
+├── 📄 requirements.txt
+└── 📄 robots.txt

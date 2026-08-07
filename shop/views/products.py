@@ -119,10 +119,12 @@ def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     variants = product.variants.filter(is_active=True)
     gallery = variants.exclude(image="")
+    has_options = variants.filter(Q(color__gt="") | Q(size__gt="")).exists()
     return render(request, "shop/product_detail.html", {
         "product": product,
         "variants": variants,
         "gallery": gallery,
+        "has_options": has_options,
     })
 
 def contact(request):

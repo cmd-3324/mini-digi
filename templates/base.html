@@ -34,7 +34,7 @@
     <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
 {% block extra_css %}
 <link href="{% static 'css/faq-help.css' %}" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}?v=2">
 {% endblock %}
 
 
@@ -209,26 +209,30 @@
                                 class="nav-item nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">{% trans "About" %}</a>
                         </div>
                         <!-- Wishlist + Cart icons — matching original exactly -->
-                        <div class="navbar-nav ml-auto py-0 d-none d-lg-flex align-items-center">
-                            <!-- Wishlist icon -->
-                            <a href="{% url 'dashboard:wishlist' %}" class="btn px-0 mr-3 position-relative">
-                                <img src="{% static 'img/heart-plus.webp' %}" alt="Wishlist" style="width:20px; height:20px; object-fit:contain;">
-                                <span class="badge badge-pill badge-danger position-absolute favorite-count-badge"
-                                    style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">
-                                    {% if favorite_count %}{{ favorite_count }}{% else %}0{% endif %}
-                                </span>
-                            </a>
-                            <a href="{% url 'dashboard:orders' %}" class="btn px-0 mr-3 position-relative">
-                                <img src="{% static 'img/shopping-cart.webp' %}" alt="Cart" style="width:20px; height:20px; object-fit:contain;">
-                                <span class="badge badge-pill badge-danger position-absolute cart-count-badge"
-                                    style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">
-                                    {% if cart_count %}{{ cart_count }}{% else %}0{% endif %}
-                                </span>
-                            </a>
-                            <button class="theme-toggle ml-2" id="themeToggle">
-                                <img src="{% static 'img/moon.webp' %}" id="themeIcon" alt="Toggle theme" style="width:20px; height:20px;">
-                            </button>
-                        </div>
+                        <!-- Wishlist -->
+                        <a href="{% url 'dashboard:wishlist' %}" class="btn px-0 mr-3 position-relative">
+                            <img src="{% static 'img/heart-plus.webp' %}" id="wishlistIcon" alt="Wishlist"
+                                style="width:20px; height:20px; object-fit:contain;">
+                            <span class="badge badge-pill badge-danger position-absolute favorite-count-badge"
+                                style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">
+                                {% if favorite_count %}{{ favorite_count }}{% else %}0{% endif %}
+                            </span>
+                        </a>
+                        
+                        <!-- Cart -->
+                        <a href="{% url 'dashboard:orders' %}" class="btn px-0 mr-3 position-relative">
+                            <img src="{% static 'img/shopping-cart.webp' %}" id="cartIcon" alt="Cart"
+                                style="width:20px; height:20px; object-fit:contain;">
+                            <span class="badge badge-pill badge-danger position-absolute cart-count-badge"
+                                style="top:-4px;right:-10px;font-size:10px;min-width:18px;padding:2px 5px;">
+                                {% if cart_count %}{{ cart_count }}{% else %}0{% endif %}
+                            </span>
+                        </a>
+                        
+                        <!-- Theme toggle -->
+                        <button class="theme-toggle ml-2" id="themeToggle">
+                            <img src="{% static 'img/moon.webp' %}" id="themeIcon" alt="Toggle theme" style="width:20px; height:20px;">
+                        </button>
                     </div>
                 </nav>
             </div>
@@ -254,10 +258,21 @@
     <!-- WOW -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <!-- Custom JS -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %}?v=3"></script>
     <script src="{% static 'js/chatbot-widget.js' %}"></script>
     <script>new WOW().init();</script>
 
+
+<script>
+    window.iconPaths = {
+        wishlistLight: "{% static 'img/heart-plus-light.webp' %}",
+        cartLight: "{% static 'img/shopping-cart-light.webp' %}",
+        wishlistDark: "{% static 'img/heart-plus.webp' %}",
+        cartDark: "{% static 'img/shopping-cart.webp' %}",
+        toggleLight: "{% static 'img/sun.webp' %}",
+        toggleDark: "{% static 'img/moon.webp' %}"
+    };
+</script>
     <!-- Search Autocomplete -->
     {% trans "Searching..." as tr_searching %}
     {% trans "No products found" as tr_no_products %}

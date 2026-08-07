@@ -8,17 +8,20 @@ class Command(BaseCommand):
     # Internal object databases / cache bullshit -> never walked at all.
     # Everything else (venv, __pycache__, hidden files & folders) STAYS in raw.
     NOISE_SUBTREES = {
-        os.path.join('.git', 'objects'),   
+        os.path.join('.git', 'objects'),   # OS freindly
         os.path.join('.git', 'lfs'),      
-        # '.docker',                       
+        os.path.join(".docker", "objects"),                 
     }
 
     ICON_EXCLUDE = {'venv', '__pycache__', '.git'}
 
     def handle(self, *args, **options):
         base_dir = os.path.dirname(
-            os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) #dirname removes last address from str : x\cc => x\ - we have four ladders commands/mg/commands/HEre \
+            
         )
+        #In order to get to change flowchart files in structure , we need to move to same level as manage.py.
+        #stdout is django's built-in command to write result of each management commands run - no matter in an app or inside of APP\managements
         self.stdout.write("Generating project tree...")
 
         structure_dir = os.path.join(base_dir, "structure")
@@ -29,7 +32,7 @@ class Command(BaseCommand):
         def get_items(root_dir):
             items = []
             for root, dirs, files in os.walk(root_dir):
-                rel = os.path.relpath(root, root_dir)
+                rel = os.path.relpath(root, root_dir) # GOES THROUGH EACH FOLDER AND PRINTS REALIVE PATH (root) , DIRECTOREIS AND FILES INSIDE OF IT>
                 if rel == '.':
                     rel = ''
                 # prune noise subtrees BEFORE descending into them

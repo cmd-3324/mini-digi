@@ -128,30 +128,44 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(function() { heart.dataset.loading = '0'; });
     }, true);
-});
-    // ── Tab switching fallback (if Bootstrap JS not loaded) ──
+
+    // ── Tab switching + localStorage persistence ──
+    var tabKey = window.pdTabKey || 'pd_active_tab';
+
+    function activatePdTab(targetId) {
+        if (!targetId) return;
+        var target = document.querySelector(targetId);
+        if (!target) return;
+        document.querySelectorAll('.pd-tabs .nav-link').forEach(function (b) {
+            b.classList.remove('active');
+        });
+        document.querySelectorAll('.pd-tabs .tab-pane').forEach(function (p) {
+            p.classList.remove('show', 'active');
+        });
+        var link = document.querySelector('.pd-tabs .nav-link[data-bs-target="' + targetId + '"]');
+        if (link) link.classList.add('active');
+        target.classList.add('show', 'active');
+    }
+
     document.querySelectorAll('.pd-tabs .nav-link[data-bs-toggle="tab"]').forEach(function (btn) {
-        // ── Save hash on click ──
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
+        btn.addEventListener('click', function () {
             var targetId = this.getAttribute('data-bs-target');
-            // Remove active from all
-            document.querySelectorAll('.pd-tabs .nav-link').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.pd-tabs .tab-pane').forEach(p => p.classList.remove('show', 'active'));
-            // Add active to current
-            this.classList.add('active');
-            document.querySelector(targetId).classList.add('show', 'active');
-            // ⬇️ UPDATE URL HASH ⬇️
-            if (history.replaceState) history.replaceState(null, '', targetId);
+            activatePdTab(targetId);
+            try { localStorage.setItem(tabKey, targetId); } catch (e) {}
         });
     });
 
-    // ── On load, activate tab from URL hash ──
-    if (location.hash) {
-        var hash = location.hash;
-        var targetBtn = document.querySelector('.pd-tabs .nav-link[data-bs-target="' + hash + '"]');
-        if (targetBtn) targetBtn.click();
+    // ── On load: restore saved tab if present (inline script already set the default) ──
+    var savedTab = null;
+    try { savedTab = localStorage.getItem(tabKey); } catch (e) {}
+    if (savedTab && document.querySelector('.pd-tabs .nav-link[data-bs-target="' + savedTab + '"]')) {
+        activatePdTab(savedTab);
     }
+
+    var pdTabsEl = document.querySelector('.pd-tabs');
+    if (pdTabsEl) pdTabsEl.style.visibility = 'visible';
+});
+
 
 
 
@@ -233,7 +247,92 @@ document.addEventListener('DOMContentLoaded', function () {
     var container = $('#commentList');
         var slug = container.data('product-slug');
         var listUrl = container.data('list-url');
+         // ── Variant Selector + Gallery Thumbs ──
+            function updatePdChips(color, size) {
+                var attrBlock = $('.pd-attributes');
+                if (!attrBlock.length) return;
 
+                function setAttr(labelKey, value, textId, labelId, chipsId) {
+                    var text = $('#' + textId);
+                    if (value) {
+                        if (!text.length) {
+                            attrBlock.append(
+                                '<div class="pd-attr-label" id="' + labelId + '">' + labelKey + '</div>' +
+                                '<div class="pd-attr-chips" id="' + chipsId + '">' +
+                                '<span class="pd-chip active" id="' + textId + '"></span></div>'
+                            );
+                            text = $('#' + textId);
+                        }
+                        text.text(value);
+                        $('#' + labelId).show();
+                        $('#' + chipsId).show();
+                    } else {
+                        if (labelId) $('#' + labelId).hide();
+                        if (chipsId) $('#' + chipsId).hide();
+                    }
+                }
+
+                setAttr('Color', color ? color.charAt(0).toUpperCase() + color.slice(1) : '', 'pdColorText', 'pdColorLabel', 'pdColorChips');
+                setAttr('Size', size ? size.toUpperCase() : '', 'pdSizeText', 'pdSizeLabel', 'pdSizeChips');
+            }
+
+            function selectVariant(variantId, opts) {
+                opts = opts || {};
+                var btn = $('.variant-selector[data-variant-id="' + variantId + '"]').first();
+                var thumb = $('.pd-gallery-thumb[data-variant-id="' + variantId + '"]').first();
+                var source = btn.length ? btn : thumb;
+
+                var imageUrl = opts.image || source.data('image') || thumb.data('image');
+                var price = opts.price !== undefined ? opts.price : source.data('price');
+                var stock = opts.stock !== undefined ? opts.stock : source.data('stock');
+                var color = opts.color !== undefined ? opts.color : source.data('color');
+                var size = opts.size !== undefined ? opts.size : source.data('size');
+
+                if (imageUrl) {
+                    $('#pdMainImg').attr('src', imageUrl);
+                }
+                if (price !== undefined && price !== null && price !== '') {
+                    $('.pd-price').text((typeof currencySymbol !== 'undefined' ? currencySymbol : '') + Number(price).toLocaleString());
+                }
+                if (stock !== undefined) {
+                    var stockEl = $('.pd-stock');
+                    if (stock > 0) {
+                        stockEl.removeClass('pd-stock-out').addClass('pd-stock-in')
+                            .html('<i class="fas fa-check-circle"></i> In Stock — ' + stock + ' units available');
+                    } else {
+                        stockEl.removeClass('pd-stock-in').addClass('pd-stock-out')
+                            .html('<i class="fas fa-times-circle"></i> Out of Stock');
+                    }
+                }
+
+                $('.variant-selector').removeClass('active');
+                if (btn.length) btn.addClass('active');
+
+                $('.pd-gallery-thumb').removeClass('active');
+                if (thumb.length) thumb.addClass('active');
+
+                $('#selectedVariantId').val(variantId);
+
+                updatePdChips(color, size);
+            }
+
+            $('.variant-selector').on('click', function () {
+                selectVariant($(this).data('variant-id'));
+            });
+
+            $('.pd-gallery-thumb').on('click', function () {
+                var t = $(this);
+                selectVariant(t.data('variant-id'), {
+                    image: t.data('image'),
+                    price: t.data('price'),
+                    stock: t.data('stock'),
+                    color: t.data('color'),
+                    size: t.data('size')
+                });
+            });
+
+            // Initialize with default variant
+            $('.variant-selector.active').click();
         // Load Carousel
         $.get(listUrl, {carousel: 1 }).done(function (data) {
             $('#reviewCarouselWrapper').html(data.html);
@@ -265,35 +364,6 @@ document.addEventListener('DOMContentLoaded', function () {
         $.get(listUrl, {rating: rating, sort: sort }).done(function (data) {
             container.html(data.html);
         });
-        // ── Variant Selector ──
-            $('.variant-selector').on('click', function () {
-                var btn = $(this);
-                var imageUrl = btn.data('image');
-                var price = btn.data('price');
-                var stock = btn.data('stock');
-
-                if (imageUrl) {
-                    $('#pdMainImg').attr('src', imageUrl);
-                }
-                if (price) {
-                    $('.pd-price').text('$' + Number(price).toLocaleString());
-                }
-                if (stock !== undefined) {
-                    var stockEl = $('.pd-stock');
-                    if (stock > 0) {
-                        stockEl.removeClass('pd-stock-out').addClass('pd-stock-in')
-                            .html('<i class="fas fa-check-circle"></i> In Stock — ' + stock + ' units available');
-                    } else {
-                        stockEl.removeClass('pd-stock-in').addClass('pd-stock-out')
-                            .html('<i class="fas fa-times-circle"></i> Out of Stock');
-                    }
-                }
-                $('.variant-selector').removeClass('active');
-                btn.addClass('active');
-                $('#selectedVariantId').val(btn.data('variant-id'));
-            });
-
-            // Initialize with default variant
-            $('.variant-selector.active').click();
+       
     });
 });

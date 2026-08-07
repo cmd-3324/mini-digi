@@ -789,3 +789,12 @@
     left: auto !important;
     bottom: 96px !important;
 }
+/* Make the black sun white in dark mode */
+.theme-toggle:focus {
+    outline: none;
+}
+
+/* NEW — dark mode: make the black sun icon white */
+[data-theme="dark"] .theme-toggle img {
+    filter: invert(1);
+}

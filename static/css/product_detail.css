@@ -913,6 +913,99 @@
 }
 
 .variant-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #555;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.variant-selector:hover {
+    border-color: var(--pd-accent);
+    color: var(--pd-accent);
+}
+
+.variant-selector.active {
+    border-color: var(--pd-accent);
+    color: var(--pd-accent);
+    background: rgba(255, 211, 51, 0.08);
+}
+
+.pd-options-row {
+    gap: 10px;
+}
+
+
+
+.rv-stars {
+    color: #ffc107;
+    font-size: 13px
+}
+
+.rv-star-empty {
+    color: #ddd
+}
+
+.rv-time {
+    font-size: 12px;
+    color: #999
+}
+
+.rv-body {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #555
+}
+
+.rv-actions {
+    display: flex;
+    gap: 14px;
+    font-size: 13px
+}
+
+.rv-actions button {
+    background: none !important;
+    border: none !important;
+    color: #888;
+    cursor: pointer;
+    padding: 0 !important;
+}
+
+.rv-actions button.active {
+    color: var(--pd-accent)
+}
+
+.rv-replies {
+    margin-left: 24px;
+    margin-top: 10px
+}
+
+.rv-reply-form-slot textarea,
+.rv-edit-textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px
+}
+
+.pd-thumb-strip {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    overflow-x: auto
+}
+
+/* .variant-selector {
     width: 72px;
     height: 72px;
     object-fit: cover;
@@ -922,13 +1015,35 @@
     opacity: .75;
     transition: all .2s;
     flex-shrink: 0
+} */
+/* Legacy image-square styling removed; variant selector is a text pill now. */
+
+[data-theme="dark"] .variant-selector {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #ccc;
 }
 
-.variant-selector:hover {
-    opacity: 1
+[data-theme="dark"] .variant-selector:hover {
+    border-color: #FFD333;
+    color: #FFD333;
 }
 
-.variant-selector.active {
-    border-color: var(--pd-accent);
-    opacity: 1
+[data-theme="dark"] .variant-selector.active {
+    border-color: #FFD333;
+    color: #FFD333;
+    background: rgba(255, 211, 51, 0.1);
+}
+
+/* Gallery thumbnails */
+.pd-gallery-thumb {
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pd-gallery-thumb:hover {
+    transform: scale(1.05);
+}
+
+.pd-gallery-thumb.active {
+    border-color: #FFD333 !important;
 }
