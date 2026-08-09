@@ -38,7 +38,13 @@ def profile(request):
 @login_required
 @require_POST
 def profile_update(request):
-    data = json.loads(request.body)
+    try:
+        data = json.loads(request.body)
+    except (ValueError, TypeError):
+        return JsonResponse({"ok": False, "error": _("Invalid request data.")}, status=400)
+    if not isinstance(data, dict):
+        return JsonResponse({"ok": False, "error": _("Invalid request data.")}, status=400)
+
     user = request.user
     profile = user.profile
 

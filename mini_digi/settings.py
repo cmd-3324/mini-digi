@@ -18,6 +18,8 @@ from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 OPENROUTER_API_KEY = os.environ.get('OPENROUTER_API_KEY', '')
+
+
 from dotenv import load_dotenv
 load_dotenv(BASE_DIR / ".env")
 # Quick-start development settings - unsuitable for production
@@ -186,7 +188,7 @@ LANGUAGES = [
     ("es", "🇸 Español"),
 ]
 
-LOCALE_PATHS = [BASE_DIR / "locale"]
+LOCALE_PATHS = [BASE_DIR / "locale"] # List because of order
 USE_I18N = True
 USE_TZ = True
 

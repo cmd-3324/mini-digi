@@ -6,6 +6,10 @@ var btnMarkAll = document.getElementById('btnMarkAllRead');
 var btnDeleteAll = document.getElementById('btnDeleteAll');
 var unreadBadge = document.querySelector('.notif-unread-badge');
 var baseUrl = '{% url "dashboard:notifications" %}';
+var markReadUrl = '{% url "dashboard:notification_mark_read" 0 %}';
+var deleteUrl = '{% url "dashboard:notification_delete" 0 %}';
+var markAllUrl = '{% url "dashboard:notification_mark_all_read" %}';
+var deleteAllUrl = '{% url "dashboard:notification_delete_all" %}';
 
 function getParams() {
     var params = new URLSearchParams();
@@ -77,7 +81,7 @@ function rebind() {
             e.preventDefault();
             var id = el.getAttribute('data-id');
             var item = el.closest('.notif-item');
-            postAjax('{% url "dashboard:notification_mark_read" 0 %}'.replace('0', id), function () {
+            postAjax(markReadUrl.replace('0', id), function () {
                 if (item) item.classList.remove('notif-unread');
                 var dot = item ? item.querySelector('.notif-dot') : null;
                 if (dot) dot.remove();
@@ -92,7 +96,7 @@ function rebind() {
             e.preventDefault();
             var id = el.getAttribute('data-id');
             var item = el.closest('.notif-item');
-            postAjax('{% url "dashboard:notification_delete" 0 %}'.replace('0', id), function () {
+            postAjax(deleteUrl.replace('0', id), function () {
                 if (item) {
                     item.style.transition = 'opacity .25s ease, transform .25s ease';
                     item.style.opacity = '0';
@@ -136,7 +140,7 @@ readFilter.addEventListener('change', fetchList);
 
 if (btnMarkAll) {
     btnMarkAll.addEventListener('click', function () {
-        postAjax('{% url "dashboard:notification_mark_all_read" %}', function () {
+        postAjax(markAllUrl, function () {
             container.querySelectorAll('.notif-unread').forEach(function (el) {
                 el.classList.remove('notif-unread');
                 var dot = el.querySelector('.notif-dot');
@@ -149,7 +153,7 @@ if (btnMarkAll) {
 if (btnDeleteAll) {
     btnDeleteAll.addEventListener('click', function () {
         if (!confirm('{% trans "Clear all notifications?" %}')) return;
-        postAjax('{% url "dashboard:notification_delete_all" %}', function () {
+        postAjax(deleteAllUrl, function () {
             fetchList();
         });
     });
