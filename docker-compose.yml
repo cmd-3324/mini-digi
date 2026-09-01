@@ -10,10 +10,14 @@ services:
       MYSQL_PASSWORD: secure_password
       MYSQL_ROOT_PASSWORD: root_secure_password
     ports:
-      - "3327:3327"
+      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
   app:
     build: .
     container_name: minidigi_app
@@ -21,15 +25,17 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
-      DB_NAME: minidigi
+      DB_NAME: mini_digi
       DB_USER: minidigi_user
       DB_PASSWORD: secure_password
       DB_HOST: db
-      DB_PORT: 3327
+      DB_PORT: 3306
     volumes:
       - .:/app
 
 volumes:
   mysql_data:
+    name: mini-digi

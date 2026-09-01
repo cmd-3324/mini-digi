@@ -126,17 +126,6 @@
 │       └── LC_MESSAGES
 │           ├── django.mo
 │           └── django.po
-├── MD
-│   ├── POWERSHELL_7_CMD
-│   │   ├── ChatGPT.md
-│   │   ├── deepseek_powershell_20260802_7e39be.ps1
-│   │   ├── deepseek_powershell_20260802_d15302.ps1
-│   │   ├── powershell-cheatsheet.md
-│   │   └── Working_with_files_and_folders_-_PowerShell.md
-│   ├── deepseek_markdown_20260803_5e783d.md
-│   ├── django.md
-│   ├── mini_digi_commands_reference.md
-│   └── mysql_complete_guide.md
 ├── media
 │   ├── avatars
 │   │   └── Nice-For-cover-image-4k.png
@@ -297,6 +286,7 @@
 │   │   ├── handshake.webp
 │   │   ├── headset.webp
 │   │   ├── heart-minus.webp
+│   │   ├── heart-plus-light.webp
 │   │   ├── heart-plus.webp
 │   │   ├── heart.webp
 │   │   ├── list-sort-ascending.png
@@ -324,8 +314,8 @@
 │   │   ├── scan-search.webp
 │   │   ├── search.webp
 │   │   ├── share-2.webp
+│   │   ├── shopping-cart-light.webp
 │   │   ├── shopping-cart.webp
-│   │   ├── sun (1).webp
 │   │   ├── sun.webp
 │   │   ├── testimonial-1.webp
 │   │   ├── testimonial-2.webp
@@ -376,8 +366,7 @@
 │           └── LICENSE
 ├── structure
 │   ├── flowchart-raw.txt
-│   ├── flowchart.txt
-│   └── flowchart_raw.txt
+│   └── flowchart.txt
 ├── support
 │   ├── migrations
 │   │   └── 0001_initial.py
@@ -530,6 +519,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── allauth
 │   │       │   ├── account
@@ -556,8 +546,7 @@
 │   │       │   │   │   └── userkit.py
 │   │       │   │   ├── management
 │   │       │   │   │   └── commands
-│   │       │   │   │       ├── account_unsetmultipleprimaryemails.py
-│   │       │   │   │       └── compile_with_date.py
+│   │       │   │   │       └── account_unsetmultipleprimaryemails.py
 │   │       │   │   ├── migrations
 │   │       │   │   │   ├── 0001_initial.py
 │   │       │   │   │   ├── 0002_email_max_length.py
@@ -1790,6 +1779,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── annotated_types
 │   │       │   ├── py.typed
@@ -1800,6 +1790,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── anthropic
 │   │       │   ├── _decoders
@@ -2862,6 +2853,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── scm_file_list.json
 │   │       │   ├── scm_version.json
 │   │       │   ├── top_level.txt
@@ -2883,6 +2875,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── build
@@ -2905,6 +2898,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── certifi
 │   │       │   ├── cacert.pem
@@ -2916,6 +2910,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── cffi
@@ -2948,6 +2943,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── channels
@@ -2987,11 +2983,11 @@
 │   │       ├── charset_normalizer
 │   │       │   ├── cli
 │   │       │   ├── api.py
-│   │       │   ├── cd.cp313-win_amd64.pyd
+│   │       │   ├── cd.cp314-win_amd64.pyd
 │   │       │   ├── cd.py
 │   │       │   ├── constant.py
 │   │       │   ├── legacy.py
-│   │       │   ├── md.cp313-win_amd64.pyd
+│   │       │   ├── md.cp314-win_amd64.pyd
 │   │       │   ├── md.py
 │   │       │   ├── models.py
 │   │       │   ├── py.typed
@@ -3004,6 +3000,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── click
@@ -3030,6 +3027,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── colorama
 │   │       │   ├── tests
@@ -3050,6 +3048,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── crispy_bootstrap5
 │   │       │   ├── templates
@@ -3240,6 +3239,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── distro
 │   │       │   ├── distro.py
@@ -3250,6 +3250,7 @@
 │   │       │   ├── LICENSE
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── django
@@ -9354,6 +9355,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── dotenv
 │   │       │   ├── cli.py
@@ -9452,6 +9454,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── fsspec
 │   │       │   ├── implementations
@@ -9517,6 +9520,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── google
 │   │       │   ├── _upb
@@ -10197,6 +10201,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── google_genai-2.10.0.dist-info
@@ -10226,6 +10231,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── hf_xet
@@ -10238,6 +10244,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── httpcore
 │   │       │   ├── _async
@@ -10277,6 +10284,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── httpx
 │   │       │   ├── _transports
@@ -10308,6 +10316,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── huggingface_hub
 │   │       │   ├── _hot_reload
@@ -10521,9 +10530,10 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── jiter
-│   │       │   ├── jiter.cp313-win_amd64.pyd
+│   │       │   ├── jiter.cp314-win_amd64.pyd
 │   │       │   └── py.typed
 │   │       ├── jiter-0.16.0.dist-info
 │   │       │   ├── licenses
@@ -10533,6 +10543,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── livekit
 │   │       │   └── rtc
@@ -10607,29 +10618,6 @@
 │   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
-│   │       ├── mnemonic
-│   │       │   ├── wordlist
-│   │       │   │   ├── chinese_simplified.txt
-│   │       │   │   ├── chinese_traditional.txt
-│   │       │   │   ├── czech.txt
-│   │       │   │   ├── english.txt
-│   │       │   │   ├── french.txt
-│   │       │   │   ├── italian.txt
-│   │       │   │   ├── japanese.txt
-│   │       │   │   ├── korean.txt
-│   │       │   │   ├── portuguese.txt
-│   │       │   │   ├── russian.txt
-│   │       │   │   ├── spanish.txt
-│   │       │   │   └── turkish.txt
-│   │       │   ├── mnemonic.py
-│   │       │   └── py.typed
-│   │       ├── mnemonic-0.21.dist-info
-│   │       │   ├── INSTALLER
-│   │       │   ├── LICENSE
-│   │       │   ├── METADATA
-│   │       │   ├── RECORD
-│   │       │   ├── REQUESTED
-│   │       │   └── WHEEL
 │   │       ├── mysqlclient-2.2.8.dist-info
 │   │       │   ├── licenses
 │   │       │   │   └── LICENSE
@@ -10648,7 +10636,7 @@
 │   │       │   │   └── FLAG.py
 │   │       │   ├── _exceptions.py
 │   │       │   ├── _mysql.c
-│   │       │   ├── _mysql.cp313-win_amd64.pyd
+│   │       │   ├── _mysql.cp314-win_amd64.pyd
 │   │       │   ├── connections.py
 │   │       │   ├── converters.py
 │   │       │   ├── cursors.py
@@ -10810,27 +10798,27 @@
 │   │       │   │   ├── _internal.pyi
 │   │       │   │   ├── _methods.py
 │   │       │   │   ├── _methods.pyi
-│   │       │   │   ├── _multiarray_tests.cp313-win_amd64.lib
-│   │       │   │   ├── _multiarray_tests.cp313-win_amd64.pyd
-│   │       │   │   ├── _multiarray_umath.cp313-win_amd64.lib
-│   │       │   │   ├── _multiarray_umath.cp313-win_amd64.pyd
-│   │       │   │   ├── _operand_flag_tests.cp313-win_amd64.lib
-│   │       │   │   ├── _operand_flag_tests.cp313-win_amd64.pyd
-│   │       │   │   ├── _rational_tests.cp313-win_amd64.lib
-│   │       │   │   ├── _rational_tests.cp313-win_amd64.pyd
-│   │       │   │   ├── _simd.cp313-win_amd64.lib
-│   │       │   │   ├── _simd.cp313-win_amd64.pyd
+│   │       │   │   ├── _multiarray_tests.cp314-win_amd64.lib
+│   │       │   │   ├── _multiarray_tests.cp314-win_amd64.pyd
+│   │       │   │   ├── _multiarray_umath.cp314-win_amd64.lib
+│   │       │   │   ├── _multiarray_umath.cp314-win_amd64.pyd
+│   │       │   │   ├── _operand_flag_tests.cp314-win_amd64.lib
+│   │       │   │   ├── _operand_flag_tests.cp314-win_amd64.pyd
+│   │       │   │   ├── _rational_tests.cp314-win_amd64.lib
+│   │       │   │   ├── _rational_tests.cp314-win_amd64.pyd
+│   │       │   │   ├── _simd.cp314-win_amd64.lib
+│   │       │   │   ├── _simd.cp314-win_amd64.pyd
 │   │       │   │   ├── _simd.pyi
 │   │       │   │   ├── _string_helpers.py
 │   │       │   │   ├── _string_helpers.pyi
-│   │       │   │   ├── _struct_ufunc_tests.cp313-win_amd64.lib
-│   │       │   │   ├── _struct_ufunc_tests.cp313-win_amd64.pyd
+│   │       │   │   ├── _struct_ufunc_tests.cp314-win_amd64.lib
+│   │       │   │   ├── _struct_ufunc_tests.cp314-win_amd64.pyd
 │   │       │   │   ├── _type_aliases.py
 │   │       │   │   ├── _type_aliases.pyi
 │   │       │   │   ├── _ufunc_config.py
 │   │       │   │   ├── _ufunc_config.pyi
-│   │       │   │   ├── _umath_tests.cp313-win_amd64.lib
-│   │       │   │   ├── _umath_tests.cp313-win_amd64.pyd
+│   │       │   │   ├── _umath_tests.cp314-win_amd64.lib
+│   │       │   │   ├── _umath_tests.cp314-win_amd64.pyd
 │   │       │   │   ├── _umath_tests.pyi
 │   │       │   │   ├── arrayprint.py
 │   │       │   │   ├── arrayprint.pyi
@@ -11147,8 +11135,8 @@
 │   │       │   │   ├── _helper.pyi
 │   │       │   │   ├── _pocketfft.py
 │   │       │   │   ├── _pocketfft.pyi
-│   │       │   │   ├── _pocketfft_umath.cp313-win_amd64.lib
-│   │       │   │   └── _pocketfft_umath.cp313-win_amd64.pyd
+│   │       │   │   ├── _pocketfft_umath.cp314-win_amd64.lib
+│   │       │   │   └── _pocketfft_umath.cp314-win_amd64.pyd
 │   │       │   ├── lib
 │   │       │   │   ├── tests
 │   │       │   │   │   ├── data
@@ -11253,11 +11241,11 @@
 │   │       │   │   │   └── test_regression.py
 │   │       │   │   ├── _linalg.py
 │   │       │   │   ├── _linalg.pyi
-│   │       │   │   ├── _umath_linalg.cp313-win_amd64.lib
-│   │       │   │   ├── _umath_linalg.cp313-win_amd64.pyd
+│   │       │   │   ├── _umath_linalg.cp314-win_amd64.lib
+│   │       │   │   ├── _umath_linalg.cp314-win_amd64.pyd
 │   │       │   │   ├── _umath_linalg.pyi
-│   │       │   │   ├── lapack_lite.cp313-win_amd64.lib
-│   │       │   │   ├── lapack_lite.cp313-win_amd64.pyd
+│   │       │   │   ├── lapack_lite.cp314-win_amd64.lib
+│   │       │   │   ├── lapack_lite.cp314-win_amd64.pyd
 │   │       │   │   └── lapack_lite.pyi
 │   │       │   ├── ma
 │   │       │   │   ├── tests
@@ -11359,39 +11347,39 @@
 │   │       │   │   │   ├── test_regression.py
 │   │       │   │   │   ├── test_seed_sequence.py
 │   │       │   │   │   └── test_smoke.py
-│   │       │   │   ├── _bounded_integers.cp313-win_amd64.lib
-│   │       │   │   ├── _bounded_integers.cp313-win_amd64.pyd
+│   │       │   │   ├── _bounded_integers.cp314-win_amd64.lib
+│   │       │   │   ├── _bounded_integers.cp314-win_amd64.pyd
 │   │       │   │   ├── _bounded_integers.pxd
 │   │       │   │   ├── _bounded_integers.pyi
-│   │       │   │   ├── _common.cp313-win_amd64.lib
-│   │       │   │   ├── _common.cp313-win_amd64.pyd
+│   │       │   │   ├── _common.cp314-win_amd64.lib
+│   │       │   │   ├── _common.cp314-win_amd64.pyd
 │   │       │   │   ├── _common.pxd
 │   │       │   │   ├── _common.pyi
-│   │       │   │   ├── _generator.cp313-win_amd64.lib
-│   │       │   │   ├── _generator.cp313-win_amd64.pyd
+│   │       │   │   ├── _generator.cp314-win_amd64.lib
+│   │       │   │   ├── _generator.cp314-win_amd64.pyd
 │   │       │   │   ├── _generator.pyi
-│   │       │   │   ├── _mt19937.cp313-win_amd64.lib
-│   │       │   │   ├── _mt19937.cp313-win_amd64.pyd
+│   │       │   │   ├── _mt19937.cp314-win_amd64.lib
+│   │       │   │   ├── _mt19937.cp314-win_amd64.pyd
 │   │       │   │   ├── _mt19937.pyi
-│   │       │   │   ├── _pcg64.cp313-win_amd64.lib
-│   │       │   │   ├── _pcg64.cp313-win_amd64.pyd
+│   │       │   │   ├── _pcg64.cp314-win_amd64.lib
+│   │       │   │   ├── _pcg64.cp314-win_amd64.pyd
 │   │       │   │   ├── _pcg64.pyi
-│   │       │   │   ├── _philox.cp313-win_amd64.lib
-│   │       │   │   ├── _philox.cp313-win_amd64.pyd
+│   │       │   │   ├── _philox.cp314-win_amd64.lib
+│   │       │   │   ├── _philox.cp314-win_amd64.pyd
 │   │       │   │   ├── _philox.pyi
 │   │       │   │   ├── _pickle.py
 │   │       │   │   ├── _pickle.pyi
-│   │       │   │   ├── _sfc64.cp313-win_amd64.lib
-│   │       │   │   ├── _sfc64.cp313-win_amd64.pyd
+│   │       │   │   ├── _sfc64.cp314-win_amd64.lib
+│   │       │   │   ├── _sfc64.cp314-win_amd64.pyd
 │   │       │   │   ├── _sfc64.pyi
-│   │       │   │   ├── bit_generator.cp313-win_amd64.lib
-│   │       │   │   ├── bit_generator.cp313-win_amd64.pyd
+│   │       │   │   ├── bit_generator.cp314-win_amd64.lib
+│   │       │   │   ├── bit_generator.cp314-win_amd64.pyd
 │   │       │   │   ├── bit_generator.pxd
 │   │       │   │   ├── bit_generator.pyi
 │   │       │   │   ├── c_distributions.pxd
 │   │       │   │   ├── LICENSE.md
-│   │       │   │   ├── mtrand.cp313-win_amd64.lib
-│   │       │   │   ├── mtrand.cp313-win_amd64.pyd
+│   │       │   │   ├── mtrand.cp314-win_amd64.lib
+│   │       │   │   ├── mtrand.cp314-win_amd64.pyd
 │   │       │   │   └── mtrand.pyi
 │   │       │   ├── rec
 │   │       │   ├── strings
@@ -11648,6 +11636,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── numpy.libs
 │   │       │   ├── libscipy_openblas64_-b788215d9d47792bcba3a2e2a7114320.dll
@@ -12947,29 +12936,30 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── PIL
-│   │       │   ├── _avif.cp313-win_amd64.pyd
+│   │       │   ├── _avif.cp314-win_amd64.pyd
 │   │       │   ├── _avif.pyi
 │   │       │   ├── _binary.py
 │   │       │   ├── _deprecate.py
-│   │       │   ├── _imaging.cp313-win_amd64.pyd
+│   │       │   ├── _imaging.cp314-win_amd64.pyd
 │   │       │   ├── _imaging.pyi
-│   │       │   ├── _imagingcms.cp313-win_amd64.pyd
+│   │       │   ├── _imagingcms.cp314-win_amd64.pyd
 │   │       │   ├── _imagingcms.pyi
-│   │       │   ├── _imagingft.cp313-win_amd64.pyd
+│   │       │   ├── _imagingft.cp314-win_amd64.pyd
 │   │       │   ├── _imagingft.pyi
-│   │       │   ├── _imagingmath.cp313-win_amd64.pyd
+│   │       │   ├── _imagingmath.cp314-win_amd64.pyd
 │   │       │   ├── _imagingmath.pyi
-│   │       │   ├── _imagingmorph.cp313-win_amd64.pyd
+│   │       │   ├── _imagingmorph.cp314-win_amd64.pyd
 │   │       │   ├── _imagingmorph.pyi
-│   │       │   ├── _imagingtk.cp313-win_amd64.pyd
+│   │       │   ├── _imagingtk.cp314-win_amd64.pyd
 │   │       │   ├── _imagingtk.pyi
 │   │       │   ├── _tkinter_finder.py
 │   │       │   ├── _typing.py
 │   │       │   ├── _util.py
 │   │       │   ├── _version.py
-│   │       │   ├── _webp.cp313-win_amd64.pyd
+│   │       │   ├── _webp.cp314-win_amd64.pyd
 │   │       │   ├── _webp.pyi
 │   │       │   ├── AvifImagePlugin.py
 │   │       │   ├── BdfFontFile.py
@@ -13599,33 +13589,8 @@
 │   │       │   ├── LICENSE
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
-│   │       │   └── WHEEL
-│   │       ├── psycopg2
-│   │       │   ├── _ipaddress.py
-│   │       │   ├── _json.py
-│   │       │   ├── _psycopg.cp313-win_amd64.pyd
-│   │       │   ├── _range.py
-│   │       │   ├── errorcodes.py
-│   │       │   ├── errors.py
-│   │       │   ├── extensions.py
-│   │       │   ├── extras.py
-│   │       │   ├── pool.py
-│   │       │   ├── sql.py
-│   │       │   └── tz.py
-│   │       ├── psycopg2_binary-2.9.12.dist-info
-│   │       │   ├── licenses
-│   │       │   │   └── LICENSE
-│   │       │   ├── DELVEWHEEL
-│   │       │   ├── INSTALLER
-│   │       │   ├── METADATA
-│   │       │   ├── RECORD
 │   │       │   ├── REQUESTED
-│   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
-│   │       ├── psycopg2_binary.libs
-│   │       │   ├── libcrypto-3-x64-a8c62806cccbc4a22cef346d1ae1b324.dll
-│   │       │   ├── libpq-2c01e3753ccf0ab29f038d1bd2d7989e.dll
-│   │       │   └── libssl-3-x64-ff5ae557d601c07531017fe042fe59c6.dll
 │   │       ├── pyasn1
 │   │       │   ├── codec
 │   │       │   │   ├── ber
@@ -13664,6 +13629,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   ├── WHEEL
 │   │       │   └── zip-safe
@@ -13805,6 +13771,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   ├── WHEEL
 │   │       │   └── zip-safe
@@ -13822,6 +13789,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── pydantic
@@ -13937,9 +13905,10 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── pydantic_core
-│   │       │   ├── _pydantic_core.cp313-win_amd64.pyd
+│   │       │   ├── _pydantic_core.cp314-win_amd64.pyd
 │   │       │   ├── _pydantic_core.pyi
 │   │       │   ├── core_schema.py
 │   │       │   └── py.typed
@@ -13951,6 +13920,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── pymysql
 │   │       │   ├── constants
@@ -13989,6 +13959,7 @@
 │   │       │   ├── LICENSE
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── pytailwindcss
 │   │       │   ├── exceptions.py
@@ -14001,6 +13972,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── python_decouple-3.8.dist-info
 │   │       │   ├── INSTALLER
@@ -14026,6 +13998,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── redis
@@ -14179,6 +14152,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── rest_framework
@@ -14989,6 +14963,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── sniffio
@@ -15004,6 +14979,7 @@
 │   │       │   ├── LICENSE.MIT
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── sqlparse
@@ -15035,6 +15011,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── starlette
 │   │       │   ├── middleware
@@ -15077,6 +15054,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── tailwind
 │   │       │   ├── app_template_v3
@@ -15152,6 +15130,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── tqdm
@@ -15193,6 +15172,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── types_protobuf-7.34.1.20260518.dist-info
@@ -15201,6 +15181,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── typing_extensions-4.15.0.dist-info
@@ -15209,6 +15190,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── typing_inspection
 │   │       │   ├── introspection.py
@@ -15221,6 +15203,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── tzdata
 │   │       │   ├── zoneinfo
@@ -15857,6 +15840,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── urllib3
@@ -15903,6 +15887,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── websockets
 │   │       │   ├── asyncio
@@ -15948,7 +15933,7 @@
 │   │       │   ├── py.typed
 │   │       │   ├── server.py
 │   │       │   ├── speedups.c
-│   │       │   ├── speedups.cp313-win_amd64.pyd
+│   │       │   ├── speedups.cp314-win_amd64.pyd
 │   │       │   ├── speedups.pyi
 │   │       │   ├── streams.py
 │   │       │   ├── typing.py
@@ -15962,6 +15947,7 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── wheel
@@ -15985,9 +15971,10 @@
 │   │       │   ├── INSTALLER
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
 │   │       │   └── WHEEL
 │   │       ├── yaml
-│   │       │   ├── _yaml.cp313-win_amd64.pyd
+│   │       │   ├── _yaml.cp314-win_amd64.pyd
 │   │       │   ├── composer.py
 │   │       │   ├── constructor.py
 │   │       │   ├── cyaml.py
@@ -16004,8 +15991,8 @@
 │   │       │   ├── scanner.py
 │   │       │   ├── serializer.py
 │   │       │   └── tokens.py
-│   │       ├── 81d243bd2c585b0f4821__mypyc.cp313-win_amd64.pyd
-│   │       ├── _cffi_backend.cp313-win_amd64.pyd
+│   │       ├── 81d243bd2c585b0f4821__mypyc.cp314-win_amd64.pyd
+│   │       ├── _cffi_backend.cp314-win_amd64.pyd
 │   │       ├── decouple.py
 │   │       ├── distutils-precedence.pth
 │   │       └── typing_extensions.py
@@ -16029,7 +16016,7 @@
 │   │   ├── pip-compile.exe
 │   │   ├── pip-sync.exe
 │   │   ├── pip.exe
-│   │   ├── pip3.13.exe
+│   │   ├── pip3.14.exe
 │   │   ├── pip3.exe
 │   │   ├── pyproject-build.exe
 │   │   ├── python.exe
@@ -16051,7 +16038,6 @@
 ├── HOW_TO_INTEGRATE.md
 ├── LICENSE
 ├── manage.py
-├── MD - Shortcut.lnk
 ├── mini_digi_backup.sql
 ├── README.md
 ├── requirements.txt

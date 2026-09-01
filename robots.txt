@@ -1,2 +1,15 @@
 User-agent : *
 Disallow: /
+
+User-agent: Googlebot
+Allow: /
+# This allows a specici bot- excluding conventional bots 
+User-agent: Bingbot
+Allow: /
+
+# crawl tells bot, how many seconds to wait for each req for each page
+Crawl-delay: 10
+
+Sitemap: https://maxcodez.ir/sitemap.xml
+
+Disallow: /.env           # Critical security
