@@ -9,7 +9,8 @@ jobs:
     env:
       RCLONE_CONFIG_GDRIVE_TYPE: drive
       RCLONE_CONFIG_GDRIVE_SERVICE_ACCOUNT_FILE: /tmp/gdrive-sa.json
-      RCLONE_CONFIG_GDRIVE_SCOPE: drive.file
+      RCLONE_CONFIG_GDRIVE_SCOPE: drive
+      RCLONE_CONFIG_GDRIVE_ROOT_FOLDER_ID: "1w68D9vthFpi_nH80XGXrwUW1uHK5ffHj"
 
     steps:
       - uses: actions/checkout@v4
