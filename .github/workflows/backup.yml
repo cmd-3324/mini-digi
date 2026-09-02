@@ -21,7 +21,7 @@ jobs:
         run: echo "stamp=$(TZ='Asia/Tehran' date +'%Y-%m-%d_%H-%M-%S')" >> "$GITHUB_OUTPUT"
 
       - name: Zip repo
-        run: zip -r "backup_${{ steps.ts.outputs.stamp }}.zip" . -x ".git/*" -x ".github/*"
+        run: zip -r "backup_${{ steps.ts.outputs.stamp }}.zip" . -x ".git/*" -x ".github/*" -x "venv/*" -x "__pycache__/*" -x "*/__pycache__/*" -x "media/*" -x "node_modules/*"
 
       - name: Install rclone
         run: curl https://rclone.org/install.sh | sudo bash
