@@ -30,7 +30,7 @@ jobs:
         run: echo '${{ secrets.GDRIVE_SA_KEY }}' > /tmp/gdrive-sa.json
 
       - name: Upload new backup
-        run: rclone copy "backup_${{ steps.ts.outputs.stamp }}.zip" gdrive:
+        run: 'rclone copy "backup_${{ steps.ts.outputs.stamp }}.zip" gdrive:'
 
       - name: Delete backups older than 25 days
-        run: rclone delete gdrive: --min-age 25d
+        run: 'rclone delete gdrive: --min-age 25d'
