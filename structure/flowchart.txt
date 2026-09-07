@@ -1,10 +1,9 @@
 📁
 ├── 📁 .github
-│   ├── 📁 workflows
-│   │   ├── 📝 docker-build.yml
-│   │   ├── 📝 notification-sender.yml
-│   │   └── 📝 test.yml
-│   └── 📝 workflow-notifications.yml
+│   └── 📁 workflows
+│       ├── 📝 docker-build.yml
+│       ├── 📝 notification-sender.yml
+│       └── 📝 test.yml
 ├── 📁 cart
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
@@ -56,50 +55,54 @@
 │   │   └── 🖼️ Nice-For-cover-image-4k.png
 │   ├── 📁 categories
 │   │   ├── 🖼️ cat-1.jpg
+│   │   ├── 🖼️ cat-1.webp
 │   │   ├── 🖼️ cat-2.jpg
+│   │   ├── 🖼️ cat-2.webp
 │   │   ├── 🖼️ cat-3.jpg
-│   │   └── 🖼️ cat-4.jpg
+│   │   ├── 🖼️ cat-3.webp
+│   │   ├── 🖼️ cat-4.jpg
+│   │   └── 🖼️ cat-4.webp
 │   └── 📁 products
 │       ├── 📁 blender
-│       │   ├── 🖼️ default.jpg
-│       │   └── 🖼️ variant_2.jpg
+│       │   ├── 🖼️ default.webp
+│       │   └── 🖼️ variant_2.webp
 │       ├── 📁 coffee-maker
-│       │   ├── 🖼️ default.jpg
-│       │   └── 🖼️ variant_2.jpg
+│       │   ├── 🖼️ default.webp
+│       │   └── 🖼️ variant_2.webp
 │       ├── 📁 cookware-set
-│       │   └── 🖼️ default.jpg
+│       │   └── 🖼️ default.webp
 │       ├── 📁 django-for-beginners
-│       │   └── 🖼️ default.jpg
+│       │   └── 🖼️ default.webp
 │       ├── 📁 iphone-15
-│       │   ├── 🖼️ default.jpg
-│       │   ├── 🖼️ variant_2.jpg
-│       │   └── 🖼️ variant_3.jpg
+│       │   ├── 🖼️ default.webp
+│       │   ├── 🖼️ variant_2.webp
+│       │   └── 🖼️ variant_3.webp
 │       ├── 📁 laptop-asus
-│       │   ├── 🖼️ default.jpg
-│       │   ├── 🖼️ variant_2.jpg
-│       │   └── 🖼️ variant_3.jpg
+│       │   ├── 🖼️ default.webp
+│       │   ├── 🖼️ variant_2.webp
+│       │   └── 🖼️ variant_3.webp
 │       ├── 📁 mens-jacket
-│       │   ├── 🖼️ default.jpg
-│       │   ├── 🖼️ variant_2.jpg
-│       │   ├── 🖼️ variant_3.jpg
-│       │   └── 🖼️ variant_4.jpg
+│       │   ├── 🖼️ default.webp
+│       │   ├── 🖼️ variant_2.webp
+│       │   ├── 🖼️ variant_3.webp
+│       │   └── 🖼️ variant_4.webp
 │       ├── 📁 python-programming
-│       │   └── 🖼️ default.jpg
+│       │   └── 🖼️ default.webp
 │       ├── 📁 running-shoes
-│       │   ├── 🖼️ default.jpg
-│       │   ├── 🖼️ variant_2.jpg
-│       │   └── 🖼️ variant_3.jpg
+│       │   ├── 🖼️ default.webp
+│       │   ├── 🖼️ variant_2.webp
+│       │   └── 🖼️ variant_3.webp
 │       ├── 📁 samsung-tv-55
-│       │   ├── 🖼️ default.jpg
-│       │   └── 🖼️ variant_2.jpg
+│       │   ├── 🖼️ default.webp
+│       │   └── 🖼️ variant_2.webp
 │       ├── 📁 wireless-mouse
-│       │   ├── 🖼️ default.jpg
-│       │   ├── 🖼️ variant_2.jpg
-│       │   └── 🖼️ variant_3.jpg
+│       │   ├── 🖼️ default.webp
+│       │   ├── 🖼️ variant_2.webp
+│       │   └── 🖼️ variant_3.webp
 │       └── 📁 womens-dress
-│           ├── 🖼️ default.jpg
-│           ├── 🖼️ variant_2.jpg
-│           └── 🖼️ variant_3.jpg
+│           ├── 🖼️ default.webp
+│           ├── 🖼️ variant_2.webp
+│           └── 🖼️ variant_3.webp
 ├── 📁 migrations
 │   └── 🐍 0001_initial.py
 ├── 📁 mini_digi

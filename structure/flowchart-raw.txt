@@ -75,11 +75,10 @@
 │   ├── ORIG_HEAD
 │   └── packed-refs
 ├── .github
-│   ├── workflows
-│   │   ├── docker-build.yml
-│   │   ├── notification-sender.yml
-│   │   └── test.yml
-│   └── workflow-notifications.yml
+│   └── workflows
+│       ├── docker-build.yml
+│       ├── notification-sender.yml
+│       └── test.yml
 ├── cart
 │   ├── migrations
 │   │   ├── 0001_initial.py
@@ -131,50 +130,54 @@
 │   │   └── Nice-For-cover-image-4k.png
 │   ├── categories
 │   │   ├── cat-1.jpg
+│   │   ├── cat-1.webp
 │   │   ├── cat-2.jpg
+│   │   ├── cat-2.webp
 │   │   ├── cat-3.jpg
-│   │   └── cat-4.jpg
+│   │   ├── cat-3.webp
+│   │   ├── cat-4.jpg
+│   │   └── cat-4.webp
 │   └── products
 │       ├── blender
-│       │   ├── default.jpg
-│       │   └── variant_2.jpg
+│       │   ├── default.webp
+│       │   └── variant_2.webp
 │       ├── coffee-maker
-│       │   ├── default.jpg
-│       │   └── variant_2.jpg
+│       │   ├── default.webp
+│       │   └── variant_2.webp
 │       ├── cookware-set
-│       │   └── default.jpg
+│       │   └── default.webp
 │       ├── django-for-beginners
-│       │   └── default.jpg
+│       │   └── default.webp
 │       ├── iphone-15
-│       │   ├── default.jpg
-│       │   ├── variant_2.jpg
-│       │   └── variant_3.jpg
+│       │   ├── default.webp
+│       │   ├── variant_2.webp
+│       │   └── variant_3.webp
 │       ├── laptop-asus
-│       │   ├── default.jpg
-│       │   ├── variant_2.jpg
-│       │   └── variant_3.jpg
+│       │   ├── default.webp
+│       │   ├── variant_2.webp
+│       │   └── variant_3.webp
 │       ├── mens-jacket
-│       │   ├── default.jpg
-│       │   ├── variant_2.jpg
-│       │   ├── variant_3.jpg
-│       │   └── variant_4.jpg
+│       │   ├── default.webp
+│       │   ├── variant_2.webp
+│       │   ├── variant_3.webp
+│       │   └── variant_4.webp
 │       ├── python-programming
-│       │   └── default.jpg
+│       │   └── default.webp
 │       ├── running-shoes
-│       │   ├── default.jpg
-│       │   ├── variant_2.jpg
-│       │   └── variant_3.jpg
+│       │   ├── default.webp
+│       │   ├── variant_2.webp
+│       │   └── variant_3.webp
 │       ├── samsung-tv-55
-│       │   ├── default.jpg
-│       │   └── variant_2.jpg
+│       │   ├── default.webp
+│       │   └── variant_2.webp
 │       ├── wireless-mouse
-│       │   ├── default.jpg
-│       │   ├── variant_2.jpg
-│       │   └── variant_3.jpg
+│       │   ├── default.webp
+│       │   ├── variant_2.webp
+│       │   └── variant_3.webp
 │       └── womens-dress
-│           ├── default.jpg
-│           ├── variant_2.jpg
-│           └── variant_3.jpg
+│           ├── default.webp
+│           ├── variant_2.webp
+│           └── variant_3.webp
 ├── migrations
 │   └── 0001_initial.py
 ├── mini_digi
@@ -13063,6 +13066,12 @@
 │   │       │   └── zip-safe
 │   │       ├── pip
 │   │       │   ├── _internal
+│   │       │   │   ├── build_env
+│   │       │   │   │   ├── base.py
+│   │       │   │   │   ├── installer.py
+│   │       │   │   │   ├── noop.py
+│   │       │   │   │   ├── venv.py
+│   │       │   │   │   └── virtual.py
 │   │       │   │   ├── cli
 │   │       │   │   │   ├── autocompletion.py
 │   │       │   │   │   ├── base_command.py
@@ -13202,7 +13211,6 @@
 │   │       │   │   │   ├── mercurial.py
 │   │       │   │   │   ├── subversion.py
 │   │       │   │   │   └── versioncontrol.py
-│   │       │   │   ├── build_env.py
 │   │       │   │   ├── cache.py
 │   │       │   │   ├── configuration.py
 │   │       │   │   ├── exceptions.py
@@ -13247,6 +13255,7 @@
 │   │       │   │   │   ├── LICENSE
 │   │       │   │   │   └── py.typed
 │   │       │   │   ├── idna
+│   │       │   │   │   ├── cli.py
 │   │       │   │   │   ├── codec.py
 │   │       │   │   │   ├── compat.py
 │   │       │   │   │   ├── core.py
@@ -13288,6 +13297,7 @@
 │   │       │   │   ├── pkg_resources
 │   │       │   │   │   └── LICENSE
 │   │       │   │   ├── platformdirs
+│   │       │   │   │   ├── _xdg.py
 │   │       │   │   │   ├── android.py
 │   │       │   │   │   ├── api.py
 │   │       │   │   │   ├── LICENSE
@@ -13327,6 +13337,7 @@
 │   │       │   │   │   └── py.typed
 │   │       │   │   ├── requests
 │   │       │   │   │   ├── _internal_utils.py
+│   │       │   │   │   ├── _types.py
 │   │       │   │   │   ├── adapters.py
 │   │       │   │   │   ├── api.py
 │   │       │   │   │   ├── auth.py
@@ -13339,6 +13350,7 @@
 │   │       │   │   │   ├── LICENSE
 │   │       │   │   │   ├── models.py
 │   │       │   │   │   ├── packages.py
+│   │       │   │   │   ├── py.typed
 │   │       │   │   │   ├── sessions.py
 │   │       │   │   │   ├── status_codes.py
 │   │       │   │   │   ├── structures.py
@@ -13489,10 +13501,11 @@
 │   │       │   │   │   ├── poolmanager.py
 │   │       │   │   │   ├── py.typed
 │   │       │   │   │   └── response.py
+│   │       │   │   ├── bom.cdx.json
 │   │       │   │   ├── README.rst
 │   │       │   │   └── vendor.txt
 │   │       │   └── py.typed
-│   │       ├── pip-26.1.2.dist-info
+│   │       ├── pip-26.2.1.dist-info
 │   │       │   ├── licenses
 │   │       │   │   ├── src
 │   │       │   │   │   └── pip
@@ -13590,6 +13603,100 @@
 │   │       │   ├── METADATA
 │   │       │   ├── RECORD
 │   │       │   ├── REQUESTED
+│   │       │   └── WHEEL
+│   │       ├── psycopg
+│   │       │   ├── crdb
+│   │       │   │   ├── _types.py
+│   │       │   │   └── connection.py
+│   │       │   ├── pq
+│   │       │   │   ├── _debug.py
+│   │       │   │   ├── _enums.py
+│   │       │   │   ├── _pq_ctypes.py
+│   │       │   │   ├── _pq_ctypes.pyi
+│   │       │   │   ├── abc.py
+│   │       │   │   ├── misc.py
+│   │       │   │   └── pq_ctypes.py
+│   │       │   ├── types
+│   │       │   │   ├── array.py
+│   │       │   │   ├── bool.py
+│   │       │   │   ├── composite.py
+│   │       │   │   ├── datetime.py
+│   │       │   │   ├── enum.py
+│   │       │   │   ├── hstore.py
+│   │       │   │   ├── json.py
+│   │       │   │   ├── multirange.py
+│   │       │   │   ├── net.py
+│   │       │   │   ├── none.py
+│   │       │   │   ├── numeric.py
+│   │       │   │   ├── numpy.py
+│   │       │   │   ├── range.py
+│   │       │   │   ├── shapely.py
+│   │       │   │   ├── string.py
+│   │       │   │   └── uuid.py
+│   │       │   ├── _acompat.py
+│   │       │   ├── _adapters_map.py
+│   │       │   ├── _capabilities.py
+│   │       │   ├── _cmodule.py
+│   │       │   ├── _column.py
+│   │       │   ├── _compat.py
+│   │       │   ├── _connection_base.py
+│   │       │   ├── _connection_info.py
+│   │       │   ├── _conninfo_attempts.py
+│   │       │   ├── _conninfo_attempts_async.py
+│   │       │   ├── _conninfo_utils.py
+│   │       │   ├── _copy.py
+│   │       │   ├── _copy_async.py
+│   │       │   ├── _copy_base.py
+│   │       │   ├── _cursor_base.py
+│   │       │   ├── _dns.py
+│   │       │   ├── _encodings.py
+│   │       │   ├── _enums.py
+│   │       │   ├── _oids.py
+│   │       │   ├── _pipeline.py
+│   │       │   ├── _pipeline_async.py
+│   │       │   ├── _pipeline_base.py
+│   │       │   ├── _preparing.py
+│   │       │   ├── _py_transformer.py
+│   │       │   ├── _queries.py
+│   │       │   ├── _server_cursor.py
+│   │       │   ├── _server_cursor_async.py
+│   │       │   ├── _server_cursor_base.py
+│   │       │   ├── _struct.py
+│   │       │   ├── _tpc.py
+│   │       │   ├── _transformer.py
+│   │       │   ├── _tstrings.py
+│   │       │   ├── _typeinfo.py
+│   │       │   ├── _typemod.py
+│   │       │   ├── _tz.py
+│   │       │   ├── _wrappers.py
+│   │       │   ├── abc.py
+│   │       │   ├── adapt.py
+│   │       │   ├── client_cursor.py
+│   │       │   ├── connection.py
+│   │       │   ├── connection_async.py
+│   │       │   ├── conninfo.py
+│   │       │   ├── copy.py
+│   │       │   ├── cursor.py
+│   │       │   ├── cursor_async.py
+│   │       │   ├── dbapi20.py
+│   │       │   ├── errors.py
+│   │       │   ├── generators.py
+│   │       │   ├── postgres.py
+│   │       │   ├── py.typed
+│   │       │   ├── raw_cursor.py
+│   │       │   ├── rows.py
+│   │       │   ├── sql.py
+│   │       │   ├── transaction.py
+│   │       │   ├── version.py
+│   │       │   └── waiting.py
+│   │       ├── psycopg-3.3.5.dist-info
+│   │       │   ├── licenses
+│   │       │   │   └── LICENSE.txt
+│   │       │   ├── INSTALLER
+│   │       │   ├── METADATA
+│   │       │   ├── RECORD
+│   │       │   ├── REQUESTED
+│   │       │   ├── top_level.txt
 │   │       │   └── WHEEL
 │   │       ├── pyasn1
 │   │       │   ├── codec

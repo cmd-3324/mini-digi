@@ -45,13 +45,17 @@ class Command(BaseCommand):
         self.stdout.write("✅ Images copied")
 
         with connection.cursor() as cursor:
-            cursor.execute("SET FOREIGN_KEY_CHECKS = 0")
-            cursor.execute("TRUNCATE TABLE reviews_comment")
-            cursor.execute("TRUNCATE TABLE shop_product_favorited_by")
-            cursor.execute("TRUNCATE TABLE shop_productvariant")
-            cursor.execute("TRUNCATE TABLE shop_product")
-            cursor.execute("TRUNCATE TABLE shop_category")
-            cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
+            if connection.vendor == 'mysql':
+                cursor.execute("SET FOREIGN_KEY_CHECKS = 0")
+                cursor.execute("TRUNCATE TABLE reviews_comment")
+                cursor.execute("TRUNCATE TABLE shop_product_favorited_by")
+                cursor.execute("TRUNCATE TABLE shop_productvariant")
+                cursor.execute("TRUNCATE TABLE shop_product")
+                cursor.execute("TRUNCATE TABLE shop_category")
+                cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
+            else:
+                # PostgreSQL uses CASCADE to bypass FK constraints
+                cursor.execute("TRUNCATE TABLE reviews_comment, shop_product_favorited_by, shop_productvariant, shop_product, shop_category CASCADE;")
         for old_folder in media_prod.glob("*"):
             if old_folder.is_dir():
                 shutil.rmtree(old_folder)
