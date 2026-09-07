@@ -1,0 +1,34 @@
+name: Backup to Drive
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'  # Daily at 3 AM UTC
+#
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    env:
+      RCLONE_CONFIG_GDRIVE_TYPE: drive
+      RCLONE_CONFIG_GDRIVE_CLIENT_ID: ${{ secrets.MINIDIGI_CLIENT_ID }}
+      RCLONE_CONFIG_GDRIVE_CLIENT_SECRET: ${{ secrets.MINIDIGI_CLIENT_SECRET }}
+      RCLONE_CONFIG_GDRIVE_TOKEN: ${{ secrets.RCLONE_TOKEN_MINIDIGI }}
+      RCLONE_CONFIG_GDRIVE_ROOT_FOLDER_ID: "1ELKZwcEmgmW3_rEEIHgq140ehDVtapgh"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set timestamp
+        id: ts
+        run: echo "stamp=$(TZ='Asia/Tehran' date +'%Y-%m-%d_%H-%M-%S')" >> "$GITHUB_OUTPUT"
+
+      - name: Zip repo
+        run: zip -r "backup_${{ steps.ts.outputs.stamp }}.zip" . -x ".git/*" -x ".github/*"
+
+      - name: Install rclone
+        run: curl https://rclone.org/install.sh | sudo bash
+
+      - name: Upload new backup
+        run: 'rclone copy "backup_${{ steps.ts.outputs.stamp }}.zip" gdrive:'
+
+      - name: Delete backups older than 25 days
+        run: 'rclone delete gdrive: --min-age 25d'
