@@ -1,4 +1,3 @@
- 
 # shop/views/chat.py
 # pip install openai   (OpenRouter uses the OpenAI-compatible SDK)
 
@@ -14,7 +13,7 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
 )
 
-MODEL = "openrouter/free"   # auto-picks a working free model each request
+MODEL = "openrouter/free"  # auto-picks a working free model each request
 # Or pin a specific one, e.g.:
 # MODEL = "meta-llama/llama-3.3-70b-instruct:free"
 # MODEL = "google/gemini-2.0-flash-exp:free"
@@ -24,9 +23,9 @@ MODEL = "openrouter/free"   # auto-picks a working free model each request
 @require_POST
 def chat_view(request):
     try:
-        body       = json.loads(request.body)
-        messages   = body.get("messages", [])[-20:]
-        system     = body.get("system", "You are Vex, a helpful shopping assistant.")
+        body = json.loads(request.body)
+        messages = body.get("messages", [])[-20:]
+        system = body.get("system", "You are Vex, a helpful shopping assistant.")
         session_id = body.get("session_id", "")
 
         if not messages:

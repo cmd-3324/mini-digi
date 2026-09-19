@@ -5,8 +5,8 @@ from .variant import ProductVariant
 
 
 __all__ = [
-    'Category',
-    'Product',
-    'Newsletter',
-    'ProductVariant',
+    "Category",
+    "Product",
+    "Newsletter",
+    "ProductVariant",
 ]

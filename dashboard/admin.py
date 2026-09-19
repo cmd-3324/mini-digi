@@ -23,6 +23,7 @@ class ProfileAdmin(admin.ModelAdmin):
     def has_avatar(self, obj):
         return "✅" if obj.avatar else "❌"
 
+
 @admin.register(Notification)
 class NotificationAdmin(admin.ModelAdmin):
     list_display = (

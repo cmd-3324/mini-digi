@@ -2,30 +2,30 @@ from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
-from shop.models import Product,ProductVariant
+from shop.models import Product, ProductVariant
 
 
 class Comment(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comments")
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments")
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name="comments"
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments"
+    )
     parent = models.ForeignKey(
         "self", on_delete=models.CASCADE, null=True, blank=True, related_name="replies"
     )
     rate = models.DecimalField(
-        max_digits=2, 
-        decimal_places=1, 
+        max_digits=2,
+        decimal_places=1,
         default=0.0,
-        validators=[MinValueValidator(0), MaxValueValidator(5)]
-        )
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+    )
     likes = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, 
-        blank=True, 
-        related_name="liked_comments"
+        settings.AUTH_USER_MODEL, blank=True, related_name="liked_comments"
     )
     dislikes = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, 
-        blank=True, 
-        related_name="disliked_comments"
+        settings.AUTH_USER_MODEL, blank=True, related_name="disliked_comments"
     )
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

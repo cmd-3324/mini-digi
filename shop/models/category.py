@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import get_language
 from django.utils.translation import gettext as _
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
@@ -16,4 +17,3 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
- 

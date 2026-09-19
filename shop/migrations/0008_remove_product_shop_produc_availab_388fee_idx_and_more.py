@@ -4,54 +4,53 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0007_category_name_de_category_name_es_and_more'),
+        ("shop", "0007_category_name_de_category_name_es_and_more"),
     ]
 
     operations = [
         migrations.RemoveIndex(
-            model_name='product',
-            name='shop_produc_availab_388fee_idx',
+            model_name="product",
+            name="shop_produc_availab_388fee_idx",
         ),
         migrations.RemoveIndex(
-            model_name='product',
-            name='shop_produc_purchas_503ea6_idx',
+            model_name="product",
+            name="shop_produc_purchas_503ea6_idx",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='color',
+            model_name="product",
+            name="color",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='description_de',
+            model_name="product",
+            name="description_de",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='description_es',
+            model_name="product",
+            name="description_es",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='favorited_by',
+            model_name="product",
+            name="favorited_by",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='favorites_count',
+            model_name="product",
+            name="favorites_count",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='name_de',
+            model_name="product",
+            name="name_de",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='name_es',
+            model_name="product",
+            name="name_es",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='purchased_count',
+            model_name="product",
+            name="purchased_count",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='size',
+            model_name="product",
+            name="size",
         ),
     ]

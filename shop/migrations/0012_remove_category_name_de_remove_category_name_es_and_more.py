@@ -4,52 +4,51 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0011_product_meta_description_product_meta_title_and_more'),
+        ("shop", "0011_product_meta_description_product_meta_title_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='category',
-            name='name_de',
+            model_name="category",
+            name="name_de",
         ),
         migrations.RemoveField(
-            model_name='category',
-            name='name_es',
+            model_name="category",
+            name="name_es",
         ),
         migrations.RemoveField(
-            model_name='category',
-            name='name_fr',
+            model_name="category",
+            name="name_fr",
         ),
         migrations.RemoveField(
-            model_name='category',
-            name='name_ru',
+            model_name="category",
+            name="name_ru",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='description_fr',
+            model_name="product",
+            name="description_fr",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='description_ru',
+            model_name="product",
+            name="description_ru",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='name_fr',
+            model_name="product",
+            name="name_fr",
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='name_ru',
+            model_name="product",
+            name="name_ru",
         ),
         migrations.AddField(
-            model_name='product',
-            name='meta_description',
-            field=models.CharField(blank=True, default='', max_length=160),
+            model_name="product",
+            name="meta_description",
+            field=models.CharField(blank=True, default="", max_length=160),
         ),
         migrations.AddField(
-            model_name='product',
-            name='meta_title',
-            field=models.CharField(blank=True, default='', max_length=70),
+            model_name="product",
+            name="meta_title",
+            field=models.CharField(blank=True, default="", max_length=70),
         ),
     ]

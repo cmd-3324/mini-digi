@@ -7,6 +7,8 @@ from shop.models import Category, Product, ProductVariant
 
 from django.db import connection
 import itertools
+
+
 class Command(BaseCommand):
     help = "Seed demo categories and products with multiple variants"
     STATIC_PRODUCT_IMAGES = [f"product-{i}.webp" for i in range(1, 10)]
@@ -40,12 +42,10 @@ class Command(BaseCommand):
             if src.exists() and not dst.exists():
                 shutil.copy(src, dst)
 
-        
-
         self.stdout.write("✅ Images copied")
 
         with connection.cursor() as cursor:
-            if connection.vendor == 'mysql':
+            if connection.vendor == "mysql":
                 cursor.execute("SET FOREIGN_KEY_CHECKS = 0")
                 cursor.execute("TRUNCATE TABLE reviews_comment")
                 cursor.execute("TRUNCATE TABLE shop_product_favorited_by")
@@ -55,14 +55,24 @@ class Command(BaseCommand):
                 cursor.execute("SET FOREIGN_KEY_CHECKS = 1")
             else:
                 # PostgreSQL uses CASCADE to bypass FK constraints
-                cursor.execute("TRUNCATE TABLE reviews_comment, shop_product_favorited_by, shop_productvariant, shop_product, shop_category CASCADE;")
+                cursor.execute(
+                    "TRUNCATE TABLE reviews_comment, shop_product_favorited_by, shop_productvariant, shop_product, shop_category CASCADE;"
+                )
         for old_folder in media_prod.glob("*"):
             if old_folder.is_dir():
                 shutil.rmtree(old_folder)
-        electronics = Category.objects.create(name="Electronics", slug="electronics", image="categories/cat-1.webp")
-        clothing = Category.objects.create(name="Clothing", slug="clothing", image="categories/cat-2.webp")
-        home = Category.objects.create(name="Home & Kitchen", slug="home", image="categories/cat-3.webp")
-        books = Category.objects.create(name="Books", slug="books", image="categories/cat-4.webp")
+        electronics = Category.objects.create(
+            name="Electronics", slug="electronics", image="categories/cat-1.webp"
+        )
+        clothing = Category.objects.create(
+            name="Clothing", slug="clothing", image="categories/cat-2.webp"
+        )
+        home = Category.objects.create(
+            name="Home & Kitchen", slug="home", image="categories/cat-3.webp"
+        )
+        books = Category.objects.create(
+            name="Books", slug="books", image="categories/cat-4.webp"
+        )
 
         products_data = [
             {
@@ -71,12 +81,12 @@ class Command(BaseCommand):
                 "price": 25000000,
                 "desc": "Powerful laptop for work/gaming",
                 "stock": 15,
-                "rate" : 4,
+                "rate": 4,
                 "variants": [
                     {"color": "silver", "size": "", "image": "products/product-1.webp"},
                     {"color": "gray", "size": "", "image": ""},
                     {"color": "gold", "size": "", "image": ""},
-                ]
+                ],
             },
             {
                 "name": "iPhone 15",
@@ -84,24 +94,24 @@ class Command(BaseCommand):
                 "price": 45000000,
                 "desc": "Latest Apple smartphone",
                 "stock": 8,
-                "rate" : 3,
+                "rate": 3,
                 "variants": [
                     {"color": "black", "size": "", "image": "products/product-2.webp"},
                     {"color": "white", "size": "", "image": ""},
                     {"color": "gold", "size": "", "image": ""},
-                ]
+                ],
             },
             {
-                "name": "Samsung TV 55\"",
+                "name": 'Samsung TV 55"',
                 "cat": electronics,
                 "price": 32000000,
                 "desc": "4K Smart TV",
                 "stock": 5,
-                "rate" : 1.5,
+                "rate": 1.5,
                 "variants": [
                     {"color": "gray", "size": "", "image": "products/product-3.webp"},
                     {"color": "black", "size": "", "image": ""},
-                ]
+                ],
             },
             {
                 "name": "Wireless Mouse",
@@ -109,12 +119,12 @@ class Command(BaseCommand):
                 "price": 450000,
                 "desc": "Ergonomic wireless mouse",
                 "stock": 50,
-                "rate" : 4,
+                "rate": 4,
                 "variants": [
                     {"color": "black", "size": "", "image": "products/product-4.webp"},
                     {"color": "white", "size": "", "image": ""},
                     {"color": "red", "size": "", "image": ""},
-                ]
+                ],
             },
             {
                 "name": "Men's Jacket",
@@ -122,13 +132,13 @@ class Command(BaseCommand):
                 "price": 1200000,
                 "desc": "Winter warm jacket",
                 "stock": 30,
-                "rate" : 4,
+                "rate": 4,
                 "variants": [
                     {"color": "black", "size": "S", "image": "products/product-5.webp"},
                     {"color": "black", "size": "M", "image": ""},
                     {"color": "black", "size": "L", "image": ""},
                     {"color": "blue", "size": "M", "image": ""},
-                ]
+                ],
             },
             {
                 "name": "Women's Dress",
@@ -136,12 +146,12 @@ class Command(BaseCommand):
                 "price": 890000,
                 "desc": "Summer collection dress",
                 "stock": 25,
-                "rate" : 3.5,
+                "rate": 3.5,
                 "variants": [
                     {"color": "red", "size": "M", "image": "products/product-6.webp"},
                     {"color": "blue", "size": "S", "image": ""},
                     {"color": "green", "size": "L", "image": ""},
-                ]
+                ],
             },
             {
                 "name": "Running Shoes",
@@ -149,12 +159,16 @@ class Command(BaseCommand):
                 "price": 2100000,
                 "desc": "Lightweight sports shoes",
                 "stock": 20,
-                "rate" : 3.5,
+                "rate": 3.5,
                 "variants": [
-                    {"color": "white", "size": "42", "image": "products/product-7.webp"},
+                    {
+                        "color": "white",
+                        "size": "42",
+                        "image": "products/product-7.webp",
+                    },
                     {"color": "black", "size": "42", "image": ""},
                     {"color": "white", "size": "44", "image": ""},
-                ]
+                ],
             },
             {
                 "name": "Coffee Maker",
@@ -162,11 +176,11 @@ class Command(BaseCommand):
                 "price": 5600000,
                 "desc": "Automatic espresso machine",
                 "stock": 12,
-                "rate" : 3.5,
+                "rate": 3.5,
                 "variants": [
                     {"color": "silver", "size": "", "image": "products/product-8.webp"},
                     {"color": "black", "size": "", "image": ""},
-                ]
+                ],
             },
             {
                 "name": "Blender",
@@ -174,11 +188,11 @@ class Command(BaseCommand):
                 "price": 3200000,
                 "desc": "High-speed kitchen blender",
                 "stock": 18,
-                "rate" : 3.5,
+                "rate": 3.5,
                 "variants": [
                     {"color": "white", "size": "", "image": "products/product-1.webp"},
                     {"color": "black", "size": "", "image": ""},
-                ]
+                ],
             },
             {
                 "name": "Cookware Set",
@@ -186,10 +200,14 @@ class Command(BaseCommand):
                 "price": 4500000,
                 "desc": "10-piece non-stick set",
                 "stock": 10,
-                "rate" : 3.5,
+                "rate": 3.5,
                 "variants": [
-                    {"color": "stainless", "size": "", "image": "products/product-2.webp"},
-                ]
+                    {
+                        "color": "stainless",
+                        "size": "",
+                        "image": "products/product-2.webp",
+                    },
+                ],
             },
             {
                 "name": "Python Programming",
@@ -197,10 +215,10 @@ class Command(BaseCommand):
                 "price": 350000,
                 "desc": "Learn Python programming",
                 "stock": 40,
-                "rate" : 3.5,
+                "rate": 3.5,
                 "variants": [
                     {"color": "", "size": "", "image": "products/product-3.webp"},
-                ]
+                ],
             },
             {
                 "name": "Django for Beginners",
@@ -208,10 +226,10 @@ class Command(BaseCommand):
                 "price": 280000,
                 "desc": "Build web apps with Django",
                 "stock": 35,
-                "rate" : 3.5,
+                "rate": 3.5,
                 "variants": [
                     {"color": "", "size": "", "image": "products/product-4.webp"},
-                ]
+                ],
             },
         ]
 
@@ -231,9 +249,13 @@ class Command(BaseCommand):
             product_folder.mkdir(parents=True, exist_ok=True)
 
             for i, v_data in enumerate(p_data["variants"]):
-                img_name = v_data["image"].rsplit("/", 1)[-1] if v_data["image"] else next(image_cycle)
+                img_name = (
+                    v_data["image"].rsplit("/", 1)[-1]
+                    if v_data["image"]
+                    else next(image_cycle)
+                )
                 src_file = static_img / img_name
-                new_name = "default.webp" if i == 0 else f"variant_{i+1}.webp"
+                new_name = "default.webp" if i == 0 else f"variant_{i + 1}.webp"
                 db_image_path = ""
                 if src_file.exists():
                     shutil.copy(src_file, product_folder / new_name)
@@ -255,4 +277,8 @@ class Command(BaseCommand):
             product.food_pairing = random.choice(self.FOOD_SAMPLES)
             product.save()
 
-        self.stdout.write(self.style.SUCCESS("✅ 4 categories + products with multiple variants seeded!"))
+        self.stdout.write(
+            self.style.SUCCESS(
+                "✅ 4 categories + products with multiple variants seeded!"
+            )
+        )

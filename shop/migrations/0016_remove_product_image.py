@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0015_productvariant_is_default_alter_product_slug_and_more'),
+        ("shop", "0015_productvariant_is_default_alter_product_slug_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='product',
-            name='image',
+            model_name="product",
+            name="image",
         ),
     ]

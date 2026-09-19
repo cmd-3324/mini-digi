@@ -1,52 +1,63 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+
 def variant_image_path(instance, filename):
     return f"products/{instance.product_id}/{filename}"
+
+
 class ProductVariant(models.Model):
     product = models.ForeignKey(
-        'Product', on_delete=models.CASCADE, related_name='variants'
+        "Product", on_delete=models.CASCADE, related_name="variants"
     )
     is_active = models.BooleanField(default=True)
-    is_default = models.BooleanField(default=False)   
+    is_default = models.BooleanField(default=False)
     sku = models.CharField(max_length=100, unique=True, blank=True, null=True)
     size = models.CharField(max_length=20, blank=True, default="")
     color = models.CharField(max_length=50, blank=True, default="")
     rate = models.DecimalField(
-    max_digits=2, 
-    decimal_places=1, 
-    default=0.0,
-    validators=[MinValueValidator(0), MaxValueValidator(5)]
+        max_digits=2,
+        decimal_places=1,
+        default=0.0,
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
     )
-    
+
     stock = models.PositiveIntegerField(default=0)
     price_override = models.DecimalField(
-        max_digits=12, decimal_places=0, blank=True, null=True,
-        help_text="Leave blank to use the main product's price"
+        max_digits=12,
+        decimal_places=0,
+        blank=True,
+        null=True,
+        help_text="Leave blank to use the main product's price",
     )
-    
-    
+
     image = models.ImageField(upload_to=variant_image_path, blank=True, null=True)
-    
+
     def save(self, *args, **kwargs):
-            if self.is_default:
-                ProductVariant.objects.filter(
-                    product=self.product, is_default=True
-                ).exclude(pk=self.pk).update(is_default=False)
-            super().save(*args, **kwargs)
-            
+        if self.is_default:
+            ProductVariant.objects.filter(
+                product=self.product, is_default=True
+            ).exclude(pk=self.pk).update(is_default=False)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         # Example: "T-Shirt - Blue / Large"
         attrs = []
-        if self.color: attrs.append(self.color)
-        if self.size: attrs.append(self.size)
+        if self.color:
+            attrs.append(self.color)
+        if self.size:
+            attrs.append(self.size)
         attr_string = " / ".join(attrs) if attrs else "Default"
         return f"{self.product.name} - {attr_string}"
 
     @property
     def final_price(self):
         # If a specific price is set for this variant, use it. Otherwise, use the main product price.
-        return self.price_override if self.price_override is not None else self.product.price
+        return (
+            self.price_override
+            if self.price_override is not None
+            else self.product.price
+        )
 
     @property
     def is_in_stock(self):

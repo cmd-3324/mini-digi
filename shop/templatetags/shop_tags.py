@@ -1,13 +1,14 @@
 from django import template
 from urllib.parse import urlencode
+
 # from shop.models import Products
 # from shop.models.product import Product
 register = template.Library()
 CURRENCY_SYMBOLS = {
-    'USD': '$',
-    'EUR': '€',
-    'GBP': '£',
-    'CAD': 'C$',
+    "USD": "$",
+    "EUR": "€",
+    "GBP": "£",
+    "CAD": "C$",
 }
 
 
@@ -23,10 +24,9 @@ def qs(context, **kwargs):
     return params.urlencode()
 
 
-
 @register.filter
 def currency_symbol(currency_code):
-    return CURRENCY_SYMBOLS.get(currency_code, '$')
+    return CURRENCY_SYMBOLS.get(currency_code, "$")
 
 
 # @register.simple_tag(takes_context=True)

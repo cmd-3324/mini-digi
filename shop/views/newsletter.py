@@ -26,7 +26,9 @@ def subscribe(request):
     try:
         send_mail(
             subject=_("Welcome to MiniDigi Newsletter!"),
-            message=_("Hi there,\n\nThank you for subscribing to our newsletter!\n\nBest regards,\nMiniDigi Team"),
+            message=_(
+                "Hi there,\n\nThank you for subscribing to our newsletter!\n\nBest regards,\nMiniDigi Team"
+            ),
             from_email=settings.NEWSLETTER_FROM_EMAIL,
             recipient_list=[email],
             fail_silently=False,

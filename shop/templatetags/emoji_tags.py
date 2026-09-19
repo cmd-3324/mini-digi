@@ -3,6 +3,7 @@ import html
 
 register = template.Library()
 
+
 @register.filter
 def decode_emoji(value):
     if value:

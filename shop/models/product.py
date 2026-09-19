@@ -4,6 +4,7 @@ from django.utils.translation import get_language
 from .category import Category
 from django.utils.text import slugify
 
+
 class Product(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name="products"
@@ -18,7 +19,7 @@ class Product(models.Model):
     )
     stock = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=True)
-    
+
     created = models.DateTimeField(auto_now_add=True)
     color = models.CharField(max_length=50, blank=True, default="")
     size = models.CharField(max_length=10, blank=True, default="")
@@ -31,7 +32,11 @@ class Product(models.Model):
 
     @property
     def display_image(self):
-        variant = self.variants.filter(is_active=True, is_default=True).exclude(image="").first()
+        variant = (
+            self.variants.filter(is_active=True, is_default=True)
+            .exclude(image="")
+            .first()
+        )
         if not variant:
             variant = self.variants.filter(is_active=True).exclude(image="").first()
         return variant.image if variant else None
@@ -39,30 +44,36 @@ class Product(models.Model):
     @property
     def default_variant(self):
         return self.variants.filter(is_default=True).first() or self.variants.first()
+
     @property
     def review_count(self):
         return self.comments.filter(parent__isnull=True).count()
 
-
     @property
     def translated_name(self):
-        
+
         from django.utils.translation import gettext as _
+
         return _(self.name)
 
     @property
     def translated_description(self):
         from django.utils.translation import gettext as _
+
         return _(self.description)
+
     @property
     def translated_tasting_notes(self):
         from django.utils.translation import gettext as _
+
         return _(self.tasting_notes)
 
     @property
     def translated_food_pairing(self):
         from django.utils.translation import gettext as _
+
         return _(self.food_pairing)
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
@@ -70,4 +81,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
- 

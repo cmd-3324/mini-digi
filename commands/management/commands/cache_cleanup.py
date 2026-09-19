@@ -23,9 +23,7 @@ class Command(BaseCommand):
                     cache_path = os.path.join(root, dir_name)
                     try:
                         shutil.rmtree(cache_path)
-                        self.stdout.write(
-                            self.style.SUCCESS(f"Removed: {cache_path}")
-                        )
+                        self.stdout.write(self.style.SUCCESS(f"Removed: {cache_path}"))
                         deleted_count += 1
                     except Exception as e:
                         self.stderr.write(
@@ -33,5 +31,7 @@ class Command(BaseCommand):
                         )
 
         self.stdout.write(
-            self.style.NOTICE(f"\nCleanup complete! Removed {deleted_count} __pycache__ directories.")
+            self.style.NOTICE(
+                f"\nCleanup complete! Removed {deleted_count} __pycache__ directories."
+            )
         )

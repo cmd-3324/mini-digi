@@ -9,12 +9,15 @@ urlpatterns = [
     path("shop/", products.product_list, name="product_list"),
     path("shop/<slug:slug>/", products.product_detail, name="product_detail"),
     path("contact/", products.contact, name="contact"),
-    path("search/autocomplete/", products.product_search_autocomplete, name="product_search_autocomplete"),
+    path(
+        "search/autocomplete/",
+        products.product_search_autocomplete,
+        name="product_search_autocomplete",
+    ),
     path("newsletter/subscribe/", newsletter.subscribe, name="newsletter_subscribe"),
     path("about/", products.about, name="about"),
     path("favorite/<slug:slug>/", products.toggle_favorite, name="toggle_favorite"),
-    path("help/",products.help, name="help"),
+    path("help/", products.help, name="help"),
     path("FAQs/", products.FAQs, name="FAQs"),
     path("currency/set/", products.set_currency, name="set_currency"),
-]   
- 
+]

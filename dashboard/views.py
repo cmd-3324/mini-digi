@@ -12,6 +12,8 @@ from django.db.models import Q
 from django.urls import reverse
 from support.models import Ticket
 from .models import Notification
+
+
 @login_required
 def home(request):
     orders = request.user.orders.order_by("-created_at")[:5]
@@ -21,18 +23,26 @@ def home(request):
         "completed_orders": request.user.orders.filter(is_paid=True).count(),
         "favorites_count": request.user.favorite_products.count(),
     }
-    return render(request, "dashboard/home.html", {
-        "orders": orders,
-        "stats": stats,
-    })
+    return render(
+        request,
+        "dashboard/home.html",
+        {
+            "orders": orders,
+            "stats": stats,
+        },
+    )
 
 
 @login_required
 def profile(request):
     profile = request.user.profile
-    return render(request, "dashboard/profile.html", {
-        "profile": profile,
-    })
+    return render(
+        request,
+        "dashboard/profile.html",
+        {
+            "profile": profile,
+        },
+    )
 
 
 @login_required
@@ -41,9 +51,13 @@ def profile_update(request):
     try:
         data = json.loads(request.body)
     except (ValueError, TypeError):
-        return JsonResponse({"ok": False, "error": _("Invalid request data.")}, status=400)
+        return JsonResponse(
+            {"ok": False, "error": _("Invalid request data.")}, status=400
+        )
     if not isinstance(data, dict):
-        return JsonResponse({"ok": False, "error": _("Invalid request data.")}, status=400)
+        return JsonResponse(
+            {"ok": False, "error": _("Invalid request data.")}, status=400
+        )
 
     user = request.user
     profile = user.profile
@@ -71,7 +85,9 @@ def change_password(request):
     if form.is_valid():
         user = form.save()
         update_session_auth_hash(request, user)
-        return JsonResponse({"ok": True, "message": _("Password changed successfully!")})
+        return JsonResponse(
+            {"ok": True, "message": _("Password changed successfully!")}
+        )
     errors = []
     for field_errors in form.errors.values():
         errors.extend(field_errors)
@@ -94,10 +110,16 @@ def wishlist(request):
     products = products.order_by(sort)
 
     page_obj = Paginator(products, 12).get_page(request.GET.get("page"))
-    return render(request, "dashboard/wishlist.html", {
-        "products": page_obj, "page_obj": page_obj,
-        "q": q, "sort": sort,
-    })
+    return render(
+        request,
+        "dashboard/wishlist.html",
+        {
+            "products": page_obj,
+            "page_obj": page_obj,
+            "q": q,
+            "sort": sort,
+        },
+    )
 
 
 @login_required
@@ -109,18 +131,23 @@ def wishlist_search_ajax(request):
             Q(name__icontains=q) | Q(name_fr__icontains=q) | Q(name_ru__icontains=q)
         )[:8]
         for p in products:
-            results.append({
-                "id": p.pk,
-                "name": p.translated_name,
-                "price": f"{p.price:,.0f}",
-                "image": p.image.url if p.image else "",
-                "url": reverse("shop:product_detail", args=[p.pk]),
-            })
+            results.append(
+                {
+                    "id": p.pk,
+                    "name": p.translated_name,
+                    "price": f"{p.price:,.0f}",
+                    "image": p.image.url if p.image else "",
+                    "url": reverse("shop:product_detail", args=[p.pk]),
+                }
+            )
     return JsonResponse({"results": results})
+
 
 @login_required
 def orders_list(request):
-    orders = request.user.orders.prefetch_related("items__product").order_by("-created_at")
+    orders = request.user.orders.prefetch_related("items__product").order_by(
+        "-created_at"
+    )
 
     q = request.GET.get("q", "").strip()
     if q:
@@ -141,10 +168,17 @@ def orders_list(request):
     orders = orders.order_by(sort)
 
     page_obj = Paginator(orders, 10).get_page(request.GET.get("page"))
-    return render(request, "dashboard/orders.html", {
-        "orders": page_obj, "page_obj": page_obj,
-        "q": q, "status": status, "sort": sort,
-    })
+    return render(
+        request,
+        "dashboard/orders.html",
+        {
+            "orders": page_obj,
+            "page_obj": page_obj,
+            "q": q,
+            "status": status,
+            "sort": sort,
+        },
+    )
 
 
 @login_required
@@ -155,23 +189,31 @@ def orders_search_ajax(request):
         filters = Q(items__product__name__icontains=q)
         if q.isdigit():
             filters |= Q(pk=int(q))
-        for o in request.user.orders.filter(filters).distinct().order_by("-created_at")[:8]:
-            results.append({
-                "id": o.pk,
-                "date": o.created_at.strftime("%b %d, %Y"),
-                "total": f"{o.total_price:,.0f}",
-                "is_paid": o.is_paid,
-                "url": reverse("dashboard:order_detail", args=[o.pk]),
-            })
+        for o in (
+            request.user.orders.filter(filters).distinct().order_by("-created_at")[:8]
+        ):
+            results.append(
+                {
+                    "id": o.pk,
+                    "date": o.created_at.strftime("%b %d, %Y"),
+                    "total": f"{o.total_price:,.0f}",
+                    "is_paid": o.is_paid,
+                    "url": reverse("dashboard:order_detail", args=[o.pk]),
+                }
+            )
     return JsonResponse({"results": results})
 
 
 @login_required
 def order_detail(request, pk):
     order = get_object_or_404(Order, pk=pk, user=request.user)
-    return render(request, "dashboard/order_detail.html", {
-        "order": order,
-    })
+    return render(
+        request,
+        "dashboard/order_detail.html",
+        {
+            "order": order,
+        },
+    )
 
 
 @login_required
@@ -179,17 +221,25 @@ def payment(request, pk):
     order = get_object_or_404(Order, pk=pk, user=request.user)
     if order.is_paid:
         return redirect("dashboard:order_detail", pk=order.pk)
-    return render(request, "dashboard/payment.html", {
-        "order": order,
-    })
+    return render(
+        request,
+        "dashboard/payment.html",
+        {
+            "order": order,
+        },
+    )
 
 
 @login_required
 def payment_gateway(request, pk):
     order = get_object_or_404(Order, pk=pk, user=request.user)
-    return render(request, "dashboard/payment_gateway.html", {
-        "order": order,
-    })
+    return render(
+        request,
+        "dashboard/payment_gateway.html",
+        {
+            "order": order,
+        },
+    )
 
 
 @login_required
@@ -199,15 +249,20 @@ def payment_return(request, pk):
     if status == "success":
         order.is_paid = True
         order.save()
-    return render(request, "dashboard/payment_return.html", {
-        "order": order,
-        "success": status == "success",
-    })
+    return render(
+        request,
+        "dashboard/payment_return.html",
+        {
+            "order": order,
+            "success": status == "success",
+        },
+    )
+
 
 @login_required
 def dashboard_tickets(request):
-    tickets = Ticket.objects.filter(user=request.user).order_by('-created_at')
-    return render(request, 'dashboard/tickets.html', {'tickets': tickets})
+    tickets = Ticket.objects.filter(user=request.user).order_by("-created_at")
+    return render(request, "dashboard/tickets.html", {"tickets": tickets})
 
 
 @login_required
@@ -224,18 +279,20 @@ def notifications_list(request):
     elif filter_read == "read":
         notifs = notifs.filter(is_read=True)
 
-    unread_count = Notification.objects.filter(
-        user=request.user, is_read=False
-    ).count()
+    unread_count = Notification.objects.filter(user=request.user, is_read=False).count()
 
     page_obj = Paginator(notifs, 15).get_page(request.GET.get("page"))
-    return render(request, "dashboard/notifications_list.html", {
-        "notifications": page_obj,
-        "page_obj": page_obj,
-        "unread_count": unread_count,
-        "filter_type": filter_type,
-        "filter_read": filter_read,
-    })
+    return render(
+        request,
+        "dashboard/notifications_list.html",
+        {
+            "notifications": page_obj,
+            "page_obj": page_obj,
+            "unread_count": unread_count,
+            "filter_type": filter_type,
+            "filter_read": filter_read,
+        },
+    )
 
 
 @login_required
@@ -248,16 +305,24 @@ def notification_mark_read(request, pk):
         unread = Notification.objects.filter(user=request.user, is_read=False).count()
         return JsonResponse({"ok": True, "unread_count": unread})
     except Notification.DoesNotExist:
-        return JsonResponse({"ok": False, "error": "Notification not found."}, status=404)
+        return JsonResponse(
+            {"ok": False, "error": "Notification not found."}, status=404
+        )
 
 
 @login_required
 @require_POST
 def notification_mark_all_read(request):
-    updated = Notification.objects.filter(
-        user=request.user, is_read=False
-    ).update(is_read=True)
-    return JsonResponse({"ok": True, "message": f"{updated} notification(s) marked as read.", "unread_count": 0})
+    updated = Notification.objects.filter(user=request.user, is_read=False).update(
+        is_read=True
+    )
+    return JsonResponse(
+        {
+            "ok": True,
+            "message": f"{updated} notification(s) marked as read.",
+            "unread_count": 0,
+        }
+    )
 
 
 @login_required
@@ -269,7 +334,9 @@ def notification_delete(request, pk):
         unread = Notification.objects.filter(user=request.user, is_read=False).count()
         return JsonResponse({"ok": True, "unread_count": unread})
     except Notification.DoesNotExist:
-        return JsonResponse({"ok": False, "error": "Notification not found."}, status=404)
+        return JsonResponse(
+            {"ok": False, "error": "Notification not found."}, status=404
+        )
 
 
 @login_required

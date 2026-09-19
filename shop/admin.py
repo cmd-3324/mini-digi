@@ -1,19 +1,20 @@
 from django.contrib import admin
 from .models import Product, Category, Newsletter, ProductVariant
 
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug')
+    list_display = ("name", "slug")
     prepopulated_fields = {"slug": ("name",)}
-    
-    fieldsets = (
-        ("Category Info", {"fields": ("name", "slug", "image")}),
-    )
+
+    fieldsets = (("Category Info", {"fields": ("name", "slug", "image")}),)
+
+
 @admin.register(Newsletter)
 class NewsletterAdmin(admin.ModelAdmin):
-    list_display = ('email', 'is_active')
-    list_filter = ('is_active',)
-    search_fields = ('email',)
+    list_display = ("email", "is_active")
+    list_filter = ("is_active",)
+    search_fields = ("email",)
 
 
 @admin.register(Product)
@@ -22,7 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ("price", "available")
     prepopulated_fields = {"slug": ("name",)}
     readonly_fields = ("created",)
-    
+
     fieldsets = (
         ("English", {"fields": ("name", "description")}),
         ("Details", {"fields": ("category", "price", "stock", "available")}),
@@ -33,11 +34,9 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
 
-
-
 @admin.register(ProductVariant)
 class ProductVariantAdmin(admin.ModelAdmin):
-    list_display = ('product', 'size', 'color', 'stock', 'final_price', 'is_active')
-    list_filter = ('is_active', 'is_default', 'product__category')
-    search_fields = ('product__name', 'sku', 'size', 'color')
-    list_editable = ('stock', 'is_active')
+    list_display = ("product", "size", "color", "stock", "final_price", "is_active")
+    list_filter = ("is_active", "is_default", "product__category")
+    search_fields = ("product__name", "sku", "size", "color")
+    list_editable = ("stock", "is_active")

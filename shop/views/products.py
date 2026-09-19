@@ -4,8 +4,10 @@ from django.core.cache import cache
 from django.http import JsonResponse
 from django.db.models import Q
 from django.urls import reverse
-from shop.models import Product, Category , ProductVariant
+from shop.models import Product, Category, ProductVariant
 from django.http import HttpResponseRedirect
+
+
 def index(request):
     categories = Category.objects.all()
     products = Product.objects.filter(available=True).order_by("-created")[:8]
@@ -17,6 +19,7 @@ def index(request):
             "products": products,
         },
     )
+
 
 def product_list(request):
     categories = Category.objects.all()
@@ -36,23 +39,25 @@ def product_list(request):
             min_p, max_p = price.split("-")
             # Check if ANY variant's price OR the base product price falls in the range
             products = products.filter(
-                Q(variants__price_override__gte=min_p, variants__price_override__lte=max_p) |
-                Q(price__gte=min_p, price__lte=max_p)
+                Q(
+                    variants__price_override__gte=min_p,
+                    variants__price_override__lte=max_p,
+                )
+                | Q(price__gte=min_p, price__lte=max_p)
             ).distinct()
         except (ValueError, TypeError):
             pass
 
     color_list = request.GET.getlist("color")
     if color_list:
-        products = products.filter(variants__color__in=color_list, 
-        variants__is_active=True
+        products = products.filter(
+            variants__color__in=color_list, variants__is_active=True
         ).distinct()
 
     size_list = request.GET.getlist("size")
     if size_list:
         products = products.filter(
-        variants__size__in=size_list, 
-        variants__is_active=True
+            variants__size__in=size_list, variants__is_active=True
         ).distinct()
 
     sort = request.GET.get("sort", "latest")
@@ -76,20 +81,14 @@ def product_list(request):
     page_obj = paginator.get_page(page_number)
 
     available_colors = (
-        ProductVariant.objects.filter(
-            product__available=True,
-            is_active=True
-        )
+        ProductVariant.objects.filter(product__available=True, is_active=True)
         .exclude(color="")
         .values_list("color", flat=True)
         .distinct()
         .order_by("color")
     )
     available_sizes = (
-        ProductVariant.objects.filter(
-            product__available=True,
-            is_active=True
-        )
+        ProductVariant.objects.filter(product__available=True, is_active=True)
         .exclude(size="")
         .values_list("size", flat=True)
         .distinct()
@@ -115,20 +114,27 @@ def product_list(request):
         },
     )
 
+
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     variants = product.variants.filter(is_active=True)
     gallery = variants.exclude(image="")
     has_options = variants.filter(Q(color__gt="") | Q(size__gt="")).exists()
-    return render(request, "shop/product_detail.html", {
-        "product": product,
-        "variants": variants,
-        "gallery": gallery,
-        "has_options": has_options,
-    })
+    return render(
+        request,
+        "shop/product_detail.html",
+        {
+            "product": product,
+            "variants": variants,
+            "gallery": gallery,
+            "has_options": has_options,
+        },
+    )
+
 
 def contact(request):
     return render(request, "shop/contact.html")
+
 
 def product_search_autocomplete(request):
     q = request.GET.get("q", "").strip()
@@ -153,12 +159,19 @@ def product_search_autocomplete(request):
             }
         )
     return JsonResponse({"results": results})
+
+
 def FAQs(request):
-    return render(request,"components/FAQs.html")
+    return render(request, "components/FAQs.html")
+
+
 def about(request):
     return render(request, "shop/about.html")
+
+
 def help(request):
     return render(request, "components/helps.html")
+
 
 def toggle_favorite(request, slug):
     product = get_object_or_404(Product, slug=slug)
@@ -175,14 +188,17 @@ def toggle_favorite(request, slug):
         product.favorites_count += 1
     product.save(update_fields=["favorites_count"])
     if request.headers.get("X-Requested-With") == "XMLHttpRequest":
-        return JsonResponse({
-            "success": True,
-            "is_favorited": not is_favorited,
-            "favorites_count": product.favorites_count,
-            "user_favorite_count": Product.objects.filter(favorited_by=request.user).count(),
-        })
+        return JsonResponse(
+            {
+                "success": True,
+                "is_favorited": not is_favorited,
+                "favorites_count": product.favorites_count,
+                "user_favorite_count": Product.objects.filter(
+                    favorited_by=request.user
+                ).count(),
+            }
+        )
     return redirect(request.GET.get("next", "shop:product_list"))
-
 
 
 def set_currency(request):

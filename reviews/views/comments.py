@@ -42,14 +42,20 @@ def comment_create(request, product_slug):
     data = json.loads(request.body)
     body = data.get("body", "").strip()
     if not body:
-        return JsonResponse({"ok": False, "error": "Comment can't be empty."}, status=400)
+        return JsonResponse(
+            {"ok": False, "error": "Comment can't be empty."}, status=400
+        )
 
     parent_id = data.get("parent_id")
-    parent = get_object_or_404(Comment, pk=parent_id, product=product) if parent_id else None
+    parent = (
+        get_object_or_404(Comment, pk=parent_id, product=product) if parent_id else None
+    )
 
     rating = data.get("rate") if parent is None else None
     if parent is None and not rating:
-        return JsonResponse({"ok": False, "error": "Rating required for a review."}, status=400)
+        return JsonResponse(
+            {"ok": False, "error": "Rating required for a review."}, status=400
+        )
 
     comment = Comment.objects.create(
         product=product, user=request.user, parent=parent, rating=rating, body=body
@@ -70,7 +76,9 @@ def comment_update(request, pk):
     data = json.loads(request.body)
     body = data.get("body", "").strip()
     if not body:
-        return JsonResponse({"ok": False, "error": "Comment can't be empty."}, status=400)
+        return JsonResponse(
+            {"ok": False, "error": "Comment can't be empty."}, status=400
+        )
 
     comment.body = body
     if comment.parent_id is None and data.get("rating"):
@@ -88,10 +96,12 @@ def comment_delete(request, pk):
     comment.delete()
     return JsonResponse({"ok": True})
 
+
 @login_required
 @require_POST
 def comment_like(request, pk):
-    pass 
+    pass
+
 
 @login_required
 @require_POST
