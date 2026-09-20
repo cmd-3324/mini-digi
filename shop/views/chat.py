@@ -2,11 +2,12 @@
 # pip install openai   (OpenRouter uses the OpenAI-compatible SDK)
 
 import json
-from openai import OpenAI
+
 from django.conf import settings
 from django.http import JsonResponse
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
+from openai import OpenAI
 
 client = OpenAI(
     api_key=settings.OPENROUTER_API_KEY,

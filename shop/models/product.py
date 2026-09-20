@@ -1,8 +1,8 @@
-from django.db import models
 from django.conf import settings
-from django.utils.translation import get_language
-from .category import Category
+from django.db import models
 from django.utils.text import slugify
+
+from .category import Category
 
 
 class Product(models.Model):

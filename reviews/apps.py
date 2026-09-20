@@ -6,7 +6,8 @@ class ReviewsConfig(AppConfig):
 
     def ready(self):
         from django.db.models import Avg
-        from django.db.models.signals import post_save, post_delete
+        from django.db.models.signals import post_delete, post_save
+
         from reviews.models import Comment
 
         def sync_variant_ratings(sender, instance, **kwargs):

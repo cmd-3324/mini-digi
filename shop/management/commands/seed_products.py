@@ -1,12 +1,12 @@
-import shutil
-import random
-import os
-from django.core.management.base import BaseCommand
-from django.conf import settings
-from shop.models import Category, Product, ProductVariant
-
-from django.db import connection
 import itertools
+import random
+import shutil
+
+from django.conf import settings
+from django.core.management.base import BaseCommand
+from django.db import connection
+
+from shop.models import Category, Product, ProductVariant
 
 
 class Command(BaseCommand):

@@ -1,9 +1,10 @@
-from django.http import JsonResponse
+from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.core.validators import validate_email
-from django.core.exceptions import ValidationError
-from django.conf import settings
+from django.http import JsonResponse
 from django.utils.translation import gettext as _
+
 from ..models import Newsletter
 
 

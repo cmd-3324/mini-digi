@@ -1,12 +1,11 @@
 from .category import Category
-from .product import Product
 from .newsletter import Newsletter
+from .product import Product
 from .variant import ProductVariant
-
 
 __all__ = [
     "Category",
-    "Product",
     "Newsletter",
+    "Product",
     "ProductVariant",
 ]

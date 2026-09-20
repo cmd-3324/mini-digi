@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.translation import get_language
 from django.utils.translation import gettext as _
 
 

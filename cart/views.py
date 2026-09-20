@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
-from .models import Cart, CartItem
+from django.shortcuts import get_object_or_404, redirect, render
+
 from shop.models import Product
+
+from .models import Cart, CartItem
 
 
 def cart_detail(request):

@@ -1,11 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from django.core.cache import cache
-from django.http import JsonResponse
 from django.db.models import Q
+from django.http import HttpResponseRedirect, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from shop.models import Product, Category, ProductVariant
-from django.http import HttpResponseRedirect
+
+from shop.models import Category, Product, ProductVariant
 
 
 def index(request):

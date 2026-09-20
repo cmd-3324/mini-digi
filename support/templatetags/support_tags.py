@@ -1,4 +1,5 @@
 from django import template
+
 from support.models import Ticket
 
 register = template.Library()

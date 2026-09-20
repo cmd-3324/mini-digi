@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Ticket, TicketMessage, TicketAttachment
+
+from .models import Ticket, TicketAttachment, TicketMessage
 
 
 class TicketAttachmentInline(admin.TabularInline):

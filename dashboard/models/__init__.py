@@ -1,7 +1,7 @@
-from .profile import Profile
 from .notification import Notification
+from .profile import Profile
 
 __all__ = [
-    "Profile",
     "Notification",
+    "Profile",
 ]

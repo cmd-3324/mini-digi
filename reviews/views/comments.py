@@ -6,9 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_GET, require_POST
 
-from shop.models import Product
-
 from reviews.models import Comment
+from shop.models import Product
 
 
 @require_GET

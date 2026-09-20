@@ -1,5 +1,4 @@
 from django import template
-from urllib.parse import urlencode
 
 # from shop.models import Products
 # from shop.models.product import Product

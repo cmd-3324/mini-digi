@@ -1,1 +1,1 @@
-from .products import index, product_list, product_detail
+from .products import index, product_detail, product_list
