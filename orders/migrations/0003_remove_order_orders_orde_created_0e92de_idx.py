@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('orders', '0002_order_orders_orde_created_0e92de_idx'),
+        ("orders", "0002_order_orders_orde_created_0e92de_idx"),
     ]
 
     operations = [
         migrations.RemoveIndex(
-            model_name='order',
-            name='orders_orde_created_0e92de_idx',
+            model_name="order",
+            name="orders_orde_created_0e92de_idx",
         ),
     ]

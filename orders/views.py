@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from cart.models import Cart, CartItem
+from django.shortcuts import redirect, render
+
+from cart.models import Cart
+
 from .models import Order, OrderItem
 
 
@@ -31,4 +33,3 @@ def confirmation(request, pk):
 
     order = get_object_or_404(Order, pk=pk, user=request.user)
     return render(request, "orders/confirmation.html", {"order": order})
- 

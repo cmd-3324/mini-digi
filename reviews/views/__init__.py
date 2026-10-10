@@ -1,8 +1,8 @@
 from .comments import (
-    comment_list,
     comment_create,
-    comment_update,
     comment_delete,
-    comment_like,
     comment_dislike,
+    comment_like,
+    comment_list,
+    comment_update,
 )

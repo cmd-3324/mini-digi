@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('cart', '0002_alter_cartitem_unique_together'),
+        ("cart", "0002_alter_cartitem_unique_together"),
     ]
 
     operations = [
         migrations.AlterUniqueTogether(
-            name='cartitem',
+            name="cartitem",
             unique_together=set(),
         ),
     ]

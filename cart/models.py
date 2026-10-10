@@ -1,5 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
 from shop.models import Product
 
 
@@ -22,4 +23,3 @@ class CartItem(models.Model):
     @property
     def total_price(self):
         return self.product.price * self.quantity
- 

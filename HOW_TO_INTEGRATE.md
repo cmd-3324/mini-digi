@@ -26,7 +26,7 @@ from .views import chat_view
 
 urlpatterns = [
     # ... your existing routes ...
-    path('api/chat/', chat_view, name='chat'),
+    path("api/chat/", chat_view, name="chat"),
 ]
 ```
 

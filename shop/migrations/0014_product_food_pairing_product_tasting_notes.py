@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0013_productvariant'),
+        ("shop", "0013_productvariant"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='food_pairing',
-            field=models.TextField(blank=True, default=''),
+            model_name="product",
+            name="food_pairing",
+            field=models.TextField(blank=True, default=""),
         ),
         migrations.AddField(
-            model_name='product',
-            name='tasting_notes',
-            field=models.TextField(blank=True, default=''),
+            model_name="product",
+            name="tasting_notes",
+            field=models.TextField(blank=True, default=""),
         ),
     ]

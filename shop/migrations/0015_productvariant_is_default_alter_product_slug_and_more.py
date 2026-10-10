@@ -4,23 +4,22 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0014_product_food_pairing_product_tasting_notes'),
+        ("shop", "0014_product_food_pairing_product_tasting_notes"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='productvariant',
-            name='is_default',
+            model_name="productvariant",
+            name="is_default",
             field=models.BooleanField(default=False),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='slug',
-            field=models.SlugField(blank=True, default='', max_length=220, unique=True),
+            model_name="product",
+            name="slug",
+            field=models.SlugField(blank=True, default="", max_length=220, unique=True),
         ),
         migrations.DeleteModel(
-            name='ProductImage',
+            name="ProductImage",
         ),
     ]

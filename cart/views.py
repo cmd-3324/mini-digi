@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
-from .models import Cart, CartItem
+from django.shortcuts import get_object_or_404, redirect, render
+
 from shop.models import Product
+
+from .models import Cart, CartItem
 
 
 def cart_detail(request):
@@ -56,13 +58,15 @@ def update_cart(request, item_id):
 
     if request.headers.get("X-Requested-With") == "XMLHttpRequest":
         items = cart.items.select_related("product").all()
-        return JsonResponse({
-            "success": True,
-            "item_total": item_total,
-            "cart_total": int(sum(i.total_price for i in items)),
-            "cart_count": cart.items.count(),
-            "removed": removed,
-        })
+        return JsonResponse(
+            {
+                "success": True,
+                "item_total": item_total,
+                "cart_total": int(sum(i.total_price for i in items)),
+                "cart_count": cart.items.count(),
+                "removed": removed,
+            }
+        )
     return redirect("cart:detail")
 
 
@@ -73,9 +77,11 @@ def remove_from_cart(request, item_id):
 
     if request.headers.get("X-Requested-With") == "XMLHttpRequest":
         items = cart.items.select_related("product").all()
-        return JsonResponse({
-            "success": True,
-            "cart_total": int(sum(i.total_price for i in items)),
-            "cart_count": cart.items.count(),
-        })
+        return JsonResponse(
+            {
+                "success": True,
+                "cart_total": int(sum(i.total_price for i in items)),
+                "cart_count": cart.items.count(),
+            }
+        )
     return redirect("cart:detail")

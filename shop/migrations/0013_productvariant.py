@@ -5,24 +5,57 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0012_remove_category_name_de_remove_category_name_es_and_more'),
+        ("shop", "0012_remove_category_name_de_remove_category_name_es_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ProductVariant',
+            name="ProductVariant",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sku', models.CharField(blank=True, max_length=100, null=True, unique=True)),
-                ('size', models.CharField(blank=True, default='', max_length=20)),
-                ('color', models.CharField(blank=True, default='', max_length=50)),
-                ('stock', models.PositiveIntegerField(default=0)),
-                ('price_override', models.DecimalField(blank=True, decimal_places=0, help_text="Leave blank to use the main product's price", max_digits=12, null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='products/variants/')),
-                ('is_active', models.BooleanField(default=True)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='variants', to='shop.product')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "sku",
+                    models.CharField(
+                        blank=True, max_length=100, null=True, unique=True
+                    ),
+                ),
+                ("size", models.CharField(blank=True, default="", max_length=20)),
+                ("color", models.CharField(blank=True, default="", max_length=50)),
+                ("stock", models.PositiveIntegerField(default=0)),
+                (
+                    "price_override",
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=0,
+                        help_text="Leave blank to use the main product's price",
+                        max_digits=12,
+                        null=True,
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="products/variants/"
+                    ),
+                ),
+                ("is_active", models.BooleanField(default=True)),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="variants",
+                        to="shop.product",
+                    ),
+                ),
             ],
         ),
     ]

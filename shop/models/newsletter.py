@@ -8,7 +8,7 @@ class Newsletter(models.Model):
 
     class Meta:
         indexes = [
-            models.Index(fields=['created_at']),
+            models.Index(fields=["created_at"]),
         ]
 
     def __str__(self):

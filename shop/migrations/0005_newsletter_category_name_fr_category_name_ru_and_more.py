@@ -4,49 +4,56 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0004_product_available'),
+        ("shop", "0004_product_available"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Newsletter',
+            name="Newsletter",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(max_length=254, unique=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("email", models.EmailField(max_length=254, unique=True)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
             ],
         ),
         migrations.AddField(
-            model_name='category',
-            name='name_fr',
-            field=models.CharField(blank=True, default='', max_length=100),
+            model_name="category",
+            name="name_fr",
+            field=models.CharField(blank=True, default="", max_length=100),
         ),
         migrations.AddField(
-            model_name='category',
-            name='name_ru',
-            field=models.CharField(blank=True, default='', max_length=100),
+            model_name="category",
+            name="name_ru",
+            field=models.CharField(blank=True, default="", max_length=100),
         ),
         migrations.AddField(
-            model_name='product',
-            name='description_fr',
-            field=models.TextField(blank=True, default=''),
+            model_name="product",
+            name="description_fr",
+            field=models.TextField(blank=True, default=""),
         ),
         migrations.AddField(
-            model_name='product',
-            name='description_ru',
-            field=models.TextField(blank=True, default=''),
+            model_name="product",
+            name="description_ru",
+            field=models.TextField(blank=True, default=""),
         ),
         migrations.AddField(
-            model_name='product',
-            name='name_fr',
-            field=models.CharField(blank=True, default='', max_length=200),
+            model_name="product",
+            name="name_fr",
+            field=models.CharField(blank=True, default="", max_length=200),
         ),
         migrations.AddField(
-            model_name='product',
-            name='name_ru',
-            field=models.CharField(blank=True, default='', max_length=200),
+            model_name="product",
+            name="name_ru",
+            field=models.CharField(blank=True, default="", max_length=200),
         ),
     ]

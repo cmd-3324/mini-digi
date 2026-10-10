@@ -5,48 +5,57 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0005_newsletter_category_name_fr_category_name_ru_and_more'),
+        ("shop", "0005_newsletter_category_name_fr_category_name_ru_and_more"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=50),
+            model_name="product",
+            name="color",
+            field=models.CharField(blank=True, default="", max_length=50),
         ),
         migrations.AddField(
-            model_name='product',
-            name='favorited_by',
-            field=models.ManyToManyField(blank=True, related_name='favorite_products', to=settings.AUTH_USER_MODEL),
+            model_name="product",
+            name="favorited_by",
+            field=models.ManyToManyField(
+                blank=True,
+                related_name="favorite_products",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AddField(
-            model_name='product',
-            name='favorites_count',
+            model_name="product",
+            name="favorites_count",
             field=models.PositiveIntegerField(default=0),
         ),
         migrations.AddField(
-            model_name='product',
-            name='purchased_count',
+            model_name="product",
+            name="purchased_count",
             field=models.PositiveIntegerField(default=0),
         ),
         migrations.AddField(
-            model_name='product',
-            name='size',
-            field=models.CharField(blank=True, default='', max_length=10),
+            model_name="product",
+            name="size",
+            field=models.CharField(blank=True, default="", max_length=10),
         ),
         migrations.AddIndex(
-            model_name='newsletter',
-            index=models.Index(fields=['created_at'], name='shop_newsle_created_4f12cc_idx'),
+            model_name="newsletter",
+            index=models.Index(
+                fields=["created_at"], name="shop_newsle_created_4f12cc_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='product',
-            index=models.Index(fields=['available', 'created'], name='shop_produc_availab_388fee_idx'),
+            model_name="product",
+            index=models.Index(
+                fields=["available", "created"], name="shop_produc_availab_388fee_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='product',
-            index=models.Index(fields=['purchased_count'], name='shop_produc_purchas_503ea6_idx'),
+            model_name="product",
+            index=models.Index(
+                fields=["purchased_count"], name="shop_produc_purchas_503ea6_idx"
+            ),
         ),
     ]

@@ -1,5 +1,5 @@
 import time
-from django.conf import settings
+
 from django.core.cache import cache
 from django.http import JsonResponse
 
@@ -26,7 +26,9 @@ class GlobalRateLimitMiddleware:
             cache.set(cache_key, data, self.WINDOW)
 
             if data["count"] > self.RATE_LIMIT:
-                return JsonResponse({"error": "Rate limit exceeded. Try again later."}, status=429)
+                return JsonResponse(
+                    {"error": "Rate limit exceeded. Try again later."}, status=429
+                )
         except Exception:
             pass  # cache down -> fail open, don't 500 the whole site
 

@@ -1,7 +1,9 @@
-from django import template
 import html
 
+from django import template
+
 register = template.Library()
+
 
 @register.filter
 def decode_emoji(value):

@@ -1,0 +1,14 @@
+we created a user named mini-digi with password of MiniDigi2026! , 
+then used same user to create a db named mini-digi(This matches creditinoals in .env of project) - uploaded .sql 
+we had into same db using same user info to login;
+
+
+1 -  CREATE USER IF NOT EXISTS 'minidigi'@'localhost' IDENTIFIED BY 'MiniDigi2026!';
+ALTER USER 'minidigi'@'localhost' IDENTIFIED BY 'MiniDigi2026!';
+GRANT ALL PRIVILEGES ON `mini-digi`.* TO 'minidigi'@'localhost';
+FLUSH PRIVILEGES;
+
+2-
+CREATE DATABASE IF NOT EXISTS `mini-digi` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+3-mysql -u minidigi -p'MiniDigi2026!' -h 127.0.0.1 mini-digi < mini_digi_backup.sql

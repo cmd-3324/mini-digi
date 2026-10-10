@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Profile, Notification
+
+from .models import Notification, Profile
 
 
 @admin.register(Profile)
@@ -22,6 +23,7 @@ class ProfileAdmin(admin.ModelAdmin):
     @admin.display(description="Avatar")
     def has_avatar(self, obj):
         return "✅" if obj.avatar else "❌"
+
 
 @admin.register(Notification)
 class NotificationAdmin(admin.ModelAdmin):

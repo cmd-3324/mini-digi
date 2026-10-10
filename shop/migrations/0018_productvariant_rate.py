@@ -5,15 +5,22 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0017_alter_productvariant_image'),
+        ("shop", "0017_alter_productvariant_image"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='productvariant',
-            name='rate',
-            field=models.DecimalField(decimal_places=1, default=0.0, max_digits=2, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(5)]),
+            model_name="productvariant",
+            name="rate",
+            field=models.DecimalField(
+                decimal_places=1,
+                default=0.0,
+                max_digits=2,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(5),
+                ],
+            ),
         ),
     ]
