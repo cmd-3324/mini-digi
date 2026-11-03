@@ -1,14 +1,12 @@
-
-
 services:
   db:
     image: mysql:8.0
     container_name: minidigi_db
     environment:
-      MYSQL_DATABASE: mini_digi
-      MYSQL_USER: minidigi_user
-      MYSQL_PASSWORD: secure_password
-      MYSQL_ROOT_PASSWORD: root_secure_password
+      MYSQL_DATABASE: ${DB_NAME:-mini_digi}
+      MYSQL_USER: ${DB_USER:-minidigi_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-secure_password}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_secure_password}
     ports:
       - "3306:3306"
     volumes:
@@ -18,24 +16,69 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    networks:
+      - app_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: minidigi_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app_network
+
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: minidigi_app
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn --bind 0.0.0.0:8000 --workers 4 mini_digi.wsgi:application
     ports:
       - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
-      DB_NAME: mini_digi
-      DB_USER: minidigi_user
-      DB_PASSWORD: secure_password
+      DB_NAME: ${DB_NAME:-mini_digi}
+      DB_USER: ${DB_USER:-minidigi_user}
+      DB_PASSWORD: ${DB_PASSWORD:-secure_password}
       DB_HOST: db
       DB_PORT: 3306
+      REDIS_URL: redis://redis:6379/1
+      DJANGO_SETTINGS_MODULE: mini_digi.settings
     volumes:
       - .:/app
+      - static_volume:/app/static
+      - media_volume:/app/media
+    develop:
+      watch:
+        - path: .
+          target: /app
+          action: sync
+        - path: requirements.txt
+          action: rebuild
+    networks:
+      - app_network
 
 volumes:
   mysql_data:
-    name: mini-digi
+    name: mini-digi_mysql
+  redis_data:
+    name: mini-digi_redis
+  static_volume:
+    name: mini-digi_static
+  media_volume:
+    name: mini-digi_media
+
+networks:
+  app_network:
+    driver: bridge

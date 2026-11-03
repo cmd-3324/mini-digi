@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mini-digi · djangomap</title>
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.bottom-3{bottom:.75rem}.left-0{left:0}.left-2{left:.5rem}.left-3{left:.75rem}.right-1\.5{right:.375rem}.right-3{right:.75rem}.top-0{top:0}.top-1\.5{top:.375rem}.top-14{top:3.5rem}.top-2{top:.5rem}.top-3{top:.75rem}.z-20{z-index:20}.z-30{z-index:30}.z-40{z-index:40}.z-\[1\]{z-index:1}.z-\[2\]{z-index:2}.order-last{order:9999}.float-right{float:right}.mx-auto{margin-left:auto;margin-right:auto}.my-2\.5{margin-top:.625rem;margin-bottom:.625rem}.mb-0\.5{margin-bottom:.125rem}.mb-1{margin-bottom:.25rem}.mb-1\.5{margin-bottom:.375rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.ml-1{margin-left:.25rem}.ml-auto{margin-left:auto}.mr-1{margin-right:.25rem}.mr-1\.5{margin-right:.375rem}.mr-2{margin-right:.5rem}.mt-0\.5{margin-top:.125rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-5{margin-top:1.25rem}.mt-7{margin-top:1.75rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.table{display:table}.hidden{display:none}.h-1\.5{height:.375rem}.h-2{height:.5rem}.h-2\.5{height:.625rem}.h-24{height:6rem}.h-full{height:100%}.h-px{height:1px}.h-screen{height:100vh}.max-h-\[calc\(100vh-4\.5rem\)\]{max-height:calc(100vh - 4.5rem)}.min-h-0{min-height:0}.w-1\.5{width:.375rem}.w-2{width:.5rem}.w-2\.5{width:.625rem}.w-20{width:5rem}.w-24{width:6rem}.w-5{width:1.25rem}.w-60{width:15rem}.w-\[330px\]{width:330px}.w-full{width:100%}.min-w-0{min-width:0}.min-w-\[8px\]{min-width:8px}.max-w-5xl{max-width:64rem}.max-w-\[110px\]{max-width:110px}.max-w-\[160px\]{max-width:160px}.max-w-\[280px\]{max-width:280px}.max-w-\[42vw\]{max-width:42vw}.max-w-\[calc\(100\%-1rem\)\]{max-width:calc(100% - 1rem)}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.basis-full{flex-basis:100%}.origin-top-left{transform-origin:top left}.-rotate-90{--tw-rotate:-90deg}.-rotate-90,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-grab{cursor:grab}.cursor-grabbing{cursor:grabbing}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;-moz-user-select:none;user-select:none}.resize{resize:both}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-x-3{-moz-column-gap:.75rem;column-gap:.75rem}.gap-y-0\.5{row-gap:.125rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-2\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.625rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.625rem*var(--tw-space-y-reverse))}.divide-y>:not([hidden])~:not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px*(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px*var(--tw-divide-y-reverse))}.divide-slate-800\/60>:not([hidden])~:not([hidden]){border-color:rgba(30,41,59,.6)}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-visible{overflow:visible}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.break-all{word-break:break-all}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-sm{border-radius:.125rem}.rounded-xl{border-radius:.75rem}.rounded-t-xl{border-top-left-radius:.75rem;border-top-right-radius:.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\[\#222b36\]{--tw-border-opacity:1;border-color:rgb(34 43 54/var(--tw-border-opacity,1))}.border-amber-500\/30{border-color:rgba(245,158,11,.3)}.border-rose-500\/30{border-color:rgba(244,63,94,.3)}.border-sky-500\/30{border-color:rgba(14,165,233,.3)}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.border-slate-800\/60{border-color:rgba(30,41,59,.6)}.bg-\[\#0b0f14\]{--tw-bg-opacity:1;background-color:rgb(11 15 20/var(--tw-bg-opacity,1))}.bg-\[\#0e141b\]{--tw-bg-opacity:1;background-color:rgb(14 20 27/var(--tw-bg-opacity,1))}.bg-\[\#0e141bcc\]{background-color:#0e141bcc}.bg-\[\#0e141bee\]{background-color:#0e141bee}.bg-\[\#0e141bfa\]{background-color:#0e141bfa}.bg-\[\#121821\]{--tw-bg-opacity:1;background-color:rgb(18 24 33/var(--tw-bg-opacity,1))}.bg-\[\#151c25\]{--tw-bg-opacity:1;background-color:rgb(21 28 37/var(--tw-bg-opacity,1))}.bg-\[\#161d27\]{--tw-bg-opacity:1;background-color:rgb(22 29 39/var(--tw-bg-opacity,1))}.bg-\[\#1c2530\]{--tw-bg-opacity:1;background-color:rgb(28 37 48/var(--tw-bg-opacity,1))}.bg-amber-500\/15{background-color:rgba(245,158,11,.15)}.bg-rose-500\/10{background-color:rgba(244,63,94,.1)}.bg-rose-500\/15{background-color:rgba(244,63,94,.15)}.bg-rose-500\/20{background-color:rgba(244,63,94,.2)}.bg-sky-500\/15{background-color:rgba(14,165,233,.15)}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-slate-800\/40{background-color:rgba(30,41,59,.4)}.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}.from-\[\#121821\]{--tw-gradient-from:#121821 var(--tw-gradient-from-position);--tw-gradient-to:rgba(18,24,33,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-\[\#0f151d\]{--tw-gradient-to:#0f151d var(--tw-gradient-to-position)}.p-1{padding:.25rem}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.px-0\.5{padding-left:.125rem;padding-right:.125rem}.px-1{padding-left:.25rem;padding-right:.25rem}.px-1\.5{padding-left:.375rem;padding-right:.375rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.pr-6{padding-right:1.5rem}.text-right{text-align:right}.align-middle{vertical-align:middle}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10\.5px\]{font-size:10.5px}.text-\[10px\]{font-size:10px}.text-\[11\.5px\]{font-size:11.5px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[12px\]{font-size:12px}.text-\[13px\]{font-size:13px}.text-\[14\.5px\]{font-size:14.5px}.text-\[9\.5px\]{font-size:9.5px}.text-\[9px\]{font-size:9px}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-7{line-height:1.75rem}.leading-relaxed{line-height:1.625}.tracking-wider{letter-spacing:.05em}.tracking-widest{letter-spacing:.1em}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.text-rose-200{--tw-text-opacity:1;color:rgb(254 205 211/var(--tw-text-opacity,1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175/var(--tw-text-opacity,1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252/var(--tw-text-opacity,1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248/var(--tw-text-opacity,1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-20{opacity:.2}.opacity-25{opacity:.25}.opacity-30{opacity:.3}.opacity-50{opacity:.5}.opacity-70{opacity:.7}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color)}.shadow,.shadow-2xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.outline-none{outline:2px solid transparent;outline-offset:2px}.ring{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring,.ring-1{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-white{--tw-ring-opacity:1;--tw-ring-color:rgb(255 255 255/var(--tw-ring-opacity,1))}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.will-change-transform{will-change:transform}.placeholder\:text-slate-600::-moz-placeholder{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.placeholder\:text-slate-600::placeholder{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.last\:border-0:last-child{border-width:0}.hover\:border-slate-600:hover{--tw-border-opacity:1;border-color:rgb(71 85 105/var(--tw-border-opacity,1))}.hover\:bg-\[\#151d26\]:hover{--tw-bg-opacity:1;background-color:rgb(21 29 38/var(--tw-bg-opacity,1))}.hover\:bg-\[\#161d27\]:hover{--tw-bg-opacity:1;background-color:rgb(22 29 39/var(--tw-bg-opacity,1))}.hover\:bg-\[\#1b2430\]:hover{--tw-bg-opacity:1;background-color:rgb(27 36 48/var(--tw-bg-opacity,1))}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.hover\:text-slate-100:hover{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.hover\:text-slate-200:hover{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.focus\:border-sky-600:focus{--tw-border-opacity:1;border-color:rgb(2 132 199/var(--tw-border-opacity,1))}@media (min-width:640px){.sm\:left-3{left:.75rem}.sm\:top-3{top:.75rem}.sm\:order-none{order:0}.sm\:ml-1\.5{margin-left:.375rem}.sm\:ml-2{margin-left:.5rem}.sm\:ml-auto{margin-left:auto}.sm\:block{display:block}.sm\:inline{display:inline}.sm\:w-24{width:6rem}.sm\:w-32{width:8rem}.sm\:w-36{width:9rem}.sm\:basis-auto{flex-basis:auto}.sm\:gap-3{gap:.75rem}.sm\:gap-6{gap:1.5rem}.sm\:p-5{padding:1.25rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:text-\[11px\]{font-size:11px}.sm\:focus\:w-56:focus{width:14rem}}@media (min-width:768px){.md\:block{display:block}.md\:w-44{width:11rem}}@media (min-width:1024px){.lg\:block{display:block}.lg\:hidden{display:none}.lg\:w-56{width:14rem}}@media (min-width:1280px){.xl\:max-w-\[260px\]{max-width:260px}.xl\:flex-nowrap{flex-wrap:nowrap}}@media (min-width:1536px){.\32xl\:flex{display:flex}.\32xl\:hidden{display:none}}.mt-2\.5{margin-top:.625rem}
+.band-label{position:absolute;display:flex;align-items:center;gap:10px;
+  height:26px;pointer-events:none;z-index:1}
+.band-name{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:#8b98a9;font-weight:600;white-space:nowrap}
+.band-rule{flex:1;height:1px;background:linear-gradient(90deg,#2b3648,transparent)}
+
+.undecl{flex:none;display:inline-flex;align-items:center;justify-content:center;
+  width:13px;height:13px;border-radius:4px;background:#3a2a12;color:#f0b849;
+  font-size:9px;font-weight:700;line-height:1}
+</style>
+<style>
+:root{--model:#7ee787;--view:#79c0ff;--url:#ffa657;--task:#d2a8ff;--signal:#ff7b72;
+ --form:#f0c674;--admin:#56d4dd;--serializer:#a5d6ff;--beat:#ff9ecd;--middleware:#c9a2ff;--command:#9ae6b4;--consumer:#f778ba}
+body{font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+.mono,code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.grid-bg{background:
+  linear-gradient(#141b24 1px,transparent 1px) 0 0/28px 28px,
+  linear-gradient(90deg,#141b24 1px,transparent 1px) 0 0/28px 28px,
+  radial-gradient(1200px 700px at 30% 0%,#111a24,#0b0f14)}
+.card-l{border-left:3px solid var(--c)}
+.card-hot{background:#1d2734!important;border-color:#4a5866!important}
+.wire{fill:none;stroke-width:1.6;opacity:.34;transition:opacity .15s,stroke-width .15s}
+.wire.fk{stroke:var(--model)}.wire.m2m{stroke:var(--model);stroke-dasharray:6 4}
+.wire.o2o{stroke:var(--model);stroke-dasharray:2 3}
+.wire.routes{stroke:var(--url)}.wire.calls{stroke:var(--task);stroke-dasharray:5 4}
+.wire.schedules{stroke:var(--beat);stroke-dasharray:5 4}.wire.uses{stroke:var(--serializer);stroke-dasharray:3 3}
+.wire.queries{stroke:#5c8a6a}.wire.manages{stroke:var(--admin);stroke-dasharray:3 3}
+.wire.listens{stroke:var(--signal);stroke-dasharray:4 3}.wire.inherits{stroke:#4d5b6b;stroke-dasharray:2 5}
+.wire.dim{opacity:.04}.wire.hot{opacity:1;stroke-width:2.4}
+.fl-node rect{transition:.15s}.fl-node{cursor:pointer}
+.fl-node.dim{opacity:.16}.fl-edge.dim{opacity:.05}.fl-edge.hot{opacity:1;stroke-width:2.6}
+::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#232c38;border-radius:9px}
+::-webkit-scrollbar-track{background:transparent}
+[hidden]{display:none!important}
+/* ---------- responsive ---------- */
+#backdrop{position:fixed;inset:0;background:#000a;z-index:44;display:none}
+body.nav-open #backdrop{display:block}
+@media (max-width:1023px){
+  aside{position:fixed;top:0;bottom:0;left:0;z-index:45;width:15rem;
+    transform:translateX(-100%);transition:transform .22s ease}
+  body.nav-open aside{transform:none}
+  #panel{right:0;left:0;top:auto;bottom:0;width:100%;max-height:62vh;
+    border-radius:14px 14px 0 0;border-left:0;border-right:0;border-bottom:0}
+}
+@media (min-width:1024px){#burger{display:none}#backdrop{display:none!important}}
+@media (max-width:640px){
+  .flowbtn{padding:.4rem .55rem;font-size:10.5px}
+  #flowinfo{display:none}
+  #hint{display:none}
+}
+/* larger touch targets on coarse pointers */
+@media (pointer:coarse){
+  .card{padding-top:.6rem;padding-bottom:.6rem}
+  .chip{padding:.45rem .7rem}
+}
+</style>
+</head>
+<body class="h-screen overflow-hidden flex flex-col bg-[#0b0f14] text-slate-200 text-sm">
+
+<header class="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 border-b border-slate-800
+  bg-[#0e141b] z-30 shrink-0 flex-wrap xl:flex-nowrap">
+  <button id="burger" class="lg:hidden px-2 py-1.5 rounded-lg bg-[#151c25] border border-slate-800
+    text-slate-400 hover:text-slate-100 shrink-0" aria-label="Toggle sidebar">☰</button>
+  <h1 class="font-semibold text-[14.5px] shrink-0">mini-digi</h1>
+  <span class="mono text-[11px] text-slate-600 truncate max-w-[160px] xl:max-w-[260px] hidden sm:inline">I:\mini-digi</span>
+  <nav class="flex gap-1 sm:ml-2 bg-[#151c25] p-1 rounded-lg border border-slate-800 shrink-0">
+    <button data-tab="apps" class="tabbtn px-3 py-1 rounded-md text-xs font-medium transition">Apps</button>
+    <button data-tab="flow" class="tabbtn px-3 py-1 rounded-md text-xs font-medium transition">Flow</button>
+    <button data-tab="health" class="tabbtn px-3 py-1 rounded-md text-xs font-medium transition">
+      Health <span id="tabBadge" class="ml-1 px-1.5 rounded text-[10px] bg-rose-500/20 text-rose-300"></span></button>
+  </nav>
+  <div class="flex-1 min-w-[8px]"></div>
+  <input id="q" type="search" placeholder="search…"
+    class="order-last sm:order-none w-full sm:w-36 md:w-44 sm:focus:w-56 transition-all
+           px-2.5 py-1.5 rounded-lg bg-[#151c25] border border-slate-800
+           text-xs outline-none focus:border-sky-600 placeholder:text-slate-600">
+  <button id="kindsBtn" class="2xl:hidden px-2.5 py-1.5 rounded-lg bg-[#151c25] border border-slate-800
+    text-xs text-slate-400 hover:text-slate-100 transition shrink-0">Kinds</button>
+  <div id="chips" class="hidden 2xl:flex gap-1 flex-wrap justify-end max-w-[42vw]"></div>
+  <button id="fit" class="px-2.5 py-1.5 rounded-lg bg-[#151c25] border border-slate-800 text-xs
+    text-slate-400 hover:text-slate-100 hover:border-slate-600 transition shrink-0">Fit</button>
+  <button id="foldAll" class="hidden sm:block px-2.5 py-1.5 rounded-lg bg-[#151c25] border
+    border-slate-800 text-xs text-slate-400 hover:text-slate-100 hover:border-slate-600
+    transition shrink-0">Collapse</button>
+</header>
+
+<div id="backdrop"></div>
+<main class="flex-1 flex min-h-0 relative">
+  <aside class="w-60 lg:w-56 shrink-0 border-r border-slate-800 bg-[#0e141b] overflow-auto p-3">
+    <div id="kindsPanel" class="2xl:hidden">
+      <h2 class="text-[10px] uppercase tracking-widest text-slate-600 font-bold mb-2">Kinds</h2>
+      <div id="chipsMobile" class="flex flex-wrap gap-1 mb-4"></div>
+    </div>
+    <h2 class="text-[10px] uppercase tracking-widest text-slate-600 font-bold mb-2">Apps</h2>
+    <div id="apps"></div>
+    <h2 class="text-[10px] uppercase tracking-widest text-slate-600 font-bold mt-5 mb-2">Project</h2>
+    <div id="settings" class="space-y-1"></div>
+    <h2 class="text-[10px] uppercase tracking-widest text-slate-600 font-bold mt-5 mb-2">Stats</h2>
+    <div id="stats"></div>
+    <h2 class="text-[10px] uppercase tracking-widest text-slate-600 font-bold mt-5 mb-2">Relations</h2>
+    <div id="legend" class="text-[11px] text-slate-500 leading-7"></div>
+  </aside>
+
+  <!-- ============ TAB: APPS ============ -->
+  <section id="tab-apps" class="flex-1 relative overflow-hidden grid-bg cursor-grab">
+    <div id="world" class="absolute top-0 left-0 origin-top-left will-change-transform">
+      <svg id="wires" class="absolute top-0 left-0 overflow-visible pointer-events-none z-[1]"></svg>
+    </div>
+    <div id="hint" class="absolute left-3 bottom-3 text-[10.5px] text-slate-600 bg-[#0e141bcc] border
+      border-slate-800 rounded-lg px-3 py-1.5 z-20 hidden md:block">
+      drag board header · scroll = zoom · <kbd class="bg-slate-800 px-1 rounded">F</kbd> fit ·
+      <kbd class="bg-slate-800 px-1 rounded">Esc</kbd> clear
+    </div>
+  </section>
+
+  <!-- ============ TAB: FLOW ============ -->
+  <section id="tab-flow" class="flex-1 relative overflow-hidden grid-bg cursor-grab" hidden>
+    <div class="absolute left-2 sm:left-3 top-2 sm:top-3 z-20 flex flex-wrap gap-1 max-w-[calc(100%-1rem)]
+      bg-[#0e141bee] border border-slate-800 rounded-lg p-1">
+      <button data-flow="request" class="flowbtn px-3 py-1.5 rounded-md text-xs transition">Request Lifecycle</button>
+      <button data-flow="apps" class="flowbtn px-3 py-1.5 rounded-md text-xs transition">App Dependencies</button>
+      <button data-flow="celery" class="flowbtn px-3 py-1.5 rounded-md text-xs transition">Celery Pipeline</button>
+      <button data-flow="data" class="flowbtn px-3 py-1.5 rounded-md text-xs transition">Data Model</button>
+    </div>
+    <div id="flowinfo" class="absolute right-3 top-3 z-20 max-w-[280px] hidden lg:block text-[11px] text-slate-500
+      bg-[#0e141bee] border border-slate-800 rounded-lg px-3 py-2 leading-relaxed"></div>
+    <svg id="flow" class="w-full h-full"><g id="flowRoot"></g></svg>
+  </section>
+
+  <!-- ============ TAB: HEALTH ============ -->
+  <section id="tab-health" class="flex-1 overflow-auto bg-[#0b0f14] p-3 sm:p-5" hidden>
+    <div id="healthBody" class="max-w-5xl mx-auto"></div>
+  </section>
+
+  <!-- ============ DETAIL PANEL ============ -->
+  <div id="panel" class="fixed right-3 top-14 w-[330px] max-h-[calc(100vh-4.5rem)] overflow-auto
+    bg-[#0e141bfa] border border-slate-700 rounded-xl p-4 z-40 shadow-2xl backdrop-blur hidden"></div>
+</main>
+
+<script id="data" type="application/json">{"name": "mini-digi", "root": "I:\\mini-digi", "apps": ["cart", "commands", "dashboard", "mini_digi", "orders", "reviews", "shop", "support"], "nodes": [{"id": "cart.Cart", "label": "Cart", "kind": "model", "app": "cart", "file": "cart\\models.py", "line": 7, "endline": 12, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 1, "complexity": 1, "all_methods": ["__str__"], "fields": [{"name": "user", "type": "OneToOneField", "to": "User", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "cart", "choices": false, "help_text": null, "opts": []}, {"name": "created_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}], "meta_opts": {}, "methods": [], "properties": [], "managers": []}}, {"id": "cart.CartItem", "label": "CartItem", "kind": "model", "app": "cart", "file": "cart\\models.py", "line": 15, "endline": 25, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 2, "complexity": 1, "all_methods": ["__str__", "total_price"], "fields": [{"name": "cart", "type": "ForeignKey", "to": "Cart", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "items", "choices": false, "help_text": null, "opts": []}, {"name": "product", "type": "ForeignKey", "to": "Product", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "quantity", "type": "PositiveIntegerField", "to": "", "max_length": null, "default": "1", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}], "meta_opts": {}, "methods": ["total_price"], "properties": ["total_price"], "managers": []}}, {"id": "url:cart:/:8", "label": "/", "kind": "url", "app": "cart", "file": "cart\\urls.py", "line": 8, "endline": 8, "meta": {"handler": "views.cart_detail", "name": "detail", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:cart:add/<int:product_id>/:9", "label": "/add/<int:product_id>/", "kind": "url", "app": "cart", "file": "cart\\urls.py", "line": 9, "endline": 9, "meta": {"handler": "views.add_to_cart", "name": "add", "params": ["int:product_id"], "include": false, "extra_kwargs": {}}}, {"id": "url:cart:update/<int:item_id>/:10", "label": "/update/<int:item_id>/", "kind": "url", "app": "cart", "file": "cart\\urls.py", "line": 10, "endline": 10, "meta": {"handler": "views.update_cart", "name": "update", "params": ["int:item_id"], "include": false, "extra_kwargs": {}}}, {"id": "url:cart:remove/<int:item_id>/:11", "label": "/remove/<int:item_id>/", "kind": "url", "app": "cart", "file": "cart\\urls.py", "line": 11, "endline": 11, "meta": {"handler": "views.remove_from_cart", "name": "remove", "params": ["int:item_id"], "include": false, "extra_kwargs": {}}}, {"id": "cart.cart_detail", "label": "cart_detail", "kind": "view", "app": "cart", "file": "cart\\views.py", "line": 9, "endline": 25, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 3, "uses_self_retry": false, "fbv": true, "optimised_qs": true}}, {"id": "cart.add_to_cart", "label": "add_to_cart", "kind": "view", "app": "cart", "file": "cart\\views.py", "line": 28, "endline": 41, "meta": {"doc": "", "decorators": [], "args": ["request", "product_id"], "is_async": false, "complexity": 5, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "cart.update_cart", "label": "update_cart", "kind": "view", "app": "cart", "file": "cart\\views.py", "line": 44, "endline": 70, "meta": {"doc": "", "decorators": [], "args": ["request", "item_id"], "is_async": false, "complexity": 4, "uses_self_retry": false, "fbv": true, "optimised_qs": true}}, {"id": "cart.remove_from_cart", "label": "remove_from_cart", "kind": "view", "app": "cart", "file": "cart\\views.py", "line": 73, "endline": 87, "meta": {"doc": "", "decorators": [], "args": ["request", "item_id"], "is_async": false, "complexity": 3, "uses_self_retry": false, "fbv": true, "optimised_qs": true}}, {"id": "cmd:commands:cache_cleanup", "label": "cache_cleanup", "kind": "command", "app": "commands", "file": "commands\\management\\commands\\cache_cleanup.py", "line": 7, "endline": 41, "meta": {"doc": "This command lets you clean __pycache__ directories directly & faster.", "methods": ["handle"]}}, {"id": "cmd:commands:compile_with_date", "label": "compile_with_date", "kind": "command", "app": "commands", "file": "commands\\management\\commands\\compile_with_date.py", "line": 10, "endline": 75, "meta": {"doc": "Compile .po files with updated PO-Revision-Date header", "methods": ["handle"]}}, {"id": "cmd:commands:touch_flow", "label": "touch_flow", "kind": "command", "app": "commands", "file": "commands\\management\\commands\\touch_flow.py", "line": 6, "endline": 131, "meta": {"doc": "Generate flowchart.txt (icons) and flowchart-raw.txt (full tree, no object noise).", "methods": ["handle"]}}, {"id": "dashboard.ProfileAdmin", "label": "ProfileAdmin", "kind": "admin", "app": "dashboard", "file": "dashboard\\admin.py", "line": 7, "endline": 25, "meta": {"bases": ["admin.ModelAdmin"], "doc": "", "decorators": ["admin.register(Profile)"], "n_methods": 1, "complexity": 2, "all_methods": ["has_avatar"], "methods": ["has_avatar"], "list_display": "('user', 'phone', 'address_line1', 'address_line2', 'city', 'state', 'zip_code', 'created_at', 'has_avatar')", "list_filter": "('state', 'city', 'created_at')", "search_fields": "('user__username', 'user__email', 'phone', 'city', 'state')", "readonly_fields": "('user', 'created_at', 'updated_at')"}}, {"id": "dashboard.NotificationAdmin", "label": "NotificationAdmin", "kind": "admin", "app": "dashboard", "file": "dashboard\\admin.py", "line": 29, "endline": 39, "meta": {"bases": ["admin.ModelAdmin"], "doc": "", "decorators": ["admin.register(Notification)"], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": [], "list_display": "('title', 'user', 'notification_type', 'is_read', 'created_at')", "list_filter": "('notification_type', 'is_read', 'created_at')", "search_fields": "('title', 'message', 'user__username')", "readonly_fields": "('created_at',)"}}, {"id": "url:dashboard:/:8", "label": "/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 8, "endline": 8, "meta": {"handler": "views.home", "name": "home", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:profile/:9", "label": "/profile/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 9, "endline": 9, "meta": {"handler": "views.profile", "name": "profile", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:profile/update/:10", "label": "/profile/update/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 10, "endline": 10, "meta": {"handler": "views.profile_update", "name": "profile_update", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:profile/password/:11", "label": "/profile/password/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 11, "endline": 11, "meta": {"handler": "views.change_password", "name": "change_password", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:wishlist/:12", "label": "/wishlist/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 12, "endline": 12, "meta": {"handler": "views.wishlist", "name": "wishlist", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:orders/:13", "label": "/orders/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 13, "endline": 13, "meta": {"handler": "views.orders_list", "name": "orders", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:orders/search/:14", "label": "/orders/search/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 14, "endline": 14, "meta": {"handler": "views.orders_search_ajax", "name": "orders_search_ajax", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:wishlist/search/:15", "label": "/wishlist/search/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 15, "endline": 15, "meta": {"handler": "views.wishlist_search_ajax", "name": "wishlist_search_ajax", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:orders/<int:pk>/:16", "label": "/orders/<int:pk>/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 16, "endline": 16, "meta": {"handler": "views.order_detail", "name": "order_detail", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:orders/<int:pk>/payment/:17", "label": "/orders/<int:pk>/payment/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 17, "endline": 17, "meta": {"handler": "views.payment", "name": "payment", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:orders/<int:pk>/payment/gateway/:18", "label": "/orders/<int:pk>/payment/gateway/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 18, "endline": 22, "meta": {"handler": "views.payment_gateway", "name": "payment_gateway", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:orders/<int:pk>/payment/return/:23", "label": "/orders/<int:pk>/payment/return/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 23, "endline": 25, "meta": {"handler": "views.payment_return", "name": "payment_return", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:notifications/:26", "label": "/notifications/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 26, "endline": 26, "meta": {"handler": "views.notifications_list", "name": "notifications", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:notifications/<int:pk>/read/:27", "label": "/notifications/<int:pk>/read/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 27, "endline": 31, "meta": {"handler": "views.notification_mark_read", "name": "notification_mark_read", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:notifications/read-all/:32", "label": "/notifications/read-all/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 32, "endline": 36, "meta": {"handler": "views.notification_mark_all_read", "name": "notification_mark_all_read", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:notifications/<int:pk>/delete/:37", "label": "/notifications/<int:pk>/delete/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 37, "endline": 41, "meta": {"handler": "views.notification_delete", "name": "notification_delete", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:notifications/delete-all/:42", "label": "/notifications/delete-all/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 42, "endline": 46, "meta": {"handler": "views.notification_delete_all", "name": "notification_delete_all", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:dashboard:notifications/unread-count/:47", "label": "/notifications/unread-count/", "kind": "url", "app": "dashboard", "file": "dashboard\\urls.py", "line": 47, "endline": 51, "meta": {"handler": "views.notification_unread_count", "name": "notification_unread_count", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "dashboard.home", "label": "home", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 21, "endline": 36, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.profile", "label": "profile", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 40, "endline": 48, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.profile_update", "label": "profile_update", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 53, "endline": 81, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request"], "is_async": false, "complexity": 3, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.change_password", "label": "change_password", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 86, "endline": 97, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request"], "is_async": false, "complexity": 3, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.wishlist", "label": "wishlist", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 101, "endline": 125, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 3, "uses_self_retry": false, "fbv": true, "optimised_qs": true}}, {"id": "dashboard.wishlist_search_ajax", "label": "wishlist_search_ajax", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 129, "endline": 146, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 4, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.orders_list", "label": "orders_list", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 150, "endline": 184, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 6, "uses_self_retry": false, "fbv": true, "optimised_qs": true}}, {"id": "dashboard.orders_search_ajax", "label": "orders_search_ajax", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 188, "endline": 207, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 4, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.order_detail", "label": "order_detail", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 211, "endline": 219, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request", "pk"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.payment", "label": "payment", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 223, "endline": 233, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request", "pk"], "is_async": false, "complexity": 2, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.payment_gateway", "label": "payment_gateway", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 237, "endline": 245, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request", "pk"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.payment_return", "label": "payment_return", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 249, "endline": 262, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request", "pk"], "is_async": false, "complexity": 2, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.dashboard_tickets", "label": "dashboard_tickets", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 266, "endline": 268, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.notifications_list", "label": "notifications_list", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 272, "endline": 298, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 4, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.notification_mark_read", "label": "notification_mark_read", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 303, "endline": 313, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request", "pk"], "is_async": false, "complexity": 2, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.notification_mark_all_read", "label": "notification_mark_all_read", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 318, "endline": 328, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.notification_delete", "label": "notification_delete", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 333, "endline": 342, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request", "pk"], "is_async": false, "complexity": 2, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.notification_delete_all", "label": "notification_delete_all", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 347, "endline": 349, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.notification_unread_count", "label": "notification_unread_count", "kind": "view", "app": "dashboard", "file": "dashboard\\views.py", "line": 353, "endline": 355, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "dashboard.Notification", "label": "Notification", "kind": "model", "app": "dashboard", "file": "dashboard\\models\\notification.py", "line": 5, "endline": 31, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 1, "complexity": 1, "all_methods": ["__str__"], "fields": [{"name": "user", "type": "ForeignKey", "to": "AUTH_USER_MODEL", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "notifications", "choices": false, "help_text": null, "opts": []}, {"name": "title", "type": "CharField", "to": "", "max_length": 200, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "message", "type": "TextField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "notification_type", "type": "CharField", "to": "", "max_length": 10, "default": "system", "on_delete": "", "related_name": null, "choices": true, "help_text": null, "opts": []}, {"name": "is_read", "type": "BooleanField", "to": "", "max_length": null, "default": "False", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "link", "type": "CharField", "to": "", "max_length": 500, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "created_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}], "meta_opts": {"ordering": "['-created_at']"}, "methods": [], "properties": [], "managers": []}}, {"id": "dashboard.Profile", "label": "Profile", "kind": "model", "app": "dashboard", "file": "dashboard\\models\\profile.py", "line": 6, "endline": 23, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 1, "complexity": 1, "all_methods": ["__str__"], "fields": [{"name": "user", "type": "OneToOneField", "to": "AUTH_USER_MODEL", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "profile", "choices": false, "help_text": null, "opts": []}, {"name": "phone", "type": "CharField", "to": "", "max_length": 20, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "bio", "type": "TextField", "to": "", "max_length": null, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "avatar", "type": "ImageField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["null", "blank"]}, {"name": "address_line1", "type": "CharField", "to": "", "max_length": 255, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "address_line2", "type": "CharField", "to": "", "max_length": 255, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "city", "type": "CharField", "to": "", "max_length": 100, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "state", "type": "CharField", "to": "", "max_length": 50, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "zip_code", "type": "CharField", "to": "", "max_length": 20, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "created_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}, {"name": "updated_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now"]}], "meta_opts": {}, "methods": [], "properties": [], "managers": []}}, {"id": "mini_digi.GlobalRateLimitMiddleware", "label": "GlobalRateLimitMiddleware", "kind": "middleware", "app": "mini_digi", "file": "mini_digi\\middleware.py", "line": 7, "endline": 42, "meta": {"bases": [], "doc": "", "decorators": [], "n_methods": 3, "complexity": 5, "all_methods": ["__init__", "__call__", "_get_client_ip"], "methods": []}}, {"id": "url:mini_digi:/:15", "label": "/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 15, "endline": 15, "meta": {"handler": "include('shop.urls')", "name": "", "params": [], "include": true, "extra_kwargs": {}}}, {"id": "url:mini_digi:cart/:16", "label": "/cart/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 16, "endline": 16, "meta": {"handler": "include('cart.urls')", "name": "", "params": [], "include": true, "extra_kwargs": {}}}, {"id": "url:mini_digi:orders/:17", "label": "/orders/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 17, "endline": 17, "meta": {"handler": "include('orders.urls')", "name": "", "params": [], "include": true, "extra_kwargs": {}}}, {"id": "url:mini_digi:about/:18", "label": "/about/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 18, "endline": 18, "meta": {"handler": "products.about", "name": "about", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:mini_digi:dashboard/:19", "label": "/dashboard/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 19, "endline": 19, "meta": {"handler": "include('dashboard.urls')", "name": "", "params": [], "include": true, "extra_kwargs": {}}}, {"id": "url:mini_digi:accounts/:20", "label": "/accounts/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 20, "endline": 20, "meta": {"handler": "include('allauth.urls')", "name": "", "params": [], "include": true, "extra_kwargs": {}}}, {"id": "url:mini_digi:support/:21", "label": "/support/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 21, "endline": 21, "meta": {"handler": "include('support.urls')", "name": "", "params": [], "include": true, "extra_kwargs": {}}}, {"id": "url:mini_digi:reviews/:22", "label": "/reviews/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 22, "endline": 22, "meta": {"handler": "include('reviews.urls')", "name": "", "params": [], "include": true, "extra_kwargs": {}}}, {"id": "url:mini_digi:admin/:10", "label": "/admin/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 10, "endline": 10, "meta": {"handler": "admin.site.urls", "name": "", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:mini_digi:i18n/:11", "label": "/i18n/", "kind": "url", "app": "mini_digi", "file": "mini_digi\\urls.py", "line": 11, "endline": 11, "meta": {"handler": "include('django.conf.urls.i18n')", "name": "", "params": [], "include": true, "extra_kwargs": {}}}, {"id": "mini_digi.ratelimited_error", "label": "ratelimited_error", "kind": "view", "app": "mini_digi", "file": "mini_digi\\views.py", "line": 4, "endline": 7, "meta": {"doc": "", "decorators": [], "args": ["request", "exception"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "orders.Order", "label": "Order", "kind": "model", "app": "orders", "file": "orders\\models.py", "line": 7, "endline": 14, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 1, "complexity": 1, "all_methods": ["__str__"], "fields": [{"name": "user", "type": "ForeignKey", "to": "User", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "orders", "choices": false, "help_text": null, "opts": []}, {"name": "created_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}, {"name": "total_price", "type": "DecimalField", "to": "", "max_length": null, "default": "0", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "is_paid", "type": "BooleanField", "to": "", "max_length": null, "default": "False", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}], "meta_opts": {}, "methods": [], "properties": [], "managers": []}}, {"id": "orders.OrderItem", "label": "OrderItem", "kind": "model", "app": "orders", "file": "orders\\models.py", "line": 17, "endline": 24, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 1, "complexity": 1, "all_methods": ["__str__"], "fields": [{"name": "order", "type": "ForeignKey", "to": "Order", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "items", "choices": false, "help_text": null, "opts": []}, {"name": "product", "type": "ForeignKey", "to": "Product", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "quantity", "type": "PositiveIntegerField", "to": "", "max_length": null, "default": "1", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "price", "type": "DecimalField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}], "meta_opts": {}, "methods": [], "properties": [], "managers": []}}, {"id": "url:orders:checkout/:8", "label": "/checkout/", "kind": "url", "app": "orders", "file": "orders\\urls.py", "line": 8, "endline": 8, "meta": {"handler": "views.checkout", "name": "checkout", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:orders:confirmation/<int:pk>/:9", "label": "/confirmation/<int:pk>/", "kind": "url", "app": "orders", "file": "orders\\urls.py", "line": 9, "endline": 9, "meta": {"handler": "views.confirmation", "name": "confirmation", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "orders.checkout", "label": "checkout", "kind": "view", "app": "orders", "file": "orders\\views.py", "line": 10, "endline": 27, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 6, "uses_self_retry": false, "fbv": true, "optimised_qs": true}}, {"id": "orders.confirmation", "label": "confirmation", "kind": "view", "app": "orders", "file": "orders\\views.py", "line": 31, "endline": 35, "meta": {"doc": "", "decorators": ["login_required"], "args": ["request", "pk"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "reviews.CommentAdmin", "label": "CommentAdmin", "kind": "admin", "app": "reviews", "file": "reviews\\admin.py", "line": 7, "endline": 11, "meta": {"bases": ["admin.ModelAdmin"], "doc": "", "decorators": ["admin.register(Comment)"], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": [], "list_display": "('product', 'user', 'rate', 'is_review', 'created_at')", "list_filter": "('rate', 'created_at')", "search_fields": "('body', 'user__username', 'product__name')", "readonly_fields": "('created_at', 'updated_at')"}}, {"id": "url:reviews:product/<slug:product_slug>/:8", "label": "/product/<slug:product_slug>/", "kind": "url", "app": "reviews", "file": "reviews\\urls.py", "line": 8, "endline": 8, "meta": {"handler": "views.comment_list", "name": "comment_list", "params": ["slug:product_slug"], "include": false, "extra_kwargs": {}}}, {"id": "url:reviews:product/<slug:product_slug>/post/:9", "label": "/product/<slug:product_slug>/post/", "kind": "url", "app": "reviews", "file": "reviews\\urls.py", "line": 9, "endline": 11, "meta": {"handler": "views.comment_create", "name": "comment_create", "params": ["slug:product_slug"], "include": false, "extra_kwargs": {}}}, {"id": "url:reviews:<int:pk>/edit/:12", "label": "/<int:pk>/edit/", "kind": "url", "app": "reviews", "file": "reviews\\urls.py", "line": 12, "endline": 12, "meta": {"handler": "views.comment_update", "name": "comment_update", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:reviews:<int:pk>/delete/:13", "label": "/<int:pk>/delete/", "kind": "url", "app": "reviews", "file": "reviews\\urls.py", "line": 13, "endline": 13, "meta": {"handler": "views.comment_delete", "name": "comment_delete", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:reviews:<int:pk>/like/:14", "label": "/<int:pk>/like/", "kind": "url", "app": "reviews", "file": "reviews\\urls.py", "line": 14, "endline": 14, "meta": {"handler": "views.comment_like", "name": "comment_like", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:reviews:<int:pk>/dislike/:15", "label": "/<int:pk>/dislike/", "kind": "url", "app": "reviews", "file": "reviews\\urls.py", "line": 15, "endline": 15, "meta": {"handler": "views.comment_dislike", "name": "comment_dislike", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "reviews.Comment", "label": "Comment", "kind": "model", "app": "reviews", "file": "reviews\\models\\comments.py", "line": 8, "endline": 54, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 5, "complexity": 2, "all_methods": ["__str__", "is_review", "like_count", "dislike_count", "rating_score"], "fields": [{"name": "product", "type": "ForeignKey", "to": "Product", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "comments", "choices": false, "help_text": null, "opts": []}, {"name": "user", "type": "ForeignKey", "to": "AUTH_USER_MODEL", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "comments", "choices": false, "help_text": null, "opts": []}, {"name": "parent", "type": "ForeignKey", "to": "self", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "replies", "choices": false, "help_text": null, "opts": ["null", "blank"]}, {"name": "rate", "type": "DecimalField", "to": "", "max_length": null, "default": "0.0", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "likes", "type": "ManyToManyField", "to": "AUTH_USER_MODEL", "max_length": null, "default": null, "on_delete": "", "related_name": "liked_comments", "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "dislikes", "type": "ManyToManyField", "to": "AUTH_USER_MODEL", "max_length": null, "default": null, "on_delete": "", "related_name": "disliked_comments", "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "body", "type": "TextField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "created_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}, {"name": "updated_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now"]}], "meta_opts": {"ordering": "['-created_at']"}, "methods": ["is_review", "like_count", "dislike_count", "rating_score"], "properties": ["is_review", "like_count", "dislike_count", "rating_score"], "managers": []}}, {"id": "reviews.comment_list", "label": "comment_list", "kind": "view", "app": "reviews", "file": "reviews\\views\\comments.py", "line": 14, "endline": 34, "meta": {"doc": "", "decorators": ["require_GET"], "args": ["request", "product_slug"], "is_async": false, "complexity": 3, "uses_self_retry": false, "fbv": true, "optimised_qs": true}}, {"id": "reviews.comment_create", "label": "comment_create", "kind": "view", "app": "reviews", "file": "reviews\\views\\comments.py", "line": 39, "endline": 65, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request", "product_slug"], "is_async": false, "complexity": 6, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "reviews.comment_update", "label": "comment_update", "kind": "view", "app": "reviews", "file": "reviews\\views\\comments.py", "line": 70, "endline": 86, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request", "pk"], "is_async": false, "complexity": 5, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "reviews.comment_delete", "label": "comment_delete", "kind": "view", "app": "reviews", "file": "reviews\\views\\comments.py", "line": 91, "endline": 96, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request", "pk"], "is_async": false, "complexity": 2, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "reviews.comment_like", "label": "comment_like", "kind": "view", "app": "reviews", "file": "reviews\\views\\comments.py", "line": 101, "endline": 102, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request", "pk"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "reviews.comment_dislike", "label": "comment_dislike", "kind": "view", "app": "reviews", "file": "reviews\\views\\comments.py", "line": 107, "endline": 108, "meta": {"doc": "", "decorators": ["login_required", "require_POST"], "args": ["request", "pk"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.CategoryAdmin", "label": "CategoryAdmin", "kind": "admin", "app": "shop", "file": "shop\\admin.py", "line": 7, "endline": 11, "meta": {"bases": ["admin.ModelAdmin"], "doc": "", "decorators": ["admin.register(Category)"], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": [], "list_display": "('name', 'slug')"}}, {"id": "shop.NewsletterAdmin", "label": "NewsletterAdmin", "kind": "admin", "app": "shop", "file": "shop\\admin.py", "line": 15, "endline": 18, "meta": {"bases": ["admin.ModelAdmin"], "doc": "", "decorators": ["admin.register(Newsletter)"], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": [], "list_display": "('email', 'is_active')", "list_filter": "('is_active',)", "search_fields": "('email',)"}}, {"id": "shop.ProductAdmin", "label": "ProductAdmin", "kind": "admin", "app": "shop", "file": "shop\\admin.py", "line": 22, "endline": 35, "meta": {"bases": ["admin.ModelAdmin"], "doc": "", "decorators": ["admin.register(Product)"], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": [], "list_display": "('name', 'price', 'available')", "readonly_fields": "('created',)"}}, {"id": "shop.ProductVariantAdmin", "label": "ProductVariantAdmin", "kind": "admin", "app": "shop", "file": "shop\\admin.py", "line": 39, "endline": 43, "meta": {"bases": ["admin.ModelAdmin"], "doc": "", "decorators": ["admin.register(ProductVariant)"], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": [], "list_display": "('product', 'size', 'color', 'stock', 'final_price', 'is_active')", "list_filter": "('is_active', 'is_default', 'product__category')", "search_fields": "('product__name', 'sku', 'size', 'color')"}}, {"id": "url:shop:/:8", "label": "/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 8, "endline": 8, "meta": {"handler": "products.index", "name": "index", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:shop/:9", "label": "/shop/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 9, "endline": 9, "meta": {"handler": "products.product_list", "name": "product_list", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:shop/<slug:slug>/:10", "label": "/shop/<slug:slug>/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 10, "endline": 10, "meta": {"handler": "products.product_detail", "name": "product_detail", "params": ["slug:slug"], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:contact/:11", "label": "/contact/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 11, "endline": 11, "meta": {"handler": "products.contact", "name": "contact", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:search/autocomplete/:12", "label": "/search/autocomplete/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 12, "endline": 16, "meta": {"handler": "products.product_search_autocomplete", "name": "product_search_autocomplete", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:newsletter/subscribe/:17", "label": "/newsletter/subscribe/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 17, "endline": 17, "meta": {"handler": "newsletter.subscribe", "name": "newsletter_subscribe", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:about/:18", "label": "/about/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 18, "endline": 18, "meta": {"handler": "products.about", "name": "about", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:favorite/<slug:slug>/:19", "label": "/favorite/<slug:slug>/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 19, "endline": 19, "meta": {"handler": "products.toggle_favorite", "name": "toggle_favorite", "params": ["slug:slug"], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:help/:20", "label": "/help/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 20, "endline": 20, "meta": {"handler": "products.help", "name": "help", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:FAQs/:21", "label": "/FAQs/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 21, "endline": 21, "meta": {"handler": "products.FAQs", "name": "FAQs", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:shop:currency/set/:22", "label": "/currency/set/", "kind": "url", "app": "shop", "file": "shop\\urls.py", "line": 22, "endline": 22, "meta": {"handler": "products.set_currency", "name": "set_currency", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "cmd:shop:seed_products", "label": "seed_products", "kind": "command", "app": "shop", "file": "shop\\management\\commands\\seed_products.py", "line": 12, "endline": 284, "meta": {"doc": "Seed demo categories and products with multiple variants", "methods": ["handle"]}}, {"id": "shop.Category", "label": "Category", "kind": "model", "app": "shop", "file": "shop\\models\\category.py", "line": 5, "endline": 18, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 2, "complexity": 1, "all_methods": ["translated_name", "__str__"], "fields": [{"name": "name", "type": "CharField", "to": "", "max_length": 100, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "slug", "type": "SlugField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["unique"]}, {"name": "image", "type": "ImageField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["null", "blank"]}], "meta_opts": {"verbose_name_plural": "Categories"}, "methods": ["translated_name"], "properties": ["translated_name"], "managers": []}}, {"id": "shop.Newsletter", "label": "Newsletter", "kind": "model", "app": "shop", "file": "shop\\models\\newsletter.py", "line": 4, "endline": 15, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 1, "complexity": 1, "all_methods": ["__str__"], "fields": [{"name": "email", "type": "EmailField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["unique"]}, {"name": "created_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}, {"name": "is_active", "type": "BooleanField", "to": "", "max_length": null, "default": "True", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}], "meta_opts": {"indexes": "[models.Index(fields=['created_at'])]"}, "methods": [], "properties": [], "managers": []}}, {"id": "shop.Product", "label": "Product", "kind": "model", "app": "shop", "file": "shop\\models\\product.py", "line": 8, "endline": 83, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 9, "complexity": 3, "all_methods": ["display_image", "default_variant", "review_count", "translated_name", "translated_description", "translated_tasting_notes", "translated_food_pairing", "save", "__str__"], "fields": [{"name": "category", "type": "ForeignKey", "to": "Category", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "products", "choices": false, "help_text": null, "opts": []}, {"name": "name", "type": "CharField", "to": "", "max_length": 200, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "description", "type": "TextField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "slug", "type": "SlugField", "to": "", "max_length": 220, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank", "unique"]}, {"name": "meta_title", "type": "CharField", "to": "", "max_length": 70, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "meta_description", "type": "CharField", "to": "", "max_length": 160, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "price", "type": "DecimalField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": "Price in Toman", "opts": []}, {"name": "stock", "type": "PositiveIntegerField", "to": "", "max_length": null, "default": "0", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "available", "type": "BooleanField", "to": "", "max_length": null, "default": "True", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "created", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}, {"name": "color", "type": "CharField", "to": "", "max_length": 50, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "size", "type": "CharField", "to": "", "max_length": 10, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "favorited_by", "type": "ManyToManyField", "to": "AUTH_USER_MODEL", "max_length": null, "default": null, "on_delete": "", "related_name": "favorite_products", "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "favorites_count", "type": "PositiveIntegerField", "to": "", "max_length": null, "default": "0", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "tasting_notes", "type": "TextField", "to": "", "max_length": null, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "food_pairing", "type": "TextField", "to": "", "max_length": null, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}], "meta_opts": {}, "methods": ["display_image", "default_variant", "review_count", "translated_name", "translated_description", "translated_tasting_notes", "translated_food_pairing", "save"], "properties": ["display_image", "default_variant", "review_count", "translated_name", "translated_description", "translated_tasting_notes", "translated_food_pairing"], "managers": []}}, {"id": "shop.ProductVariant", "label": "ProductVariant", "kind": "model", "app": "shop", "file": "shop\\models\\variant.py", "line": 9, "endline": 64, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 4, "complexity": 4, "all_methods": ["save", "__str__", "final_price", "is_in_stock"], "fields": [{"name": "product", "type": "ForeignKey", "to": "Product", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "variants", "choices": false, "help_text": null, "opts": []}, {"name": "is_active", "type": "BooleanField", "to": "", "max_length": null, "default": "True", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "is_default", "type": "BooleanField", "to": "", "max_length": null, "default": "False", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "sku", "type": "CharField", "to": "", "max_length": 100, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["null", "blank", "unique"]}, {"name": "size", "type": "CharField", "to": "", "max_length": 20, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "color", "type": "CharField", "to": "", "max_length": 50, "default": "", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["blank"]}, {"name": "rate", "type": "DecimalField", "to": "", "max_length": null, "default": "0.0", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "stock", "type": "PositiveIntegerField", "to": "", "max_length": null, "default": "0", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "price_override", "type": "DecimalField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": "Leave blank to use the main product's price", "opts": ["null", "blank"]}, {"name": "image", "type": "ImageField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["null", "blank"]}], "meta_opts": {}, "methods": ["save", "final_price", "is_in_stock"], "properties": ["final_price", "is_in_stock"], "managers": []}}, {"id": "shop.chat_view", "label": "chat_view", "kind": "view", "app": "shop", "file": "shop\\views\\chat.py", "line": 25, "endline": 55, "meta": {"doc": "", "decorators": ["require_POST"], "args": ["request"], "is_async": false, "complexity": 4, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.subscribe", "label": "subscribe", "kind": "view", "app": "shop", "file": "shop\\views\\newsletter.py", "line": 11, "endline": 40, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 5, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.index", "label": "index", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 10, "endline": 20, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.product_list", "label": "product_list", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 23, "endline": 114, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 12, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.product_detail", "label": "product_detail", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 117, "endline": 131, "meta": {"doc": "", "decorators": [], "args": ["request", "slug"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.contact", "label": "contact", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 134, "endline": 135, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.product_search_autocomplete", "label": "product_search_autocomplete", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 138, "endline": 160, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 5, "uses_self_retry": false, "fbv": true, "optimised_qs": true}}, {"id": "shop.FAQs", "label": "FAQs", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 163, "endline": 164, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.about", "label": "about", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 167, "endline": 168, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.help", "label": "help", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 171, "endline": 172, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 1, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.toggle_favorite", "label": "toggle_favorite", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 175, "endline": 200, "meta": {"doc": "", "decorators": [], "args": ["request", "slug"], "is_async": false, "complexity": 5, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "shop.set_currency", "label": "set_currency", "kind": "view", "app": "shop", "file": "shop\\views\\products.py", "line": 203, "endline": 207, "meta": {"doc": "", "decorators": [], "args": ["request"], "is_async": false, "complexity": 2, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "support.TicketAttachmentInline", "label": "TicketAttachmentInline", "kind": "admin", "app": "support", "file": "support\\admin.py", "line": 6, "endline": 8, "meta": {"bases": ["admin.TabularInline"], "doc": "", "decorators": [], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": []}}, {"id": "support.TicketMessageInline", "label": "TicketMessageInline", "kind": "admin", "app": "support", "file": "support\\admin.py", "line": 11, "endline": 16, "meta": {"bases": ["admin.TabularInline"], "doc": "", "decorators": [], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": [], "readonly_fields": "('created_at',)", "inlines": "[TicketAttachmentInline]"}}, {"id": "support.TicketAdmin", "label": "TicketAdmin", "kind": "admin", "app": "support", "file": "support\\admin.py", "line": 20, "endline": 22, "meta": {"bases": ["admin.ModelAdmin"], "doc": "", "decorators": ["admin.register(Ticket)"], "n_methods": 0, "complexity": 1, "all_methods": [], "methods": [], "list_display": "('pk', 'subject', 'user', 'status', 'created_at')", "inlines": "[TicketMessageInline]"}}, {"id": "support.Ticket", "label": "Ticket", "kind": "model", "app": "support", "file": "support\\models.py", "line": 5, "endline": 20, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 1, "complexity": 1, "all_methods": ["__str__"], "fields": [{"name": "user", "type": "ForeignKey", "to": "AUTH_USER_MODEL", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "tickets", "choices": false, "help_text": null, "opts": []}, {"name": "subject", "type": "CharField", "to": "", "max_length": 200, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "status", "type": "CharField", "to": "", "max_length": 10, "default": "open", "on_delete": "", "related_name": null, "choices": true, "help_text": null, "opts": []}, {"name": "created_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}, {"name": "updated_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now"]}], "meta_opts": {}, "methods": [], "properties": [], "managers": []}}, {"id": "support.TicketMessage", "label": "TicketMessage", "kind": "model", "app": "support", "file": "support\\models.py", "line": 23, "endline": 35, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 1, "complexity": 3, "all_methods": ["save"], "fields": [{"name": "ticket", "type": "ForeignKey", "to": "Ticket", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "messages", "choices": false, "help_text": null, "opts": []}, {"name": "is_staff_reply", "type": "BooleanField", "to": "", "max_length": null, "default": "False", "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "body", "type": "TextField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "created_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}], "meta_opts": {}, "methods": ["save"], "properties": [], "managers": []}}, {"id": "support.TicketAttachment", "label": "TicketAttachment", "kind": "model", "app": "support", "file": "support\\models.py", "line": 38, "endline": 43, "meta": {"bases": ["models.Model"], "doc": "", "decorators": [], "n_methods": 0, "complexity": 1, "all_methods": [], "fields": [{"name": "message", "type": "ForeignKey", "to": "TicketMessage", "max_length": null, "default": null, "on_delete": "CASCADE", "related_name": "attachments", "choices": false, "help_text": null, "opts": []}, {"name": "file", "type": "FileField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": []}, {"name": "uploaded_at", "type": "DateTimeField", "to": "", "max_length": null, "default": null, "on_delete": "", "related_name": null, "choices": false, "help_text": null, "opts": ["auto_now_add"]}], "meta_opts": {}, "methods": [], "properties": [], "managers": []}}, {"id": "url:support:tickets/:8", "label": "/tickets/", "kind": "url", "app": "support", "file": "support\\urls.py", "line": 8, "endline": 8, "meta": {"handler": "views.ticket_list", "name": "ticket_list", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "url:support:tickets/<int:pk>/:9", "label": "/tickets/<int:pk>/", "kind": "url", "app": "support", "file": "support\\urls.py", "line": 9, "endline": 9, "meta": {"handler": "views.ticket_detail", "name": "ticket_detail", "params": ["int:pk"], "include": false, "extra_kwargs": {}}}, {"id": "url:support:tickets/create/:10", "label": "/tickets/create/", "kind": "url", "app": "support", "file": "support\\urls.py", "line": 10, "endline": 10, "meta": {"handler": "views.create_ticket", "name": "create_ticket", "params": [], "include": false, "extra_kwargs": {}}}, {"id": "support.ticket_list", "label": "ticket_list", "kind": "view", "app": "support", "file": "support\\views.py", "line": 11, "endline": 37, "meta": {"doc": "User's ticket list with search, sort, filter", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 4, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "support.ticket_detail", "label": "ticket_detail", "kind": "view", "app": "support", "file": "support\\views.py", "line": 41, "endline": 66, "meta": {"doc": "Single ticket chat view", "decorators": ["login_required"], "args": ["request", "pk"], "is_async": false, "complexity": 3, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}, {"id": "support.create_ticket", "label": "create_ticket", "kind": "view", "app": "support", "file": "support\\views.py", "line": 70, "endline": 121, "meta": {"doc": "Create new ticket", "decorators": ["login_required"], "args": ["request"], "is_async": false, "complexity": 7, "uses_self_retry": false, "fbv": true, "optimised_qs": false}}], "edges": [{"source": "cart.CartItem", "target": "cart.Cart", "kind": "fk", "label": "cart"}, {"source": "cart.CartItem", "target": "shop.Product", "kind": "fk", "label": "product"}, {"source": "url:cart:/:8", "target": "cart.cart_detail", "kind": "routes", "label": "detail"}, {"source": "url:cart:add/<int:product_id>/:9", "target": "cart.add_to_cart", "kind": "routes", "label": "add"}, {"source": "url:cart:update/<int:item_id>/:10", "target": "cart.update_cart", "kind": "routes", "label": "update"}, {"source": "url:cart:remove/<int:item_id>/:11", "target": "cart.remove_from_cart", "kind": "routes", "label": "remove"}, {"source": "cart.add_to_cart", "target": "shop.Product", "kind": "queries", "label": "get_or_404"}, {"source": "cart.update_cart", "target": "cart.CartItem", "kind": "queries", "label": "get_or_404"}, {"source": "cart.remove_from_cart", "target": "cart.CartItem", "kind": "queries", "label": "get_or_404"}, {"source": "dashboard.ProfileAdmin", "target": "dashboard.Profile", "kind": "manages", "label": "register"}, {"source": "dashboard.NotificationAdmin", "target": "dashboard.Notification", "kind": "manages", "label": "register"}, {"source": "url:dashboard:/:8", "target": "dashboard.home", "kind": "routes", "label": "home"}, {"source": "url:dashboard:profile/:9", "target": "dashboard.profile", "kind": "routes", "label": "profile"}, {"source": "url:dashboard:profile/update/:10", "target": "dashboard.profile_update", "kind": "routes", "label": "profile_update"}, {"source": "url:dashboard:profile/password/:11", "target": "dashboard.change_password", "kind": "routes", "label": "change_password"}, {"source": "url:dashboard:wishlist/:12", "target": "dashboard.wishlist", "kind": "routes", "label": "wishlist"}, {"source": "url:dashboard:orders/:13", "target": "dashboard.orders_list", "kind": "routes", "label": "orders"}, {"source": "url:dashboard:orders/search/:14", "target": "dashboard.orders_search_ajax", "kind": "routes", "label": "orders_search_ajax"}, {"source": "url:dashboard:wishlist/search/:15", "target": "dashboard.wishlist_search_ajax", "kind": "routes", "label": "wishlist_search_ajax"}, {"source": "url:dashboard:orders/<int:pk>/:16", "target": "dashboard.order_detail", "kind": "routes", "label": "order_detail"}, {"source": "url:dashboard:orders/<int:pk>/payment/:17", "target": "dashboard.payment", "kind": "routes", "label": "payment"}, {"source": "url:dashboard:orders/<int:pk>/payment/gateway/:18", "target": "dashboard.payment_gateway", "kind": "routes", "label": "payment_gateway"}, {"source": "url:dashboard:orders/<int:pk>/payment/return/:23", "target": "dashboard.payment_return", "kind": "routes", "label": "payment_return"}, {"source": "url:dashboard:notifications/:26", "target": "dashboard.notifications_list", "kind": "routes", "label": "notifications"}, {"source": "url:dashboard:notifications/<int:pk>/read/:27", "target": "dashboard.notification_mark_read", "kind": "routes", "label": "notification_mark_read"}, {"source": "url:dashboard:notifications/read-all/:32", "target": "dashboard.notification_mark_all_read", "kind": "routes", "label": "notification_mark_all_read"}, {"source": "url:dashboard:notifications/<int:pk>/delete/:37", "target": "dashboard.notification_delete", "kind": "routes", "label": "notification_delete"}, {"source": "url:dashboard:notifications/delete-all/:42", "target": "dashboard.notification_delete_all", "kind": "routes", "label": "notification_delete_all"}, {"source": "url:dashboard:notifications/unread-count/:47", "target": "dashboard.notification_unread_count", "kind": "routes", "label": "notification_unread_count"}, {"source": "dashboard.order_detail", "target": "orders.Order", "kind": "queries", "label": "get_or_404"}, {"source": "dashboard.payment", "target": "orders.Order", "kind": "queries", "label": "get_or_404"}, {"source": "dashboard.payment_gateway", "target": "orders.Order", "kind": "queries", "label": "get_or_404"}, {"source": "dashboard.payment_return", "target": "orders.Order", "kind": "queries", "label": "get_or_404"}, {"source": "dashboard.dashboard_tickets", "target": "support.Ticket", "kind": "queries", "label": "filter"}, {"source": "dashboard.notifications_list", "target": "dashboard.Notification", "kind": "queries", "label": "filter"}, {"source": "dashboard.notification_mark_read", "target": "dashboard.Notification", "kind": "queries", "label": "get"}, {"source": "dashboard.notification_mark_read", "target": "dashboard.Notification", "kind": "queries", "label": "filter"}, {"source": "dashboard.notification_mark_all_read", "target": "dashboard.Notification", "kind": "queries", "label": "filter"}, {"source": "dashboard.notification_delete", "target": "dashboard.Notification", "kind": "queries", "label": "get"}, {"source": "dashboard.notification_delete", "target": "dashboard.Notification", "kind": "queries", "label": "filter"}, {"source": "dashboard.notification_delete_all", "target": "dashboard.Notification", "kind": "queries", "label": "filter"}, {"source": "dashboard.notification_unread_count", "target": "dashboard.Notification", "kind": "queries", "label": "filter"}, {"source": "url:mini_digi:about/:18", "target": "shop.about", "kind": "routes", "label": "about"}, {"source": "orders.OrderItem", "target": "orders.Order", "kind": "fk", "label": "order"}, {"source": "orders.OrderItem", "target": "shop.Product", "kind": "fk", "label": "product"}, {"source": "url:orders:checkout/:8", "target": "orders.checkout", "kind": "routes", "label": "checkout"}, {"source": "url:orders:confirmation/<int:pk>/:9", "target": "orders.confirmation", "kind": "routes", "label": "confirmation"}, {"source": "orders.checkout", "target": "orders.Order", "kind": "queries", "label": "create"}, {"source": "orders.checkout", "target": "cart.Cart", "kind": "queries", "label": "filter"}, {"source": "orders.checkout", "target": "orders.OrderItem", "kind": "queries", "label": "create"}, {"source": "orders.confirmation", "target": "orders.Order", "kind": "queries", "label": "get_or_404"}, {"source": "reviews.CommentAdmin", "target": "reviews.Comment", "kind": "manages", "label": "register"}, {"source": "url:reviews:product/<slug:product_slug>/:8", "target": "reviews.comment_list", "kind": "routes", "label": "comment_list"}, {"source": "url:reviews:product/<slug:product_slug>/post/:9", "target": "reviews.comment_create", "kind": "routes", "label": "comment_create"}, {"source": "url:reviews:<int:pk>/edit/:12", "target": "reviews.comment_update", "kind": "routes", "label": "comment_update"}, {"source": "url:reviews:<int:pk>/delete/:13", "target": "reviews.comment_delete", "kind": "routes", "label": "comment_delete"}, {"source": "url:reviews:<int:pk>/like/:14", "target": "reviews.comment_like", "kind": "routes", "label": "comment_like"}, {"source": "url:reviews:<int:pk>/dislike/:15", "target": "reviews.comment_dislike", "kind": "routes", "label": "comment_dislike"}, {"source": "reviews.Comment", "target": "shop.Product", "kind": "fk", "label": "product"}, {"source": "reviews.comment_list", "target": "shop.Product", "kind": "queries", "label": "get_or_404"}, {"source": "reviews.comment_list", "target": "reviews.Comment", "kind": "queries", "label": "select_related"}, {"source": "reviews.comment_list", "target": "reviews.Comment", "kind": "queries", "label": "filter"}, {"source": "reviews.comment_create", "target": "shop.Product", "kind": "queries", "label": "get_or_404"}, {"source": "reviews.comment_create", "target": "reviews.Comment", "kind": "queries", "label": "create"}, {"source": "reviews.comment_create", "target": "reviews.Comment", "kind": "queries", "label": "get_or_404"}, {"source": "reviews.comment_update", "target": "reviews.Comment", "kind": "queries", "label": "get_or_404"}, {"source": "reviews.comment_delete", "target": "reviews.Comment", "kind": "queries", "label": "get_or_404"}, {"source": "shop.CategoryAdmin", "target": "shop.Category", "kind": "manages", "label": "register"}, {"source": "shop.NewsletterAdmin", "target": "shop.Newsletter", "kind": "manages", "label": "register"}, {"source": "shop.ProductAdmin", "target": "shop.Product", "kind": "manages", "label": "register"}, {"source": "shop.ProductVariantAdmin", "target": "shop.ProductVariant", "kind": "manages", "label": "register"}, {"source": "url:shop:/:8", "target": "shop.index", "kind": "routes", "label": "index"}, {"source": "url:shop:shop/:9", "target": "shop.product_list", "kind": "routes", "label": "product_list"}, {"source": "url:shop:shop/<slug:slug>/:10", "target": "shop.product_detail", "kind": "routes", "label": "product_detail"}, {"source": "url:shop:contact/:11", "target": "shop.contact", "kind": "routes", "label": "contact"}, {"source": "url:shop:search/autocomplete/:12", "target": "shop.product_search_autocomplete", "kind": "routes", "label": "product_search_autocomplete"}, {"source": "url:shop:newsletter/subscribe/:17", "target": "shop.subscribe", "kind": "routes", "label": "newsletter_subscribe"}, {"source": "url:shop:about/:18", "target": "shop.about", "kind": "routes", "label": "about"}, {"source": "url:shop:favorite/<slug:slug>/:19", "target": "shop.toggle_favorite", "kind": "routes", "label": "toggle_favorite"}, {"source": "url:shop:help/:20", "target": "shop.help", "kind": "routes", "label": "help"}, {"source": "url:shop:FAQs/:21", "target": "shop.FAQs", "kind": "routes", "label": "FAQs"}, {"source": "url:shop:currency/set/:22", "target": "shop.set_currency", "kind": "routes", "label": "set_currency"}, {"source": "cmd:shop:seed_products", "target": "shop.Category", "kind": "queries", "label": "create"}, {"source": "cmd:shop:seed_products", "target": "shop.Product", "kind": "queries", "label": "all"}, {"source": "cmd:shop:seed_products", "target": "shop.Product", "kind": "queries", "label": "create"}, {"source": "cmd:shop:seed_products", "target": "shop.ProductVariant", "kind": "queries", "label": "create"}, {"source": "shop.Product", "target": "shop.Category", "kind": "fk", "label": "category"}, {"source": "shop.ProductVariant", "target": "shop.Product", "kind": "fk", "label": "product"}, {"source": "shop.subscribe", "target": "shop.Newsletter", "kind": "queries", "label": "create"}, {"source": "shop.subscribe", "target": "shop.Newsletter", "kind": "queries", "label": "filter"}, {"source": "shop.index", "target": "shop.Category", "kind": "queries", "label": "all"}, {"source": "shop.index", "target": "shop.Product", "kind": "queries", "label": "filter"}, {"source": "shop.product_list", "target": "shop.Category", "kind": "queries", "label": "all"}, {"source": "shop.product_list", "target": "shop.Product", "kind": "queries", "label": "filter"}, {"source": "shop.product_list", "target": "shop.ProductVariant", "kind": "queries", "label": "filter"}, {"source": "shop.product_detail", "target": "shop.Product", "kind": "queries", "label": "get_or_404"}, {"source": "shop.product_search_autocomplete", "target": "shop.Product", "kind": "queries", "label": "select_related"}, {"source": "shop.product_search_autocomplete", "target": "shop.Product", "kind": "queries", "label": "filter"}, {"source": "shop.toggle_favorite", "target": "shop.Product", "kind": "queries", "label": "get_or_404"}, {"source": "shop.toggle_favorite", "target": "shop.Product", "kind": "queries", "label": "filter"}, {"source": "support.TicketAdmin", "target": "support.Ticket", "kind": "manages", "label": "register"}, {"source": "support.TicketMessage", "target": "support.Ticket", "kind": "fk", "label": "ticket"}, {"source": "support.TicketAttachment", "target": "support.TicketMessage", "kind": "fk", "label": "message"}, {"source": "url:support:tickets/:8", "target": "support.ticket_list", "kind": "routes", "label": "ticket_list"}, {"source": "url:support:tickets/<int:pk>/:9", "target": "support.ticket_detail", "kind": "routes", "label": "ticket_detail"}, {"source": "url:support:tickets/create/:10", "target": "support.create_ticket", "kind": "routes", "label": "create_ticket"}, {"source": "support.ticket_list", "target": "support.Ticket", "kind": "queries", "label": "filter"}, {"source": "support.ticket_detail", "target": "support.Ticket", "kind": "queries", "label": "get_or_404"}, {"source": "support.ticket_detail", "target": "support.TicketMessage", "kind": "queries", "label": "create"}, {"source": "support.ticket_detail", "target": "support.TicketAttachment", "kind": "queries", "label": "create"}, {"source": "support.create_ticket", "target": "support.Ticket", "kind": "queries", "label": "create"}, {"source": "support.create_ticket", "target": "support.TicketMessage", "kind": "queries", "label": "create"}, {"source": "support.create_ticket", "target": "support.TicketAttachment", "kind": "queries", "label": "create"}], "settings": {"INSTALLED_APPS": ["django.contrib.admin", "django.contrib.auth", "django.contrib.contenttypes", "django.contrib.sessions", "django.contrib.messages", "django.contrib.staticfiles", "allauth", "allauth.account", "allauth.socialaccount", "crispy_forms", "crispy_bootstrap5", "shop", "cart", "orders", "support", "dashboard", "django.contrib.humanize", "commands", "mini_digi", "reviews", "captcha"], "DEBUG": true, "MIDDLEWARE": ["django.middleware.security.SecurityMiddleware", "django.contrib.sessions.middleware.SessionMiddleware", "django.middleware.locale.LocaleMiddleware", "django.middleware.common.CommonMiddleware", "django.middleware.csrf.CsrfViewMiddleware", "mini_digi.middleware.GlobalRateLimitMiddleware", "django.contrib.auth.middleware.AuthenticationMiddleware", "django.contrib.messages.middleware.MessageMiddleware", "django.middleware.clickjacking.XFrameOptionsMiddleware", "allauth.account.middleware.AccountMiddleware"], "ROOT_URLCONF": "mini_digi.urls", "WSGI_APPLICATION": "mini_digi.wsgi.application", "DATABASES": "{'default': {'ENGINE': 'django.db.backends.postgresql', 'NAME': os.environ.get('DB_NAME', 'mini-digi'), 'USER': os.environ.get('DB_USER', 'postgres'), 'PASSWORD': os.environ.get('DB_PASSWORD', '1234')", "AUTHENTICATION_BACKENDS": ["django.contrib.auth.backends.ModelBackend", "allauth.account.auth_backends.AuthenticationBackend"], "TIME_ZONE": "UTC", "LANGUAGE_CODE": "en"}, "app_deps": [{"source": "cart", "target": "shop"}, {"source": "dashboard", "target": "orders"}, {"source": "dashboard", "target": "support"}, {"source": "mini_digi", "target": "shop"}, {"source": "orders", "target": "shop"}, {"source": "orders", "target": "cart"}, {"source": "reviews", "target": "shop"}], "declared_apps": ["allauth", "allauth.account", "allauth.socialaccount", "crispy_forms", "crispy_bootstrap5", "shop", "cart", "orders", "support", "dashboard", "commands", "mini_digi", "reviews", "captcha"], "app_order": ["shop", "cart", "orders", "support", "dashboard", "commands", "mini_digi", "reviews"], "app_stats": {"cart": {"total": 10, "loc": 94, "model": 2, "url": 4, "view": 4}, "commands": {"total": 3, "loc": 227, "command": 3}, "dashboard": {"total": 41, "loc": 394, "admin": 2, "url": 18, "view": 19, "model": 2}, "mini_digi": {"total": 12, "loc": 50, "middleware": 1, "url": 10, "view": 1}, "orders": {"total": 6, "loc": 41, "model": 2, "url": 2, "view": 2}, "reviews": {"total": 14, "loc": 135, "admin": 1, "url": 6, "model": 1, "view": 6}, "shop": {"total": 32, "loc": 715, "admin": 4, "url": 11, "command": 1, "model": 4, "view": 12}, "support": {"total": 12, "loc": 155, "admin": 3, "model": 3, "url": 3, "view": 3}}, "stats": {"model": 14, "url": 54, "view": 47, "command": 4, "admin": 10, "middleware": 1, "apps": 8, "edges": 113}, "health": {"issues": [{"node": "cart.CartItem", "code": "model.fk_no_related", "severity": "info", "message": "ForeignKey without related_name", "detail": "product"}, {"node": "cart.cart_detail", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "cart.add_to_cart", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "cart.add_to_cart", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Product"}, {"node": "cart.update_cart", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "cart.remove_from_cart", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "dashboard.order_detail", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}, {"node": "dashboard.payment", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}, {"node": "dashboard.payment_gateway", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}, {"node": "dashboard.payment_return", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}, {"node": "dashboard.dashboard_tickets", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Ticket"}, {"node": "dashboard.notifications_list", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification"}, {"node": "dashboard.notification_mark_read", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification, Notification"}, {"node": "dashboard.notification_mark_all_read", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification"}, {"node": "dashboard.notification_delete", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification, Notification"}, {"node": "dashboard.notification_delete_all", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification"}, {"node": "dashboard.notification_unread_count", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification"}, {"node": "url:mini_digi:admin/:10", "code": "url.no_name", "severity": "warn", "message": "URL has no name= (cannot be used with reverse())", "detail": "admin.site.urls"}, {"node": "url:mini_digi:admin/:10", "code": "url.no_view", "severity": "error", "message": "URL is not wired to any known view", "detail": "admin.site.urls"}, {"node": "mini_digi.ratelimited_error", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "orders.OrderItem", "code": "model.fk_no_related", "severity": "info", "message": "ForeignKey without related_name", "detail": "product"}, {"node": "orders.confirmation", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}, {"node": "reviews.comment_list", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "reviews.comment_create", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Product, Comment, Comment"}, {"node": "reviews.comment_update", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Comment"}, {"node": "reviews.comment_delete", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Comment"}, {"node": "shop.chat_view", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.subscribe", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.index", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.index", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Category, Product"}, {"node": "shop.product_list", "code": "complexity.high", "severity": "warn", "message": "High cyclomatic complexity", "detail": "CC = 12"}, {"node": "shop.product_list", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.product_list", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Category, Product, ProductVariant"}, {"node": "shop.product_detail", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.product_detail", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Product"}, {"node": "shop.contact", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.product_search_autocomplete", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.FAQs", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.about", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.help", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.toggle_favorite", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.toggle_favorite", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Product, Product"}, {"node": "shop.set_currency", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "support.TicketMessage", "code": "model.no_str", "severity": "warn", "message": "Model has no __str__ method", "detail": ""}, {"node": "support.TicketAttachment", "code": "model.no_str", "severity": "warn", "message": "Model has no __str__ method", "detail": ""}, {"node": "support.ticket_list", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Ticket"}, {"node": "support.ticket_detail", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Ticket, TicketMessage, TicketAttachment"}, {"node": "support.create_ticket", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Ticket, TicketMessage, TicketAttachment"}], "by_node": {"cart.CartItem": [{"node": "cart.CartItem", "code": "model.fk_no_related", "severity": "info", "message": "ForeignKey without related_name", "detail": "product"}], "cart.cart_detail": [{"node": "cart.cart_detail", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "cart.add_to_cart": [{"node": "cart.add_to_cart", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "cart.add_to_cart", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Product"}], "cart.update_cart": [{"node": "cart.update_cart", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "cart.remove_from_cart": [{"node": "cart.remove_from_cart", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "dashboard.order_detail": [{"node": "dashboard.order_detail", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}], "dashboard.payment": [{"node": "dashboard.payment", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}], "dashboard.payment_gateway": [{"node": "dashboard.payment_gateway", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}], "dashboard.payment_return": [{"node": "dashboard.payment_return", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}], "dashboard.dashboard_tickets": [{"node": "dashboard.dashboard_tickets", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Ticket"}], "dashboard.notifications_list": [{"node": "dashboard.notifications_list", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification"}], "dashboard.notification_mark_read": [{"node": "dashboard.notification_mark_read", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification, Notification"}], "dashboard.notification_mark_all_read": [{"node": "dashboard.notification_mark_all_read", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification"}], "dashboard.notification_delete": [{"node": "dashboard.notification_delete", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification, Notification"}], "dashboard.notification_delete_all": [{"node": "dashboard.notification_delete_all", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification"}], "dashboard.notification_unread_count": [{"node": "dashboard.notification_unread_count", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Notification"}], "url:mini_digi:admin/:10": [{"node": "url:mini_digi:admin/:10", "code": "url.no_name", "severity": "warn", "message": "URL has no name= (cannot be used with reverse())", "detail": "admin.site.urls"}, {"node": "url:mini_digi:admin/:10", "code": "url.no_view", "severity": "error", "message": "URL is not wired to any known view", "detail": "admin.site.urls"}], "mini_digi.ratelimited_error": [{"node": "mini_digi.ratelimited_error", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "orders.OrderItem": [{"node": "orders.OrderItem", "code": "model.fk_no_related", "severity": "info", "message": "ForeignKey without related_name", "detail": "product"}], "orders.confirmation": [{"node": "orders.confirmation", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Order"}], "reviews.comment_list": [{"node": "reviews.comment_list", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "reviews.comment_create": [{"node": "reviews.comment_create", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Product, Comment, Comment"}], "reviews.comment_update": [{"node": "reviews.comment_update", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Comment"}], "reviews.comment_delete": [{"node": "reviews.comment_delete", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Comment"}], "shop.chat_view": [{"node": "shop.chat_view", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "shop.subscribe": [{"node": "shop.subscribe", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "shop.index": [{"node": "shop.index", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.index", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Category, Product"}], "shop.product_list": [{"node": "shop.product_list", "code": "complexity.high", "severity": "warn", "message": "High cyclomatic complexity", "detail": "CC = 12"}, {"node": "shop.product_list", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.product_list", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Category, Product, ProductVariant"}], "shop.product_detail": [{"node": "shop.product_detail", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.product_detail", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Product"}], "shop.contact": [{"node": "shop.contact", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "shop.product_search_autocomplete": [{"node": "shop.product_search_autocomplete", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "shop.FAQs": [{"node": "shop.FAQs", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "shop.about": [{"node": "shop.about", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "shop.help": [{"node": "shop.help", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "shop.toggle_favorite": [{"node": "shop.toggle_favorite", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}, {"node": "shop.toggle_favorite", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Product, Product"}], "shop.set_currency": [{"node": "shop.set_currency", "code": "view.unauth", "severity": "info", "message": "View without login_required / permission", "detail": ""}], "support.TicketMessage": [{"node": "support.TicketMessage", "code": "model.no_str", "severity": "warn", "message": "Model has no __str__ method", "detail": ""}], "support.TicketAttachment": [{"node": "support.TicketAttachment", "code": "model.no_str", "severity": "warn", "message": "Model has no __str__ method", "detail": ""}], "support.ticket_list": [{"node": "support.ticket_list", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Ticket"}], "support.ticket_detail": [{"node": "support.ticket_detail", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Ticket, TicketMessage, TicketAttachment"}], "support.create_ticket": [{"node": "support.create_ticket", "code": "view.n_plus_one", "severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related", "detail": "Ticket, TicketMessage, TicketAttachment"}]}, "counts": {"error": 24, "warn": 4, "info": 20}, "per_app": {"cart": {"error": 1, "warn": 0, "info": 5, "total": 6}, "dashboard": {"error": 11, "warn": 0, "info": 0, "total": 11}, "mini_digi": {"error": 1, "warn": 1, "info": 1, "total": 3}, "orders": {"error": 1, "warn": 0, "info": 1, "total": 2}, "reviews": {"error": 3, "warn": 0, "info": 1, "total": 4}, "shop": {"error": 4, "warn": 1, "info": 12, "total": 17}, "support": {"error": 3, "warn": 2, "info": 0, "total": 5}}, "cycles": [], "checks": {"model.no_str": {"severity": "warn", "message": "Model has no __str__ method"}, "model.fk_no_related": {"severity": "info", "message": "ForeignKey without related_name"}, "model.no_ordering": {"severity": "warn", "message": "Model used in a ListView but has no Meta.ordering"}, "model.orphan": {"severity": "info", "message": "No view / serializer / admin references this model"}, "model.no_indexes": {"severity": "info", "message": "Model has many fields but no db_index"}, "url.no_name": {"severity": "warn", "message": "URL has no name= (cannot be used with reverse())"}, "url.no_view": {"severity": "error", "message": "URL is not wired to any known view"}, "view.no_perm": {"severity": "warn", "message": "DRF view without permission_classes"}, "view.n_plus_one": {"severity": "error", "message": "N+1 risk: model has FKs but no select_related/prefetch_related"}, "view.unauth": {"severity": "info", "message": "View without login_required / permission"}, "task.no_retry": {"severity": "info", "message": "Task without max_retries / autoretry_for"}, "task.orphan": {"severity": "warn", "message": "Task is never called (no delay() and no beat schedule)"}, "task.no_bind_retry": {"severity": "info", "message": "Task uses self.retry but is not declared with bind=True"}, "signal.no_sender": {"severity": "warn", "message": "receiver without sender (fires for every model)"}, "complexity.high": {"severity": "warn", "message": "High cyclomatic complexity"}, "app.cycle": {"severity": "error", "message": "Circular dependency between apps"}}, "score": 79}, "links": {"editor": "vscode", "repo_url": "", "branch": "main"}, "group_by": "prefix"}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const NS='http://www.w3.org/2000/svg';
+const COLORS={model:'#7ee787',view:'#79c0ff',url:'#ffa657',task:'#d2a8ff',signal:'#ff7b72',
+  form:'#f0c674',admin:'#56d4dd',serializer:'#a5d6ff',beat:'#ff9ecd',middleware:'#c9a2ff',command:'#9ae6b4',consumer:'#f778ba'};
+const ORDER=['url','view','consumer','serializer','form','model','task','beat','signal','middleware','admin','command'];
+const TITLE={model:'Models',view:'Views',url:'URLs',task:'Celery Tasks',beat:'Beat Schedule',
+  signal:'Signals',serializer:'Serializers',form:'Forms',admin:'Admin',
+  middleware:'Middleware',command:'Management Commands',consumer:'WebSocket Consumers'};
+const EDGE_LABEL={fk:'ForeignKey',m2m:'ManyToMany',o2o:'OneToOne',routes:'URL → View',
+  calls:'task.delay()',schedules:'beat schedule',uses:'uses',queries:'ORM query',
+  manages:'admin registers',listens:'signal receiver',inherits:'inherits'};
+const APPHUE=['#79c0ff','#7ee787','#ffa657','#d2a8ff','#ff9ecd','#56d4dd','#f0c674','#ff7b72','#a5d6ff','#9ae6b4'];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const byId=Object.fromEntries(D.nodes.map(n=>[n.id,n]));
+const edges=D.edges.filter(e=>byId[e.source]&&byId[e.target]);
+const _hasNodes=a=>D.nodes.some(n=>n.app===a);
+// INSTALLED_APPS order is the project's own declared order - respect it.
+const apps=(D.app_order&&D.app_order.length
+  ? D.app_order.filter(a=>D.apps.includes(a))
+      .concat(D.apps.filter(a=>!D.app_order.includes(a)))
+  : D.apps.slice()).filter(_hasNodes);
+const declaredSet=new Set((D.declared_apps||[]).map(d=>{
+  let p=d.split('.');
+  if(p.length&&/^[A-Z]/.test(p[p.length-1])){p.pop();if(p[p.length-1]==='apps')p.pop();}
+  return p.join('.');}));
+const isDeclared=a=>declaredSet.has(a);
+const appColor={};
+const GROUP_BY=D.group_by||'prefix';
+const appGroup={}, appShort={};
+apps.forEach(a=>{const i=a.lastIndexOf('.');
+  appGroup[a] = (GROUP_BY==='prefix'&&i>0) ? a.slice(0,i) : '';
+  appShort[a] = i>0 ? a.slice(i+1) : a;});
+// colour by group so related apps share a hue family
+const groups=[...new Set(apps.map(a=>appGroup[a]))].sort();
+apps.forEach((a,i)=>{
+  const gi=Math.max(0,groups.indexOf(appGroup[a]));
+  appColor[a]=APPHUE[(gi*3+i)%APPHUE.length];});
+const nodesOf=k=>D.nodes.filter(n=>n.kind===k);
+
+/* ================= health + source links ================= */
+const H=D.health||null, LINKS=D.links||{};
+const SEV={error:'#ff7b72',warn:'#f0c674',info:'#79c0ff'};
+const SEVBG={error:'bg-rose-500/15 text-rose-300 border-rose-500/30',
+  warn:'bg-amber-500/15 text-amber-300 border-amber-500/30',
+  info:'bg-sky-500/15 text-sky-300 border-sky-500/30'};
+const issuesOf=id=>(H&&H.by_node[id])||[];
+function worstOf(id){const is=issuesOf(id);
+  return is.some(i=>i.severity==='error')?'error':is.some(i=>i.severity==='warn')?'warn':
+         is.length?'info':null;}
+function srcLinks(n){
+  const out=[];
+  const abs=(D.root+'/'+n.file).replace(/\/+/g,'/');
+  if(LINKS.editor&&LINKS.editor!=='none'){
+    const scheme=LINKS.editor==='pycharm'?'jetbrains://pycharm/navigate/reference?path=':
+      (LINKS.editor==='vscode-insiders'?'vscode-insiders://file':'vscode://file');
+    const href=LINKS.editor==='pycharm'?scheme+abs+':'+n.line:`${scheme}${abs}:${n.line}`;
+    out.push(`<a href="${esc(href)}" class="inline-block mono text-[10px] px-2 py-1 rounded
+      bg-slate-800 hover:bg-slate-700 text-slate-300 mr-1.5">open in editor</a>`);}
+  if(LINKS.repo_url){
+    const href=`${LINKS.repo_url}/blob/${LINKS.branch||'main'}/${n.file}#L${n.line}`;
+    out.push(`<a href="${esc(href)}" target="_blank" rel="noopener"
+      class="inline-block mono text-[10px] px-2 py-1 rounded bg-slate-800 hover:bg-slate-700
+      text-sky-300">view on remote ↗</a>`);}
+  return out.join('');}
+
+
+/* ================= sidebar ================= */
+const S=D.settings||{};
+document.getElementById('settings').innerHTML=[
+  ['apps',apps.length],['AUTH_USER_MODEL',S.AUTH_USER_MODEL],['TIME_ZONE',S.TIME_ZONE],
+  ['DEBUG',S.DEBUG],['broker',(S.CELERY_BROKER_URL||'').replace(/^\w+:\/\//,'')],
+  ['middleware',(S.MIDDLEWARE||[]).length||null],['installed',(S.INSTALLED_APPS||[]).length||null],
+].filter(r=>r[1]!==undefined&&r[1]!==null&&r[1]!=='').map(([k,v])=>
+  `<div class="flex justify-between gap-2 text-[11px] text-slate-500">
+     <span>${esc(k)}</span><b class="mono text-slate-300 font-semibold truncate max-w-[110px]"
+     title="${esc(v)}">${esc(v)}</b></div>`).join('');
+document.getElementById('stats').innerHTML=Object.entries(D.stats).map(([k,v])=>
+  `<div class="flex justify-between text-[11.5px] text-slate-500 py-0.5">
+     <span>${esc(k)}</span><b class="mono text-slate-200 font-semibold">${v}</b></div>`).join('');
+document.getElementById('legend').innerHTML=[
+  ['fk','#7ee787',0],['m2m','#7ee787',1],['routes','#ffa657',0],['calls','#d2a8ff',1],
+  ['schedules','#ff9ecd',1],['queries','#5c8a6a',0],['uses','#a5d6ff',1],
+  ['listens','#ff7b72',1],['manages','#56d4dd',1],['inherits','#4d5b6b',1],
+].filter(([k])=>edges.some(e=>e.kind===k)).map(([k,c,d])=>
+  `<div><i class="inline-block w-5 align-middle mr-2" style="border-top:2px ${d?'dashed':'solid'} ${c}"></i>${EDGE_LABEL[k]}</div>`).join('');
+
+const appsBox=document.getElementById('apps');
+let lastGroup=null;
+apps.forEach(a=>{const st=(D.app_stats||{})[a]||{};
+  if(GROUP_BY==='prefix'&&appGroup[a]!==lastGroup){
+    lastGroup=appGroup[a];
+    if(lastGroup){const hd=document.createElement('div');
+      hd.className='mono text-[9.5px] uppercase tracking-wider text-slate-600 mt-2.5 mb-1 px-1';
+      hd.textContent=lastGroup; appsBox.appendChild(hd);}}
+  const r=document.createElement('div');
+  r.className='flex items-center gap-2 text-[12.5px] text-slate-400 px-2 py-1.5 rounded-md '+
+    'cursor-pointer hover:bg-[#151d26] hover:text-slate-100 transition';
+  r.innerHTML=`<span class="w-2.5 h-2.5 rounded-sm shrink-0" style="background:${appColor[a]}"></span>
+    <span class="truncate" title="${esc(a)}${isDeclared(a)?'':' — not in INSTALLED_APPS'}">${esc(appShort[a])}</span>${isDeclared(a)?'':'<span class="undecl" title="Not listed in INSTALLED_APPS">!</span>'}
+    <span class="ml-auto mono text-[10.5px] text-slate-600">${st.total||0}</span>`;
+  r.onclick=()=>{onApp.has(a)?onApp.delete(a):onApp.add(a);r.classList.toggle('opacity-30');refresh();saveHash();};
+  appsBox.appendChild(r);});
+
+/* ================= responsive shell ================= */
+const mqDesktop=matchMedia('(min-width:1024px)');
+const isTouch=matchMedia('(pointer:coarse)').matches;
+function closeNav(){document.body.classList.remove('nav-open');}
+document.getElementById('burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.getElementById('backdrop').onclick=closeNav;
+mqDesktop.addEventListener('change',()=>{closeNav();relayoutAll();});
+// "Kinds" opens the sidebar on small screens where the chip row is hidden
+document.getElementById('kindsBtn').onclick=()=>{
+  document.body.classList.add('nav-open');
+  document.getElementById('kindsPanel').scrollIntoView({behavior:'smooth',block:'nearest'});};
+
+/* ================= TAB 1: app boards ================= */
+const world=document.getElementById('world'), stageA=document.getElementById('tab-apps'),
+      svg=document.getElementById('wires'), panel=document.getElementById('panel');
+const boards={}, cardEl={};
+
+function subtitle(n){const m=n.meta||{};
+  if(n.kind==='url')return (m.handler||'').replace('.as_view()','')+(m.name?` · ${m.name}`:'');
+  if(n.kind==='model')return (m.fields||[]).length+' fields'+(m.meta_opts&&m.meta_opts.ordering?' · ordered':'');
+  if(n.kind==='beat')return m.schedule||'';
+  if(n.kind==='task'){const o=m.task_opts||{};
+    return (m.args&&m.args.length?'('+m.args.join(', ')+')':'()')+(o.queue?` · q:${o.queue}`:'');}
+  if(n.kind==='view')return (m.http&&m.http.length?m.http.join('/').toUpperCase()+' · ':'')+(m.bases||[]).join(', ');
+  if(n.kind==='signal')return (m.signal||'')+(m.sender?` ← ${m.sender}`:'');
+  return (m.bases||[]).join(', ')||m.doc||'';}
+function badge(n){const m=n.meta||{};
+  if(n.kind==='model')return (m.fields||[]).length;
+  if(n.kind==='view')return m.fbv?'fn':'cbv';
+  if(n.kind==='url')return m.include?'inc':(m.router?'api':'');
+  if(n.kind==='task'&&(m.task_opts||{}).bind)return 'bind';
+  return '';}
+
+apps.forEach(app=>{
+  const col=appColor[app], list=D.nodes.filter(n=>n.app===app), st=(D.app_stats||{})[app]||{};
+  const b=document.createElement('div');
+  b.className='board absolute rounded-xl border border-slate-800 z-[2] shadow-2xl '+
+    'bg-gradient-to-b from-[#121821] to-[#0f151d] transition-opacity';
+  b.dataset.app=app;
+  b.innerHTML=`<div class="bhead flex items-center gap-2 px-3 py-2.5 border-b border-slate-800
+        rounded-t-xl cursor-grab select-none" style="background:linear-gradient(90deg,${col}18,transparent)">
+      <span class="w-2.5 h-2.5 rounded-sm shrink-0" style="background:${col}"></span>
+      <span class="mono text-[13px] font-semibold" style="color:${col}"
+        title="${esc(app)}">${esc(appShort[app])}</span>
+      <span class="ml-auto mono text-[10px] text-slate-600">${list.length} · ${st.loc||0} loc</span>
+      <span class="fold text-slate-600 hover:text-slate-200 cursor-pointer px-0.5">▾</span></div>
+    <div class="bbody p-2.5 flex flex-col gap-3"></div>`;
+  const body=b.querySelector('.bbody');
+  ORDER.forEach(kind=>{
+    const items=list.filter(n=>n.kind===kind); if(!items.length)return;
+    const g=document.createElement('div'); g.className='group'; g.dataset.kind=kind;
+    g.innerHTML=`<div class="flex items-center gap-2 text-[9.5px] uppercase tracking-wider
+        font-bold mb-1.5 px-0.5" style="color:${COLORS[kind]}aa">${TITLE[kind]}
+        <span class="text-slate-600">${items.length}</span>
+        <span class="flex-1 h-px bg-slate-800"></span></div>
+      <div class="cards flex flex-col gap-1.5"></div>`;
+    const cw=g.querySelector('.cards');
+    items.forEach(n=>{
+      const c=document.createElement('div');
+      c.className='card card-l relative bg-[#161d27] border border-[#222b36] rounded-lg '+
+        'px-2.5 py-1.5 cursor-pointer transition hover:bg-[#1b2430] hover:border-slate-600 overflow-hidden';
+      c.style.setProperty('--c',COLORS[kind]);
+      const sub=subtitle(n), bg=badge(n);
+      const wq=worstOf(n.id), nis=issuesOf(n.id).length;
+      c.innerHTML=`<div class="mono text-[12.5px] text-slate-200 truncate pr-6">${
+          wq?`<span class="inline-block w-1.5 h-1.5 rounded-full mr-1 align-middle"
+            style="background:${SEV[wq]}" title="${nis} issue(s)"></span>`:''}${esc(n.label)}</div>
+        ${sub?`<div class="mono text-[10.5px] text-slate-500 truncate mt-0.5">${esc(sub)}</div>`:''}
+        ${bg!==''&&bg!==0?`<div class="absolute top-1.5 right-1.5 mono text-[9px] text-slate-500
+          bg-[#0e141b] rounded px-1.5">${esc(bg)}</div>`:''}`;
+      c.onclick=ev=>{ev.stopPropagation();select(n.id);};
+      cw.appendChild(c); cardEl[n.id]=c;});
+    body.appendChild(g);});
+  b.querySelector('.fold').onclick=ev=>{ev.stopPropagation();b.classList.toggle('folded');
+    b.querySelector('.bbody').hidden=b.classList.contains('folded');
+    b.querySelector('.fold').textContent=b.classList.contains('folded')?'▸':'▾';drawWires();};
+  b.querySelector('.bhead').addEventListener('pointerdown',e=>dragBoard(e,app));
+  world.appendChild(b); boards[app]=b;});
+
+const pos={}; let BW=290; const GAP=30;
+const BANDH=34, BANDGAP=34;
+function calcBW(){
+  const w=(stageA.getBoundingClientRect().width||window.innerWidth)-40;
+  BW = w<420 ? Math.max(230,w-16) : (w<700?272:290);
+  return BW;}
+calcBW();
+// One masonry band per namespace (apps.*, auths.*, core, ...), each with a
+// heading, so groups never bleed into one another.
+const bandEls={};
+function bandEl(g){
+  if(bandEls[g])return bandEls[g];
+  const d=document.createElement('div');
+  d.className='band-label mono';
+  d.innerHTML=`<span class="band-name">${esc(g||'root')}</span>`
+             +`<span class="band-rule"></span>`;
+  world.appendChild(d); bandEls[g]=d; return d;}
+
+function autoLayout(){
+  calcBW();
+  const avail=(stageA.getBoundingClientRect().width||1200)-40;
+  let cols=Math.max(1,Math.floor(avail/(BW+GAP)));
+  const vis=apps.filter(a=>!boards[a].hidden);
+  cols=Math.max(1,Math.min(cols,vis.length));
+
+  // group -> apps, preserving sidebar order
+  const rank=a=>apps.indexOf(a);
+  const order=[...vis].sort((a,b)=>
+    (appGroup[a]||'\uffff').localeCompare(appGroup[b]||'\uffff')||
+    rank(a)-rank(b));
+  const bands=[]; const seen={};
+  order.forEach(a=>{const g=appGroup[a]||'';
+    if(!(g in seen)){seen[g]=bands.length;bands.push({g,items:[]});}
+    bands[seen[g]].items.push(a);});
+
+  Object.values(bandEls).forEach(e=>e.style.display='none');
+  const single=bands.length<2;
+  let yTop=0;
+  bands.forEach(band=>{
+    let head=null;
+    if(!single){
+      head=bandEl(band.g);
+      head.style.display='flex';
+      head.style.left='0px'; head.style.top=yTop+'px';
+      head.style.width=(cols*(BW+GAP)-GAP)+'px';
+      yTop+=BANDH;}
+    // masonry within this band only
+    const h=new Array(cols).fill(0);
+    band.items.forEach(app=>{
+        const c=h.indexOf(Math.min(...h));
+        pos[app]={x:c*(BW+GAP),y:yTop+h[c]};
+        h[c]+=boards[app].offsetHeight+GAP;});
+    yTop+=Math.max(...h)+BANDGAP;});}
+function place(){apps.forEach(a=>{const b=boards[a];
+  if(!pos[a])return;
+  b.style.width=BW+'px';b.style.left=pos[a].x+'px';b.style.top=pos[a].y+'px';});}
+apps.forEach(a=>boards[a].style.width=BW+'px'); autoLayout(); place();
+
+const wireEl=edges.map(e=>{const p=document.createElementNS(NS,'path');
+  p.setAttribute('class','wire '+e.kind);svg.appendChild(p);return p;});
+function offsetIn(el,root){let x=0,y=0,n=el;
+  while(n&&n!==root){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent;}return [x,y];}
+function rectOf(id){const c=cardEl[id];if(!c)return null;
+  const app=byId[id].app,b=boards[app];
+  if(b.hidden)return null;
+  if(b.classList.contains('folded')||c.hidden)return {x:pos[app].x,y:pos[app].y,w:BW,h:b.offsetHeight};
+  const [ox,oy]=offsetIn(c,b);
+  return {x:pos[app].x+ox,y:pos[app].y+oy,w:c.offsetWidth,h:c.offsetHeight};}
+function boardBox(app){const b=boards[app];
+  return {x:pos[app].x,y:pos[app].y,w:BW,h:b.offsetHeight};}
+function drawWires(){
+  let mx=0,my=0;
+  // channel counter so parallel wires don't overlap
+  const chan={};
+  edges.forEach((e,i)=>{
+    const a=rectOf(e.source),b=rectOf(e.target);
+    if(!a||!b){wireEl[i].setAttribute('d','');return;}
+    const sApp=byId[e.source].app, tApp=byId[e.target].app;
+    const A=boardBox(sApp), B=boardBox(tApp);
+    const y1=a.y+a.h/2, y2=b.y+b.h/2;
+    let d;
+    if(sApp===tApp){
+      // same app: exit at the board edge and arc in the margin, never across cards
+      const k='s'+sApp; chan[k]=(chan[k]||0)+1;
+      const off=18+((chan[k]-1)%4)*11;
+      const sx=A.x+A.w, ex=A.x+A.w, bx=sx+off;
+      d=`M${a.x+a.w},${y1} L${sx},${y1} C${bx+20},${y1} ${bx+20},${y2} ${ex},${y2} L${b.x+b.w},${y2}`;
+      mx=Math.max(mx,bx+24);
+    }else{
+      // across apps: leave both board edges, arc through the gutter between them
+      const right = B.x >= A.x + A.w - 4;
+      const left  = B.x + B.w <= A.x + 4;
+      if(right||left){
+        const sx = right ? A.x+A.w : A.x;
+        const ex = right ? B.x : B.x+B.w;
+        const sCard = right ? a.x+a.w : a.x;
+        const eCard = right ? b.x : b.x+b.w;
+        const dx=Math.max(26,Math.abs(ex-sx)*.5)*(right?1:-1);
+        d=`M${sCard},${y1} L${sx},${y1} C${sx+dx},${y1} ${ex-dx},${y2} ${ex},${y2} L${eCard},${y2}`;
+        mx=Math.max(mx,sx,ex,sCard,eCard);
+      }else{
+        // boards share a column -> route around via the outer side
+        const down = B.y > A.y;
+        const sy = down ? A.y+A.h : A.y, ey = down ? B.y : B.y+B.h;
+        const gx = Math.max(A.x+A.w, B.x+B.w)+24;
+        const k='v'+Math.round(gx); chan[k]=(chan[k]||0)+1;
+        const gx2=gx+((chan[k]-1)%4)*11;
+        d=`M${a.x+a.w},${y1} L${gx2},${y1} L${gx2},${y2} L${b.x+b.w},${y2}`;
+        mx=Math.max(mx,gx2+20);
+      }
+    }
+    wireEl[i].setAttribute('d',d);
+    my=Math.max(my,y1,y2);});
+  const w=Math.max(mx,...apps.map(a=>pos[a]?pos[a].x+BW:0))+90;
+  const h=Math.max(my,...apps.map(a=>(boards[a].hidden||!pos[a])?0
+    :pos[a].y+boards[a].offsetHeight))+80;
+  svg.setAttribute('width',w);svg.setAttribute('height',h);
+  world.style.width=w+'px';world.style.height=h+'px';}
+
+let view={x:40,y:30,k:1};
+const applyA=()=>world.style.transform=`translate(${view.x}px,${view.y}px) scale(${view.k})`;
+stageA.addEventListener('wheel',e=>{e.preventDefault();
+  const s=Math.exp(-e.deltaY*0.0013),k=Math.min(2.2,Math.max(.14,view.k*s));
+  const r=stageA.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+  view.x=mx-(mx-view.x)*(k/view.k);view.y=my-(my-view.y)*(k/view.k);view.k=k;applyA();},{passive:false});
+let pan=null,bdrag=null;
+stageA.addEventListener('pointerdown',e=>{if(e.target.closest('.board'))return;
+  pan={x:e.clientX,y:e.clientY,vx:view.x,vy:view.y};stageA.classList.add('cursor-grabbing');});
+addEventListener('pointermove',e=>{
+  if(bdrag){pos[bdrag.app].x=bdrag.px+(e.clientX-bdrag.x)/view.k;
+    pos[bdrag.app].y=bdrag.py+(e.clientY-bdrag.y)/view.k;place();drawWires();}
+  else if(pan){view.x=pan.vx+e.clientX-pan.x;view.y=pan.vy+e.clientY-pan.y;applyA();}
+  else if(fpan){fv.x=fpan.vx+e.clientX-fpan.x;fv.y=fpan.vy+e.clientY-fpan.y;applyF();}});
+addEventListener('pointerup',()=>{pan=null;bdrag=null;fpan=null;stageA.classList.remove('cursor-grabbing');});
+function dragBoard(e,app){if(e.target.classList.contains('fold'))return;
+  bdrag={app,x:e.clientX,y:e.clientY,px:pos[app].x,py:pos[app].y};
+  boards[app].style.zIndex=10;e.stopPropagation();}
+function fitApps(){const w=parseFloat(world.style.width),h=parseFloat(world.style.height);
+  const r=stageA.getBoundingClientRect();
+  const kw=(r.width-30)/w, kh=(r.height-40-panelOverlap())/h;
+  view.k = r.width<640 ? Math.min(kw,1) : Math.max(Math.min(kw,kh,1.1),Math.min(kw,0.62));
+  view.x=Math.max(12,(r.width-w*view.k)/2);view.y=16;applyA();}
+function relayoutAll(){autoLayout();place();drawWires();
+  if(tab==='apps')fitApps(); else if(tab==='flow'){paintFlow();fitFlow();}}
+
+/* ================= filters ================= */
+const kinds=[...new Set(D.nodes.map(n=>n.kind))].sort((a,b)=>ORDER.indexOf(a)-ORDER.indexOf(b));
+const onKind=new Set(kinds), onApp=new Set(apps);
+const chips=document.getElementById('chips');
+const chipsM=document.getElementById('chipsMobile');
+const chipEls={};
+kinds.forEach(k=>{
+  chipEls[k]=[];
+  [chips,chipsM].forEach(host=>{
+    const b=document.createElement('button');
+    b.className='chip px-2.5 py-1 rounded-md text-[11px] border border-slate-800 bg-[#1c2530] '+
+      'text-slate-200 transition whitespace-nowrap';
+    b.innerHTML=`<span class="inline-block w-1.5 h-1.5 rounded-sm mr-1.5" style="background:${COLORS[k]}"></span>${k}`;
+    b.onclick=()=>{const on=onKind.has(k); on?onKind.delete(k):onKind.add(k);
+      chipEls[k].forEach(x=>x.classList.toggle('opacity-30',on));refresh();saveHash();};
+    host.appendChild(b); chipEls[k].push(b);});});
+document.getElementById('q').oninput=refresh;
+
+let sel=null;
+const nbr=id=>{const s=new Set([id]);
+  edges.forEach(e=>{if(e.source===id)s.add(e.target);if(e.target===id)s.add(e.source);});return s;};
+function refresh(){
+  const term=document.getElementById('q').value.trim().toLowerCase();
+  const hot=sel?nbr(sel):null, shown=new Set();
+  D.nodes.forEach(n=>{const c=cardEl[n.id];if(!c)return;
+    let vis=onKind.has(n.kind)&&onApp.has(n.app);
+    if(vis&&term)vis=(n.label+' '+n.file+' '+JSON.stringify(n.meta)).toLowerCase().includes(term);
+    c.hidden=!vis;
+    c.classList.toggle('opacity-20',!!(vis&&hot&&!hot.has(n.id)));
+    c.classList.toggle('card-hot',!!(vis&&hot&&hot.has(n.id)&&n.id!==sel));
+    c.classList.toggle('ring-1',n.id===sel); c.classList.toggle('ring-white',n.id===sel);
+    if(vis)shown.add(n.id);});
+  apps.forEach(a=>{let any=false;
+    boards[a].querySelectorAll('.group').forEach(g=>{
+      const alive=[...g.querySelectorAll('.card')].some(c=>!c.hidden);
+      g.hidden=!alive; any=any||alive;});
+    boards[a].hidden=!any;
+    boards[a].classList.toggle('opacity-25',!!(hot&&![...boards[a].querySelectorAll('.card')]
+      .some(c=>!c.hidden&&(c.classList.contains('card-hot')||c.classList.contains('ring-1')))));});
+  edges.forEach((e,i)=>{const ok=shown.has(e.source)&&shown.has(e.target);
+    const on=hot&&(e.source===sel||e.target===sel);
+    wireEl[i].classList.toggle('dim',!ok||!!(hot&&!on));
+    wireEl[i].classList.toggle('hot',!!(ok&&on));});
+  requestAnimationFrame(drawWires);
+  if(tab==='flow')paintFlow();}
+
+/* ================= detail panel ================= */
+function row(k,v){return `<tr><td class="mono text-[11.5px] py-1 border-t border-slate-800">${esc(k)}</td>
+  <td class="mono text-[11.5px] py-1 border-t border-slate-800 text-right text-slate-500">${v}</td></tr>`;}
+function tags(a){return a.map(x=>`<span class="inline-block mono text-[10px] px-1.5 py-0.5 rounded
+  bg-slate-800 text-slate-400 mr-1 mb-1">${esc(x)}</span>`).join('');}
+function h4(t){return `<h4 class="text-[9.5px] uppercase tracking-wider text-slate-600 font-bold mt-3 mb-1">${t}</h4>`;}
+
+function select(id){
+  sel=(sel===id)?null:id;
+  if(!sel){panel.classList.add('hidden');refresh();return;}
+  const n=byId[sel],m=n.meta||{},col=COLORS[n.kind];
+  let h=`<span class="float-right text-slate-600 hover:text-slate-200 cursor-pointer"
+      onclick="select(null)">✕</span>
+    <h3 class="mono text-[14.5px] font-semibold mb-0.5" style="color:${col}">${esc(n.label)}</h3>
+    <div class="mono text-[10.5px] text-slate-600 break-all">${esc(n.kind)} ·
+      <span style="color:${appColor[n.app]}">${esc(n.app)}</span> · ${esc(n.file)}:${n.line}${
+      n.endline&&n.endline>n.line?`-${n.endline}`:''}</div>`;
+  const sl=srcLinks(n); if(sl)h+=`<div class="mt-2">${sl}</div>`;
+  if(m.doc)h+=`<div class="text-[12px] text-slate-400 leading-relaxed my-2.5">${esc(m.doc)}</div>`;
+  const nis=issuesOf(sel);
+  if(nis.length)h+=h4(`Issues (${nis.length})`)+nis.map(i=>
+    `<div class="flex gap-2 items-start text-[11px] mb-1.5 px-2 py-1.5 rounded border ${SEVBG[i.severity]}">
+       <span class="mono text-[9px] uppercase shrink-0 mt-0.5">${esc(i.severity)}</span>
+       <span>${esc(i.message)}${i.detail?` <span class="mono opacity-70">${esc(i.detail)}</span>`:''}
+       <span class="mono opacity-50 block text-[9.5px]">${esc(i.code)}</span></span></div>`).join('');
+
+  if(n.kind==='url'){h+=h4('Route')+'<table class="w-full">'+
+    row('handler',esc((m.handler||'').replace('.as_view()','')))+
+    (m.name?row('name',esc(m.name)):'')+
+    (m.params&&m.params.length?row('params',esc(m.params.join(', '))):'')+
+    (m.include?row('type','include()'):'')+(m.router?row('type','DRF router'):'')+'</table>';}
+  if(n.kind==='view'){const r=[];
+    if(m.http&&m.http.length)r.push(row('methods',m.http.join(', ').toUpperCase()));
+    ['model','queryset','serializer_class','form_class','template_name','paginate_by',
+     'permission_classes','lookup_field'].forEach(k=>{if(m[k]!==undefined)r.push(row(k,esc(m[k])));});
+    if(r.length)h+=h4('Config')+'<table class="w-full">'+r.join('')+'</table>';
+    const urls=edges.filter(e=>e.target===sel&&e.kind==='routes').map(e=>byId[e.source].label);
+    if(urls.length)h+=h4('Reachable at')+tags(urls);}
+  if(n.kind==='model'){
+    if(m.fields&&m.fields.length)h+=h4(`Fields (${m.fields.length})`)+'<table class="w-full">'+
+      m.fields.map(f=>row(f.name,
+        `${esc(f.type)}${f.to?' → '+esc(f.to):''}${f.max_length?`(${f.max_length})`:''}`+
+        (f.opts&&f.opts.length?` <span class="text-slate-700">${esc(f.opts.join(','))}</span>`:'')+
+        (f.on_delete?` <span class="text-slate-700">${esc(f.on_delete)}</span>`:''))).join('')+'</table>';
+    if(m.meta_opts&&Object.keys(m.meta_opts).length)h+=h4('Meta')+'<table class="w-full">'+
+      Object.entries(m.meta_opts).map(([k,v])=>row(k,esc(v))).join('')+'</table>';
+    if(m.properties&&m.properties.length)h+=h4('Properties')+tags(m.properties);}
+  if(n.kind==='task'){const o=m.task_opts||{};
+    h+=h4('Task')+'<table class="w-full">'+row('signature',esc(n.label+'('+(m.args||[]).join(', ')+')'))+
+      Object.entries(o).map(([k,v])=>row(k,esc(v))).join('')+'</table>';
+    const cb=edges.filter(e=>e.target===sel&&(e.kind==='calls'||e.kind==='schedules'))
+      .map(e=>byId[e.source].label);
+    if(cb.length)h+=h4('Triggered by')+tags(cb);}
+  if(n.kind==='beat')h+=h4('Schedule')+'<table class="w-full">'+row('task',esc(m.task))+
+    row('every',esc(m.schedule))+(m.args?row('args',esc(m.args)):'')+'</table>';
+  if(n.kind==='signal')h+=h4('Receiver')+'<table class="w-full">'+
+    row('signal',esc(m.signal))+(m.sender?row('sender',esc(m.sender)):'')+'</table>';
+  if(n.kind==='serializer'){const r=[];
+    ['model','fields','read_only_fields'].forEach(k=>{if(m[k]!==undefined)r.push(row(k,esc(m[k])));});
+    if(r.length)h+=h4('Meta')+'<table class="w-full">'+r.join('')+'</table>';}
+  if(n.kind==='admin'){const r=[];
+    ['list_display','list_filter','search_fields','readonly_fields'].forEach(k=>{
+      if(m[k]!==undefined)r.push(row(k,esc(m[k])));});
+    if(r.length)h+=h4('Options')+'<table class="w-full">'+r.join('')+'</table>';}
+
+  if(m.complexity)h+=h4('Complexity')+`<div class="flex items-center gap-2">
+    <div class="flex-1 h-1.5 rounded bg-slate-800 overflow-hidden"><div class="h-full rounded"
+      style="width:${Math.min(100,m.complexity*5)}%;background:${
+      m.complexity>=18?'#ff7b72':m.complexity>=10?'#f0c674':'#7ee787'}"></div></div>
+    <span class="mono text-[11px] text-slate-400">CC ${m.complexity}</span></div>`;
+  if(m.methods&&m.methods.length)h+=h4(`Methods (${m.n_methods||m.methods.length})`)+
+    tags(m.methods.map(x=>x+'()'));
+  if(m.args&&m.args.length&&n.kind!=='task')h+=h4('Args')+tags(m.args);
+  if(m.bases&&m.bases.length)h+=h4('Inherits')+tags(m.bases);
+  if(m.decorators&&m.decorators.length)h+=h4('Decorators')+tags(m.decorators.map(x=>'@'+x));
+
+  const rel=edges.filter(e=>e.source===sel||e.target===sel);
+  if(rel.length)h+=h4(`Relations (${rel.length})`)+'<table class="w-full">'+rel.map(e=>{
+    const out=e.source===sel,o=byId[out?e.target:e.source];
+    return `<tr><td class="mono text-[11px] py-1 border-t border-slate-800"
+        style="color:${COLORS[e.kind]||'#64748b'}">${esc(EDGE_LABEL[e.kind]||e.kind)}${
+        e.label?' <span class="text-slate-600">'+esc(e.label)+'</span>':''}</td>
+      <td class="text-right py-1 border-t border-slate-800">
+        <a href="#" onclick="select('${esc(o.id)}');return false"
+          class="mono text-[11px] text-sky-400 hover:underline">${out?'→':'←'} ${esc(o.label)}</a>
+        <span class="mono text-[9.5px] text-slate-700 ml-1">${esc(o.app)}</span></td></tr>`;}).join('')+'</table>';
+  panel.innerHTML=h;panel.classList.remove('hidden');refresh();saveHash();
+  if(!mqDesktop.matches&&tab==='flow')fitFlow();}
+window.select=select;
+stageA.addEventListener('click',e=>{if(!e.target.closest('.board'))select(null);});
+
+/* ================= TAB 2: flow charts ================= */
+const stageF=document.getElementById('tab-flow'), fsvg=document.getElementById('flow'),
+      froot=document.getElementById('flowRoot'), finfo=document.getElementById('flowinfo');
+let fv={x:0,y:0,k:1}, fpan=null, flowMode='request';
+const applyF=()=>froot.setAttribute('transform',`translate(${fv.x},${fv.y}) scale(${fv.k})`);
+stageF.addEventListener('wheel',e=>{e.preventDefault();
+  const s=Math.exp(-e.deltaY*0.0013),k=Math.min(2.5,Math.max(.12,fv.k*s));
+  const r=stageF.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+  fv.x=mx-(mx-fv.x)*(k/fv.k);fv.y=my-(my-fv.y)*(k/fv.k);fv.k=k;applyF();},{passive:false});
+stageF.addEventListener('pointerdown',e=>{if(e.target.closest('.fl-node'))return;
+  fpan={x:e.clientX,y:e.clientY,vx:fv.x,vy:fv.y};});
+
+const el=(t,a,p)=>{const n=document.createElementNS(NS,t);
+  for(const k in a)n.setAttribute(k,a[k]); if(p)p.appendChild(n); return n;};
+function fnode(g,{x,y,w,h,label,sub,color,id,kind,rx=9}){
+  const gg=el('g',{class:'fl-node',transform:`translate(${x},${y})`},g);
+  if(id)gg.dataset.id=id;
+  el('rect',{width:w,height:h,rx,fill:'#161d27',stroke:color,'stroke-width':1.4,
+    'fill-opacity':.95},gg);
+  el('rect',{width:4,height:h,rx:2,fill:color},gg);
+  const t=el('text',{x:14,y:sub?h/2-3:h/2+4,fill:'#dbe5ef','font-size':12.5,
+    'font-family':'ui-monospace,monospace'},gg); t.textContent=label;
+  if(sub){const s=el('text',{x:14,y:h/2+12,fill:'#64748b','font-size':10,
+    'font-family':'ui-monospace,monospace'},gg); s.textContent=sub;}
+  if(id)gg.addEventListener('click',ev=>{ev.stopPropagation();select(id);});
+  return gg;}
+function fedge(g,x1,y1,x2,y2,cls,label){
+  const dx=Math.max(30,Math.abs(x2-x1)*.5)*(x2>=x1?1:-1);
+  const p=el('path',{class:'fl-edge wire '+cls,
+    d:`M${x1},${y1} C${x1+dx},${y1} ${x2-dx},${y2} ${x2},${y2}`,'marker-end':'url(#ah)'},g);
+  if(label){const t=el('text',{x:(x1+x2)/2,y:(y1+y2)/2-5,fill:'#64748b','font-size':9.5,
+    'text-anchor':'middle','font-family':'ui-monospace,monospace'},g);t.textContent=label;}
+  return p;}
+function lane(g,x,y,w,h,title,color){
+  el('rect',{x,y,width:w,height:h,rx:14,fill:color+'0c',stroke:color+'33','stroke-width':1,
+    'stroke-dasharray':'5 5'},g);
+  const t=el('text',{x:x+14,y:y+20,fill:color,'font-size':10.5,'font-weight':700,
+    'letter-spacing':1.4,'font-family':'ui-monospace,monospace'},g);
+  t.textContent=title.toUpperCase();}
+
+function clearFlow(){froot.innerHTML='';
+  const d=el('defs',{},froot);
+  const m=el('marker',{id:'ah',viewBox:'0 0 8 8',refX:7,refY:4,markerWidth:5,markerHeight:5,
+    orient:'auto-start-reverse'},d);
+  el('path',{d:'M0,0 L8,4 L0,8 z',fill:'#64748b'},m);}
+
+const INFO={
+  request:'Lifecycle of an HTTP request: it passes through middleware, matches a URL, reaches a view, which talks to models/serializers and may queue a Celery task.',
+  apps:'App dependencies derived from real imports between packages. Each card shows the size of the app and the mix of node kinds it contains.',
+  celery:'The async pipeline: what triggers each task (views, signals, beat, management commands) and which tasks chain into others.',
+  data:'ER diagram: every model with its fields, and the ForeignKey / M2M / OneToOne relations between them, grouped by app.'};
+
+function visible(n){
+  const term=document.getElementById('q').value.trim().toLowerCase();
+  if(!onKind.has(n.kind)||!onApp.has(n.app))return false;
+  if(term)return (n.label+' '+n.file+' '+JSON.stringify(n.meta)).toLowerCase().includes(term);
+  return true;}
+
+function flowRequest(){
+  const g=froot, colW=210, H=44, VG=12;
+  const narrow=(stageF.getBoundingClientRect().width||900)<760;
+  const cols=[
+    {t:'Middleware',c:'#c9a2ff',items:(S.MIDDLEWARE||[]).map(m=>({label:m.split('.').pop(),sub:m.split('.').slice(0,-1).pop()}))
+      .concat(nodesOf('middleware').filter(visible).map(n=>({label:n.label,sub:n.app,id:n.id})))},
+    {t:'URLconf',c:'#ffa657',items:nodesOf('url').filter(visible).map(n=>
+      ({label:n.label.slice(0,26),sub:(n.meta.name||n.app),id:n.id}))},
+    {t:'Views',c:'#79c0ff',items:nodesOf('view').filter(visible).map(n=>
+      ({label:n.label,sub:(n.meta.http||[]).join('/').toUpperCase()||n.app,id:n.id}))},
+    {t:'Serializers / Forms',c:'#a5d6ff',items:[...nodesOf('serializer'),...nodesOf('form')]
+      .filter(visible).map(n=>({label:n.label,sub:n.app,id:n.id}))},
+    {t:'Models / DB',c:'#7ee787',items:nodesOf('model').filter(visible).map(n=>
+      ({label:n.label,sub:(n.meta.fields||[]).length+'f',id:n.id}))},
+  ];
+  const box={};
+  let laneH=0;
+  if(narrow){
+    // phones: stack each layer as its own horizontal band
+    let y=10;
+    cols.forEach(col=>{
+      const h=col.items.length*(H+VG)+50;
+      lane(g,24,y,colW+32,h,col.t,col.c);
+      col.items.forEach((it,i)=>{const yy=y+34+i*(H+VG);
+        fnode(g,{x:40,y:yy,w:colW,h:H,label:it.label,sub:it.sub,color:col.c,id:it.id});
+        if(it.id)box[it.id]={x:40,y:yy,w:colW,h:H};});
+      y+=h+26;});
+    fnode(g,{x:40,y:y,w:150,h:40,label:'HTTP Request',sub:'client',color:'#e2e8f0'});
+    const tasks=nodesOf('task').filter(visible);
+    if(tasks.length){
+      y+=64; const h=tasks.length*(H+VG)+50;
+      lane(g,24,y,colW+32,h,'Async · Celery','#d2a8ff');
+      tasks.forEach((n,i)=>{const yy=y+34+i*(H+VG);
+        fnode(g,{x:40,y:yy,w:colW,h:H,label:n.label,sub:'task',color:'#d2a8ff',id:n.id});
+        box[n.id]={x:40,y:yy,w:colW,h:H};});}
+    // vertical routing: exit right, drop, come back
+    let ch=0;
+    edges.forEach(e=>{const a=box[e.source],b=box[e.target];
+      if(!a||!b)return;
+      if(!['routes','uses','queries','calls'].includes(e.kind))return;
+      const gx=280+((ch++)%5)*14;
+      const p=el('path',{class:'fl-edge wire '+e.kind,
+        d:`M${a.x+a.w},${a.y+a.h/2} L${gx},${a.y+a.h/2} L${gx},${b.y+b.h/2} L${b.x+b.w},${b.y+b.h/2}`,
+        'marker-end':'url(#ah)'},g);});
+    return box;}
+
+  // Large projects: wrap tall lanes into sub-columns so the diagram keeps a
+  // readable aspect ratio instead of becoming one very long strip.
+  const PER=Math.max(8,Math.min(18,Math.ceil(Math.max(
+    ...cols.map(c=>c.items.length),1)/Math.ceil(Math.max(
+    ...cols.map(c=>c.items.length),1)/18))));
+  const LANEGAP=34, SUBGAP=10;
+  const laneW=col=>{const sub=Math.max(1,Math.ceil(col.items.length/PER));
+    return sub*colW+(sub-1)*SUBGAP+32;};
+  laneH=Math.max(Math.min(Math.max(...cols.map(c=>c.items.length),1),PER)*(H+VG)+50,160);
+
+  const entryW=150;
+  let x0=40+entryW+LANEGAP;
+  const laneX=[];
+  cols.forEach(col=>{laneX.push(x0); x0+=laneW(col)+LANEGAP;});
+
+  cols.forEach((col,ci)=>{
+    const lx=laneX[ci];
+    lane(g,lx-16,10,laneW(col),laneH,col.t,col.c);
+    col.items.forEach((it,i)=>{
+      const sub=Math.floor(i/PER), row=i%PER;
+      const x=lx+sub*(colW+SUBGAP), y=44+row*(H+VG);
+      fnode(g,{x,y,w:colW,h:H,label:it.label,sub:it.sub,color:col.c,id:it.id});
+      if(it.id)box[it.id]={x,y,w:colW,h:H};});});
+
+  // entry node sits at the left, vertically centred against the lanes
+  fnode(g,{x:40,y:10+laneH/2-20,w:entryW,h:40,
+    label:'HTTP Request',sub:'client',color:'#e2e8f0'});
+
+  edges.forEach(e=>{const a=box[e.source],b=box[e.target];
+    if(!a||!b)return;
+    if(!['routes','uses','queries'].includes(e.kind))return;
+    fedge(g,a.x+a.w,a.y+a.h/2,b.x,b.y+b.h/2,e.kind);});
+  const tasks=nodesOf('task').filter(visible);
+  if(tasks.length){
+    const ly=laneH+110, tsub=Math.max(1,Math.ceil(tasks.length/PER));
+    lane(g,laneX[2]-16,ly-34,tsub*colW+(tsub-1)*SUBGAP+32,
+      Math.min(tasks.length,PER)*(H+VG)+50,'Async · Celery','#d2a8ff');
+    tasks.forEach((n,i)=>{
+      const sub=Math.floor(i/PER), row=i%PER;
+      const x=laneX[2]+sub*(colW+SUBGAP), y=ly+row*(H+VG);
+      fnode(g,{x,y,w:colW,h:H,label:n.label,sub:'task',color:'#d2a8ff',id:n.id});
+      box[n.id]={x,y,w:colW,h:H};});
+    edges.filter(e=>e.kind==='calls').forEach(e=>{const a=box[e.source],b=box[e.target];
+      if(a&&b)fedge(g,a.x+a.w,a.y+a.h/2,b.x+b.w+12,b.y+b.h/2,'calls');});}
+  return box;}
+
+function flowApps(){
+  const g=froot, R=Math.max(190,apps.length*38);
+  const cx=R+180, cy=R+120, box={};
+  const shown=apps.filter(a=>onApp.has(a));
+  shown.forEach((a,i)=>{
+    const ang=-Math.PI/2+i*2*Math.PI/shown.length;
+    const st=(D.app_stats||{})[a]||{};
+    const w=200,h=64,x=cx+Math.cos(ang)*R-w/2,y=cy+Math.sin(ang)*R-h/2;
+    const gg=fnode(g,{x,y,w,h,label:appShort[a],
+      sub:`${appGroup[a]?appGroup[a]+' · ':''}${st.total||0} nodes · ${st.loc||0} loc`,
+      color:appColor[a],rx:12});
+    const parts=ORDER.filter(k=>st[k]);
+    parts.forEach((k,j)=>el('rect',{x:x+14+j*13,y:y+h-13,width:9,height:5,rx:2,
+      fill:COLORS[k],opacity:.85},g));
+    box[a]={x,y,w,h,cx:x+w/2,cy:y+h/2};});
+  (D.app_deps||[]).forEach(d=>{const a=box[d.source],b=box[d.target];
+    if(!a||!b)return;
+    const ang=Math.atan2(b.cy-a.cy,b.cx-a.cx);
+    fedge(g,a.cx+Math.cos(ang)*100,a.cy+Math.sin(ang)*34,
+            b.cx-Math.cos(ang)*100,b.cy-Math.sin(ang)*34,'uses');});
+  // cross-app node edges counted
+  const pairs={};
+  edges.forEach(e=>{const s=byId[e.source].app,t=byId[e.target].app;
+    if(s!==t&&box[s]&&box[t])pairs[s+'>'+t]=(pairs[s+'>'+t]||0)+1;});
+  Object.entries(pairs).forEach(([k,c])=>{const [s,t]=k.split('>'),a=box[s],b=box[t];
+    const ang=Math.atan2(b.cy-a.cy,b.cx-a.cx);
+    const p=fedge(g,a.cx+Math.cos(ang)*100,a.cy+Math.sin(ang)*34,
+      b.cx-Math.cos(ang)*100,b.cy-Math.sin(ang)*34,'routes',c+' refs');});
+  return box;}
+
+function flowCelery(){
+  const g=froot, box={}, H=44, VG=13;
+  const narrowC=(stageF.getBoundingClientRect().width||900)<760;
+  const colW=narrowC?200:220;
+  const WX=narrowC?300:556, BX=narrowC?190:330, BW2=narrowC?110:150;
+  const trig=[...nodesOf('view'),...nodesOf('signal'),...nodesOf('command')]
+    .filter(visible).filter(n=>edges.some(e=>e.source===n.id&&e.kind==='calls'));
+  const beats=nodesOf('beat').filter(visible);
+  const tasks=nodesOf('task').filter(visible);
+  const left=[...beats,...trig];
+  const lh=Math.max(left.length*(H+VG)+50,140), th=Math.max(tasks.length*(H+VG)+50,140);
+  lane(g,24,10,colW+32,lh,'Producers','#79c0ff');
+  left.forEach((n,i)=>{const y=44+i*(H+VG);
+    fnode(g,{x:40,y,w:colW,h:H,label:n.label,sub:n.kind==='beat'?String(n.meta.schedule||''):n.kind,
+      color:COLORS[n.kind],id:n.id}); box[n.id]={x:40,y,w:colW,h:H};});
+  // broker
+  const by=Math.max(lh,th)/2;
+  fnode(g,{x:BX,y:by-26,w:BW2,h:56,label:'Broker',
+    sub:(S.CELERY_BROKER_URL||'redis').replace(/^\w+:\/\//,'').slice(0,20),color:'#ff9ecd',rx:14});
+  lane(g,WX-16,10,colW+32,th,'Workers · Tasks','#d2a8ff');
+  tasks.forEach((n,i)=>{const y=44+i*(H+VG),o=n.meta.task_opts||{};
+    fnode(g,{x:WX,y,w:colW,h:H,label:n.label,
+      sub:(o.queue?'q:'+o.queue+' · ':'')+((n.meta.args||[]).join(', ')||'no args'),
+      color:'#d2a8ff',id:n.id}); box[n.id]={x:WX,y,w:colW,h:H};});
+  left.forEach(n=>{const a=box[n.id];
+    if(a)fedge(g,a.x+a.w,a.y+a.h/2,BX,by,n.kind==='beat'?'schedules':'calls');});
+  tasks.forEach(n=>{const b=box[n.id]; if(b)fedge(g,BX+BW2,by,b.x,b.y+b.h/2,'calls');});
+  edges.filter(e=>e.kind==='calls').forEach(e=>{const a=box[e.source],b=box[e.target];
+    if(a&&b&&a.x===WX&&b.x===WX)fedge(g,a.x+a.w,a.y+a.h/2,b.x+b.w+14,b.y+b.h/2,'calls','chain');});
+  // result backend
+  if(S.CELERY_RESULT_BACKEND)fnode(g,{x:WX+colW+40,y:by-22,w:180,h:46,label:'Result backend',
+    sub:S.CELERY_RESULT_BACKEND.replace(/^\w+:\/\//,'').slice(0,22),color:'#56d4dd',rx:14});
+  return box;}
+
+function flowData(){
+  const g=froot, box={}, W=230, VG=14;
+  let x=40;
+  apps.filter(a=>onApp.has(a)).forEach(app=>{
+    const ms=D.nodes.filter(n=>n.app===app&&n.kind==='model'&&visible(n));
+    if(!ms.length)return;
+    let y=48; const h0=y;
+    ms.forEach(n=>{
+      const f=(n.meta.fields||[]);
+      const h=34+Math.min(f.length,9)*15;
+      const gg=el('g',{class:'fl-node',transform:`translate(${x},${y})`},g);
+      gg.dataset.id=n.id;
+      el('rect',{width:W,height:h,rx:9,fill:'#161d27',stroke:'#7ee787','stroke-width':1.3},gg);
+      el('rect',{width:W,height:26,rx:9,fill:'#7ee78714'},gg);
+      const t=el('text',{x:12,y:17,fill:'#7ee787','font-size':12.5,'font-weight':600,
+        'font-family':'ui-monospace,monospace'},gg); t.textContent=n.label;
+      const cnt=el('text',{x:W-12,y:17,fill:'#475569','font-size':10,'text-anchor':'end',
+        'font-family':'ui-monospace,monospace'},gg); cnt.textContent=f.length+'f';
+      f.slice(0,9).forEach((fl,i)=>{
+        const ft=el('text',{x:12,y:42+i*15,fill:'#94a3b8','font-size':10,
+          'font-family':'ui-monospace,monospace'},gg);
+        ft.textContent=fl.name;
+        const tt=el('text',{x:W-12,y:42+i*15,fill:fl.to?'#7ee787':'#475569','font-size':9.5,
+          'text-anchor':'end','font-family':'ui-monospace,monospace'},gg);
+        tt.textContent=(fl.to?'→'+fl.to:fl.type.replace('Field',''));});
+      if(f.length>9){const mt=el('text',{x:12,y:42+9*15,fill:'#475569','font-size':9.5,
+        'font-family':'ui-monospace,monospace'},gg); mt.textContent='+'+(f.length-9)+' more';}
+      gg.addEventListener('click',ev=>{ev.stopPropagation();select(n.id);});
+      box[n.id]={x,y,w:W,h}; y+=h+VG;});
+    lane(g,x-16,10,W+32,y-h0+52,app,appColor[app]);
+    x+=W+70;});
+  edges.filter(e=>['fk','m2m','o2o'].includes(e.kind)).forEach(e=>{
+    const a=box[e.source],b=box[e.target]; if(!a||!b)return;
+    const right=b.x>=a.x;
+    fedge(g,right?a.x+a.w:a.x,a.y+a.h/2,right?b.x:b.x+b.w,b.y+b.h/2,e.kind,e.label);});
+  return box;}
+
+let flowBox={};
+function paintFlow(){
+  clearFlow();
+  flowBox = flowMode==='request'?flowRequest():flowMode==='apps'?flowApps():
+            flowMode==='celery'?flowCelery():flowData();
+  finfo.textContent=INFO[flowMode];
+  if(sel){const hot=nbr(sel);
+    froot.querySelectorAll('.fl-node').forEach(n=>{
+      if(n.dataset.id)n.classList.toggle('dim',!hot.has(n.dataset.id));});}
+}
+function panelOverlap(){
+  // on small screens the detail panel is a bottom sheet that covers the canvas
+  const p=document.getElementById('panel');
+  if(p.classList.contains('hidden')||mqDesktop.matches)return 0;
+  return p.getBoundingClientRect().height;}
+function fitFlow(){
+  const bb=froot.getBBox(), r=stageF.getBoundingClientRect();
+  if(!bb.width)return;
+  const narrow=r.width<760;
+  const topPad = narrow?70:60;               // room for the wrapped toolbar
+  const avH = r.height-topPad-20-panelOverlap();
+  const kw=(r.width-32)/bb.width;
+  if(narrow){
+    // phones: fit the width, let the user scroll/drag down the stack
+    fv.k=Math.min(kw,1);
+    fv.x=(r.width-bb.width*fv.k)/2-bb.x*fv.k;
+    fv.y=topPad-bb.y*fv.k;
+  }else{
+    fv.k=Math.min(kw,avH/bb.height,1.25);
+    fv.x=(r.width-bb.width*fv.k)/2-bb.x*fv.k;
+    fv.y=topPad+(avH-bb.height*fv.k)/2-bb.y*fv.k;}
+  applyF();}
+document.querySelectorAll('.flowbtn').forEach(b=>b.onclick=()=>{
+  flowMode=b.dataset.flow; syncFlowBtns(); paintFlow(); fitFlow();});
+function syncFlowBtns(){document.querySelectorAll('.flowbtn').forEach(b=>{
+  const on=b.dataset.flow===flowMode;
+  b.className='flowbtn px-3 py-1.5 rounded-md text-xs transition '+
+    (on?'bg-slate-700 text-slate-100':'text-slate-500 hover:text-slate-200');});}
+stageF.addEventListener('click',e=>{if(!e.target.closest('.fl-node'))select(null);});
+
+/* ================= health tab ================= */
+function paintHealth(){
+  const box=document.getElementById('healthBody');
+  if(!H){box.innerHTML='<div class="text-slate-500 text-sm">Health analysis is disabled (--no-health).</div>';return;}
+  const c=H.counts, sc=H.score;
+  const ring=sc>=80?'#7ee787':sc>=55?'#f0c674':'#ff7b72';
+  let h=`<div class="flex flex-wrap items-center gap-4 sm:gap-6 mb-6">
+    <div class="relative w-24 h-24 shrink-0">
+      <svg viewBox="0 0 36 36" class="w-24 h-24 -rotate-90">
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#1e2732" stroke-width="3"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="${ring}" stroke-width="3"
+          stroke-dasharray="${sc} 100" stroke-linecap="round"/></svg>
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <span class="mono text-xl font-bold" style="color:${ring}">${sc}</span>
+        <span class="text-[9px] text-slate-600 uppercase tracking-wider">score</span></div></div>
+    <div class="flex gap-2 flex-wrap flex-1">${
+      ['error','warn','info'].map(k=>`<div class="px-4 py-3 rounded-xl border ${SEVBG[k]}">
+        <div class="mono text-2xl font-bold">${c[k]}</div>
+        <div class="text-[10px] uppercase tracking-wider opacity-70">${k}</div></div>`).join('')}
+      <div class="px-4 py-3 rounded-xl border border-slate-700 bg-slate-800/40">
+        <div class="mono text-2xl font-bold text-slate-200">${H.issues.length}</div>
+        <div class="text-[10px] uppercase tracking-wider text-slate-500">total</div></div></div></div>`;
+
+  if(H.cycles&&H.cycles.length)h+=`<div class="mb-5 p-3 rounded-xl border border-rose-500/30 bg-rose-500/10">
+    <div class="text-[10px] uppercase tracking-wider text-rose-300 font-bold mb-1.5">Circular app dependencies</div>
+    ${H.cycles.map(cy=>`<div class="mono text-[12px] text-rose-200">${esc(cy.concat([cy[0]]).join('  →  '))}</div>`).join('')}</div>`;
+
+  // group by check code
+  const byCode={}; H.issues.forEach(i=>{(byCode[i.code]=byCode[i.code]||[]).push(i);});
+  const rank={error:0,warn:1,info:2};
+  const codes=Object.keys(byCode).sort((a,b)=>
+    rank[byCode[a][0].severity]-rank[byCode[b][0].severity]||byCode[b].length-byCode[a].length);
+  h+=`<div class="space-y-2.5">`;
+  codes.forEach(code=>{
+    const list=byCode[code], sev=list[0].severity;
+    h+=`<details class="rounded-xl border border-slate-800 bg-[#121821] overflow-hidden" ${
+        sev==='error'?'open':''}>
+      <summary class="flex items-start gap-2.5 px-3 sm:px-4 py-3 cursor-pointer hover:bg-[#161d27]">
+        <span class="w-2 h-2 rounded-full shrink-0 mt-1.5" style="background:${SEV[sev]}"></span>
+        <span class="flex-1 min-w-0">
+          <span class="text-[13px] text-slate-200">${esc(list[0].message)}</span>
+          <span class="mono text-[10px] text-slate-600 block sm:inline sm:ml-1.5">${esc(code)}</span>
+        </span>
+        <span class="mono text-[11px] px-2 py-0.5 rounded ${SEVBG[sev]} border shrink-0">${list.length}</span>
+      </summary>
+      <div class="border-t border-slate-800 divide-y divide-slate-800/60">${
+        list.map(i=>{const n=byId[i.node];
+          if(!n)return `<div class="px-4 py-2 text-[12px] text-slate-400">${esc(i.detail||'')}</div>`;
+          return `<div class="px-3 sm:px-4 py-2 flex flex-wrap items-center gap-x-3 gap-y-0.5
+              hover:bg-[#161d27] cursor-pointer" onclick="gotoNode('${esc(n.id)}')">
+            <span class="w-1.5 h-1.5 rounded-sm shrink-0" style="background:${COLORS[n.kind]}"></span>
+            <span class="mono text-[12px] text-slate-200">${esc(n.label)}</span>
+            ${i.detail?`<span class="mono text-[10.5px] text-slate-500">${esc(i.detail)}</span>`:''}
+            <span class="sm:ml-auto mono text-[10px] text-slate-600 basis-full sm:basis-auto
+              truncate">${esc(n.app)} · ${esc(n.file)}:${n.line}</span>
+          </div>`;}).join('')}</div></details>`;});
+  h+=`</div>`;
+
+  // per-app table
+  const pa=H.per_app||{};
+  h+=`<h3 class="text-[10px] uppercase tracking-widest text-slate-600 font-bold mt-7 mb-2">Per app</h3>
+    <div class="rounded-xl border border-slate-800 overflow-hidden">${
+    Object.entries(pa).sort((a,b)=>b[1].total-a[1].total).map(([app,d])=>`
+      <div class="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 border-b border-slate-800/60 last:border-0">
+        <span class="w-2.5 h-2.5 rounded-sm shrink-0" style="background:${appColor[app]||'#64748b'}"></span>
+        <span class="mono text-[12.5px] text-slate-200 w-20 sm:w-32 truncate">${esc(app)}</span>
+        <div class="flex-1 flex h-2 rounded overflow-hidden bg-slate-800">
+          ${['error','warn','info'].map(k=>d[k]?`<div style="width:${d[k]/d.total*100}%;background:${SEV[k]}"></div>`:'').join('')}
+        </div>
+        <span class="mono text-[10.5px] sm:text-[11px] text-slate-500 w-20 sm:w-24 text-right shrink-0">${d.error}e ${d.warn}w ${d.info}i</span>
+      </div>`).join('')}</div>`;
+  box.innerHTML=h;
+}
+function gotoNode(id){tab='apps';syncTabs();closeNav();select(id);
+  const c=cardEl[id]; if(c){const b=boards[byId[id].app];
+    view.k=1; const r=stageA.getBoundingClientRect();
+    const bx=rectOf(id);
+    if(bx){view.x=r.width/2-(bx.x+bx.w/2);view.y=r.height/2-(bx.y+bx.h/2);applyA();}}
+  drawWires();}
+window.gotoNode=gotoNode;
+
+/* ================= permalink ================= */
+function saveHash(){
+  const p=new URLSearchParams();
+  p.set('t',tab); if(tab==='flow')p.set('f',flowMode);
+  if(sel)p.set('n',sel);
+  const q=document.getElementById('q').value.trim(); if(q)p.set('q',q);
+  if(onKind.size!==kinds.length)p.set('k',[...onKind].join(','));
+  if(onApp.size!==apps.length)p.set('a',[...onApp].join(','));
+  history.replaceState(null,'','#'+p.toString());}
+function loadHash(){
+  if(!location.hash)return;
+  const p=new URLSearchParams(location.hash.slice(1));
+  if(p.get('k')){onKind.clear();p.get('k').split(',').forEach(x=>onKind.add(x));
+    kinds.forEach(k=>(chipEls[k]||[]).forEach(b=>b.classList.toggle('opacity-30',!onKind.has(k))));}
+  if(p.get('a')){onApp.clear();p.get('a').split(',').forEach(x=>onApp.add(x));
+    [...appsBox.children].forEach((r,i)=>r.classList.toggle('opacity-30',!onApp.has(apps[i])));}
+  if(p.get('q'))document.getElementById('q').value=p.get('q');
+  if(p.get('f'))flowMode=p.get('f');
+  if(p.get('t'))tab=p.get('t');
+  if(p.get('n')&&byId[p.get('n')])sel=p.get('n');}
+
+/* ================= tabs ================= */
+let tab='apps';
+function syncTabs(){
+  document.querySelectorAll('.tabbtn').forEach(b=>{
+    const on=b.dataset.tab===tab;
+    b.className='tabbtn px-3 py-1 rounded-md text-xs font-medium transition '+
+      (on?'bg-slate-700 text-slate-100 shadow':'text-slate-500 hover:text-slate-200');});
+  document.getElementById('tab-apps').hidden=tab!=='apps';
+  document.getElementById('tab-flow').hidden=tab!=='flow';
+  document.getElementById('tab-health').hidden=tab!=='health';
+  document.getElementById('foldAll').hidden=tab!=='flow'?false:true;}
+document.querySelectorAll('.tabbtn').forEach(b=>b.onclick=()=>{
+  tab=b.dataset.tab; syncTabs();
+  if(tab==='flow'){paintFlow();fitFlow();}
+  else if(tab==='health'){paintHealth();}
+  else{drawWires();}
+  saveHash();});
+document.getElementById('fit').onclick=()=>tab==='apps'?fitApps():fitFlow();
+let folded=false;
+document.getElementById('foldAll').onclick=e=>{folded=!folded;
+  apps.forEach(a=>{boards[a].classList.toggle('folded',folded);
+    boards[a].querySelector('.bbody').hidden=folded;
+    boards[a].querySelector('.fold').textContent=folded?'▸':'▾';});
+  e.target.textContent=folded?'Expand':'Collapse';autoLayout();place();drawWires();fitApps();};
+addEventListener('keydown',e=>{
+  if(e.key==='Escape')select(null);
+  if(e.target.tagName==='INPUT')return;
+  if(e.key==='f'||e.key==='F')tab==='apps'?fitApps():fitFlow();
+  if(e.key==='1'){tab='apps';syncTabs();drawWires();}
+  if(e.key==='2'){tab='flow';syncTabs();paintFlow();fitFlow();}
+  if(e.key==='3'){tab='health';syncTabs();paintHealth();}});
+let rzT=null;
+addEventListener('resize',()=>{clearTimeout(rzT);rzT=setTimeout(relayoutAll,160);});
+addEventListener('orientationchange',()=>setTimeout(relayoutAll,300));
+
+/* ================= touch: pinch zoom ================= */
+function addPinch(stage,getV,setV){
+  let pts=new Map(), base=null;
+  stage.addEventListener('touchstart',e=>{
+    if(e.touches.length!==2)return;
+    const [a,b]=[e.touches[0],e.touches[1]];
+    const r=stage.getBoundingClientRect();
+    const d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
+    const cx=(a.clientX+b.clientX)/2-r.left, cy=(a.clientY+b.clientY)/2-r.top;
+    const v=getV(); base={d,cx,cy,k:v.k,x:v.x,y:v.y};},{passive:true});
+  stage.addEventListener('touchmove',e=>{
+    if(e.touches.length!==2||!base)return;
+    e.preventDefault();
+    const [a,b]=[e.touches[0],e.touches[1]];
+    const d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
+    const k=Math.min(2.5,Math.max(.12,base.k*(d/base.d)));
+    setV({k, x:base.cx-(base.cx-base.x)*(k/base.k), y:base.cy-(base.cy-base.y)*(k/base.k)});
+  },{passive:false});
+  stage.addEventListener('touchend',e=>{if(e.touches.length<2)base=null;},{passive:true});
+}
+addPinch(stageA,()=>view,v=>{view.k=v.k;view.x=v.x;view.y=v.y;applyA();});
+addPinch(stageF,()=>fv,v=>{fv.k=v.k;fv.x=v.x;fv.y=v.y;applyF();});
+
+if(H){const b=document.getElementById('tabBadge');
+  b.textContent=H.counts.error||''; if(!H.counts.error)b.remove();}
+loadHash();
+syncTabs(); syncFlowBtns(); drawWires(); fitApps(); refresh();
+if(tab==='flow'){paintFlow();fitFlow();} if(tab==='health')paintHealth();
+if(sel){const _s=sel;sel=null;select(_s);}
+</script>
+</body></html>

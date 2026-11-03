@@ -15,7 +15,10 @@ class Command(BaseCommand):
         )
 
         deleted_count = 0
-
+        # Walk, walks through given path recursverly and return a tuple with items:
+        # root, dir, file
+        # Reason ? WE DO run manage.py cahe_cleanup in "I:\mini-digi" , so it walks through all
+        # foldesr and subfoldesr of Our pwd. 
         for root, dirs, files in os.walk(base_dir):
             if "venv" in root.split(os.sep):
                 continue
@@ -36,3 +39,22 @@ class Command(BaseCommand):
                 f"\nCleanup complete! Removed {deleted_count} __pycache__ directories."
             )
         )
+# First iteration: root = "I:\mini-digi"
+
+# root = "I:\\mini-digi"
+# dirs = ["app", "utils", "venv"]       # folders inside mini-digi
+# files = ["manage.py", "README.md"]    # files inside mini-digi
+
+
+# Second iteration: root = "I:\mini-digi\app"
+# root = "I:\\mini-digi\\app"
+# dirs = ["__pycache__"]        # folder inside app
+# files = ["__init__.py", "views.py"]  # files inside app
+
+
+# Third iteration: root = "I:\mini-digi\app\__pycache__"
+
+
+# root = "I:\\mini-digi\\app\\__pycache__"
+# dirs = []                     # no subfolders
+# files = ["views.cpython-311.pyc"]  # the cached files

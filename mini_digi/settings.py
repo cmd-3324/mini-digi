@@ -58,8 +58,9 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "commands",
     "mini_digi",
-    "reviews",
-]
+    "reviews",   
+    "captcha",
+] 
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
