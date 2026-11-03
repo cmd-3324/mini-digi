@@ -1,0 +1,11 @@
+name: demo
+description: Just to learn. I'll opne a pr from pulumiGame On Postgres Branch.
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: python
