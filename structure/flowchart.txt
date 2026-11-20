@@ -1,9 +1,51 @@
 📁
+├── 📁 .django-stub-gen
+│   └── 📝 rule-tables.json
 ├── 📁 .github
 │   └── 📁 workflows
+│       ├── 📝 backup.yml
 │       ├── 📝 docker-build.yml
+│       ├── 📝 link-check.yml
 │       ├── 📝 notification-sender.yml
+│       ├── 📝 release.yml
 │       └── 📝 test.yml
+├── 📁 .mypy_cache
+│   ├── 📁 3.14
+│   │   ├── 📄 cache.0.db
+│   │   ├── 📄 cache.1.db
+│   │   ├── 📄 cache.10.db
+│   │   ├── 📄 cache.11.db
+│   │   ├── 📄 cache.12.db
+│   │   ├── 📄 cache.13.db
+│   │   ├── 📄 cache.14.db
+│   │   ├── 📄 cache.15.db
+│   │   ├── 📄 cache.2.db
+│   │   ├── 📄 cache.3.db
+│   │   ├── 📄 cache.4.db
+│   │   ├── 📄 cache.5.db
+│   │   ├── 📄 cache.6.db
+│   │   ├── 📄 cache.7.db
+│   │   ├── 📄 cache.8.db
+│   │   └── 📄 cache.9.db
+│   ├── 📄 .gitignore
+│   ├── 📄 CACHEDIR.TAG
+│   └── 📄 missing_stubs
+├── 📁 .ruff_cache
+│   ├── 📁 0.16.8
+│   │   ├── 📄 10139879255966830780
+│   │   ├── 📄 10299559836944907010
+│   │   ├── 📄 11082225669310170656
+│   │   ├── 📄 13536495328257917981
+│   │   ├── 📄 1398980342455332899
+│   │   ├── 📄 14895178230709122496
+│   │   ├── 📄 15818065772447377760
+│   │   ├── 📄 3246934048658937405
+│   │   ├── 📄 3330709815628672200
+│   │   ├── 📄 3391877978535181963
+│   │   ├── 📄 6894258814880866055
+│   │   └── 📄 6934647367712965361
+│   ├── 📄 .gitignore
+│   └── 📄 CACHEDIR.TAG
 ├── 📁 cart
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
@@ -33,6 +75,1465 @@
 │   ├── 🐍 apps.py
 │   ├── 🐍 urls.py
 │   └── 🐍 views.py
+├── 📁 infra
+│   ├── 📁 .venv
+│   │   ├── 📁 Lib
+│   │   │   └── 📁 site-packages
+│   │   │       ├── 📁 _yaml
+│   │   │       ├── 📁 debugpy
+│   │   │       │   ├── 📁 _vendored
+│   │   │       │   │   ├── 📁 pydevd
+│   │   │       │   │   │   ├── 📁 _pydev_bundle
+│   │   │       │   │   │   │   ├── 📁 fsnotify
+│   │   │       │   │   │   │   ├── 🐍 _pydev_calltip_util.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_completer.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_execfile.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_filesystem_encoding.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_getopt.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_imports_tipper.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_jy_imports_tipper.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_log.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_saved_modules.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_sys_patch.py
+│   │   │       │   │   │   │   ├── 🐍 _pydev_tipper_common.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_console_utils.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_import_hook.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_imports.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_ipython_console.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_ipython_console_011.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_is_thread_alive.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_localhost.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_log.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_monkey.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_monkey_qt.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_override.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_umd.py
+│   │   │       │   │   │   │   └── 🐍 pydev_versioncheck.py
+│   │   │       │   │   │   ├── 📁 _pydev_runfiles
+│   │   │       │   │   │   │   ├── 🐍 pydev_runfiles.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_runfiles_coverage.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_runfiles_nose.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_runfiles_parallel.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_runfiles_parallel_client.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_runfiles_pytest2.py
+│   │   │       │   │   │   │   ├── 🐍 pydev_runfiles_unittest.py
+│   │   │       │   │   │   │   └── 🐍 pydev_runfiles_xml_rpc.py
+│   │   │       │   │   │   ├── 📁 _pydevd_bundle
+│   │   │       │   │   │   │   ├── 📁 _debug_adapter
+│   │   │       │   │   │   │   │   ├── 📝 debugProtocol.json
+│   │   │       │   │   │   │   │   ├── 📝 debugProtocolCustom.json
+│   │   │       │   │   │   │   │   ├── 🐍 pydevd_base_schema.py
+│   │   │       │   │   │   │   │   ├── 🐍 pydevd_schema.py
+│   │   │       │   │   │   │   │   └── 🐍 pydevd_schema_log.py
+│   │   │       │   │   │   │   ├── 📁 pydevd_concurrency_analyser
+│   │   │       │   │   │   │   │   ├── 🐍 pydevd_concurrency_logger.py
+│   │   │       │   │   │   │   │   └── 🐍 pydevd_thread_wrappers.py
+│   │   │       │   │   │   │   ├── 🐍 pydevconsole_code.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_additional_thread_info.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_additional_thread_info_regular.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_api.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_breakpoints.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_bytecode_utils.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_bytecode_utils_py311.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_code_to_source.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_collect_bytecode_info.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_comm.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_comm_constants.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_command_line_handling.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_console.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_constants.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_custom_frames.py
+│   │   │       │   │   │   │   ├── 📄 pydevd_cython.c
+│   │   │       │   │   │   │   ├── 📄 pydevd_cython.cp313-win_amd64.pyd
+│   │   │       │   │   │   │   ├── 📄 pydevd_cython.pxd
+│   │   │       │   │   │   │   ├── 📄 pydevd_cython.pyx
+│   │   │       │   │   │   │   ├── 🐍 pydevd_cython_wrapper.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_daemon_thread.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_defaults.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_dont_trace.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_dont_trace_files.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_exec2.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_extension_api.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_extension_utils.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_filtering.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_frame.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_frame_utils.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_gevent_integration.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_import_class.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_io.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_json_debug_options.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_net_command.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_net_command_factory_json.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_net_command_factory_xml.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_plugin_utils.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_process_net_command.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_process_net_command_json.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_referrers.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_reload.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_resolver.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_runpy.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_safe_repr.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_save_locals.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_signature.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_source_mapping.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_stackless.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_suspended_frames.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_thread_lifecycle.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_timeout.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_trace_dispatch.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_trace_dispatch_regular.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_traceproperty.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_utils.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_vars.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_vm_type.py
+│   │   │       │   │   │   │   └── 🐍 pydevd_xml.py
+│   │   │       │   │   │   ├── 📁 _pydevd_frame_eval
+│   │   │       │   │   │   │   ├── 📁 vendored
+│   │   │       │   │   │   │   │   ├── 📁 bytecode
+│   │   │       │   │   │   │   │   │   ├── 📁 tests
+│   │   │       │   │   │   │   │   │   │   ├── 🐍 test_bytecode.py
+│   │   │       │   │   │   │   │   │   │   ├── 🐍 test_cfg.py
+│   │   │       │   │   │   │   │   │   │   ├── 🐍 test_code.py
+│   │   │       │   │   │   │   │   │   │   ├── 🐍 test_concrete.py
+│   │   │       │   │   │   │   │   │   │   ├── 🐍 test_flags.py
+│   │   │       │   │   │   │   │   │   │   ├── 🐍 test_instr.py
+│   │   │       │   │   │   │   │   │   │   ├── 🐍 test_misc.py
+│   │   │       │   │   │   │   │   │   │   ├── 🐍 test_peephole_opt.py
+│   │   │       │   │   │   │   │   │   │   └── 🐍 util_annotation.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 bytecode.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 cfg.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 concrete.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 flags.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 instr.py
+│   │   │       │   │   │   │   │   │   └── 🐍 peephole_opt.py
+│   │   │       │   │   │   │   │   ├── 🐍 pydevd_fix_code.py
+│   │   │       │   │   │   │   │   └── 📄 README.txt
+│   │   │       │   │   │   │   ├── 📄 .gitignore
+│   │   │       │   │   │   │   ├── 🐍 pydevd_frame_eval_cython_wrapper.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_frame_eval_main.py
+│   │   │       │   │   │   │   ├── 📄 pydevd_frame_evaluator.c
+│   │   │       │   │   │   │   ├── 📄 pydevd_frame_evaluator.pxd
+│   │   │       │   │   │   │   ├── 📄 pydevd_frame_evaluator.template.pyx
+│   │   │       │   │   │   │   ├── 🐍 pydevd_frame_tracing.py
+│   │   │       │   │   │   │   ├── 🐍 pydevd_modify_bytecode.py
+│   │   │       │   │   │   │   └── 📄 release_mem.h
+│   │   │       │   │   │   ├── 📁 _pydevd_sys_monitoring
+│   │   │       │   │   │   │   ├── 🐍 _pydevd_sys_monitoring.py
+│   │   │       │   │   │   │   ├── 📄 _pydevd_sys_monitoring_cython.c
+│   │   │       │   │   │   │   ├── 📄 _pydevd_sys_monitoring_cython.cp313-win_amd64.pyd
+│   │   │       │   │   │   │   ├── 📄 _pydevd_sys_monitoring_cython.pxd
+│   │   │       │   │   │   │   ├── 📄 _pydevd_sys_monitoring_cython.pyx
+│   │   │       │   │   │   │   └── 🐍 pydevd_sys_monitoring.py
+│   │   │       │   │   │   ├── 📁 pydev_ipython
+│   │   │       │   │   │   │   ├── 🐍 inputhook.py
+│   │   │       │   │   │   │   ├── 🐍 inputhookglut.py
+│   │   │       │   │   │   │   ├── 🐍 inputhookgtk.py
+│   │   │       │   │   │   │   ├── 🐍 inputhookgtk3.py
+│   │   │       │   │   │   │   ├── 🐍 inputhookpyglet.py
+│   │   │       │   │   │   │   ├── 🐍 inputhookqt4.py
+│   │   │       │   │   │   │   ├── 🐍 inputhookqt5.py
+│   │   │       │   │   │   │   ├── 🐍 inputhookqt6.py
+│   │   │       │   │   │   │   ├── 🐍 inputhooktk.py
+│   │   │       │   │   │   │   ├── 🐍 inputhookwx.py
+│   │   │       │   │   │   │   ├── 🐍 matplotlibtools.py
+│   │   │       │   │   │   │   ├── 🐍 qt.py
+│   │   │       │   │   │   │   ├── 🐍 qt_for_kernel.py
+│   │   │       │   │   │   │   ├── 🐍 qt_loaders.py
+│   │   │       │   │   │   │   ├── 📄 README
+│   │   │       │   │   │   │   └── 🐍 version.py
+│   │   │       │   │   │   ├── 📁 pydev_sitecustomize
+│   │   │       │   │   │   │   └── 🐍 sitecustomize.py
+│   │   │       │   │   │   ├── 📁 pydevd_attach_to_process
+│   │   │       │   │   │   │   ├── 📁 common
+│   │   │       │   │   │   │   │   ├── 📄 py_custom_pyeval_settrace.hpp
+│   │   │       │   │   │   │   │   ├── 📄 py_custom_pyeval_settrace_310.hpp
+│   │   │       │   │   │   │   │   ├── 📄 py_custom_pyeval_settrace_311.hpp
+│   │   │       │   │   │   │   │   ├── 📄 py_custom_pyeval_settrace_common.hpp
+│   │   │       │   │   │   │   │   ├── 📄 py_settrace.hpp
+│   │   │       │   │   │   │   │   ├── 📄 py_utils.hpp
+│   │   │       │   │   │   │   │   ├── 📄 py_version.hpp
+│   │   │       │   │   │   │   │   ├── 📄 python.h
+│   │   │       │   │   │   │   │   └── 📄 ref_utils.hpp
+│   │   │       │   │   │   │   ├── 📁 linux_and_mac
+│   │   │       │   │   │   │   │   ├── 📄 .gitignore
+│   │   │       │   │   │   │   │   ├── 📄 attach.cpp
+│   │   │       │   │   │   │   │   ├── ⚙️ compile_linux.sh
+│   │   │       │   │   │   │   │   ├── ⚙️ compile_mac.sh
+│   │   │       │   │   │   │   │   ├── ⚙️ compile_manylinux.cmd
+│   │   │       │   │   │   │   │   └── 🐍 lldb_prepare.py
+│   │   │       │   │   │   │   ├── 📁 winappdbg
+│   │   │       │   │   │   │   │   ├── 📁 win32
+│   │   │       │   │   │   │   │   │   ├── 🐍 advapi32.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 context_amd64.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 context_i386.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 dbghelp.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 defines.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 gdi32.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 kernel32.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 ntdll.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 peb_teb.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 psapi.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 shell32.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 shlwapi.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 user32.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 version.py
+│   │   │       │   │   │   │   │   │   └── 🐍 wtsapi32.py
+│   │   │       │   │   │   │   │   ├── 🐍 breakpoint.py
+│   │   │       │   │   │   │   │   ├── 🐍 compat.py
+│   │   │       │   │   │   │   │   ├── 🐍 crash.py
+│   │   │       │   │   │   │   │   ├── 🐍 debug.py
+│   │   │       │   │   │   │   │   ├── 🐍 disasm.py
+│   │   │       │   │   │   │   │   ├── 🐍 event.py
+│   │   │       │   │   │   │   │   ├── 🐍 interactive.py
+│   │   │       │   │   │   │   │   ├── 🐍 module.py
+│   │   │       │   │   │   │   │   ├── 🐍 process.py
+│   │   │       │   │   │   │   │   ├── 🐍 registry.py
+│   │   │       │   │   │   │   │   ├── 🐍 search.py
+│   │   │       │   │   │   │   │   ├── 🐍 sql.py
+│   │   │       │   │   │   │   │   ├── 🐍 system.py
+│   │   │       │   │   │   │   │   ├── 🐍 textio.py
+│   │   │       │   │   │   │   │   ├── 🐍 thread.py
+│   │   │       │   │   │   │   │   ├── 🐍 util.py
+│   │   │       │   │   │   │   │   └── 🐍 window.py
+│   │   │       │   │   │   │   ├── 📁 windows
+│   │   │       │   │   │   │   │   ├── 📄 attach.cpp
+│   │   │       │   │   │   │   │   ├── 📄 attach.h
+│   │   │       │   │   │   │   │   ├── ⚙️ compile_windows.bat
+│   │   │       │   │   │   │   │   ├── 📄 inject_dll.cpp
+│   │   │       │   │   │   │   │   ├── 📄 py_win_helpers.hpp
+│   │   │       │   │   │   │   │   ├── 📄 run_code_in_memory.hpp
+│   │   │       │   │   │   │   │   ├── 📄 run_code_on_dllmain.cpp
+│   │   │       │   │   │   │   │   ├── 📄 stdafx.cpp
+│   │   │       │   │   │   │   │   ├── 📄 stdafx.h
+│   │   │       │   │   │   │   │   └── 📄 targetver.h
+│   │   │       │   │   │   │   ├── 🐍 _always_live_program.py
+│   │   │       │   │   │   │   ├── 🐍 _check.py
+│   │   │       │   │   │   │   ├── 🐍 _test_attach_to_process.py
+│   │   │       │   │   │   │   ├── 🐍 _test_attach_to_process_linux.py
+│   │   │       │   │   │   │   ├── 🐍 add_code_to_python_process.py
+│   │   │       │   │   │   │   ├── 📄 attach_amd64.dll
+│   │   │       │   │   │   │   ├── 📄 attach_amd64.pdb
+│   │   │       │   │   │   │   ├── 🐍 attach_pydevd.py
+│   │   │       │   │   │   │   ├── 🐍 attach_script.py
+│   │   │       │   │   │   │   ├── 📄 attach_x86.dll
+│   │   │       │   │   │   │   ├── 📄 attach_x86.pdb
+│   │   │       │   │   │   │   ├── 📄 inject_dll_amd64.exe
+│   │   │       │   │   │   │   ├── 📄 inject_dll_amd64.pdb
+│   │   │       │   │   │   │   ├── 📄 inject_dll_x86.exe
+│   │   │       │   │   │   │   ├── 📄 inject_dll_x86.pdb
+│   │   │       │   │   │   │   ├── 📄 README.txt
+│   │   │       │   │   │   │   ├── 📄 run_code_on_dllmain_amd64.dll
+│   │   │       │   │   │   │   ├── 📄 run_code_on_dllmain_amd64.pdb
+│   │   │       │   │   │   │   ├── 📄 run_code_on_dllmain_x86.dll
+│   │   │       │   │   │   │   └── 📄 run_code_on_dllmain_x86.pdb
+│   │   │       │   │   │   ├── 📁 pydevd_plugins
+│   │   │       │   │   │   │   ├── 📁 extensions
+│   │   │       │   │   │   │   │   ├── 📁 types
+│   │   │       │   │   │   │   │   │   ├── 🐍 pydevd_helpers.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 pydevd_plugin_numpy_types.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 pydevd_plugin_pandas_types.py
+│   │   │       │   │   │   │   │   │   └── 🐍 pydevd_plugins_django_form_str.py
+│   │   │       │   │   │   │   │   └── 📄 README.md
+│   │   │       │   │   │   │   ├── 🐍 django_debug.py
+│   │   │       │   │   │   │   ├── 🐍 jinja2_debug.py
+│   │   │       │   │   │   │   └── 🐍 pydevd_line_validation.py
+│   │   │       │   │   │   ├── 🐍 pydev_app_engine_debug_startup.py
+│   │   │       │   │   │   ├── 🐍 pydev_coverage.py
+│   │   │       │   │   │   ├── 🐍 pydev_pysrc.py
+│   │   │       │   │   │   ├── 🐍 pydev_run_in_console.py
+│   │   │       │   │   │   ├── 🐍 pydevconsole.py
+│   │   │       │   │   │   ├── 🐍 pydevd.py
+│   │   │       │   │   │   ├── 🐍 pydevd_file_utils.py
+│   │   │       │   │   │   ├── 🐍 pydevd_tracing.py
+│   │   │       │   │   │   └── 🐍 setup_pydevd_cython.py
+│   │   │       │   │   ├── 🐍 _pydevd_packaging.py
+│   │   │       │   │   ├── 🐍 _util.py
+│   │   │       │   │   └── 🐍 force_pydevd.py
+│   │   │       │   ├── 📁 adapter
+│   │   │       │   │   ├── 🐍 clients.py
+│   │   │       │   │   ├── 🐍 components.py
+│   │   │       │   │   ├── 🐍 launchers.py
+│   │   │       │   │   ├── 🐍 servers.py
+│   │   │       │   │   └── 🐍 sessions.py
+│   │   │       │   ├── 📁 common
+│   │   │       │   │   ├── 🐍 json.py
+│   │   │       │   │   ├── 🐍 log.py
+│   │   │       │   │   ├── 🐍 messaging.py
+│   │   │       │   │   ├── 🐍 singleton.py
+│   │   │       │   │   ├── 🐍 sockets.py
+│   │   │       │   │   ├── 🐍 stacks.py
+│   │   │       │   │   ├── 🐍 timestamp.py
+│   │   │       │   │   └── 🐍 util.py
+│   │   │       │   ├── 📁 launcher
+│   │   │       │   │   ├── 🐍 debuggee.py
+│   │   │       │   │   ├── 🐍 handlers.py
+│   │   │       │   │   ├── 🐍 output.py
+│   │   │       │   │   └── 🐍 winapi.py
+│   │   │       │   ├── 📁 server
+│   │   │       │   │   ├── 🐍 api.py
+│   │   │       │   │   ├── 🐍 attach_pid_injected.py
+│   │   │       │   │   └── 🐍 cli.py
+│   │   │       │   ├── 🐍 _version.py
+│   │   │       │   ├── 🐍 public_api.py
+│   │   │       │   ├── 📄 py.typed
+│   │   │       │   └── 📄 ThirdPartyNotices.txt
+│   │   │       ├── 📁 debugpy-1.8.22.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 entry_points.txt
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   ├── 📄 top_level.txt
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 dill
+│   │   │       │   ├── 📁 tests
+│   │   │       │   │   ├── 🐍 test_abc.py
+│   │   │       │   │   ├── 🐍 test_check.py
+│   │   │       │   │   ├── 🐍 test_classdef.py
+│   │   │       │   │   ├── 🐍 test_dataclasses.py
+│   │   │       │   │   ├── 🐍 test_detect.py
+│   │   │       │   │   ├── 🐍 test_dictviews.py
+│   │   │       │   │   ├── 🐍 test_diff.py
+│   │   │       │   │   ├── 🐍 test_extendpickle.py
+│   │   │       │   │   ├── 🐍 test_fglobals.py
+│   │   │       │   │   ├── 🐍 test_file.py
+│   │   │       │   │   ├── 🐍 test_functions.py
+│   │   │       │   │   ├── 🐍 test_functors.py
+│   │   │       │   │   ├── 🐍 test_logger.py
+│   │   │       │   │   ├── 🐍 test_mixins.py
+│   │   │       │   │   ├── 🐍 test_module.py
+│   │   │       │   │   ├── 🐍 test_moduledict.py
+│   │   │       │   │   ├── 🐍 test_nested.py
+│   │   │       │   │   ├── 🐍 test_objects.py
+│   │   │       │   │   ├── 🐍 test_properties.py
+│   │   │       │   │   ├── 🐍 test_pycapsule.py
+│   │   │       │   │   ├── 🐍 test_recursive.py
+│   │   │       │   │   ├── 🐍 test_registered.py
+│   │   │       │   │   ├── 🐍 test_restricted.py
+│   │   │       │   │   ├── 🐍 test_selected.py
+│   │   │       │   │   ├── 🐍 test_session.py
+│   │   │       │   │   ├── 🐍 test_source.py
+│   │   │       │   │   ├── 🐍 test_sources.py
+│   │   │       │   │   ├── 🐍 test_temp.py
+│   │   │       │   │   ├── 🐍 test_threads.py
+│   │   │       │   │   └── 🐍 test_weakref.py
+│   │   │       │   ├── 🐍 _dill.py
+│   │   │       │   ├── 🐍 _objects.py
+│   │   │       │   ├── 🐍 _shims.py
+│   │   │       │   ├── 🐍 detect.py
+│   │   │       │   ├── 🐍 logger.py
+│   │   │       │   ├── 🐍 objtypes.py
+│   │   │       │   ├── 🐍 pointers.py
+│   │   │       │   ├── 🐍 session.py
+│   │   │       │   ├── 🐍 settings.py
+│   │   │       │   ├── 🐍 source.py
+│   │   │       │   └── 🐍 temp.py
+│   │   │       ├── 📁 dill-0.4.1.dist-info
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 LICENSE
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   ├── 📄 top_level.txt
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 google
+│   │   │       │   ├── 📁 _upb
+│   │   │       │   │   └── 📄 _message.pyd
+│   │   │       │   ├── 📁 api
+│   │   │       │   │   ├── 📄 annotations.proto
+│   │   │       │   │   ├── 🐍 annotations_pb2.py
+│   │   │       │   │   ├── 📄 annotations_pb2.pyi
+│   │   │       │   │   ├── 📄 auth.proto
+│   │   │       │   │   ├── 🐍 auth_pb2.py
+│   │   │       │   │   ├── 📄 auth_pb2.pyi
+│   │   │       │   │   ├── 📄 backend.proto
+│   │   │       │   │   ├── 🐍 backend_pb2.py
+│   │   │       │   │   ├── 📄 backend_pb2.pyi
+│   │   │       │   │   ├── 📄 billing.proto
+│   │   │       │   │   ├── 🐍 billing_pb2.py
+│   │   │       │   │   ├── 📄 billing_pb2.pyi
+│   │   │       │   │   ├── 📄 client.proto
+│   │   │       │   │   ├── 🐍 client_pb2.py
+│   │   │       │   │   ├── 📄 client_pb2.pyi
+│   │   │       │   │   ├── 📄 config_change.proto
+│   │   │       │   │   ├── 🐍 config_change_pb2.py
+│   │   │       │   │   ├── 📄 config_change_pb2.pyi
+│   │   │       │   │   ├── 📄 consumer.proto
+│   │   │       │   │   ├── 🐍 consumer_pb2.py
+│   │   │       │   │   ├── 📄 consumer_pb2.pyi
+│   │   │       │   │   ├── 📄 context.proto
+│   │   │       │   │   ├── 🐍 context_pb2.py
+│   │   │       │   │   ├── 📄 context_pb2.pyi
+│   │   │       │   │   ├── 📄 control.proto
+│   │   │       │   │   ├── 🐍 control_pb2.py
+│   │   │       │   │   ├── 📄 control_pb2.pyi
+│   │   │       │   │   ├── 📄 distribution.proto
+│   │   │       │   │   ├── 🐍 distribution_pb2.py
+│   │   │       │   │   ├── 📄 distribution_pb2.pyi
+│   │   │       │   │   ├── 📄 documentation.proto
+│   │   │       │   │   ├── 🐍 documentation_pb2.py
+│   │   │       │   │   ├── 📄 documentation_pb2.pyi
+│   │   │       │   │   ├── 📄 endpoint.proto
+│   │   │       │   │   ├── 🐍 endpoint_pb2.py
+│   │   │       │   │   ├── 📄 endpoint_pb2.pyi
+│   │   │       │   │   ├── 📄 error_reason.proto
+│   │   │       │   │   ├── 🐍 error_reason_pb2.py
+│   │   │       │   │   ├── 📄 error_reason_pb2.pyi
+│   │   │       │   │   ├── 📄 field_behavior.proto
+│   │   │       │   │   ├── 🐍 field_behavior_pb2.py
+│   │   │       │   │   ├── 📄 field_behavior_pb2.pyi
+│   │   │       │   │   ├── 📄 field_info.proto
+│   │   │       │   │   ├── 🐍 field_info_pb2.py
+│   │   │       │   │   ├── 📄 field_info_pb2.pyi
+│   │   │       │   │   ├── 📄 http.proto
+│   │   │       │   │   ├── 🐍 http_pb2.py
+│   │   │       │   │   ├── 📄 http_pb2.pyi
+│   │   │       │   │   ├── 📄 httpbody.proto
+│   │   │       │   │   ├── 🐍 httpbody_pb2.py
+│   │   │       │   │   ├── 📄 httpbody_pb2.pyi
+│   │   │       │   │   ├── 📄 label.proto
+│   │   │       │   │   ├── 🐍 label_pb2.py
+│   │   │       │   │   ├── 📄 label_pb2.pyi
+│   │   │       │   │   ├── 📄 launch_stage.proto
+│   │   │       │   │   ├── 🐍 launch_stage_pb2.py
+│   │   │       │   │   ├── 📄 launch_stage_pb2.pyi
+│   │   │       │   │   ├── 📄 log.proto
+│   │   │       │   │   ├── 🐍 log_pb2.py
+│   │   │       │   │   ├── 📄 log_pb2.pyi
+│   │   │       │   │   ├── 📄 logging.proto
+│   │   │       │   │   ├── 🐍 logging_pb2.py
+│   │   │       │   │   ├── 📄 logging_pb2.pyi
+│   │   │       │   │   ├── 📄 metric.proto
+│   │   │       │   │   ├── 🐍 metric_pb2.py
+│   │   │       │   │   ├── 📄 metric_pb2.pyi
+│   │   │       │   │   ├── 📄 monitored_resource.proto
+│   │   │       │   │   ├── 🐍 monitored_resource_pb2.py
+│   │   │       │   │   ├── 📄 monitored_resource_pb2.pyi
+│   │   │       │   │   ├── 📄 monitoring.proto
+│   │   │       │   │   ├── 🐍 monitoring_pb2.py
+│   │   │       │   │   ├── 📄 monitoring_pb2.pyi
+│   │   │       │   │   ├── 📄 policy.proto
+│   │   │       │   │   ├── 🐍 policy_pb2.py
+│   │   │       │   │   ├── 📄 policy_pb2.pyi
+│   │   │       │   │   ├── 📄 quota.proto
+│   │   │       │   │   ├── 🐍 quota_pb2.py
+│   │   │       │   │   ├── 📄 quota_pb2.pyi
+│   │   │       │   │   ├── 📄 resource.proto
+│   │   │       │   │   ├── 🐍 resource_pb2.py
+│   │   │       │   │   ├── 📄 resource_pb2.pyi
+│   │   │       │   │   ├── 📄 routing.proto
+│   │   │       │   │   ├── 🐍 routing_pb2.py
+│   │   │       │   │   ├── 📄 routing_pb2.pyi
+│   │   │       │   │   ├── 📄 service.proto
+│   │   │       │   │   ├── 🐍 service_pb2.py
+│   │   │       │   │   ├── 📄 service_pb2.pyi
+│   │   │       │   │   ├── 📄 source_info.proto
+│   │   │       │   │   ├── 🐍 source_info_pb2.py
+│   │   │       │   │   ├── 📄 source_info_pb2.pyi
+│   │   │       │   │   ├── 📄 system_parameter.proto
+│   │   │       │   │   ├── 🐍 system_parameter_pb2.py
+│   │   │       │   │   ├── 📄 system_parameter_pb2.pyi
+│   │   │       │   │   ├── 📄 usage.proto
+│   │   │       │   │   ├── 🐍 usage_pb2.py
+│   │   │       │   │   ├── 📄 usage_pb2.pyi
+│   │   │       │   │   ├── 📄 visibility.proto
+│   │   │       │   │   ├── 🐍 visibility_pb2.py
+│   │   │       │   │   └── 📄 visibility_pb2.pyi
+│   │   │       │   ├── 📁 cloud
+│   │   │       │   │   ├── 📁 location
+│   │   │       │   │   │   ├── 📄 locations.proto
+│   │   │       │   │   │   ├── 🐍 locations_pb2.py
+│   │   │       │   │   │   └── 📄 locations_pb2.pyi
+│   │   │       │   │   ├── 📄 common_resources.proto
+│   │   │       │   │   ├── 🐍 common_resources_pb2.py
+│   │   │       │   │   ├── 📄 common_resources_pb2.pyi
+│   │   │       │   │   ├── 📄 extended_operations.proto
+│   │   │       │   │   ├── 🐍 extended_operations_pb2.py
+│   │   │       │   │   └── 📄 extended_operations_pb2.pyi
+│   │   │       │   ├── 📁 gapic
+│   │   │       │   │   └── 📁 metadata
+│   │   │       │   │       ├── 📄 gapic_metadata.proto
+│   │   │       │   │       ├── 🐍 gapic_metadata_pb2.py
+│   │   │       │   │       └── 📄 gapic_metadata_pb2.pyi
+│   │   │       │   ├── 📁 logging
+│   │   │       │   │   └── 📁 type
+│   │   │       │   │       ├── 📄 http_request.proto
+│   │   │       │   │       ├── 🐍 http_request_pb2.py
+│   │   │       │   │       ├── 📄 http_request_pb2.pyi
+│   │   │       │   │       ├── 📄 log_severity.proto
+│   │   │       │   │       ├── 🐍 log_severity_pb2.py
+│   │   │       │   │       └── 📄 log_severity_pb2.pyi
+│   │   │       │   ├── 📁 longrunning
+│   │   │       │   │   ├── 🐍 operations_grpc.py
+│   │   │       │   │   ├── 🐍 operations_grpc_pb2.py
+│   │   │       │   │   ├── 🐍 operations_pb2.py
+│   │   │       │   │   ├── 🐍 operations_pb2_grpc.py
+│   │   │       │   │   ├── 📄 operations_proto.proto
+│   │   │       │   │   ├── 🐍 operations_proto.py
+│   │   │       │   │   ├── 🐍 operations_proto_pb2.py
+│   │   │       │   │   └── 📄 operations_proto_pb2.pyi
+│   │   │       │   ├── 📁 protobuf
+│   │   │       │   │   ├── 📁 compiler
+│   │   │       │   │   │   └── 🐍 plugin_pb2.py
+│   │   │       │   │   ├── 📁 internal
+│   │   │       │   │   │   ├── 🐍 api_implementation.py
+│   │   │       │   │   │   ├── 🐍 builder.py
+│   │   │       │   │   │   ├── 🐍 containers.py
+│   │   │       │   │   │   ├── 🐍 decoder.py
+│   │   │       │   │   │   ├── 🐍 encoder.py
+│   │   │       │   │   │   ├── 🐍 enum_type_wrapper.py
+│   │   │       │   │   │   ├── 🐍 extension_dict.py
+│   │   │       │   │   │   ├── 🐍 field_mask.py
+│   │   │       │   │   │   ├── 🐍 message_listener.py
+│   │   │       │   │   │   ├── 🐍 python_edition_defaults.py
+│   │   │       │   │   │   ├── 🐍 python_message.py
+│   │   │       │   │   │   ├── 🐍 testing_refleaks.py
+│   │   │       │   │   │   ├── 🐍 type_checkers.py
+│   │   │       │   │   │   ├── 🐍 well_known_types.py
+│   │   │       │   │   │   └── 🐍 wire_format.py
+│   │   │       │   │   ├── 📁 pyext
+│   │   │       │   │   │   └── 🐍 cpp_message.py
+│   │   │       │   │   ├── 📁 testdata
+│   │   │       │   │   ├── 📁 util
+│   │   │       │   │   ├── 🐍 any.py
+│   │   │       │   │   ├── 🐍 any_pb2.py
+│   │   │       │   │   ├── 🐍 api_pb2.py
+│   │   │       │   │   ├── 🐍 descriptor.py
+│   │   │       │   │   ├── 🐍 descriptor_database.py
+│   │   │       │   │   ├── 🐍 descriptor_pb2.py
+│   │   │       │   │   ├── 🐍 descriptor_pool.py
+│   │   │       │   │   ├── 🐍 duration.py
+│   │   │       │   │   ├── 🐍 duration_pb2.py
+│   │   │       │   │   ├── 🐍 empty_pb2.py
+│   │   │       │   │   ├── 🐍 field_mask_pb2.py
+│   │   │       │   │   ├── 🐍 json_format.py
+│   │   │       │   │   ├── 🐍 message.py
+│   │   │       │   │   ├── 🐍 message_factory.py
+│   │   │       │   │   ├── 🐍 proto.py
+│   │   │       │   │   ├── 🐍 proto_builder.py
+│   │   │       │   │   ├── 🐍 proto_json.py
+│   │   │       │   │   ├── 🐍 proto_text.py
+│   │   │       │   │   ├── 🐍 reflection.py
+│   │   │       │   │   ├── 🐍 runtime_version.py
+│   │   │       │   │   ├── 🐍 service_reflection.py
+│   │   │       │   │   ├── 🐍 source_context_pb2.py
+│   │   │       │   │   ├── 🐍 struct_pb2.py
+│   │   │       │   │   ├── 🐍 symbol_database.py
+│   │   │       │   │   ├── 🐍 text_encoding.py
+│   │   │       │   │   ├── 🐍 text_format.py
+│   │   │       │   │   ├── 🐍 timestamp.py
+│   │   │       │   │   ├── 🐍 timestamp_pb2.py
+│   │   │       │   │   ├── 🐍 type_pb2.py
+│   │   │       │   │   ├── 🐍 unknown_fields.py
+│   │   │       │   │   └── 🐍 wrappers_pb2.py
+│   │   │       │   ├── 📁 rpc
+│   │   │       │   │   ├── 📁 context
+│   │   │       │   │   │   ├── 📄 attribute_context.proto
+│   │   │       │   │   │   ├── 🐍 attribute_context_pb2.py
+│   │   │       │   │   │   ├── 📄 attribute_context_pb2.pyi
+│   │   │       │   │   │   ├── 📄 audit_context.proto
+│   │   │       │   │   │   ├── 🐍 audit_context_pb2.py
+│   │   │       │   │   │   └── 📄 audit_context_pb2.pyi
+│   │   │       │   │   ├── 📄 code.proto
+│   │   │       │   │   ├── 🐍 code_pb2.py
+│   │   │       │   │   ├── 📄 code_pb2.pyi
+│   │   │       │   │   ├── 📄 error_details.proto
+│   │   │       │   │   ├── 🐍 error_details_pb2.py
+│   │   │       │   │   ├── 📄 error_details_pb2.pyi
+│   │   │       │   │   ├── 📄 http.proto
+│   │   │       │   │   ├── 🐍 http_pb2.py
+│   │   │       │   │   ├── 📄 http_pb2.pyi
+│   │   │       │   │   ├── 📄 status.proto
+│   │   │       │   │   ├── 🐍 status_pb2.py
+│   │   │       │   │   └── 📄 status_pb2.pyi
+│   │   │       │   └── 📁 type
+│   │   │       │       ├── 📄 calendar_period.proto
+│   │   │       │       ├── 🐍 calendar_period_pb2.py
+│   │   │       │       ├── 📄 calendar_period_pb2.pyi
+│   │   │       │       ├── 📄 color.proto
+│   │   │       │       ├── 🐍 color_pb2.py
+│   │   │       │       ├── 📄 color_pb2.pyi
+│   │   │       │       ├── 📄 date.proto
+│   │   │       │       ├── 🐍 date_pb2.py
+│   │   │       │       ├── 📄 date_pb2.pyi
+│   │   │       │       ├── 📄 datetime.proto
+│   │   │       │       ├── 🐍 datetime_pb2.py
+│   │   │       │       ├── 📄 datetime_pb2.pyi
+│   │   │       │       ├── 📄 dayofweek.proto
+│   │   │       │       ├── 🐍 dayofweek_pb2.py
+│   │   │       │       ├── 📄 dayofweek_pb2.pyi
+│   │   │       │       ├── 📄 decimal.proto
+│   │   │       │       ├── 🐍 decimal_pb2.py
+│   │   │       │       ├── 📄 decimal_pb2.pyi
+│   │   │       │       ├── 📄 expr.proto
+│   │   │       │       ├── 🐍 expr_pb2.py
+│   │   │       │       ├── 📄 expr_pb2.pyi
+│   │   │       │       ├── 📄 fraction.proto
+│   │   │       │       ├── 🐍 fraction_pb2.py
+│   │   │       │       ├── 📄 fraction_pb2.pyi
+│   │   │       │       ├── 📄 interval.proto
+│   │   │       │       ├── 🐍 interval_pb2.py
+│   │   │       │       ├── 📄 interval_pb2.pyi
+│   │   │       │       ├── 📄 latlng.proto
+│   │   │       │       ├── 🐍 latlng_pb2.py
+│   │   │       │       ├── 📄 latlng_pb2.pyi
+│   │   │       │       ├── 📄 localized_text.proto
+│   │   │       │       ├── 🐍 localized_text_pb2.py
+│   │   │       │       ├── 📄 localized_text_pb2.pyi
+│   │   │       │       ├── 📄 money.proto
+│   │   │       │       ├── 🐍 money_pb2.py
+│   │   │       │       ├── 📄 money_pb2.pyi
+│   │   │       │       ├── 📄 month.proto
+│   │   │       │       ├── 🐍 month_pb2.py
+│   │   │       │       ├── 📄 month_pb2.pyi
+│   │   │       │       ├── 📄 phone_number.proto
+│   │   │       │       ├── 🐍 phone_number_pb2.py
+│   │   │       │       ├── 📄 phone_number_pb2.pyi
+│   │   │       │       ├── 📄 postal_address.proto
+│   │   │       │       ├── 🐍 postal_address_pb2.py
+│   │   │       │       ├── 📄 postal_address_pb2.pyi
+│   │   │       │       ├── 📄 quaternion.proto
+│   │   │       │       ├── 🐍 quaternion_pb2.py
+│   │   │       │       ├── 📄 quaternion_pb2.pyi
+│   │   │       │       ├── 📄 timeofday.proto
+│   │   │       │       ├── 🐍 timeofday_pb2.py
+│   │   │       │       └── 📄 timeofday_pb2.pyi
+│   │   │       ├── 📁 googleapis_common_protos-1.76.0.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   ├── 📄 top_level.txt
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 grpc
+│   │   │       │   ├── 📁 _cython
+│   │   │       │   │   ├── 📁 _credentials
+│   │   │       │   │   │   └── 📄 roots.pem
+│   │   │       │   │   ├── 📁 _cygrpc
+│   │   │       │   │   │   └── 📁 private_key_signing
+│   │   │       │   │   │       ├── 📄 private_key_signer_py_wrapper.cc
+│   │   │       │   │   │       └── 📄 private_key_signer_py_wrapper.h
+│   │   │       │   │   ├── 📄 cygrpc.cp313-win_amd64.pyd
+│   │   │       │   │   └── 📄 cygrpc.pyi
+│   │   │       │   ├── 📁 aio
+│   │   │       │   │   ├── 🐍 _base_call.py
+│   │   │       │   │   ├── 🐍 _base_channel.py
+│   │   │       │   │   ├── 🐍 _base_server.py
+│   │   │       │   │   ├── 🐍 _call.py
+│   │   │       │   │   ├── 🐍 _channel.py
+│   │   │       │   │   ├── 🐍 _interceptor.py
+│   │   │       │   │   ├── 🐍 _metadata.py
+│   │   │       │   │   ├── 🐍 _server.py
+│   │   │       │   │   ├── 🐍 _typing.py
+│   │   │       │   │   └── 🐍 _utils.py
+│   │   │       │   ├── 📁 beta
+│   │   │       │   │   ├── 🐍 _client_adaptations.py
+│   │   │       │   │   ├── 🐍 _metadata.py
+│   │   │       │   │   ├── 🐍 _server_adaptations.py
+│   │   │       │   │   ├── 🐍 implementations.py
+│   │   │       │   │   ├── 🐍 interfaces.py
+│   │   │       │   │   └── 🐍 utilities.py
+│   │   │       │   ├── 📁 experimental
+│   │   │       │   │   ├── 📁 aio
+│   │   │       │   │   ├── 🐍 gevent.py
+│   │   │       │   │   └── 🐍 session_cache.py
+│   │   │       │   ├── 📁 framework
+│   │   │       │   │   ├── 📁 common
+│   │   │       │   │   │   ├── 🐍 cardinality.py
+│   │   │       │   │   │   └── 🐍 style.py
+│   │   │       │   │   ├── 📁 foundation
+│   │   │       │   │   │   ├── 🐍 abandonment.py
+│   │   │       │   │   │   ├── 🐍 callable_util.py
+│   │   │       │   │   │   ├── 🐍 future.py
+│   │   │       │   │   │   ├── 🐍 logging_pool.py
+│   │   │       │   │   │   ├── 🐍 stream.py
+│   │   │       │   │   │   └── 🐍 stream_util.py
+│   │   │       │   │   └── 📁 interfaces
+│   │   │       │   │       ├── 📁 base
+│   │   │       │   │       │   ├── 🐍 base.py
+│   │   │       │   │       │   └── 🐍 utilities.py
+│   │   │       │   │       └── 📁 face
+│   │   │       │   │           ├── 🐍 face.py
+│   │   │       │   │           └── 🐍 utilities.py
+│   │   │       │   ├── 🐍 _auth.py
+│   │   │       │   ├── 🐍 _channel.py
+│   │   │       │   ├── 🐍 _common.py
+│   │   │       │   ├── 🐍 _compression.py
+│   │   │       │   ├── 🐍 _grpcio_metadata.py
+│   │   │       │   ├── 🐍 _interceptor.py
+│   │   │       │   ├── 🐍 _observability.py
+│   │   │       │   ├── 🐍 _plugin_wrapping.py
+│   │   │       │   ├── 🐍 _runtime_protos.py
+│   │   │       │   ├── 🐍 _server.py
+│   │   │       │   ├── 🐍 _simple_stubs.py
+│   │   │       │   ├── 🐍 _typing.py
+│   │   │       │   └── 🐍 _utilities.py
+│   │   │       ├── 📁 grpcio-1.85.1.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   ├── 📄 top_level.txt
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry
+│   │   │       │   ├── 📁 _logs
+│   │   │       │   │   ├── 📁 _internal
+│   │   │       │   │   ├── 📁 severity
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 attributes
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 baggage
+│   │   │       │   │   ├── 📁 propagation
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 context
+│   │   │       │   │   ├── 🐍 context.py
+│   │   │       │   │   ├── 🐍 contextvars_context.py
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 environment_variables
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 exporter
+│   │   │       │   │   └── 📁 otlp
+│   │   │       │   │       ├── 📁 common
+│   │   │       │   │       │   ├── 📁 version
+│   │   │       │   │       │   ├── 🐍 _aggregation.py
+│   │   │       │   │       │   ├── 🐍 _exporter_metrics.py
+│   │   │       │   │       │   ├── 🐍 http.py
+│   │   │       │   │       │   └── 📄 py.typed
+│   │   │       │   │       └── 📁 proto
+│   │   │       │   │           ├── 📁 common
+│   │   │       │   │           │   ├── 📁 _internal
+│   │   │       │   │           │   │   ├── 📁 _log_encoder
+│   │   │       │   │           │   │   ├── 📁 metrics_encoder
+│   │   │       │   │           │   │   └── 📁 trace_encoder
+│   │   │       │   │           │   ├── 📁 version
+│   │   │       │   │           │   ├── 🐍 _log_encoder.py
+│   │   │       │   │           │   ├── 🐍 metrics_encoder.py
+│   │   │       │   │           │   ├── 📄 py.typed
+│   │   │       │   │           │   └── 🐍 trace_encoder.py
+│   │   │       │   │           └── 📁 grpc
+│   │   │       │   │               ├── 📁 _log_exporter
+│   │   │       │   │               ├── 📁 metric_exporter
+│   │   │       │   │               ├── 📁 trace_exporter
+│   │   │       │   │               ├── 📁 version
+│   │   │       │   │               ├── 🐍 exporter.py
+│   │   │       │   │               └── 📄 py.typed
+│   │   │       │   ├── 📁 instrumentation
+│   │   │       │   │   ├── 📁 _labeler
+│   │   │       │   │   │   └── 📁 _internal
+│   │   │       │   │   ├── 📁 auto_instrumentation
+│   │   │       │   │   │   ├── 🐍 _load.py
+│   │   │       │   │   │   └── 🐍 sitecustomize.py
+│   │   │       │   │   ├── 📁 grpc
+│   │   │       │   │   │   ├── 📁 filters
+│   │   │       │   │   │   ├── 📁 grpcext
+│   │   │       │   │   │   │   └── 🐍 _interceptor.py
+│   │   │       │   │   │   ├── 🐍 _aio_client.py
+│   │   │       │   │   │   ├── 🐍 _aio_server.py
+│   │   │       │   │   │   ├── 🐍 _client.py
+│   │   │       │   │   │   ├── 🐍 _server.py
+│   │   │       │   │   │   ├── 🐍 _utilities.py
+│   │   │       │   │   │   ├── 🐍 package.py
+│   │   │       │   │   │   └── 🐍 version.py
+│   │   │       │   │   ├── 🐍 _semconv.py
+│   │   │       │   │   ├── 🐍 bootstrap.py
+│   │   │       │   │   ├── 🐍 bootstrap_gen.py
+│   │   │       │   │   ├── 🐍 cidict.py
+│   │   │       │   │   ├── 🐍 dependencies.py
+│   │   │       │   │   ├── 🐍 distro.py
+│   │   │       │   │   ├── 🐍 environment_variables.py
+│   │   │       │   │   ├── 🐍 instrumentor.py
+│   │   │       │   │   ├── 🐍 log_utils.py
+│   │   │       │   │   ├── 🐍 propagators.py
+│   │   │       │   │   ├── 📄 py.typed
+│   │   │       │   │   ├── 🐍 sqlcommenter_utils.py
+│   │   │       │   │   ├── 🐍 utils.py
+│   │   │       │   │   └── 🐍 version.py
+│   │   │       │   ├── 📁 metrics
+│   │   │       │   │   ├── 📁 _internal
+│   │   │       │   │   │   ├── 🐍 instrument.py
+│   │   │       │   │   │   └── 🐍 observation.py
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 propagate
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 propagators
+│   │   │       │   │   ├── 🐍 _envcarrier.py
+│   │   │       │   │   ├── 🐍 composite.py
+│   │   │       │   │   ├── 📄 py.typed
+│   │   │       │   │   └── 🐍 textmap.py
+│   │   │       │   ├── 📁 proto
+│   │   │       │   │   ├── 📁 collector
+│   │   │       │   │   │   ├── 📁 logs
+│   │   │       │   │   │   │   └── 📁 v1
+│   │   │       │   │   │   │       ├── 🐍 logs_service_pb2.py
+│   │   │       │   │   │   │       ├── 📄 logs_service_pb2.pyi
+│   │   │       │   │   │   │       └── 🐍 logs_service_pb2_grpc.py
+│   │   │       │   │   │   ├── 📁 metrics
+│   │   │       │   │   │   │   └── 📁 v1
+│   │   │       │   │   │   │       ├── 🐍 metrics_service_pb2.py
+│   │   │       │   │   │   │       ├── 📄 metrics_service_pb2.pyi
+│   │   │       │   │   │   │       └── 🐍 metrics_service_pb2_grpc.py
+│   │   │       │   │   │   ├── 📁 profiles
+│   │   │       │   │   │   │   └── 📁 v1development
+│   │   │       │   │   │   │       ├── 🐍 profiles_service_pb2.py
+│   │   │       │   │   │   │       ├── 📄 profiles_service_pb2.pyi
+│   │   │       │   │   │   │       └── 🐍 profiles_service_pb2_grpc.py
+│   │   │       │   │   │   └── 📁 trace
+│   │   │       │   │   │       └── 📁 v1
+│   │   │       │   │   │           ├── 🐍 trace_service_pb2.py
+│   │   │       │   │   │           ├── 📄 trace_service_pb2.pyi
+│   │   │       │   │   │           └── 🐍 trace_service_pb2_grpc.py
+│   │   │       │   │   ├── 📁 common
+│   │   │       │   │   │   └── 📁 v1
+│   │   │       │   │   │       ├── 🐍 common_pb2.py
+│   │   │       │   │   │       └── 📄 common_pb2.pyi
+│   │   │       │   │   ├── 📁 logs
+│   │   │       │   │   │   └── 📁 v1
+│   │   │       │   │   │       ├── 🐍 logs_pb2.py
+│   │   │       │   │   │       └── 📄 logs_pb2.pyi
+│   │   │       │   │   ├── 📁 metrics
+│   │   │       │   │   │   └── 📁 v1
+│   │   │       │   │   │       ├── 🐍 metrics_pb2.py
+│   │   │       │   │   │       └── 📄 metrics_pb2.pyi
+│   │   │       │   │   ├── 📁 profiles
+│   │   │       │   │   │   └── 📁 v1development
+│   │   │       │   │   │       ├── 🐍 profiles_pb2.py
+│   │   │       │   │   │       └── 📄 profiles_pb2.pyi
+│   │   │       │   │   ├── 📁 resource
+│   │   │       │   │   │   └── 📁 v1
+│   │   │       │   │   │       ├── 🐍 resource_pb2.py
+│   │   │       │   │   │       └── 📄 resource_pb2.pyi
+│   │   │       │   │   ├── 📁 trace
+│   │   │       │   │   │   └── 📁 v1
+│   │   │       │   │   │       ├── 🐍 trace_pb2.py
+│   │   │       │   │   │       └── 📄 trace_pb2.pyi
+│   │   │       │   │   ├── 📁 version
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 sdk
+│   │   │       │   │   ├── 📁 _configuration
+│   │   │       │   │   ├── 📁 _logs
+│   │   │       │   │   │   ├── 📁 _internal
+│   │   │       │   │   │   │   ├── 📁 export
+│   │   │       │   │   │   │   │   └── 🐍 in_memory_log_exporter.py
+│   │   │       │   │   │   │   ├── 🐍 _exceptions.py
+│   │   │       │   │   │   │   └── 🐍 _logger_metrics.py
+│   │   │       │   │   │   └── 📁 export
+│   │   │       │   │   ├── 📁 _shared_internal
+│   │   │       │   │   │   └── 🐍 _processor_metrics.py
+│   │   │       │   │   ├── 📁 environment_variables
+│   │   │       │   │   │   └── 🐍 _internal.py
+│   │   │       │   │   ├── 📁 error_handler
+│   │   │       │   │   ├── 📁 metrics
+│   │   │       │   │   │   ├── 📁 _internal
+│   │   │       │   │   │   │   ├── 📁 exemplar
+│   │   │       │   │   │   │   │   ├── 🐍 exemplar.py
+│   │   │       │   │   │   │   │   ├── 🐍 exemplar_filter.py
+│   │   │       │   │   │   │   │   └── 🐍 exemplar_reservoir.py
+│   │   │       │   │   │   │   ├── 📁 exponential_histogram
+│   │   │       │   │   │   │   │   ├── 📁 mapping
+│   │   │       │   │   │   │   │   │   ├── 🐍 errors.py
+│   │   │       │   │   │   │   │   │   ├── 🐍 exponent_mapping.py
+│   │   │       │   │   │   │   │   │   ├── 📄 ieee_754.md
+│   │   │       │   │   │   │   │   │   ├── 🐍 ieee_754.py
+│   │   │       │   │   │   │   │   │   └── 🐍 logarithm_mapping.py
+│   │   │       │   │   │   │   │   └── 🐍 buckets.py
+│   │   │       │   │   │   │   ├── 📁 export
+│   │   │       │   │   │   │   │   └── 🐍 _metric_reader_metrics.py
+│   │   │       │   │   │   │   ├── 🐍 _view_instrument_match.py
+│   │   │       │   │   │   │   ├── 🐍 aggregation.py
+│   │   │       │   │   │   │   ├── 🐍 exceptions.py
+│   │   │       │   │   │   │   ├── 🐍 instrument.py
+│   │   │       │   │   │   │   ├── 🐍 measurement.py
+│   │   │       │   │   │   │   ├── 🐍 measurement_consumer.py
+│   │   │       │   │   │   │   ├── 🐍 metric_reader_storage.py
+│   │   │       │   │   │   │   ├── 🐍 point.py
+│   │   │       │   │   │   │   ├── 🐍 sdk_configuration.py
+│   │   │       │   │   │   │   └── 🐍 view.py
+│   │   │       │   │   │   ├── 📁 export
+│   │   │       │   │   │   └── 📁 view
+│   │   │       │   │   ├── 📁 resources
+│   │   │       │   │   ├── 📁 trace
+│   │   │       │   │   │   ├── 📁 _sampling_experimental
+│   │   │       │   │   │   │   ├── 🐍 _always_off.py
+│   │   │       │   │   │   │   ├── 🐍 _always_on.py
+│   │   │       │   │   │   │   ├── 🐍 _composable.py
+│   │   │       │   │   │   │   ├── 🐍 _parent_threshold.py
+│   │   │       │   │   │   │   ├── 🐍 _rule_based.py
+│   │   │       │   │   │   │   ├── 🐍 _sampler.py
+│   │   │       │   │   │   │   ├── 🐍 _trace_state.py
+│   │   │       │   │   │   │   ├── 🐍 _traceid_ratio.py
+│   │   │       │   │   │   │   └── 🐍 _util.py
+│   │   │       │   │   │   ├── 📁 export
+│   │   │       │   │   │   │   └── 🐍 in_memory_span_exporter.py
+│   │   │       │   │   │   ├── 🐍 _tracer_metrics.py
+│   │   │       │   │   │   ├── 🐍 id_generator.py
+│   │   │       │   │   │   └── 🐍 sampling.py
+│   │   │       │   │   ├── 📁 util
+│   │   │       │   │   │   ├── 🐍 _configurator.py
+│   │   │       │   │   │   └── 🐍 instrumentation.py
+│   │   │       │   │   ├── 📁 version
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   ├── 📁 semconv
+│   │   │       │   │   ├── 📁 _incubating
+│   │   │       │   │   │   ├── 📁 attributes
+│   │   │       │   │   │   │   ├── 🐍 app_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 artifact_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 aws_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 az_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 azure_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 browser_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 cassandra_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 cicd_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 client_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 cloud_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 cloudevents_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 cloudfoundry_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 code_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 container_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 cpu_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 cpython_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 db_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 deployment_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 destination_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 device_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 disk_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 dns_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 elasticsearch_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 enduser_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 error_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 event_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 exception_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 faas_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 feature_flag_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 file_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 gcp_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 gen_ai_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 geo_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 graphql_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 heroku_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 host_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 http_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 hw_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 jsonrpc_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 k8s_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 linux_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 log_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 mainframe_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 mcp_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 message_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 messaging_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 net_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 network_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 nfs_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 oci_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 onc_rpc_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 openai_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 openshift_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 opentracing_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 oracle_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 oracle_cloud_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 os_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 otel_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 other_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 peer_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 pool_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 pprof_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 process_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 profile_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 rpc_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 security_rule_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 server_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 service_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 session_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 source_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 system_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 telemetry_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 test_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 thread_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 tls_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 url_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 user_agent_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 user_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 vcs_attributes.py
+│   │   │       │   │   │   │   ├── 🐍 webengine_attributes.py
+│   │   │       │   │   │   │   └── 🐍 zos_attributes.py
+│   │   │       │   │   │   └── 📁 metrics
+│   │   │       │   │   │       ├── 🐍 azure_metrics.py
+│   │   │       │   │   │       ├── 🐍 cicd_metrics.py
+│   │   │       │   │   │       ├── 🐍 container_metrics.py
+│   │   │       │   │   │       ├── 🐍 cpu_metrics.py
+│   │   │       │   │   │       ├── 🐍 cpython_metrics.py
+│   │   │       │   │   │       ├── 🐍 db_metrics.py
+│   │   │       │   │   │       ├── 🐍 dns_metrics.py
+│   │   │       │   │   │       ├── 🐍 faas_metrics.py
+│   │   │       │   │   │       ├── 🐍 gen_ai_metrics.py
+│   │   │       │   │   │       ├── 🐍 http_metrics.py
+│   │   │       │   │   │       ├── 🐍 hw_metrics.py
+│   │   │       │   │   │       ├── 🐍 k8s_metrics.py
+│   │   │       │   │   │       ├── 🐍 mcp_metrics.py
+│   │   │       │   │   │       ├── 🐍 messaging_metrics.py
+│   │   │       │   │   │       ├── 🐍 nfs_metrics.py
+│   │   │       │   │   │       ├── 🐍 openshift_metrics.py
+│   │   │       │   │   │       ├── 🐍 otel_metrics.py
+│   │   │       │   │   │       ├── 🐍 process_metrics.py
+│   │   │       │   │   │       ├── 🐍 rpc_metrics.py
+│   │   │       │   │   │       ├── 🐍 system_metrics.py
+│   │   │       │   │   │       └── 🐍 vcs_metrics.py
+│   │   │       │   │   ├── 📁 attributes
+│   │   │       │   │   │   ├── 🐍 client_attributes.py
+│   │   │       │   │   │   ├── 🐍 code_attributes.py
+│   │   │       │   │   │   ├── 🐍 container_attributes.py
+│   │   │       │   │   │   ├── 🐍 db_attributes.py
+│   │   │       │   │   │   ├── 🐍 deployment_attributes.py
+│   │   │       │   │   │   ├── 🐍 error_attributes.py
+│   │   │       │   │   │   ├── 🐍 exception_attributes.py
+│   │   │       │   │   │   ├── 🐍 http_attributes.py
+│   │   │       │   │   │   ├── 🐍 k8s_attributes.py
+│   │   │       │   │   │   ├── 🐍 network_attributes.py
+│   │   │       │   │   │   ├── 🐍 otel_attributes.py
+│   │   │       │   │   │   ├── 🐍 server_attributes.py
+│   │   │       │   │   │   ├── 🐍 service_attributes.py
+│   │   │       │   │   │   ├── 🐍 telemetry_attributes.py
+│   │   │       │   │   │   ├── 🐍 url_attributes.py
+│   │   │       │   │   │   └── 🐍 user_agent_attributes.py
+│   │   │       │   │   ├── 📁 metrics
+│   │   │       │   │   │   ├── 🐍 db_metrics.py
+│   │   │       │   │   │   └── 🐍 http_metrics.py
+│   │   │       │   │   ├── 📁 resource
+│   │   │       │   │   ├── 📁 trace
+│   │   │       │   │   ├── 📁 version
+│   │   │       │   │   ├── 📄 py.typed
+│   │   │       │   │   └── 🐍 schemas.py
+│   │   │       │   ├── 📁 trace
+│   │   │       │   │   ├── 📁 propagation
+│   │   │       │   │   │   └── 🐍 tracecontext.py
+│   │   │       │   │   ├── 📄 py.typed
+│   │   │       │   │   ├── 🐍 span.py
+│   │   │       │   │   └── 🐍 status.py
+│   │   │       │   ├── 📁 util
+│   │   │       │   │   ├── 🐍 _decorator.py
+│   │   │       │   │   ├── 🐍 _importlib_metadata.py
+│   │   │       │   │   ├── 🐍 _once.py
+│   │   │       │   │   ├── 🐍 _providers.py
+│   │   │       │   │   ├── 📄 py.typed
+│   │   │       │   │   ├── 🐍 re.py
+│   │   │       │   │   └── 🐍 types.py
+│   │   │       │   ├── 📁 version
+│   │   │       │   │   └── 📄 py.typed
+│   │   │       │   └── 📄 py.typed
+│   │   │       ├── 📁 opentelemetry_api-1.45.2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 entry_points.txt
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry_exporter_otlp_common-0.66b2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry_exporter_otlp_proto_common-1.45.2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry_exporter_otlp_proto_grpc-1.45.2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 entry_points.txt
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry_instrumentation-0.66b2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 entry_points.txt
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry_instrumentation_grpc-0.66b2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 entry_points.txt
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry_proto-1.45.2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry_sdk-1.45.2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 entry_points.txt
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 opentelemetry_semantic_conventions-0.66b2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 packaging
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 🐍 _spdx.py
+│   │   │       │   ├── 🐍 _elffile.py
+│   │   │       │   ├── 🐍 _manylinux.py
+│   │   │       │   ├── 🐍 _musllinux.py
+│   │   │       │   ├── 🐍 _parser.py
+│   │   │       │   ├── 🐍 _ranges.py
+│   │   │       │   ├── 🐍 _structures.py
+│   │   │       │   ├── 🐍 _tokenizer.py
+│   │   │       │   ├── 🐍 dependency_groups.py
+│   │   │       │   ├── 🐍 direct_url.py
+│   │   │       │   ├── 🐍 errors.py
+│   │   │       │   ├── 🐍 markers.py
+│   │   │       │   ├── 🐍 metadata.py
+│   │   │       │   ├── 📄 py.typed
+│   │   │       │   ├── 🐍 pylock.py
+│   │   │       │   ├── 🐍 ranges.py
+│   │   │       │   ├── 🐍 requirements.py
+│   │   │       │   ├── 🐍 specifiers.py
+│   │   │       │   ├── 🐍 tags.py
+│   │   │       │   ├── 🐍 utils.py
+│   │   │       │   └── 🐍 version.py
+│   │   │       ├── 📁 packaging-26.3.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   ├── 📄 LICENSE
+│   │   │       │   │   ├── 📄 LICENSE.APACHE
+│   │   │       │   │   └── 📄 LICENSE.BSD
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 protobuf-6.33.6.dist-info
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 LICENSE
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 pulumi
+│   │   │       │   ├── 📁 automation
+│   │   │       │   │   ├── 📁 interface
+│   │   │       │   │   ├── 🐍 _cmd.py
+│   │   │       │   │   ├── 🐍 _config.py
+│   │   │       │   │   ├── 🐍 _env.py
+│   │   │       │   │   ├── 🐍 _local_workspace.py
+│   │   │       │   │   ├── 🐍 _minimum_version.py
+│   │   │       │   │   ├── 🐍 _output.py
+│   │   │       │   │   ├── 🐍 _project_settings.py
+│   │   │       │   │   ├── 🐍 _remote_stack.py
+│   │   │       │   │   ├── 🐍 _remote_workspace.py
+│   │   │       │   │   ├── 🐍 _representable.py
+│   │   │       │   │   ├── 🐍 _server.py
+│   │   │       │   │   ├── 🐍 _stack.py
+│   │   │       │   │   ├── 🐍 _stack_settings.py
+│   │   │       │   │   ├── 🐍 _tag.py
+│   │   │       │   │   ├── 🐍 _workspace.py
+│   │   │       │   │   ├── 🐍 errors.py
+│   │   │       │   │   └── 🐍 events.py
+│   │   │       │   ├── 📁 dynamic
+│   │   │       │   │   ├── 🐍 config.py
+│   │   │       │   │   └── 🐍 dynamic.py
+│   │   │       │   ├── 📁 policy
+│   │   │       │   ├── 📁 provider
+│   │   │       │   │   ├── 📁 experimental
+│   │   │       │   │   │   ├── 🐍 analyzer.py
+│   │   │       │   │   │   ├── 🐍 component.py
+│   │   │       │   │   │   ├── 🐍 host.py
+│   │   │       │   │   │   ├── 🐍 property_value.py
+│   │   │       │   │   │   ├── 🐍 provider.py
+│   │   │       │   │   │   ├── 🐍 schema.py
+│   │   │       │   │   │   ├── 🐍 server.py
+│   │   │       │   │   │   └── 🐍 util.py
+│   │   │       │   │   ├── 🐍 provider.py
+│   │   │       │   │   └── 🐍 server.py
+│   │   │       │   ├── 📁 run
+│   │   │       │   │   └── 📁 plugin
+│   │   │       │   ├── 📁 runtime
+│   │   │       │   │   ├── 📁 proto
+│   │   │       │   │   │   ├── 📁 codegen
+│   │   │       │   │   │   │   ├── 🐍 hcl_pb2.py
+│   │   │       │   │   │   │   ├── 📄 hcl_pb2.pyi
+│   │   │       │   │   │   │   ├── 🐍 hcl_pb2_grpc.py
+│   │   │       │   │   │   │   ├── 📄 hcl_pb2_grpc.pyi
+│   │   │       │   │   │   │   ├── 🐍 loader_pb2.py
+│   │   │       │   │   │   │   ├── 📄 loader_pb2.pyi
+│   │   │       │   │   │   │   ├── 🐍 loader_pb2_grpc.py
+│   │   │       │   │   │   │   ├── 📄 loader_pb2_grpc.pyi
+│   │   │       │   │   │   │   ├── 🐍 mapper_pb2.py
+│   │   │       │   │   │   │   ├── 📄 mapper_pb2.pyi
+│   │   │       │   │   │   │   ├── 🐍 mapper_pb2_grpc.py
+│   │   │       │   │   │   │   └── 📄 mapper_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 📁 testing
+│   │   │       │   │   │   │   ├── 🐍 language_pb2.py
+│   │   │       │   │   │   │   ├── 📄 language_pb2.pyi
+│   │   │       │   │   │   │   ├── 🐍 language_pb2_grpc.py
+│   │   │       │   │   │   │   └── 📄 language_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 alias_pb2.py
+│   │   │       │   │   │   ├── 📄 alias_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 alias_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 alias_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 analyzer_pb2.py
+│   │   │       │   │   │   ├── 📄 analyzer_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 analyzer_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 analyzer_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 callback_pb2.py
+│   │   │       │   │   │   ├── 📄 callback_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 callback_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 callback_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 converter_pb2.py
+│   │   │       │   │   │   ├── 📄 converter_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 converter_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 converter_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 engine_pb2.py
+│   │   │       │   │   │   ├── 📄 engine_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 engine_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 engine_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 errors_pb2.py
+│   │   │       │   │   │   ├── 📄 errors_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 errors_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 errors_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 events_pb2.py
+│   │   │       │   │   │   ├── 📄 events_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 events_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 events_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 language_pb2.py
+│   │   │       │   │   │   ├── 📄 language_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 language_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 language_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 plugin_pb2.py
+│   │   │       │   │   │   ├── 📄 plugin_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 plugin_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 plugin_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 provider_pb2.py
+│   │   │       │   │   │   ├── 📄 provider_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 provider_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 provider_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 resource_pb2.py
+│   │   │       │   │   │   ├── 📄 resource_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 resource_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 resource_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 resource_status_pb2.py
+│   │   │       │   │   │   ├── 📄 resource_status_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 resource_status_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 resource_status_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 source_pb2.py
+│   │   │       │   │   │   ├── 📄 source_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 source_pb2_grpc.py
+│   │   │       │   │   │   ├── 📄 source_pb2_grpc.pyi
+│   │   │       │   │   │   ├── 🐍 status_pb2.py
+│   │   │       │   │   │   ├── 📄 status_pb2.pyi
+│   │   │       │   │   │   ├── 🐍 status_pb2_grpc.py
+│   │   │       │   │   │   └── 📄 status_pb2_grpc.pyi
+│   │   │       │   │   ├── 🐍 _callbacks.py
+│   │   │       │   │   ├── 🐍 _context.py
+│   │   │       │   │   ├── 🐍 _depends_on.py
+│   │   │       │   │   ├── 🐍 _grpc_settings.py
+│   │   │       │   │   ├── 🐍 _instrumentation.py
+│   │   │       │   │   ├── 🐍 _json.py
+│   │   │       │   │   ├── 🐍 _serialization.py
+│   │   │       │   │   ├── 🐍 _state_migration_context.py
+│   │   │       │   │   ├── 🐍 config.py
+│   │   │       │   │   ├── 🐍 invoke.py
+│   │   │       │   │   ├── 🐍 known_types.py
+│   │   │       │   │   ├── 🐍 mocks.py
+│   │   │       │   │   ├── 🐍 resource.py
+│   │   │       │   │   ├── 🐍 resource_cycle_breaker.py
+│   │   │       │   │   ├── 🐍 resource_hooks.py
+│   │   │       │   │   ├── 🐍 rpc.py
+│   │   │       │   │   ├── 🐍 rpc_manager.py
+│   │   │       │   │   ├── 🐍 settings.py
+│   │   │       │   │   ├── 🐍 stack.py
+│   │   │       │   │   └── 🐍 sync_await.py
+│   │   │       │   ├── 🐍 _types.py
+│   │   │       │   ├── 🐍 _utils.py
+│   │   │       │   ├── 🐍 _version.py
+│   │   │       │   ├── 🐍 asset.py
+│   │   │       │   ├── 🐍 config.py
+│   │   │       │   ├── 🐍 deprecated.py
+│   │   │       │   ├── 🐍 errors.py
+│   │   │       │   ├── 🐍 invoke.py
+│   │   │       │   ├── 🐍 log.py
+│   │   │       │   ├── 🐍 metadata.py
+│   │   │       │   ├── 🐍 output.py
+│   │   │       │   ├── 📄 py.typed
+│   │   │       │   ├── 🐍 resource.py
+│   │   │       │   ├── 🐍 resource_hooks.py
+│   │   │       │   ├── 🐍 stack_reference.py
+│   │   │       │   ├── 🐍 stash.py
+│   │   │       │   ├── 🐍 type_token.py
+│   │   │       │   └── 🐍 urn.py
+│   │   │       ├── 📁 pulumi-3.273.0.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 pulumi_command
+│   │   │       │   ├── 📁 local
+│   │   │       │   │   ├── 🐍 _enums.py
+│   │   │       │   │   ├── 🐍 command.py
+│   │   │       │   │   └── 🐍 run.py
+│   │   │       │   ├── 📁 remote
+│   │   │       │   │   ├── 🐍 _enums.py
+│   │   │       │   │   ├── 🐍 _inputs.py
+│   │   │       │   │   ├── 🐍 command.py
+│   │   │       │   │   ├── 🐍 copy_file.py
+│   │   │       │   │   ├── 🐍 copy_to_remote.py
+│   │   │       │   │   └── 🐍 outputs.py
+│   │   │       │   ├── 🐍 _utilities.py
+│   │   │       │   ├── 🐍 provider.py
+│   │   │       │   ├── 📝 pulumi-plugin.json
+│   │   │       │   └── 📄 py.typed
+│   │   │       ├── 📁 pulumi_command-1.3.0.dist-info
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   ├── 📄 top_level.txt
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 pyyaml-6.0.3.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   ├── 📄 top_level.txt
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 semver
+│   │   │       │   ├── 🐍 _deprecated.py
+│   │   │       │   ├── 🐍 _types.py
+│   │   │       │   ├── 🐍 cli.py
+│   │   │       │   ├── 📄 py.typed
+│   │   │       │   └── 🐍 version.py
+│   │   │       ├── 📁 semver-3.1.0.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE.txt
+│   │   │       │   ├── 📄 entry_points.txt
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   ├── 📄 top_level.txt
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 typing_extensions-4.16.0.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 wrapt
+│   │   │       │   ├── 📄 _wrappers.c
+│   │   │       │   ├── 📄 _wrappers.cp313-win_amd64.pyd
+│   │   │       │   ├── 🐍 arguments.py
+│   │   │       │   ├── 🐍 caching.py
+│   │   │       │   ├── 🐍 decorators.py
+│   │   │       │   ├── 🐍 doc.py
+│   │   │       │   ├── 🐍 exceptions.py
+│   │   │       │   ├── 🐍 importer.py
+│   │   │       │   ├── 🐍 patches.py
+│   │   │       │   ├── 🐍 proxies.py
+│   │   │       │   ├── 🐍 signature.py
+│   │   │       │   ├── 🐍 synchronization.py
+│   │   │       │   ├── 🐍 weakrefs.py
+│   │   │       │   └── 🐍 wrappers.py
+│   │   │       ├── 📁 wrapt-2.5.2.dist-info
+│   │   │       │   ├── 📁 licenses
+│   │   │       │   │   └── 📄 LICENSE
+│   │   │       │   ├── 📄 INSTALLER
+│   │   │       │   ├── 📄 METADATA
+│   │   │       │   ├── 📄 RECORD
+│   │   │       │   ├── 📄 REQUESTED
+│   │   │       │   ├── 📄 top_level.txt
+│   │   │       │   └── 📄 WHEEL
+│   │   │       ├── 📁 wrapt-stubs
+│   │   │       ├── 📁 yaml
+│   │   │       │   ├── 📄 _yaml.cp313-win_amd64.pyd
+│   │   │       │   ├── 🐍 composer.py
+│   │   │       │   ├── 🐍 constructor.py
+│   │   │       │   ├── 🐍 cyaml.py
+│   │   │       │   ├── 🐍 dumper.py
+│   │   │       │   ├── 🐍 emitter.py
+│   │   │       │   ├── 🐍 error.py
+│   │   │       │   ├── 🐍 events.py
+│   │   │       │   ├── 🐍 loader.py
+│   │   │       │   ├── 🐍 nodes.py
+│   │   │       │   ├── 🐍 parser.py
+│   │   │       │   ├── 🐍 reader.py
+│   │   │       │   ├── 🐍 representer.py
+│   │   │       │   ├── 🐍 resolver.py
+│   │   │       │   ├── 🐍 scanner.py
+│   │   │       │   ├── 🐍 serializer.py
+│   │   │       │   └── 🐍 tokens.py
+│   │   │       ├── 📄 _virtualenv.pth
+│   │   │       ├── 🐍 _virtualenv.py
+│   │   │       └── 🐍 typing_extensions.py
+│   │   ├── 📁 Scripts
+│   │   │   ├── 📄 activate
+│   │   │   ├── ⚙️ activate.bat
+│   │   │   ├── 📄 activate.csh
+│   │   │   ├── 📄 activate.fish
+│   │   │   ├── 📄 activate.nu
+│   │   │   ├── ⚙️ activate.ps1
+│   │   │   ├── 📄 activate.xsh
+│   │   │   ├── 🐍 activate_this.py
+│   │   │   ├── ⚙️ deactivate.bat
+│   │   │   ├── 📄 debugpy-adapter.exe
+│   │   │   ├── 📄 debugpy.exe
+│   │   │   ├── 📄 get_gprof
+│   │   │   ├── 📄 get_objgraph
+│   │   │   ├── 📄 opentelemetry-bootstrap.exe
+│   │   │   ├── 📄 opentelemetry-instrument.exe
+│   │   │   ├── ⚙️ pydoc.bat
+│   │   │   ├── 📄 pysemver.exe
+│   │   │   ├── 📄 python.exe
+│   │   │   ├── 📄 pythonw.exe
+│   │   │   └── 📄 undill
+│   │   ├── 📄 .gitignore
+│   │   ├── 📄 .lock
+│   │   ├── 📄 CACHEDIR.TAG
+│   │   └── 📄 pyvenv.cfg
+│   ├── 📄 .gitignore
+│   ├── 📝 Pulumi.dev.yaml
+│   ├── 📝 Pulumi.yaml
+│   └── 📄 requirements.txt
 ├── 📁 locale
 │   ├── 📁 de
 │   │   └── 📁 LC_MESSAGES
@@ -293,6 +1794,8 @@
 │           │   └── 🖼️ owl.video.play.png
 │           └── 📄 LICENSE
 ├── 📁 structure
+│   ├── 🖼️ diagram.png
+│   ├── 📄 ErrorVps.txt
 │   ├── 📄 flowchart-raw.txt
 │   └── 📄 flowchart.txt
 ├── 📁 support
@@ -426,12 +1929,14 @@
 ├── 📄 .dockerignore
 ├── 📄 .env
 ├── 📄 .gitignore
+├── 📄 .gitingore
 ├── 📝 docker-compose.yml
 ├── 📄 Dockerfile
 ├── 📄 HOW_TO_INTEGRATE.md
 ├── 📄 LICENSE
 ├── 🐍 manage.py
-├── 📄 mini_digi_backup.sql
+├── 📄 page.url
+├── 📄 project-wiki.url
 ├── 📄 README.md
 ├── 📄 requirements.txt
 └── 📄 robots.txt
