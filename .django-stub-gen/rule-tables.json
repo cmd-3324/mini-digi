@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "fingerprint": "version=6.1.1|django/db/models/base.py:99654:1789393499430|django/db/models/fields/__init__.py:103134:1789393499458|django/db/models/lookups.py:28845:1789393499440|django/db/models/fields/related_descriptors.py:69853:1789393499479|django/db/models/fields/related.py:85818:1789393499476|django/db/models/query.py:120043:1789393499447|django/db/models/sql/query.py:123905:1789393499516",
+  "tables": {
+    "django_version": "6.1.1",
+    "site_packages_path": "i:\\mini-digi\\venv\\Lib\\site-packages",
+    "generated_at_unix_ms": 1795189759672,
+    "core_lookups": [
+      "exact",
+      "iexact",
+      "gt",
+      "gte",
+      "lt",
+      "lte",
+      "in",
+      "contains",
+      "icontains",
+      "startswith",
+      "istartswith",
+      "endswith",
+      "iendswith",
+      "range",
+      "isnull",
+      "regex",
+      "iregex"
+    ],
+    "date_lookups": [
+      "date",
+      "time",
+      "year",
+      "month",
+      "day",
+      "hour",
+      "minute",
+      "second",
+      "week_day",
+      "iso_week_day",
+      "week",
+      "iso_year",
+      "quarter"
+    ],
+    "relation_rules": [
+      {
+        "field_type": "ForeignKey",
+        "reverse_accessor_type": "RelatedManager[{source_model}]",
+        "default_related_name": "{source_model_lower}_set",
+        "valid_lookups": [
+          "exact",
+          "iexact",
+          "contains",
+          "icontains",
+          "in",
+          "gt",
+          "gte",
+          "lt",
+          "lte",
+          "startswith",
+          "istartswith",
+          "endswith",
+          "iendswith",
+          "range",
+          "isnull",
+          "regex",
+          "iregex"
+        ],
+        "traversal_allowed": true
+      },
+      {
+        "field_type": "OneToOneField",
+        "reverse_accessor_type": "{source_model}",
+        "default_related_name": "{source_model_lower}",
+        "valid_lookups": [
+          "exact",
+          "iexact",
+          "contains",
+          "icontains",
+          "in",
+          "gt",
+          "gte",
+          "lt",
+          "lte",
+          "startswith",
+          "istartswith",
+          "endswith",
+          "iendswith",
+          "range",
+          "isnull",
+          "regex",
+          "iregex"
+        ],
+        "traversal_allowed": true
+      },
+      {
+        "field_type": "ManyToManyField",
+        "reverse_accessor_type": "RelatedManager[{source_model}]",
+        "default_related_name": "{source_model_lower}_set",
+        "valid_lookups": [
+          "exact",
+          "iexact",
+          "contains",
+          "icontains",
+          "in",
+          "gt",
+          "gte",
+          "lt",
+          "lte",
+          "startswith",
+          "istartswith",
+          "endswith",
+          "iendswith",
+          "range",
+          "isnull",
+          "regex",
+          "iregex"
+        ],
+        "traversal_allowed": true
+      }
+    ],
+    "field_type_mappings": [
+      {
+        "django_type": "AutoField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "BigAutoField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "BigIntegerField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "BinaryField",
+        "python_type": "bytes",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "BooleanField",
+        "python_type": "bool",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "CharField",
+        "python_type": "str",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "CommaSeparatedIntegerField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "DateField",
+        "python_type": "date",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "DateTimeField",
+        "python_type": "datetime",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "DecimalField",
+        "python_type": "Decimal",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "DurationField",
+        "python_type": "timedelta",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "EmailField",
+        "python_type": "str",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "FilePathField",
+        "python_type": "str",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "FloatField",
+        "python_type": "float",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "GenericIPAddressField",
+        "python_type": "str",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "IPAddressField",
+        "python_type": "str",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "IntegerField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "NullBooleanField",
+        "python_type": "bool | None",
+        "nullable_by_default": true
+      },
+      {
+        "django_type": "PositiveBigIntegerField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "PositiveIntegerField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "PositiveSmallIntegerField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "SlugField",
+        "python_type": "str",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "SmallAutoField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "SmallIntegerField",
+        "python_type": "int",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "TextField",
+        "python_type": "str",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "TimeField",
+        "python_type": "time",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "URLField",
+        "python_type": "str",
+        "nullable_by_default": false
+      },
+      {
+        "django_type": "UUIDField",
+        "python_type": "UUID",
+        "nullable_by_default": false
+      }
+    ],
+    "manager_methods": [
+      {
+        "name": "all",
+        "return_type": "QuerySet[{model}]",
+        "takes_kwargs": false
+      },
+      {
+        "name": "filter",
+        "return_type": "QuerySet[{model}]",
+        "takes_kwargs": true
+      },
+      {
+        "name": "exclude",
+        "return_type": "QuerySet[{model}]",
+        "takes_kwargs": true
+      },
+      {
+        "name": "get",
+        "return_type": "{model}",
+        "takes_kwargs": true
+      },
+      {
+        "name": "create",
+        "return_type": "{model}",
+        "takes_kwargs": true
+      },
+      {
+        "name": "get_or_create",
+        "return_type": "tuple[{model}, bool]",
+        "takes_kwargs": true
+      },
+      {
+        "name": "update_or_create",
+        "return_type": "tuple[{model}, bool]",
+        "takes_kwargs": true
+      },
+      {
+        "name": "first",
+        "return_type": "{model} | None",
+        "takes_kwargs": false
+      }
+    ]
+  }
+}
