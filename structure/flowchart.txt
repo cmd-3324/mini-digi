@@ -1,9 +1,51 @@
 📁
+├── 📁 .django-stub-gen
+│   └── 📝 rule-tables.json
 ├── 📁 .github
 │   └── 📁 workflows
+│       ├── 📝 backup.yml
 │       ├── 📝 docker-build.yml
+│       ├── 📝 link-check.yml
 │       ├── 📝 notification-sender.yml
+│       ├── 📝 release.yml
 │       └── 📝 test.yml
+├── 📁 .mypy_cache
+│   ├── 📁 3.14
+│   │   ├── 📄 cache.0.db
+│   │   ├── 📄 cache.1.db
+│   │   ├── 📄 cache.10.db
+│   │   ├── 📄 cache.11.db
+│   │   ├── 📄 cache.12.db
+│   │   ├── 📄 cache.13.db
+│   │   ├── 📄 cache.14.db
+│   │   ├── 📄 cache.15.db
+│   │   ├── 📄 cache.2.db
+│   │   ├── 📄 cache.3.db
+│   │   ├── 📄 cache.4.db
+│   │   ├── 📄 cache.5.db
+│   │   ├── 📄 cache.6.db
+│   │   ├── 📄 cache.7.db
+│   │   ├── 📄 cache.8.db
+│   │   └── 📄 cache.9.db
+│   ├── 📄 .gitignore
+│   ├── 📄 CACHEDIR.TAG
+│   └── 📄 missing_stubs
+├── 📁 .ruff_cache
+│   ├── 📁 0.16.8
+│   │   ├── 📄 10139879255966830780
+│   │   ├── 📄 10299559836944907010
+│   │   ├── 📄 11082225669310170656
+│   │   ├── 📄 13536495328257917981
+│   │   ├── 📄 1398980342455332899
+│   │   ├── 📄 14895178230709122496
+│   │   ├── 📄 15818065772447377760
+│   │   ├── 📄 3246934048658937405
+│   │   ├── 📄 3330709815628672200
+│   │   ├── 📄 3391877978535181963
+│   │   ├── 📄 6894258814880866055
+│   │   └── 📄 6934647367712965361
+│   ├── 📄 .gitignore
+│   └── 📄 CACHEDIR.TAG
 ├── 📁 cart
 │   ├── 📁 migrations
 │   │   ├── 🐍 0001_initial.py
@@ -293,6 +335,8 @@
 │           │   └── 🖼️ owl.video.play.png
 │           └── 📄 LICENSE
 ├── 📁 structure
+│   ├── 🖼️ diagram.png
+│   ├── 📄 ErrorVps.txt
 │   ├── 📄 flowchart-raw.txt
 │   └── 📄 flowchart.txt
 ├── 📁 support
@@ -431,7 +475,8 @@
 ├── 📄 HOW_TO_INTEGRATE.md
 ├── 📄 LICENSE
 ├── 🐍 manage.py
-├── 📄 mini_digi_backup.sql
+├── 📄 page.url
+├── 📄 project-wiki.url
 ├── 📄 README.md
 ├── 📄 requirements.txt
 └── 📄 robots.txt
